@@ -97,6 +97,9 @@
 		08AE3C6C20E377D4009E4E48 /* Kyc */ = {
 			isa = PBXGroup;
 			children = (
+				08AE3C9D20E37BDA009E4E48 /* Modules */,
+				08AE3C9C20E37BD1009E4E48 /* Models */,
+				08AE3C9B20E37BC1009E4E48 /* Services */,
 				08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */,
 				08AE3C6F20E377D4009E4E48 /* ViewController.swift */,
 				08AE3C7120E377D4009E4E48 /* Main.storyboard */,
@@ -123,6 +126,27 @@
 				08AE3C8F20E377D9009E4E48 /* Info.plist */,
 			);
 			path = KycUITests;
+			sourceTree = "<group>";
+		};
+		08AE3C9B20E37BC1009E4E48 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		08AE3C9C20E37BD1009E4E48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		08AE3C9D20E37BDA009E4E48 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
