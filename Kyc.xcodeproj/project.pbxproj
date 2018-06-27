@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */; };
-		08AE3C7020E377D4009E4E48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* ViewController.swift */; };
+		08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */; };
 		08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7120E377D4009E4E48 /* Main.storyboard */; };
 		08AE3C7520E377D8009E4E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7420E377D8009E4E48 /* Assets.xcassets */; };
 		08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7620E377D8009E4E48 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		08AE3C6A20E377D4009E4E48 /* Kyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		08AE3C6F20E377D4009E4E48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		08AE3C7220E377D4009E4E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08AE3C7420E377D8009E4E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08AE3C7720E377D8009E4E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,11 +97,11 @@
 		08AE3C6C20E377D4009E4E48 /* Kyc */ = {
 			isa = PBXGroup;
 			children = (
-				08AE3C9D20E37BDA009E4E48 /* Modules */,
-				08AE3C9C20E37BD1009E4E48 /* Models */,
-				08AE3C9B20E37BC1009E4E48 /* Services */,
+				08AE3C9E20E38299009E4E48 /* ViewModel */,
+				08AE3C9D20E37BDA009E4E48 /* View */,
+				08AE3C9C20E37BD1009E4E48 /* Model */,
+				08AE3C9B20E37BC1009E4E48 /* Service */,
 				08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */,
-				08AE3C6F20E377D4009E4E48 /* ViewController.swift */,
 				08AE3C7120E377D4009E4E48 /* Main.storyboard */,
 				08AE3C7420E377D8009E4E48 /* Assets.xcassets */,
 				08AE3C7620E377D8009E4E48 /* LaunchScreen.storyboard */,
@@ -128,25 +128,33 @@
 			path = KycUITests;
 			sourceTree = "<group>";
 		};
-		08AE3C9B20E37BC1009E4E48 /* Services */ = {
+		08AE3C9B20E37BC1009E4E48 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Services;
+			path = Service;
 			sourceTree = "<group>";
 		};
-		08AE3C9C20E37BD1009E4E48 /* Models */ = {
+		08AE3C9C20E37BD1009E4E48 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		08AE3C9D20E37BDA009E4E48 /* Modules */ = {
+		08AE3C9D20E37BDA009E4E48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08AE3C9E20E38299009E4E48 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Modules;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08AE3C7020E377D4009E4E48 /* ViewController.swift in Sources */,
+				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
