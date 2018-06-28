@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */; };
+		08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */; };
+		08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */; };
+		08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */; };
 		08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */; };
 		08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */; };
 		08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7120E377D4009E4E48 /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
+		08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProjectViewController.swift; sourceTree = "<group>"; };
 		08AE3C6A20E377D4009E4E48 /* Kyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +154,10 @@
 			isa = PBXGroup;
 			children = (
 				08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */,
+				08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */,
+				08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */,
+				08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */,
+				08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,8 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
+				08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */,
+				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
+				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
