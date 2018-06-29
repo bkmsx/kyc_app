@@ -13,8 +13,11 @@ class ListProjectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        guard let account = UserDefaults.standard.object(forKey: UserProfiles.account) as? String else {
+            return
+        }
+        print(Utilities.getPassword(account: account))
+        
     }
 
     override func didReceiveMemoryWarning() {

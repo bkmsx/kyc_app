@@ -11,6 +11,12 @@
 		08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */; };
 		08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */; };
 		08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */; };
+		08301D4920E4F55800DEAAAB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D4820E4F55800DEAAAB /* Alamofire.framework */; };
+		08301D4B20E5D2F700DEAAAB /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */; };
+		08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4D20E5E35500DEAAAB /* KeychainPasswordItem.swift */; };
+		08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4F20E5E38300DEAAAB /* KeychainConfiguration.swift */; };
+		08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5120E5E76F00DEAAAB /* Constants.swift */; };
+		08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5320E5E9F600DEAAAB /* Utilities.swift */; };
 		08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */; };
 		08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */; };
 		08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7120E377D4009E4E48 /* Main.storyboard */; };
@@ -18,6 +24,9 @@
 		08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7620E377D8009E4E48 /* LaunchScreen.storyboard */; };
 		08AE3C8320E377D9009E4E48 /* KycTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C8220E377D9009E4E48 /* KycTests.swift */; };
 		08AE3C8E20E377D9009E4E48 /* KycUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C8D20E377D9009E4E48 /* KycUITests.swift */; };
+		2190BD1962750442F2156336 /* Pods_KycTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26A3488B9D7A59A9BCCB0 /* Pods_KycTests.framework */; };
+		3387FC76B8C705F49A93BF0F /* Pods_Kyc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD3C004D5F2E4DCBC7B4A98 /* Pods_Kyc.framework */; };
+		B5083463BA96107FAF0D5071 /* Pods_KycUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659F1DF65DB05EBACCB1B472 /* Pods_KycUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +51,12 @@
 		08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
 		08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProjectViewController.swift; sourceTree = "<group>"; };
+		08301D4820E4F55800DEAAAB /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		08301D4D20E5E35500DEAAAB /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		08301D4F20E5E38300DEAAAB /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		08301D5120E5E76F00DEAAAB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		08301D5320E5E9F600DEAAAB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		08AE3C6A20E377D4009E4E48 /* Kyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +70,15 @@
 		08AE3C8920E377D9009E4E48 /* KycUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KycUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C8D20E377D9009E4E48 /* KycUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KycUITests.swift; sourceTree = "<group>"; };
 		08AE3C8F20E377D9009E4E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		161A9692EC1DC78622DCF91C /* Pods-KycUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KycUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KycUITests/Pods-KycUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		516AFC975EE8230568593144 /* Pods-Kyc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kyc.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kyc/Pods-Kyc.release.xcconfig"; sourceTree = "<group>"; };
+		659F1DF65DB05EBACCB1B472 /* Pods_KycUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KycUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F55B4607DF1F56EBF69B69B /* Pods-KycUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KycUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KycUITests/Pods-KycUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CD20B301C354D9BE194D1AE9 /* Pods-Kyc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kyc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kyc/Pods-Kyc.debug.xcconfig"; sourceTree = "<group>"; };
+		D6C26A3488B9D7A59A9BCCB0 /* Pods_KycTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KycTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD3C004D5F2E4DCBC7B4A98 /* Pods_Kyc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kyc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC3258E2DEC7A326F97A8750 /* Pods-KycTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KycTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KycTests/Pods-KycTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD0008CD1B3FBC4589AC94F0 /* Pods-KycTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KycTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KycTests/Pods-KycTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08301D4B20E5D2F700DEAAAB /* LocalAuthentication.framework in Frameworks */,
+				08301D4920E4F55800DEAAAB /* Alamofire.framework in Frameworks */,
+				3387FC76B8C705F49A93BF0F /* Pods_Kyc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2190BD1962750442F2156336 /* Pods_KycTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +104,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5083463BA96107FAF0D5071 /* Pods_KycUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0569B22BE1E2D0543103C479 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD20B301C354D9BE194D1AE9 /* Pods-Kyc.debug.xcconfig */,
+				516AFC975EE8230568593144 /* Pods-Kyc.release.xcconfig */,
+				FD0008CD1B3FBC4589AC94F0 /* Pods-KycTests.debug.xcconfig */,
+				FC3258E2DEC7A326F97A8750 /* Pods-KycTests.release.xcconfig */,
+				161A9692EC1DC78622DCF91C /* Pods-KycUITests.debug.xcconfig */,
+				9F55B4607DF1F56EBF69B69B /* Pods-KycUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		08301D4C20E5E31B00DEAAAB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				08301D4D20E5E35500DEAAAB /* KeychainPasswordItem.swift */,
+				08301D4F20E5E38300DEAAAB /* KeychainConfiguration.swift */,
+				08301D5120E5E76F00DEAAAB /* Constants.swift */,
+				08301D5320E5E9F600DEAAAB /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		08AE3C6120E377D4009E4E48 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +142,8 @@
 				08AE3C8120E377D9009E4E48 /* KycTests */,
 				08AE3C8C20E377D9009E4E48 /* KycUITests */,
 				08AE3C6B20E377D4009E4E48 /* Products */,
+				0569B22BE1E2D0543103C479 /* Pods */,
+				8007CD9B1D507B77769D2FBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +160,7 @@
 		08AE3C6C20E377D4009E4E48 /* Kyc */ = {
 			isa = PBXGroup;
 			children = (
+				08301D4C20E5E31B00DEAAAB /* Utilities */,
 				08AE3C9E20E38299009E4E48 /* ViewModel */,
 				08AE3C9D20E37BDA009E4E48 /* View */,
 				08AE3C9C20E37BD1009E4E48 /* Model */,
@@ -169,6 +225,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8007CD9B1D507B77769D2FBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */,
+				08301D4820E4F55800DEAAAB /* Alamofire.framework */,
+				FAD3C004D5F2E4DCBC7B4A98 /* Pods_Kyc.framework */,
+				D6C26A3488B9D7A59A9BCCB0 /* Pods_KycTests.framework */,
+				659F1DF65DB05EBACCB1B472 /* Pods_KycUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,9 +244,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08AE3C9220E377D9009E4E48 /* Build configuration list for PBXNativeTarget "Kyc" */;
 			buildPhases = (
+				3FD146C3FD5E322A25B190D1 /* [CP] Check Pods Manifest.lock */,
 				08AE3C6620E377D4009E4E48 /* Sources */,
 				08AE3C6720E377D4009E4E48 /* Frameworks */,
 				08AE3C6820E377D4009E4E48 /* Resources */,
+				4CB5F6DBF63908BCFD2C9970 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,6 +263,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08AE3C9520E377D9009E4E48 /* Build configuration list for PBXNativeTarget "KycTests" */;
 			buildPhases = (
+				6C87DB1C6879DCEDAA972FD9 /* [CP] Check Pods Manifest.lock */,
 				08AE3C7A20E377D9009E4E48 /* Sources */,
 				08AE3C7B20E377D9009E4E48 /* Frameworks */,
 				08AE3C7C20E377D9009E4E48 /* Resources */,
@@ -211,6 +282,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08AE3C9820E377D9009E4E48 /* Build configuration list for PBXNativeTarget "KycUITests" */;
 			buildPhases = (
+				D983B0C1C5A5AE1C1FB0D1DD /* [CP] Check Pods Manifest.lock */,
 				08AE3C8520E377D9009E4E48 /* Sources */,
 				08AE3C8620E377D9009E4E48 /* Frameworks */,
 				08AE3C8720E377D9009E4E48 /* Resources */,
@@ -295,6 +367,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3FD146C3FD5E322A25B190D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kyc-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CB5F6DBF63908BCFD2C9970 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Kyc/Pods-Kyc-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kyc/Pods-Kyc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C87DB1C6879DCEDAA972FD9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KycTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D983B0C1C5A5AE1C1FB0D1DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KycUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		08AE3C6620E377D4009E4E48 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -302,10 +449,14 @@
 			files = (
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */,
+				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
+				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
 				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
+				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
+				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,11 +627,13 @@
 		};
 		08AE3C9320E377D9009E4E48 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD20B301C354D9BE194D1AE9 /* Pods-Kyc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7233N6CU7;
 				INFOPLIST_FILE = Kyc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,11 +647,13 @@
 		};
 		08AE3C9420E377D9009E4E48 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 516AFC975EE8230568593144 /* Pods-Kyc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7233N6CU7;
 				INFOPLIST_FILE = Kyc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,6 +667,7 @@
 		};
 		08AE3C9620E377D9009E4E48 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD0008CD1B3FBC4589AC94F0 /* Pods-KycTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -533,6 +689,7 @@
 		};
 		08AE3C9720E377D9009E4E48 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC3258E2DEC7A326F97A8750 /* Pods-KycTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -554,6 +711,7 @@
 		};
 		08AE3C9920E377D9009E4E48 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 161A9692EC1DC78622DCF91C /* Pods-KycUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -574,6 +732,7 @@
 		};
 		08AE3C9A20E377D9009E4E48 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F55B4607DF1F56EBF69B69B /* Pods-KycUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
