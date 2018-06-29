@@ -17,6 +17,10 @@
 		08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4F20E5E38300DEAAAB /* KeychainConfiguration.swift */; };
 		08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5120E5E76F00DEAAAB /* Constants.swift */; };
 		08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5320E5E9F600DEAAAB /* Utilities.swift */; };
+		08301D5620E60EF800DEAAAB /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D5520E60EF800DEAAAB /* DropDown.framework */; };
+		08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */; };
+		08301D5A20E61B2600DEAAAB /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D5920E61B2600DEAAAB /* DLRadioButton.framework */; };
+		08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */; };
 		08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */; };
 		08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */; };
 		08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7120E377D4009E4E48 /* Main.storyboard */; };
@@ -57,6 +61,10 @@
 		08301D4F20E5E38300DEAAAB /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
 		08301D5120E5E76F00DEAAAB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		08301D5320E5E9F600DEAAAB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		08301D5520E60EF800DEAAAB /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPassportViewController.swift; sourceTree = "<group>"; };
+		08301D5920E61B2600DEAAAB /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		08AE3C6A20E377D4009E4E48 /* Kyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08301D5A20E61B2600DEAAAB /* DLRadioButton.framework in Frameworks */,
+				08301D5620E60EF800DEAAAB /* DropDown.framework in Frameworks */,
 				08301D4B20E5D2F700DEAAAB /* LocalAuthentication.framework in Frameworks */,
 				08301D4920E4F55800DEAAAB /* Alamofire.framework in Frameworks */,
 				3387FC76B8C705F49A93BF0F /* Pods_Kyc.framework in Frameworks */,
@@ -214,6 +224,8 @@
 				08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */,
 				08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */,
 				08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */,
+				08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */,
+				08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,6 +240,8 @@
 		8007CD9B1D507B77769D2FBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08301D5920E61B2600DEAAAB /* DLRadioButton.framework */,
+				08301D5520E60EF800DEAAAB /* DropDown.framework */,
 				08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */,
 				08301D4820E4F55800DEAAAB /* Alamofire.framework */,
 				FAD3C004D5F2E4DCBC7B4A98 /* Pods_Kyc.framework */,
@@ -394,10 +408,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Kyc/Pods-Kyc-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -451,12 +469,14 @@
 				08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */,
 				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
+				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
 				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
 				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
+				08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

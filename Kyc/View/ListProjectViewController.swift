@@ -28,6 +28,7 @@ class ListProjectViewController: UIViewController {
     @IBAction func closeScreen(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }

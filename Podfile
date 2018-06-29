@@ -10,6 +10,8 @@ target 'Kyc' do
 
   # Pods for Kyc
   pod 'Alamofire', '~> 4.7'
+  pod 'DropDown'
+  pod 'DLRadioButton', '~> 1.4'
 
   target 'KycTests' do
     inherit! :search_paths
