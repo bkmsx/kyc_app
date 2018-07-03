@@ -21,6 +21,8 @@
 		08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */; };
 		08301D5A20E61B2600DEAAAB /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D5920E61B2600DEAAAB /* DLRadioButton.framework */; };
 		08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */; };
+		08301D9E20EA0CE000DEAAAB /* Citizenships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D9D20EA0CE000DEAAAB /* Citizenships.swift */; };
+		08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301DA320EA34B300DEAAAB /* UserModel.swift */; };
 		08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */; };
 		08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */; };
 		08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7120E377D4009E4E48 /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 		08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPassportViewController.swift; sourceTree = "<group>"; };
 		08301D5920E61B2600DEAAAB /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
+		08301D9D20EA0CE000DEAAAB /* Citizenships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citizenships.swift; sourceTree = "<group>"; };
+		08301DA320EA34B300DEAAAB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		08AE3C6A20E377D4009E4E48 /* Kyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		08AE3C9C20E37BD1009E4E48 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08301D9D20EA0CE000DEAAAB /* Citizenships.swift */,
+				08301DA320EA34B300DEAAAB /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08301D9E20EA0CE000DEAAAB /* Citizenships.swift in Sources */,
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */,
 				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
@@ -472,6 +479,7 @@
 				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
 				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
+				08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
 				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,

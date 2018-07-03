@@ -13,7 +13,8 @@ struct Utilities {
         guard !account.isEmpty, !password.isEmpty else {
             return
         }
-        UserDefaults.standard.set(account, forKey: UserProfiles.account)
+        UserDefaults.standard.set(account, forKey: UserProfiles.email
+        )
         
         let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: account, accessGroup: KeychainConfiguration.accessGroup)
         do {
@@ -36,5 +37,7 @@ struct Utilities {
         }
         return ""
     }
+    
+    
  }
 

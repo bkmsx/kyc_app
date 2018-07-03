@@ -13,10 +13,6 @@ class ListProjectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let account = UserDefaults.standard.object(forKey: UserProfiles.account) as? String else {
-            return
-        }
-        print(Utilities.getPassword(account: account))
         
     }
 

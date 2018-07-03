@@ -13,7 +13,12 @@ class ForgotPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let userId = UserDefaults.standard.object(forKey: UserProfiles.phoneNumber) as? String ?? nil
+        if (userId == nil) {
+            print("There is no selfie")
+        } else {
+            print(userId!)
+        }
         // Do any additional setup after loading the view.
     }
 

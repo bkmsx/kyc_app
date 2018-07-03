@@ -14,6 +14,8 @@ import Alamofire
 class RegisterViewController: UITableViewController {
     
     let countryCodeDropDown = DropDown()
+    var countryCode: String = ""
+    var phoneNumber: String = ""
     
     @IBOutlet weak var btnCountryCode: UIButton!
     
@@ -26,14 +28,16 @@ class RegisterViewController: UITableViewController {
     @IBOutlet weak var confirmedPasswordTextField: UITextField!
     @IBOutlet weak var noRadio: DLRadioButton!
     @IBOutlet weak var erc20AddressTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func selectCountryCode(_ sender: Any) {
         countryCodeDropDown.show()
     }
     
     @IBAction func `continue`(_ sender: Any) {
-//        validateData()
-        sendOTPCode()
+//        gotoVerifyOTP()
+        validateData()
+//        sendOTPCode()
     }
     
     override func viewDidLoad() {
@@ -62,29 +66,78 @@ class RegisterViewController: UITableViewController {
         let password = passwordTextField.text!
         let confirmedPassword = confirmedPasswordTextField.text!
         let erc20Address = erc20AddressTextField.text!
-        let enableSecurityId = noRadio.isSelected
-        print(enableSecurityId)
-//        Alamofire.request(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params)
-//            .responseJSON{ response in
-//                
-//        }
+        let enableSecurityId = !noRadio.isSelected
+        countryCode = String(btnCountryCode.currentTitle!.suffix(2))
+        phoneNumber = mobileTextField.text!
+        UserDefaults.standard.set(firstName, forKey: UserProfiles.firstName)
+        UserDefaults.standard.set(lastName, forKey: UserProfiles.lastName)
+        UserDefaults.standard.set(dateBirth, forKey: UserProfiles.dateOfBirth)
+        UserDefaults.standard.set(email, forKey: UserProfiles.email)
+        UserDefaults.standard.set(password, forKey: UserProfiles.password)
+        UserDefaults.standard.set(erc20Address, forKey: UserProfiles.erc20Address)
+        UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.deviceSecurityEnable)
+        UserDefaults.standard.set(countryCode, forKey: UserProfiles.countryCode)
+        UserDefaults.standard.set(phoneNumber, forKey: UserProfiles.phoneNumber)
+        
+        if (password != confirmedPassword) {
+            self.showMessage(message: "Passwords are not matched")
+            return
+        }
+        let params = [
+            "first_name" : firstName,
+            "last_name" : lastName,
+            "date_of_birth" : dateBirth,
+            "email" : email,
+            "password" : password,
+            "country_code" : countryCode,
+            "phone_number" : phoneNumber,
+            "device_security_enable" : enableSecurityId,
+            "type_of_security" : "TOUCHID",
+            "erc20_address" : erc20Address,
+            "device_id" : "23232",
+            "validation" : 1,
+            "platform": "iOS"
+            ] as [String : Any]
+        activityIndicator.startAnimating()
+        Alamofire.request(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params)
+            .responseJSON{ response in
+                let JSON = response.result.value as! NSDictionary
+                let responseCode = JSON["code"] as! Int
+                if (responseCode == 404) {
+                    let message = JSON["message"] as! String
+                    self.showMessage(message: message)
+                    self.activityIndicator.stopAnimating()
+                } else {
+                    self.sendOTPCode()
+                }
+        }
+    }
+    
+    func showMessage(message: String) {
+        let alert = UIAlertController.init(title: "Input error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Try again", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func sendOTPCode(){
-        let countryCode = btnCountryCode.currentTitle!.suffix(2)
-        let mobile = mobileTextField.text!
-        UserDefaults.standard.set(countryCode, forKey: UserProfiles.countryCode)
-        UserDefaults.standard.set(mobile, forKey: UserProfiles.phoneNumber)
-        
         let params = [
             "country_code" : countryCode,
-            "phone_number" : mobile,
+            "phone_number" : phoneNumber,
             "via" : "sms"
             ] as [String : Any]
         Alamofire.request(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params)
             .responseJSON{ response in
-                
+                self.activityIndicator.stopAnimating()
+                self.gotoVerifyOTP()
         }
+    }
+    
+    func gotoVerifyOTP() {
+        performSegue(withIdentifier: "segueVerifyOTP", sender: nil)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return identifier != "segueVerifyOTP"
     }
 
 }
