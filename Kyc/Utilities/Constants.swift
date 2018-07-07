@@ -27,6 +27,16 @@ struct UserProfiles {
     static let passportPhoto = "passportPhoto"
     static let selfiePhoto = "selfiePhoto"
     static let password = "password"
+    
+    static let tempPassword = "tempPassword"
+    static let tempEmail = "tempEmail"
+    static let tempFirstName = "tempFirstName"
+    static let tempLastName = "tempLastName"
+    static let tempCountryCode = "tempCountryCode"
+    static let tempPhoneNumber = "tempPhoneNumber"
+    static let tempErc20Address = "tempErc20Address"
+    static let tempDateOfBirth = "tempDateOfBirth"
+    static let tempDeviceSecurityEnable = "tempDeviceSecurityEnable"
 }
 
 struct URLConstant {
@@ -44,4 +54,6 @@ struct SegueIdentifiers {
     static let segueRegisterView = "segueRegisterView"
     static let segueVerifyOTP = "segueVerifyOTP"
     static let segueListProject = "segueListProject"
+    static let segueCompleteRegister = "segueCompleteRegister"
+    static let segueFromLogin = "segueFromLogin"
 }

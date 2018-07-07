@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0802992120EE28650044C4E5 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802992020EE28650044C4E5 /* ProjectDetailViewController.swift */; };
+		0802992320EF5EDB0044C4E5 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0802992220EF5EDB0044C4E5 /* Contacts.framework */; };
+		0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819AC8720EC872100B1A3B4 /* CountryModel.swift */; };
 		08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */; };
 		08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */; };
 		08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */; };
@@ -21,7 +24,7 @@
 		08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */; };
 		08301D5A20E61B2600DEAAAB /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D5920E61B2600DEAAAB /* DLRadioButton.framework */; };
 		08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */; };
-		08301D9E20EA0CE000DEAAAB /* Citizenships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D9D20EA0CE000DEAAAB /* Citizenships.swift */; };
+		08301D9E20EA0CE000DEAAAB /* CitizenshipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D9D20EA0CE000DEAAAB /* CitizenshipModel.swift */; };
 		08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301DA320EA34B300DEAAAB /* UserModel.swift */; };
 		08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */; };
 		08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */; };
@@ -53,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0802992020EE28650044C4E5 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
+		0802992220EF5EDB0044C4E5 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		0819AC8720EC872100B1A3B4 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
 		08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +73,7 @@
 		08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPassportViewController.swift; sourceTree = "<group>"; };
 		08301D5920E61B2600DEAAAB /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
-		08301D9D20EA0CE000DEAAAB /* Citizenships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citizenships.swift; sourceTree = "<group>"; };
+		08301D9D20EA0CE000DEAAAB /* CitizenshipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitizenshipModel.swift; sourceTree = "<group>"; };
 		08301DA320EA34B300DEAAAB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		08AE3C6A20E377D4009E4E48 /* Kyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0802992320EF5EDB0044C4E5 /* Contacts.framework in Frameworks */,
 				08301D5A20E61B2600DEAAAB /* DLRadioButton.framework in Frameworks */,
 				08301D5620E60EF800DEAAAB /* DropDown.framework in Frameworks */,
 				08301D4B20E5D2F700DEAAAB /* LocalAuthentication.framework in Frameworks */,
@@ -216,8 +223,9 @@
 		08AE3C9C20E37BD1009E4E48 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				08301D9D20EA0CE000DEAAAB /* Citizenships.swift */,
+				08301D9D20EA0CE000DEAAAB /* CitizenshipModel.swift */,
 				08301DA320EA34B300DEAAAB /* UserModel.swift */,
+				0819AC8720EC872100B1A3B4 /* CountryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 				08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */,
 				08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */,
 				08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */,
+				0802992020EE28650044C4E5 /* ProjectDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 		8007CD9B1D507B77769D2FBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0802992220EF5EDB0044C4E5 /* Contacts.framework */,
 				08301D5920E61B2600DEAAAB /* DLRadioButton.framework */,
 				08301D5520E60EF800DEAAAB /* DropDown.framework */,
 				08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */,
@@ -471,9 +481,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08301D9E20EA0CE000DEAAAB /* Citizenships.swift in Sources */,
+				08301D9E20EA0CE000DEAAAB /* CitizenshipModel.swift in Sources */,
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */,
+				0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */,
 				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
 				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
@@ -485,6 +496,7 @@
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
 				08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */,
+				0802992120EE28650044C4E5 /* ProjectDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

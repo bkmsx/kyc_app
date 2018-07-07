@@ -9,12 +9,21 @@
 import UIKit
 import Alamofire
 import LocalAuthentication
+import Contacts
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func login(_ sender: Any) {
+        if (emailTextField.text! == "") {
+            showMessage(message: "Email is empty")
+            return
+        }
+        if (passwordTextField.text! == "") {
+            showMessage(message: "Password is empty")
+            return
+        }
         let params = [
             "email" : emailTextField.text!,
             "password" : passwordTextField.text!,
@@ -22,43 +31,57 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             "platform" : "iOS"
         ]
         
-        loginAccout(params: params)
+        loginAccount(params: params)
     }
     
     var email: String = ""
     
-    func loginAccout(params: [String: Any]) {
+    func loginAccount(params: [String: Any]) {
         Alamofire.request(URLConstant.baseURL + URLConstant.loginAccount, method: .post, parameters: params).responseJSON { response in
-            if (response.result.value == nil) {
-                self.showMessage(message: "There is problem with network")
-                return
+            switch response.result {
+            case .success:
+                if (response.result.value == nil) {
+                    self.showMessage(message: "There is problem with network")
+                    return
+                }
+                let json = response.result.value as! [String:Any]
+                
+                let resultCode = json["code"] as! Int
+                if (resultCode == 200) {
+                    let user = UserModel(dictionary: json["user"] as! [String : Any])
+                    user.saveToLocal()
+                    if (user.passportNumber == nil) {
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "UploadPassportViewController") as! UploadPassportViewController
+                        self.present(vc, animated: true, completion: nil)
+                    } else {
+                        self.performSegue(withIdentifier: SegueIdentifiers.segueListProject, sender: nil)
+                    }
+                } else {
+                    self.showMessage(message: "Invalid email or password")
+                }
+            case .failure:
+                self.showMessage(message: "Login error")
             }
-            let json = response.result.value as! [String:Any]
             
-            let resultCode = json["code"] as! Int
-            if (resultCode == 200) {
-                let user = UserModel(dictionary: json["user"] as! [String : Any])
-                user.saveToLocal()
-                self.performSegue(withIdentifier: SegueIdentifiers.segueListProject, sender: nil)
-            } else {
-                self.showMessage(message: "Invalid email or password")
-            }
+            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let savedEmail = UserDefaults.standard.object(forKey: UserProfiles.email) {
-            email = savedEmail as! String
-            emailTextField.text = email
-        }
-        
+        getContacts()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        
-        if let deviceSecurityEnable = UserDefaults.standard.object(forKey: UserProfiles.deviceSecurityEnable) {
-            if (deviceSecurityEnable as! String == "true") {
-                authenticateUserUsingTouchId()
+        if UserDefaults.standard.object(forKey: UserProfiles.securityToken) != nil {
+            if let savedEmail = UserDefaults.standard.object(forKey: UserProfiles.email) {
+                email = savedEmail as! String
+                emailTextField.text = email
+            }
+            
+            if let deviceSecurityEnable = UserDefaults.standard.object(forKey: UserProfiles.deviceSecurityEnable) {
+                if (deviceSecurityEnable as! String == "true") {
+                    authenticateUserUsingTouchId()
+                }
             }
         }
     }
@@ -77,6 +100,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func evaluateTouchAuthenticity(context: LAContext) {
+        if (email.isEmpty) {
+            email = "Press your imprint"
+        }
         context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: email) {(success, error) in
             if (success) {
                 let parameters = [
@@ -85,7 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     "device_id" : "121323",
                     "platform" : "iOS"
                 ]
-                self.loginAccout(params: parameters)
+                self.loginAccount(params: parameters)
             } else {
                 print("You are not the owner")
             }
@@ -101,11 +127,51 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return identifier != SegueIdentifiers.segueListProject
+        return identifier != SegueIdentifiers.segueListProject && identifier != SegueIdentifiers.segueFromLogin
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func getContacts(){
+        let contactStore = CNContactStore()
+        let keyToFetch = [
+            CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+            CNContactPhoneNumbersKey
+        ] as [Any]
+        var allContainers: [CNContainer] = []
+        do {
+            allContainers = try contactStore.containers(matching: nil)
+        } catch {
+            print("Error fetching containers")
+        }
+        var results: [CNContact] = []
+        for container in allContainers {
+            let fetchPredicate = CNContact.predicateForContactsInContainer(withIdentifier: container.identifier)
+            
+            do {
+                let containerResults = try contactStore.unifiedContacts(matching: fetchPredicate, keysToFetch: keyToFetch as! [CNKeyDescriptor])
+                results.append(contentsOf: containerResults)
+            } catch {
+                print("Error fetching results for container")
+            }
+        }
+        for contact in results {
+            var name_phone = ""
+            if (!contact.givenName.isEmpty) {
+                name_phone.append(contact.givenName)
+                name_phone.append(" ")
+            }
+            if (!contact.familyName.isEmpty) {
+                name_phone.append(contact.familyName)
+            }
+            if (contact.phoneNumbers.count > 0) {
+                name_phone.append(": ")
+                name_phone.append(contact.phoneNumbers[0].value.stringValue)
+                print(name_phone)
+            }
+        }
     }
 }
 

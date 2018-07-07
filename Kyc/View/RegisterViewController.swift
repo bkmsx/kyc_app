@@ -11,14 +11,13 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class RegisterViewController: UITableViewController {
+class RegisterViewController: UITableViewController, UITextFieldDelegate {
     
     let countryCodeDropDown = DropDown()
     var countryCode: String = ""
     var phoneNumber: String = ""
     
     @IBOutlet weak var btnCountryCode: UIButton!
-    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var dateBirthTextField: UITextField!
@@ -35,9 +34,7 @@ class RegisterViewController: UITableViewController {
     }
     
     @IBAction func `continue`(_ sender: Any) {
-//        gotoVerifyOTP()
         validateData()
-//        sendOTPCode()
     }
     
     override func viewDidLoad() {
@@ -45,6 +42,20 @@ class RegisterViewController: UITableViewController {
         tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "bg-subtle"));
         setupDropDown()
         noRadio.isSelected = true
+        emailTextField.delegate = self
+        refillProfile()
+    }
+    
+    func refillProfile() {
+        firstNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempFirstName) as? String
+        lastNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempLastName) as? String
+        dateBirthTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempDateOfBirth) as? String
+        emailTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempEmail) as? String
+        passwordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
+        confirmedPasswordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
+        mobileTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber) as? String
+        btnCountryCode.setTitle("+\(UserDefaults.standard.object(forKey: UserProfiles.tempCountryCode) as? Int ?? 84)", for: .normal)
+        erc20AddressTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempErc20Address) as? String
     }
     
     func setupDropDown() {
@@ -69,15 +80,7 @@ class RegisterViewController: UITableViewController {
         let enableSecurityId = !noRadio.isSelected
         countryCode = String(btnCountryCode.currentTitle!.suffix(2))
         phoneNumber = mobileTextField.text!
-        UserDefaults.standard.set(firstName, forKey: UserProfiles.firstName)
-        UserDefaults.standard.set(lastName, forKey: UserProfiles.lastName)
-        UserDefaults.standard.set(dateBirth, forKey: UserProfiles.dateOfBirth)
-        UserDefaults.standard.set(email, forKey: UserProfiles.email)
-        UserDefaults.standard.set(password, forKey: UserProfiles.password)
-        UserDefaults.standard.set(erc20Address, forKey: UserProfiles.erc20Address)
-        UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.deviceSecurityEnable)
-        UserDefaults.standard.set(countryCode, forKey: UserProfiles.countryCode)
-        UserDefaults.standard.set(phoneNumber, forKey: UserProfiles.phoneNumber)
+        
         
         if (password != confirmedPassword) {
             self.showMessage(message: "Passwords are not matched")
@@ -108,6 +111,15 @@ class RegisterViewController: UITableViewController {
                     self.showMessage(message: message)
                     self.activityIndicator.stopAnimating()
                 } else {
+                    UserDefaults.standard.set(firstName, forKey: UserProfiles.tempFirstName)
+                    UserDefaults.standard.set(lastName, forKey: UserProfiles.tempLastName)
+                    UserDefaults.standard.set(dateBirth, forKey: UserProfiles.tempDateOfBirth)
+                    UserDefaults.standard.set(email, forKey: UserProfiles.tempEmail)
+                    UserDefaults.standard.set(password, forKey: UserProfiles.tempPassword)
+                    UserDefaults.standard.set(erc20Address, forKey: UserProfiles.tempErc20Address)
+                    UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.tempDeviceSecurityEnable)
+                    UserDefaults.standard.set(self.countryCode, forKey: UserProfiles.tempCountryCode)
+                    UserDefaults.standard.set(self.phoneNumber, forKey: UserProfiles.tempPhoneNumber)
                     self.sendOTPCode()
                 }
         }
@@ -140,4 +152,7 @@ class RegisterViewController: UITableViewController {
         return identifier != "segueVerifyOTP"
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
