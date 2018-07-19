@@ -56,4 +56,5 @@ struct SegueIdentifiers {
     static let segueListProject = "segueListProject"
     static let segueCompleteRegister = "segueCompleteRegister"
     static let segueFromLogin = "segueFromLogin"
+    static let segueERC20Wallet = "segueERC20Wallet"
 }

@@ -12,6 +12,7 @@ target 'Kyc' do
   pod 'Alamofire', '~> 4.7'
   pod 'DropDown'
   pod 'DLRadioButton', '~> 1.4'
+  pod 'QRCodeReader.swift', '~> 8.2.0'
 
   target 'KycTests' do
     inherit! :search_paths

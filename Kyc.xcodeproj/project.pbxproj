@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		0802992120EE28650044C4E5 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802992020EE28650044C4E5 /* ProjectDetailViewController.swift */; };
 		0802992320EF5EDB0044C4E5 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0802992220EF5EDB0044C4E5 /* Contacts.framework */; };
+		0802992720F121960044C4E5 /* QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0802992620F121960044C4E5 /* QRCodeReader.framework */; };
+		0802992920F2680A0044C4E5 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802992820F2680A0044C4E5 /* ProjectModel.swift */; };
+		0802992B20FEEDB70044C4E5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802992A20FEEDB70044C4E5 /* SettingViewController.swift */; };
+		0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */; };
+		0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */; };
+		0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225020FF8A0600CF2800 /* Checkbox.swift */; };
+		0819225320FF8E8A00CF2800 /* PhoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225220FF8E8A00CF2800 /* PhoneListViewController.swift */; };
+		08192255210026E400CF2800 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08192254210026E400CF2800 /* ContactModel.swift */; };
+		081922582100295100CF2800 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081922572100295100CF2800 /* PhoneCell.swift */; };
+		0819225A21004FFA00CF2800 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225921004FFA00CF2800 /* HistoryTableViewController.swift */; };
 		0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819AC8720EC872100B1A3B4 /* CountryModel.swift */; };
 		08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */; };
 		08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */; };
@@ -58,6 +68,17 @@
 /* Begin PBXFileReference section */
 		0802992020EE28650044C4E5 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
 		0802992220EF5EDB0044C4E5 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		0802992420F073450044C4E5 /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0802992620F121960044C4E5 /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0802992820F2680A0044C4E5 /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
+		0802992A20FEEDB70044C4E5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermConditionViewController.swift; sourceTree = "<group>"; };
+		0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessTransactionViewController.swift; sourceTree = "<group>"; };
+		0819225020FF8A0600CF2800 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		0819225220FF8E8A00CF2800 /* PhoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneListViewController.swift; sourceTree = "<group>"; };
+		08192254210026E400CF2800 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		081922572100295100CF2800 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
+		0819225921004FFA00CF2800 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		0819AC8720EC872100B1A3B4 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0802992720F121960044C4E5 /* QRCodeReader.framework in Frameworks */,
 				0802992320EF5EDB0044C4E5 /* Contacts.framework in Frameworks */,
 				08301D5A20E61B2600DEAAAB /* DLRadioButton.framework in Frameworks */,
 				08301D5620E60EF800DEAAAB /* DropDown.framework in Frameworks */,
@@ -143,6 +165,69 @@
 				9F55B4607DF1F56EBF69B69B /* Pods-KycUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		0819224F20FF89E500CF2800 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				0819225020FF8A0600CF2800 /* Checkbox.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		081922562100292A00CF2800 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				081922572100295100CF2800 /* PhoneCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		0819225B21006ACE00CF2800 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */,
+				08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */,
+				08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */,
+				08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		0819225C21006B5000CF2800 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */,
+				0802992020EE28650044C4E5 /* ProjectDetailViewController.swift */,
+				0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */,
+				0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		0819225D21006BA400CF2800 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				0802992A20FEEDB70044C4E5 /* SettingViewController.swift */,
+				0819225921004FFA00CF2800 /* HistoryTableViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		0819225E21006BE000CF2800 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		0819225F21006C0B00CF2800 /* InviteFriends */ = {
+			isa = PBXGroup;
+			children = (
+				0819225220FF8E8A00CF2800 /* PhoneListViewController.swift */,
+			);
+			path = InviteFriends;
 			sourceTree = "<group>";
 		};
 		08301D4C20E5E31B00DEAAAB /* Utilities */ = {
@@ -226,6 +311,8 @@
 				08301D9D20EA0CE000DEAAAB /* CitizenshipModel.swift */,
 				08301DA320EA34B300DEAAAB /* UserModel.swift */,
 				0819AC8720EC872100B1A3B4 /* CountryModel.swift */,
+				0802992820F2680A0044C4E5 /* ProjectModel.swift */,
+				08192254210026E400CF2800 /* ContactModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,14 +320,14 @@
 		08AE3C9D20E37BDA009E4E48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0819225F21006C0B00CF2800 /* InviteFriends */,
+				0819225E21006BE000CF2800 /* ForgotPassword */,
+				0819225D21006BA400CF2800 /* Setting */,
+				0819225C21006B5000CF2800 /* Transaction */,
+				0819225B21006ACE00CF2800 /* Registration */,
+				081922562100292A00CF2800 /* TableCell */,
+				0819224F20FF89E500CF2800 /* CustomView */,
 				08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */,
-				08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */,
-				08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */,
-				08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */,
-				08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */,
-				08301D5720E614C600DEAAAB /* UploadPassportViewController.swift */,
-				08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */,
-				0802992020EE28650044C4E5 /* ProjectDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +342,8 @@
 		8007CD9B1D507B77769D2FBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0802992620F121960044C4E5 /* QRCodeReader.framework */,
+				0802992420F073450044C4E5 /* QRCodeReader.framework */,
 				0802992220EF5EDB0044C4E5 /* Contacts.framework */,
 				08301D5920E61B2600DEAAAB /* DLRadioButton.framework */,
 				08301D5520E60EF800DEAAAB /* DropDown.framework */,
@@ -426,12 +515,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -484,19 +575,28 @@
 				08301D9E20EA0CE000DEAAAB /* CitizenshipModel.swift in Sources */,
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */,
+				0819225320FF8E8A00CF2800 /* PhoneListViewController.swift in Sources */,
+				08192255210026E400CF2800 /* ContactModel.swift in Sources */,
 				0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */,
 				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
+				0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */,
+				0802992B20FEEDB70044C4E5 /* SettingViewController.swift in Sources */,
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
 				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
+				0802992920F2680A0044C4E5 /* ProjectModel.swift in Sources */,
 				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
+				0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
 				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
+				0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */,
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
+				081922582100295100CF2800 /* PhoneCell.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
 				08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */,
 				0802992120EE28650044C4E5 /* ProjectDetailViewController.swift in Sources */,
+				0819225A21004FFA00CF2800 /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

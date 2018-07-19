@@ -67,5 +67,23 @@ struct UserModel: Codable {
         UserDefaults.standard.set(selfiePhoto, forKey: UserProfiles.selfiePhoto)
     }
     
-    
+    static func removeFromLocal() {
+        UserDefaults.standard.removeObject(forKey: UserProfiles.userId);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.countryCode);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.phoneNumber);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.dateOfBirth);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.passportNumber);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.deviceSecurityEnable);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.email);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.erc20Address);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.firstName);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.lastName);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.securityToken);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.status);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.token);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.typeOfSecurity);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.citizenshipId);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.passportPhoto);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.selfiePhoto);
+    }
 }
