@@ -356,7 +356,7 @@
         <!--Personal information-->
         <scene sceneID="nyz-sG-2X6">
             <objects>
-                <tableViewController title="Personal information" id="eZa-XO-k3s" sceneMemberID="viewController">
+                <tableViewController title="Personal information" id="eZa-XO-k3s" customClass="UpdatePersonalInformationViewController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MwG-MT-whR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -489,7 +489,10 @@
                                                     <rect key="frame" x="57" y="30" width="56" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <state key="normal" title="+65"/>
+                                                    <state key="normal" title="+84"/>
+                                                    <connections>
+                                                        <action selector="selectCountryCode:" destination="eZa-XO-k3s" eventType="touchUpInside" id="Mel-U0-9sv"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -543,6 +546,9 @@
                                                     <state key="normal" title="UPDATE">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="updatePersonalInformation:" destination="eZa-XO-k3s" eventType="touchUpInside" id="Rjq-6o-ZFG"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -556,6 +562,15 @@
                             <outlet property="delegate" destination="eZa-XO-k3s" id="LN8-c5-O2G"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="ler-7T-yj8" id="aB9-LC-ZSz"/>
+                        <outlet property="countryCodeButton" destination="1qn-BJ-Wv7" id="jNx-Fv-heL"/>
+                        <outlet property="currenPaswordTextField" destination="8x2-gG-Jp5" id="XjL-bH-hHp"/>
+                        <outlet property="dateOfBirthTextField" destination="fqK-XJ-9yv" id="SPe-sS-epF"/>
+                        <outlet property="newPasswordTextField" destination="ufB-Xb-8jW" id="VjY-hk-3zb"/>
+                        <outlet property="phoneNumberTextField" destination="0tS-ey-GW6" id="SCs-YF-OVS"/>
+                        <outlet property="securityEnableRadioButton" destination="3tE-UX-5v7" id="Pyp-9W-9Wl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmu-bE-e1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -564,7 +579,7 @@
         <!--UPDATE PASSPORT-->
         <scene sceneID="UaY-pk-q9L">
             <objects>
-                <viewController title="UPDATE PASSPORT" id="QLI-zy-l7v" sceneMemberID="viewController">
+                <viewController title="UPDATE PASSPORT" id="QLI-zy-l7v" customClass="UpdatePassportViewController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FlR-PI-Mnj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -577,42 +592,60 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PASSPORT NUMBER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmX-va-0UP">
-                                <rect key="frame" x="91" y="175" width="161" height="21"/>
+                                <rect key="frame" x="91" y="234" width="161" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXE-L7-TtZ">
-                                <rect key="frame" x="91" y="137" width="161" height="30"/>
+                                <rect key="frame" x="91" y="127" width="161" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Singapore">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectCitizenship:" destination="QLI-zy-l7v" eventType="touchUpInside" id="yiZ-bC-UXy"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="B3224322" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lau-6z-Qf0">
-                                <rect key="frame" x="91" y="212" width="184" height="30"/>
+                                <rect key="frame" x="91" y="271" width="184" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="752-jL-OhZ">
-                                <rect key="frame" x="117" y="292" width="141" height="30"/>
+                                <rect key="frame" x="117" y="330" width="141" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="UPLOAD PASSPORT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="getPassportImage:" destination="QLI-zy-l7v" eventType="touchUpInside" id="kr0-oj-SNb"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqA-2v-NQ8">
-                                <rect key="frame" x="143" y="340" width="89" height="80"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rYJ-x2-r5x">
+                                <rect key="frame" x="123" y="372" width="129" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="camera">
-                                    <attributedString key="attributedTitle"/>
-                                </state>
-                            </button>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="mg6-HC-t4J">
+                                        <rect key="frame" x="-4" y="0.0" width="139" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqA-2v-NQ8">
+                                        <rect key="frame" x="0.0" y="8" width="129" height="112"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title=""/>
+                                        <connections>
+                                            <action selector="takeSelfie:" destination="QLI-zy-l7v" eventType="touchUpInside" id="hGv-ce-9IO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TAKE SELFIE WITH NEW PASSPORT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EO-HK-pE8">
-                                <rect key="frame" x="59" y="453" width="249" height="18"/>
+                                <rect key="frame" x="59" y="530" width="249" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -625,20 +658,53 @@
                                 <state key="normal" title="UPDATE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="updatePassport:" destination="QLI-zy-l7v" eventType="touchUpInside" id="KgO-8Z-crC"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COUNTRY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcU-UK-XOA">
+                                <rect key="frame" x="92" y="162" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8p1-gN-QDz">
+                                <rect key="frame" x="92" y="188" width="161" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Singapore">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectCountry:" destination="QLI-zy-l7v" eventType="touchUpInside" id="R2M-ar-fqZ"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Md4-Xy-5TF">
+                                <rect key="frame" x="164" y="309" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ZqX-Wg-Tw4"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Md4-Xy-5TF" id="m6H-Op-5bb"/>
+                        <outlet property="citizenshipDropDownButton" destination="vXE-L7-TtZ" id="7Ye-II-EI2"/>
+                        <outlet property="countryDropDownButton" destination="8p1-gN-QDz" id="zcL-TL-lK9"/>
+                        <outlet property="imageView" destination="mg6-HC-t4J" id="ZNh-Jf-125"/>
+                        <outlet property="passportNumberTextField" destination="lau-6z-Qf0" id="wIf-i1-P9a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11q-u5-qkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="2343"/>
+            <point key="canvasLocation" x="1376.8" y="2342.8785607196405"/>
         </scene>
-        <!--View Controller-->
+        <!--Update Wallet Address View Controller-->
         <scene sceneID="rhx-WE-Ruh">
             <objects>
-                <viewController id="r19-Da-PfF" sceneMemberID="viewController">
+                <viewController id="r19-Da-PfF" customClass="UpdateWalletAddressViewController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lnV-qg-nYo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -679,16 +745,29 @@
                                 <state key="normal" title="UPDATE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="updateWallet:" destination="r19-Da-PfF" eventType="touchUpInside" id="tZO-93-Wbe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcB-py-tzI">
                                 <rect key="frame" x="100" y="306" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SCAN"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="SCAN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanWallet:" destination="r19-Da-PfF" eventType="touchUpInside" id="7UB-Jg-gVr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hKO-Iq-WrE"/>
                     </view>
+                    <connections>
+                        <outlet property="currentWalletTextField" destination="IVV-fU-gmJ" id="VxN-5e-18h"/>
+                        <outlet property="newWalletTextField" destination="VEs-Ej-7ZE" id="kOl-hn-4v7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ee9-eu-Fq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1755,7 +1834,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="selectCheckbox:" destination="6wL-Mr-voM" eventType="touchUpInside" id="BvH-ay-GCq"/>
                                     <outletCollection property="otherButtons" destination="m5w-YC-TzB" id="LqT-Zs-PfD"/>
                                 </connections>
                             </button>
@@ -1768,9 +1846,6 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="selectCheckbox:" destination="6wL-Mr-voM" eventType="touchUpInside" id="zpP-Fn-Jda"/>
-                                </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Egb-v0-3hQ">
                                 <rect key="frame" x="153" y="244" width="50" height="50"/>

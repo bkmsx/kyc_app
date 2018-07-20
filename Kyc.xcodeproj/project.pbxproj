@@ -19,6 +19,9 @@
 		08192255210026E400CF2800 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08192254210026E400CF2800 /* ContactModel.swift */; };
 		081922582100295100CF2800 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081922572100295100CF2800 /* PhoneCell.swift */; };
 		0819225A21004FFA00CF2800 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225921004FFA00CF2800 /* HistoryTableViewController.swift */; };
+		0819226121006F1A00CF2800 /* UpdatePersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819226021006F1A00CF2800 /* UpdatePersonalInformationViewController.swift */; };
+		08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08192262210081B100CF2800 /* UpdatePassportViewController.swift */; };
+		0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */; };
 		0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819AC8720EC872100B1A3B4 /* CountryModel.swift */; };
 		08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */; };
 		08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */; };
@@ -79,6 +82,9 @@
 		08192254210026E400CF2800 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		081922572100295100CF2800 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
 		0819225921004FFA00CF2800 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		0819226021006F1A00CF2800 /* UpdatePersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePersonalInformationViewController.swift; sourceTree = "<group>"; };
+		08192262210081B100CF2800 /* UpdatePassportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassportViewController.swift; sourceTree = "<group>"; };
+		0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWalletAddressViewController.swift; sourceTree = "<group>"; };
 		0819AC8720EC872100B1A3B4 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +216,9 @@
 			children = (
 				0802992A20FEEDB70044C4E5 /* SettingViewController.swift */,
 				0819225921004FFA00CF2800 /* HistoryTableViewController.swift */,
+				0819226021006F1A00CF2800 /* UpdatePersonalInformationViewController.swift */,
+				08192262210081B100CF2800 /* UpdatePassportViewController.swift */,
+				0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -489,7 +498,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		3FD146C3FD5E322A25B190D1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -590,13 +599,16 @@
 				08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
 				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
+				0819226121006F1A00CF2800 /* UpdatePersonalInformationViewController.swift in Sources */,
 				0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */,
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
 				081922582100295100CF2800 /* PhoneCell.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
 				08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */,
 				0802992120EE28650044C4E5 /* ProjectDetailViewController.swift in Sources */,
+				08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */,
 				0819225A21004FFA00CF2800 /* HistoryTableViewController.swift in Sources */,
+				0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,16 +782,19 @@
 			baseConfigurationReference = CD20B301C354D9BE194D1AE9 /* Pods-Kyc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R7233N6CU7;
+				DEVELOPMENT_TEAM = 5Y9S8Y99WD;
 				INFOPLIST_FILE = Kyc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.Kyc;
+				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -790,16 +805,19 @@
 			baseConfigurationReference = 516AFC975EE8230568593144 /* Pods-Kyc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R7233N6CU7;
+				DEVELOPMENT_TEAM = 5Y9S8Y99WD;
 				INFOPLIST_FILE = Kyc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.Kyc;
+				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
