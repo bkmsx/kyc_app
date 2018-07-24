@@ -79,7 +79,7 @@ class UpdateWalletAddressViewController: UIViewController, QRCodeReaderViewContr
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         dismiss(animated: true){
-            print("Content: \(result.value)")
+            self.newWalletTextField.text = result.value
         }
     }
     

@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var lockImage: UIImageView!
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func login(_ sender: Any) {
         if (emailTextField.text! == "") {
@@ -41,9 +42,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        getContacts()
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+        customViews()
         if UserDefaults.standard.object(forKey: UserProfiles.securityToken) != nil {
             if let savedEmail = UserDefaults.standard.object(forKey: UserProfiles.email) {
                 email = savedEmail as! String
@@ -56,6 +55,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 }
             }
         }
+    }
+    
+    //MARK: - Custom Views
+    func customViews() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        emailTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+        loginButton.layer.cornerRadius = loginButton.frame.size.height / 2
     }
     
     //MARK: - Login
@@ -89,9 +99,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
             
         }
     }
-    
-    
-    
     
     //MARK: - Touch Id
     fileprivate func authenticateUserUsingTouchId() {
@@ -128,6 +135,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    //MARK: - Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     //MARK: - Prevent segue
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -139,17 +150,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         self.view.endEditing(true)
     }
     
-   
-    
     //MARK: - Dialog
     func showMessage(message: String) {
         let alert = UIAlertController.init(title: "Login error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
-    
-    
-    
+  
 }
 

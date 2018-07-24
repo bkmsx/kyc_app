@@ -11,12 +11,14 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class RegisterViewController: UITableViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButtonDelegate {
     
+    //MARK: - Properties
     let countryCodeDropDown = DropDown()
     var countryCode: String = ""
     var phoneNumber: String = ""
     
+    //MARK: - Outlet
     @IBOutlet weak var btnCountryCode: UIButton!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -28,21 +30,18 @@ class RegisterViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var noRadio: DLRadioButton!
     @IBOutlet weak var erc20AddressTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var continueImageButton: ImageButton!
     
-    @IBAction func selectCountryCode(_ sender: Any) {
-        countryCodeDropDown.show()
-    }
+  
     
-    @IBAction func `continue`(_ sender: Any) {
-        validateData()
-    }
-    
+    //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "bg-subtle"));
         setupDropDown()
+        customView()
         noRadio.isSelected = true
         emailTextField.delegate = self
+        continueImageButton.delegate = self
         refillProfile()
     }
     
@@ -58,6 +57,24 @@ class RegisterViewController: UITableViewController, UITextFieldDelegate {
         erc20AddressTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempErc20Address) as? String
     }
     
+    //MARK: - Custom views
+    func customView() {
+        firstNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        lastNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        dateBirthTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        emailTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        erc20AddressTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+    }
+    
+    //MARK: - Setup DropDown
+    
+    @IBAction func selectCountryCode(_ sender: Any) {
+        countryCodeDropDown.show()
+    }
+    
     func setupDropDown() {
         countryCodeDropDown.anchorView = btnCountryCode
         countryCodeDropDown.bottomOffset = CGPoint(x: 0, y: btnCountryCode.bounds.height)
@@ -67,6 +84,12 @@ class RegisterViewController: UITableViewController, UITextFieldDelegate {
         countryCodeDropDown.selectionAction = { [weak self] (index, item) in
                 self?.btnCountryCode.setTitle(item, for: .normal)
         }
+    }
+    
+    //MARK: - Validate data
+    func imageButtonClick(_ sender: Any) {
+//        validateData()
+        gotoVerifyOTP()
     }
     
     func validateData() {
@@ -125,12 +148,7 @@ class RegisterViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    func showMessage(message: String) {
-        let alert = UIAlertController.init(title: "Input error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction.init(title: "Try again", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
+    //MARK: - Success validate data
     func sendOTPCode(){
         let params = [
             "country_code" : countryCode,
@@ -145,13 +163,18 @@ class RegisterViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func gotoVerifyOTP() {
-        performSegue(withIdentifier: "segueVerifyOTP", sender: nil)
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyOTPViewController"); self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return identifier != "segueVerifyOTP"
+    //MARK: - Dialog
+    func showMessage(message: String) {
+        let alert = UIAlertController.init(title: "Input error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Try again", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
+    //MARK: - Hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

@@ -26,6 +26,7 @@ class UpdatePersonalInformationViewController: UITableViewController, UITextFiel
         countryCodeDropDown.show()
     }
     
+    //MARK: - Update information
     @IBAction func updatePersonalInformation(_ sender: Any) {
         if (currenPaswordTextField.text != "") {
             if (newPasswordTextField.text == "") {
@@ -36,6 +37,7 @@ class UpdatePersonalInformationViewController: UITableViewController, UITextFiel
                 return
             }
         }
+        //FIXME: Update here
         self.navigationController?.popViewController(animated: true)
     }
     

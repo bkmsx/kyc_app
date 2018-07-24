@@ -12,6 +12,10 @@
 		0802992720F121960044C4E5 /* QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0802992620F121960044C4E5 /* QRCodeReader.framework */; };
 		0802992920F2680A0044C4E5 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802992820F2680A0044C4E5 /* ProjectModel.swift */; };
 		0802992B20FEEDB70044C4E5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0802992A20FEEDB70044C4E5 /* SettingViewController.swift */; };
+		080867BF2105F2020033BECE /* RoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867BD2105F2020033BECE /* RoundView.xib */; };
+		080867C02105F2020033BECE /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867BE2105F2020033BECE /* RoundView.swift */; };
+		080867C92106FE430033BECE /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867C72106FE430033BECE /* ImageButton.swift */; };
+		080867CA2106FE430033BECE /* ImageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867C82106FE430033BECE /* ImageButton.xib */; };
 		0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */; };
 		0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */; };
 		0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225020FF8A0600CF2800 /* Checkbox.swift */; };
@@ -75,6 +79,10 @@
 		0802992620F121960044C4E5 /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0802992820F2680A0044C4E5 /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		0802992A20FEEDB70044C4E5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		080867BD2105F2020033BECE /* RoundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundView.xib; sourceTree = "<group>"; };
+		080867BE2105F2020033BECE /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		080867C72106FE430033BECE /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		080867C82106FE430033BECE /* ImageButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageButton.xib; sourceTree = "<group>"; };
 		0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermConditionViewController.swift; sourceTree = "<group>"; };
 		0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessTransactionViewController.swift; sourceTree = "<group>"; };
 		0819225020FF8A0600CF2800 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
@@ -176,6 +184,10 @@
 		0819224F20FF89E500CF2800 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				080867BE2105F2020033BECE /* RoundView.swift */,
+				080867C72106FE430033BECE /* ImageButton.swift */,
+				080867C82106FE430033BECE /* ImageButton.xib */,
+				080867BD2105F2020033BECE /* RoundView.xib */,
 				0819225020FF8A0600CF2800 /* Checkbox.swift */,
 			);
 			path = CustomView;
@@ -474,8 +486,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */,
+				080867BF2105F2020033BECE /* RoundView.xib in Resources */,
 				08AE3C7520E377D8009E4E48 /* Assets.xcassets in Resources */,
 				08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */,
+				080867CA2106FE430033BECE /* ImageButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +602,7 @@
 				08192255210026E400CF2800 /* ContactModel.swift in Sources */,
 				0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */,
 				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
+				080867C92106FE430033BECE /* ImageButton.swift in Sources */,
 				0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */,
 				0802992B20FEEDB70044C4E5 /* SettingViewController.swift in Sources */,
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
@@ -600,6 +615,7 @@
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
 				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
 				0819226121006F1A00CF2800 /* UpdatePersonalInformationViewController.swift in Sources */,
+				080867C02105F2020033BECE /* RoundView.swift in Sources */,
 				0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */,
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
 				081922582100295100CF2800 /* PhoneCell.swift in Sources */,

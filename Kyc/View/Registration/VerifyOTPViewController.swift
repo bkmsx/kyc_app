@@ -10,17 +10,22 @@ import UIKit
 import Alamofire
 
 class VerifyOTPViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var otpTextField: UITextField!
     
+    //MARK: - Outlet
+    @IBOutlet weak var otpTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBAction func `continue`(_ sender: Any) {
-        verifyOTP()
-    }
+    
+    //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
         otpTextField.delegate = self
     }
 
+    //MARK: - Verify OTP
+    @IBAction func `continue`(_ sender: Any) {
+        verifyOTP()
+    }
+    
     func verifyOTP() {
         let countryCode = UserDefaults.standard.object(forKey: UserProfiles.tempCountryCode)!
         let phoneNumber = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber)!
@@ -45,12 +50,14 @@ class VerifyOTPViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func gotoUploadPassport() {
-        performSegue(withIdentifier: "segueUploadPassport", sender: nil)
+    //MARK: - Resend OTP
+    @IBAction func resendOTP(_ sender: Any) {
+        //TODO: - ResendOTP
     }
     
+    
+    //MARK: - Success verify OTP
     func submitUserProfile() {
-        
         let params = [
             "first_name" : UserDefaults.standard.object(forKey: UserProfiles.tempFirstName)!,
             "last_name" : UserDefaults.standard.object(forKey: UserProfiles.tempLastName)!,
@@ -78,6 +85,7 @@ class VerifyOTPViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //MARK: - Success submit profiles
     func removeTempInformation() {
         let pref = UserDefaults.standard
         pref.removeObject(forKey: UserProfiles.tempFirstName)
@@ -91,16 +99,23 @@ class VerifyOTPViewController: UIViewController, UITextFieldDelegate {
         pref.removeObject(forKey: UserProfiles.tempDeviceSecurityEnable)
     }
     
+    func gotoUploadPassport() {
+        performSegue(withIdentifier: "segueUploadPassport", sender: nil)
+    }
+    
+    //MARK: - Dialog
     func showMessage(message: String, buttonName: String, handler:((UIAlertAction) -> Swift.Void)?=nil) {
         let alert = UIAlertController.init(title: "Verify OTP", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction.init(title: buttonName, style: .default, handler: handler))
         self.present(alert, animated: true, completion: nil)
     }
     
+    //MARK: - Prevent segue
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return identifier != "segueUploadPassport"
     }
     
+    //MARK: - Hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

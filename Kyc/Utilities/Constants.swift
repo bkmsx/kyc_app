@@ -58,3 +58,8 @@ struct SegueIdentifiers {
     static let segueFromLogin = "segueFromLogin"
     static let segueERC20Wallet = "segueERC20Wallet"
 }
+
+struct Colors {
+    static let lightBlue = 0xff009cff
+    static let easyBlue = 0xaa009cff
+}
