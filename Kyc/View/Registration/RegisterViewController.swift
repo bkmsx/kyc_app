@@ -42,7 +42,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
         noRadio.isSelected = true
         emailTextField.delegate = self
         continueImageButton.delegate = self
+        setupNavigationBar()
         refillProfile()
+    }
+    
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
+                                                                        NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .highlighted)
     }
     
     func refillProfile() {
@@ -59,18 +69,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     
     //MARK: - Custom views
     func customView() {
-        firstNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
-        lastNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
-        dateBirthTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
-        emailTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
-        passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
-        confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
-        mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
-        erc20AddressTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
+        firstNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        lastNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        dateBirthTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        emailTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        erc20AddressTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
     }
     
     //MARK: - Setup DropDown
-    
     @IBAction func selectCountryCode(_ sender: Any) {
         countryCodeDropDown.show()
     }
@@ -177,5 +186,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     //MARK: - Hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //MARK: - Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }

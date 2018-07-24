@@ -62,4 +62,6 @@ struct SegueIdentifiers {
 struct Colors {
     static let lightBlue = 0xff009cff
     static let easyBlue = 0xaa009cff
+    static let lightGray = 0xff7a7777
+    static let darkGray = 0xff656363
 }
