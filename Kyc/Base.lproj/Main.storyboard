@@ -1805,37 +1805,10 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7no-cJ-ryV">
-                                <rect key="frame" x="134" y="247" width="141" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-rT-P60" customClass="RoundView" customModule="Kyc" customModuleProvider="target">
+                                <rect key="frame" x="114" y="302" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="UPLOAD PASSPORT">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="getPassport:" destination="6wL-Mr-voM" eventType="touchUpInside" id="Wx9-zK-Bek"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-rT-P60">
-                                <rect key="frame" x="114" y="302" width="173" height="198"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="eHw-jg-E3h">
-                                        <rect key="frame" x="20" y="20" width="94" height="89"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2s-wX-lps">
-                                        <rect key="frame" x="0.0" y="0.0" width="173" height="198"/>
-                                        <connections>
-                                            <action selector="takeSelfie:" destination="6wL-Mr-voM" eventType="touchUpInside" id="d3U-Pg-AfF"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="W2s-wX-lps" firstAttribute="top" secondItem="mC5-rT-P60" secondAttribute="top" id="4hy-lw-uh8"/>
-                                    <constraint firstAttribute="bottom" secondItem="W2s-wX-lps" secondAttribute="bottom" id="OPP-4g-OGB"/>
-                                    <constraint firstAttribute="trailing" secondItem="W2s-wX-lps" secondAttribute="trailing" id="X9F-e7-7yF"/>
-                                    <constraint firstItem="W2s-wX-lps" firstAttribute="leading" secondItem="mC5-rT-P60" secondAttribute="leading" id="dCV-u7-0UW"/>
-                                </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MZd-3g-5s9">
                                 <rect key="frame" x="86" y="198" width="191" height="30"/>
@@ -1876,16 +1849,6 @@
                                 </constraints>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jud-uB-5a2">
-                                <rect key="frame" x="107" y="97" width="160" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectCitizenship:" destination="6wL-Mr-voM" eventType="touchUpInside" id="0Xa-Id-pkn"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COUNTRY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFA-vH-XdR">
                                 <rect key="frame" x="88" y="130" width="68" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1893,20 +1856,6 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRw-Fj-pbD">
-                                <rect key="frame" x="107" y="148" width="160" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectCountry:" destination="6wL-Mr-voM" eventType="touchUpInside" id="gx4-hn-3qN"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="upload" translatesAutoresizingMaskIntoConstraints="NO" id="ePV-8U-pov">
-                                <rect key="frame" x="85" y="247" width="41" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whS-sj-ThF" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="676" width="414" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1914,20 +1863,31 @@
                                     <constraint firstAttribute="height" constant="60" id="qTo-Ob-8sa"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Aa-Td-OzG" customClass="DropDownButton" customModule="Kyc" customModuleProvider="target">
+                                <rect key="frame" x="93" y="98" width="213" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h1S-fC-JpM" customClass="DropDownButton" customModule="Kyc" customModuleProvider="target">
+                                <rect key="frame" x="93" y="148" width="213" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZT-sE-gLq" customClass="UploadButton" customModule="Kyc" customModuleProvider="target">
+                                <rect key="frame" x="84" y="252" width="218" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hi2-fp-CAX" firstAttribute="trailing" secondItem="U9t-LS-bbP" secondAttribute="trailing" id="4t8-3j-PID"/>
                             <constraint firstItem="U9t-LS-bbP" firstAttribute="bottom" secondItem="hi2-fp-CAX" secondAttribute="bottom" id="AqN-ps-eMq"/>
-                            <constraint firstItem="U9t-LS-bbP" firstAttribute="trailing" secondItem="mC5-rT-P60" secondAttribute="trailing" constant="127" id="EyW-Ay-IfC"/>
                             <constraint firstItem="hi2-fp-CAX" firstAttribute="top" secondItem="U9t-LS-bbP" secondAttribute="top" id="IzW-ba-WbW"/>
                             <constraint firstItem="whS-sj-ThF" firstAttribute="trailing" secondItem="U9t-LS-bbP" secondAttribute="trailing" id="Nxd-Ty-luP"/>
                             <constraint firstItem="whS-sj-ThF" firstAttribute="leading" secondItem="U9t-LS-bbP" secondAttribute="leading" id="Txo-0s-K0Y"/>
-                            <constraint firstItem="mC5-rT-P60" firstAttribute="top" secondItem="U9t-LS-bbP" secondAttribute="top" constant="238" id="UVI-mR-MGK"/>
                             <constraint firstItem="hi2-fp-CAX" firstAttribute="leading" secondItem="U9t-LS-bbP" secondAttribute="leading" id="cSU-mD-q4X"/>
-                            <constraint firstItem="U9t-LS-bbP" firstAttribute="bottom" secondItem="mC5-rT-P60" secondAttribute="bottom" constant="236" id="emx-xT-FoT"/>
                             <constraint firstItem="whS-sj-ThF" firstAttribute="bottom" secondItem="U9t-LS-bbP" secondAttribute="bottom" id="mkg-Nl-Pti"/>
-                            <constraint firstItem="mC5-rT-P60" firstAttribute="leading" secondItem="U9t-LS-bbP" secondAttribute="leading" constant="114" id="tTC-Nc-yI7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U9t-LS-bbP"/>
                     </view>
@@ -1935,10 +1895,11 @@
                     <connections>
                         <outlet property="accuracyCheckbox" destination="ucv-Je-Ay0" id="U0G-2j-aZf"/>
                         <outlet property="activityIndicator" destination="Egb-v0-3hQ" id="jna-ax-JLv"/>
-                        <outlet property="btnSelectCitizenship" destination="jud-uB-5a2" id="JVj-KI-vOa"/>
-                        <outlet property="btnSelectCountry" destination="jRw-Fj-pbD" id="7nb-lf-vYz"/>
-                        <outlet property="imageView" destination="eHw-jg-E3h" id="aSO-dd-lzo"/>
+                        <outlet property="btnSelectCitizenship" destination="6Aa-Td-OzG" id="r3C-or-0ON"/>
+                        <outlet property="btnSelectCoutry" destination="h1S-fC-JpM" id="x78-Gd-n3f"/>
+                        <outlet property="cameraButton" destination="mC5-rT-P60" id="lkX-hZ-yj0"/>
                         <outlet property="passportTextField" destination="MZd-3g-5s9" id="pxg-Rj-v94"/>
+                        <outlet property="submitImageButton" destination="whS-sj-ThF" id="Wey-kR-IO5"/>
                         <outlet property="termOfUseCheckbox" destination="m5w-YC-TzB" id="KQx-yj-ali"/>
                         <segue destination="eKR-Ta-QWG" kind="show" id="xVl-UQ-eGP"/>
                     </connections>
@@ -1950,7 +1911,7 @@
         <!--Complete Register View Controller-->
         <scene sceneID="22N-Vt-wso">
             <objects>
-                <viewController id="eKR-Ta-QWG" customClass="CompleteRegisterViewController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompleteRegisterViewController" id="eKR-Ta-QWG" customClass="CompleteRegisterViewController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dxd-VA-Atj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2487,7 +2448,6 @@
         <image name="menu" width="48" height="48"/>
         <image name="pattern_top" width="270" height="270"/>
         <image name="share_friends" width="290" height="110"/>
-        <image name="upload" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cRQ-Sg-Dt8"/>

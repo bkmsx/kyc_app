@@ -11,6 +11,10 @@ import UIKit
 class RoundView: UIView {
     @IBOutlet weak var innerView: UIView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
+    var delegate: RoundViewDelegate?
+    var clickable = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -19,6 +23,16 @@ class RoundView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+    
+    @IBAction func clickButton(_ sender: Any) {
+        if clickable {
+            delegate?.clickRoundView()
+        }
+    }
+    
+    func setImage(image: UIImage) {
+        imageView.image = image
     }
     
     private func commonInit() {
@@ -33,4 +47,8 @@ class RoundView: UIView {
         innerView.backgroundColor = UIColor.init(argb: Colors.lightBlue)
         innerView.layer.cornerRadius = self.frame.size.height / 2 - 5
     }
+}
+
+protocol RoundViewDelegate {
+    func clickRoundView()
 }

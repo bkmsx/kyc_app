@@ -17,6 +17,10 @@
 		080867C92106FE430033BECE /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867C72106FE430033BECE /* ImageButton.swift */; };
 		080867CA2106FE430033BECE /* ImageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867C82106FE430033BECE /* ImageButton.xib */; };
 		080867E62108519B0033BECE /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867E52108519B0033BECE /* CodeInputView.swift */; };
+		080867F42108878E0033BECE /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867F22108878D0033BECE /* DropDownButton.swift */; };
+		080867F52108878E0033BECE /* DropDownButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867F32108878E0033BECE /* DropDownButton.xib */; };
+		080868002108D7980033BECE /* UploadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867FE2108D7980033BECE /* UploadButton.swift */; };
+		080868012108D7980033BECE /* UploadButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867FF2108D7980033BECE /* UploadButton.xib */; };
 		0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */; };
 		0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */; };
 		0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225020FF8A0600CF2800 /* Checkbox.swift */; };
@@ -85,6 +89,10 @@
 		080867C72106FE430033BECE /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		080867C82106FE430033BECE /* ImageButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageButton.xib; sourceTree = "<group>"; };
 		080867E52108519B0033BECE /* CodeInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
+		080867F22108878D0033BECE /* DropDownButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
+		080867F32108878E0033BECE /* DropDownButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownButton.xib; sourceTree = "<group>"; };
+		080867FE2108D7980033BECE /* UploadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadButton.swift; path = ../../../../../TestCustomView/TestCustomView/UploadButton.swift; sourceTree = "<group>"; };
+		080867FF2108D7980033BECE /* UploadButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadButton.xib; path = ../../../../../TestCustomView/TestCustomView/UploadButton.xib; sourceTree = "<group>"; };
 		0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermConditionViewController.swift; sourceTree = "<group>"; };
 		0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessTransactionViewController.swift; sourceTree = "<group>"; };
 		0819225020FF8A0600CF2800 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
@@ -186,6 +194,10 @@
 		0819224F20FF89E500CF2800 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				080867FE2108D7980033BECE /* UploadButton.swift */,
+				080867FF2108D7980033BECE /* UploadButton.xib */,
+				080867F22108878D0033BECE /* DropDownButton.swift */,
+				080867F32108878E0033BECE /* DropDownButton.xib */,
 				080867E52108519B0033BECE /* CodeInputView.swift */,
 				080867BE2105F2020033BECE /* RoundView.swift */,
 				080867C72106FE430033BECE /* ImageButton.swift */,
@@ -488,7 +500,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080867F52108878E0033BECE /* DropDownButton.xib in Resources */,
 				08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */,
+				080868012108D7980033BECE /* UploadButton.xib in Resources */,
 				080867BF2105F2020033BECE /* RoundView.xib in Resources */,
 				08AE3C7520E377D8009E4E48 /* Assets.xcassets in Resources */,
 				08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */,
@@ -602,6 +616,7 @@
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */,
 				0819225320FF8E8A00CF2800 /* PhoneListViewController.swift in Sources */,
+				080868002108D7980033BECE /* UploadButton.swift in Sources */,
 				08192255210026E400CF2800 /* ContactModel.swift in Sources */,
 				0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */,
 				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
@@ -622,6 +637,7 @@
 				0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */,
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
 				080867E62108519B0033BECE /* CodeInputView.swift in Sources */,
+				080867F42108878E0033BECE /* DropDownButton.swift in Sources */,
 				081922582100295100CF2800 /* PhoneCell.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
 				08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */,

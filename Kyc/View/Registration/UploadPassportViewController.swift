@@ -11,7 +11,7 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class UploadPassportViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
+class UploadPassportViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, ImageButtonDelegate, RoundViewDelegate {
     //MARK: - Properties
     var imagePicker, passportPicker: UIImagePickerController!
     var selectedCitizenship: Int = 0
@@ -19,17 +19,17 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
     var citizenships: [CitizenshipModel] = []
     var countries: [CountryModel] = []
     var selfieImage, passportImage: UIImage!
-    let citizenshipDropDown = DropDown()
-    let countryDropDown = DropDown()
     
     //MARK: - Outlet
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var cameraButton: RoundView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var btnSelectCitizenship: UIButton!
-    @IBOutlet weak var btnSelectCountry: UIButton!
+    @IBOutlet weak var btnSelectCitizenship: DropDownButton!
+    @IBOutlet weak var btnSelectCoutry: DropDownButton!
     @IBOutlet weak var passportTextField: UITextField!
     @IBOutlet weak var accuracyCheckbox: DLRadioButton!
     @IBOutlet weak var termOfUseCheckbox: DLRadioButton!
+    @IBOutlet weak var submitImageButton: ImageButton!
     
     //MARK: - Initialization
     override func viewDidLoad() {
@@ -37,10 +37,29 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
         getCitizenshipList()
         accuracyCheckbox.isMultipleSelectionEnabled = true
         passportTextField.delegate = self
+        submitImageButton.delegate = self
+        passportTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
+        setupNavigationBar()
+        setupCameraButton()
+    }
+    
+    //MARK: - setup camera button
+    func setupCameraButton() {
+        cameraButton.clickable = true
+        cameraButton.delegate = self
+        cameraButton.setImage(image: #imageLiteral(resourceName: "camera"))
+    }
+    
+    func clickRoundView() {
+        print("Click camera")
     }
     
     //MARK: - Upload Passport
-    @IBAction func submit(_ sender: Any) {
+    func imageButtonClick(_ sender: Any) {
+        gotoRegistrationCompletion()
+        //FIXME: submit here
+    }
+    func submit() {
         if (passportTextField.text!.isEmpty) {
             showMessage(title: "Input error", message: "Passport cannot be empty")
             return
@@ -85,12 +104,17 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
             case .success(let upload, _, _):
                 upload.responseJSON { response in
                     self.activityIndicator.stopAnimating()
-                    self.performSegue(withIdentifier: SegueIdentifiers.segueCompleteRegister, sender: nil)
+                  self.gotoRegistrationCompletion()
                 }
             case .failure(_):
                 print("Not ok")
             }
         }
+    }
+    
+    func gotoRegistrationCompletion() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CompleteRegisterViewController")
+        navigationController?.pushViewController(vc!, animated: true)
     }
 
     //MARK: - Take photo and got image
@@ -125,13 +149,6 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
     
     
     //MARK: - Setup Dropdown for citizenship and country
-    @IBAction func selectCitizenship(_ sender: Any) {
-        citizenshipDropDown.show()
-    }
-    
-    @IBAction func selectCountry(_ sender: Any) {
-        countryDropDown.show()
-    }
     
     func getCitizenshipList() {
         Alamofire.request(URLConstant.baseURL + URLConstant.citizenshipList, method: .get, parameters: nil)
@@ -147,54 +164,32 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
                 }
                 self.setupCitizenshipDropDown(citizenships: self.citizenships)
                 self.setupCountryDropDown(countries: self.countries)
-                self.btnSelectCitizenship.setTitle(self.citizenships[self.selectedCitizenship].nationality, for: .normal)
-                self.btnSelectCountry.setTitle(self.countries[self.selectedCountry].country, for: .normal)
+                
         }
     }
     
     func setupCountryDropDown(countries: [CountryModel]) {
-        countryDropDown.anchorView = btnSelectCountry
-        countryDropDown.bottomOffset = CGPoint.init(x: 0, y: btnSelectCountry.bounds.height)
-        countryDropDown.selectionAction = { [weak self](index, item) in
-            self?.btnSelectCountry.setTitle(item, for: .normal)
-            self?.selectedCountry = index
-        }
         
         var countryList = [String]()
         for country in countries {
             countryList.append(country.country)
         }
-        countryDropDown.dataSource = countryList
+        btnSelectCoutry.setDataSoure(source: countryList)
     }
 
     func setupCitizenshipDropDown(citizenships: [CitizenshipModel]){
-        citizenshipDropDown.anchorView = btnSelectCitizenship
-        citizenshipDropDown.bottomOffset = CGPoint.init(x: 0, y: btnSelectCitizenship.bounds.height)
-        citizenshipDropDown.selectionAction = { [weak self](index, item) in
-            self?.btnSelectCitizenship.setTitle(item, for: .normal)
-            self?.selectedCitizenship = index
-        }
-        
         var citizenshipList = [String]()
         for citizenship in citizenships {
             citizenshipList.append(citizenship.nationality)
         }
-        citizenshipDropDown.dataSource = citizenshipList
+        btnSelectCitizenship.setDataSoure(source: citizenshipList)
     }
     
     
     //MARK: - Hide back button
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    //MARK: - Prevent default segue
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return identifier != SegueIdentifiers.segueCompleteRegister
+    func setupNavigationBar(){
+        title = "NEW USER REGISTRATION"
+        navigationItem.setHidesBackButton(true, animated: false)
     }
     
     //MARK: - Dialog
@@ -207,5 +202,10 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
     //MARK: - Hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //MARK: - Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }

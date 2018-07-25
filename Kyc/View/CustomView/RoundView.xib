@@ -10,9 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoundView" customModule="TestCustomView" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoundView" customModule="Kyc" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="QFc-wv-g17"/>
+                <outlet property="imageView" destination="AJB-vx-OTo" id="dqQ-xP-cXQ"/>
                 <outlet property="innerView" destination="1X7-Uy-KQV" id="jSE-C7-DT7"/>
             </connections>
         </placeholder>
@@ -38,17 +39,27 @@
                         <constraint firstItem="AJB-vx-OTo" firstAttribute="centerX" secondItem="1X7-Uy-KQV" secondAttribute="centerX" id="i6N-Pg-ool"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcB-As-KTb">
+                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                    <connections>
+                        <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="zRX-lm-dht"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="DcB-As-KTb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0PR-o7-Bio"/>
                 <constraint firstItem="1X7-Uy-KQV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="8ry-iT-Pdp"/>
                 <constraint firstItem="1X7-Uy-KQV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="C3p-aJ-iEM"/>
+                <constraint firstItem="DcB-As-KTb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="TV7-eY-NMe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DcB-As-KTb" secondAttribute="bottom" id="aOW-Y4-ASn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1X7-Uy-KQV" secondAttribute="trailing" constant="5" id="dOg-Ha-VbL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DcB-As-KTb" secondAttribute="trailing" id="m0V-rk-hfr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="1X7-Uy-KQV" secondAttribute="bottom" constant="5" id="s5J-BY-8m7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="144" y="-54.5"/>
+            <point key="canvasLocation" x="144" y="-55"/>
         </view>
     </objects>
     <resources>

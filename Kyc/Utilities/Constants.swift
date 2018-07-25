@@ -44,7 +44,7 @@ struct UserProfiles {
 }
 
 struct URLConstant {
-    static let baseURL = "http://concordia.ventures/api"
+    static let baseURL = "http://kycapp.concordia.ventures/api"
     static let sendOTP = "/otp/send"
     static let verifyOTP = "/otp/verify"
     static let register = "/register"
