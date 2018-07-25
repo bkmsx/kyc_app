@@ -11,7 +11,7 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButtonDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButtonDelegate{
     
     //MARK: - Properties
     let countryCodeDropDown = DropDown()
@@ -31,28 +31,26 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     @IBOutlet weak var erc20AddressTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var continueImageButton: ImageButton!
-    
-  
+
     
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupDropDown()
         customView()
         noRadio.isSelected = true
         emailTextField.delegate = self
         continueImageButton.delegate = self
-        setupNavigationBar()
         refillProfile()
     }
     
     func setupNavigationBar() {
+        title = "NEW USER REGISTRATION"
+        navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
                                                                         NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .highlighted)
     }
     
     func refillProfile() {
@@ -97,8 +95,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     
     //MARK: - Validate data
     func imageButtonClick(_ sender: Any) {
-//        validateData()
-        gotoVerifyOTP()
+        //FIXME: uncomment validateData
+        //        validateData()
+                gotoVerifyOTP()
     }
     
     func validateData() {
@@ -172,8 +171,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     }
     
     func gotoVerifyOTP() {
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyOTPViewController"); self.navigationController?.pushViewController(vc!, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "VerifyOTPViewController")
+        navigationController?.pushViewController(vc!, animated: true)
     }
     
     //MARK: - Dialog

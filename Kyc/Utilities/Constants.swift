@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct Configs {
+    static let OTP_LENGTH = 4
+}
+
 struct UserProfiles {
     static let userId = "userId"
     static let countryCode = "countryCode"

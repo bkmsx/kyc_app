@@ -9,28 +9,60 @@
 import UIKit
 import Alamofire
 
-class VerifyOTPViewController: UIViewController, UITextFieldDelegate {
-    
+class VerifyOTPViewController: UIViewController, UITextFieldDelegate, ImageButtonDelegate, CodeInputViewDelegate {
+    //MARK: - Properties
+    var code = ""
     //MARK: - Outlet
-    @IBOutlet weak var otpTextField: UITextField!
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var continueImageButton: ImageButton!
     
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        otpTextField.delegate = self
+        
+        continueImageButton.delegate = self
+        setupNavigationBar()
+        setupOTPInput()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.topItem?.title = "NEW USER REGISTRATION"
+    }
+ 
+    func setupNavigationBar() {
+        title = "NEW USER REGISTRATION"
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.backgroundColor = UIColor.black
+    }
+    
+    //MARK: - Setup OTP input
+    func setupOTPInput() {
+        let OTPWidth = Int(CodeInputView.OTP_LENGTH * CodeInputView.NUMBER_WIDTH + CodeInputView.NUMBER_SPACE)
+        let frame = CGRect(x: (Int(view.frame.width) - OTPWidth) / 2, y: 242, width: OTPWidth, height: CodeInputView.INPUT_HEIGHT)
+        let codeInputView = CodeInputView(frame: frame)
+        codeInputView.delegate = self
+        view.addSubview(codeInputView)
+        codeInputView.becomeFirstResponder()
     }
 
     //MARK: - Verify OTP
-    @IBAction func `continue`(_ sender: Any) {
-        verifyOTP()
+    
+    func codeInputView(_ codeInputView: CodeInputView, didFinishWithCode code: String) {
+        self.code = code
+    }
+    
+    func imageButtonClick(_ sender: Any) {
+        //FIXME: uncomment verify
+//        verifyOTP()
+        gotoUploadPassport()
     }
     
     func verifyOTP() {
         let countryCode = UserDefaults.standard.object(forKey: UserProfiles.tempCountryCode)!
         let phoneNumber = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber)!
         let params = [
-            "otp_code" : otpTextField.text!,
+            "otp_code" : code,
             "country_code" : countryCode,
             "phone_number" : phoneNumber
         ] as [String : Any]
@@ -100,7 +132,8 @@ class VerifyOTPViewController: UIViewController, UITextFieldDelegate {
     }
     
     func gotoUploadPassport() {
-        performSegue(withIdentifier: "segueUploadPassport", sender: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "UploadPassportViewController")
+        navigationController?.pushViewController(vc!, animated: true)
     }
     
     //MARK: - Dialog
@@ -110,13 +143,13 @@ class VerifyOTPViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    //MARK: - Prevent segue
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return identifier != "segueUploadPassport"
-    }
-    
     //MARK: - Hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //MARK: - Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }

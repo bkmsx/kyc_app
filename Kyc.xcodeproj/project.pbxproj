@@ -16,6 +16,7 @@
 		080867C02105F2020033BECE /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867BE2105F2020033BECE /* RoundView.swift */; };
 		080867C92106FE430033BECE /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867C72106FE430033BECE /* ImageButton.swift */; };
 		080867CA2106FE430033BECE /* ImageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867C82106FE430033BECE /* ImageButton.xib */; };
+		080867E62108519B0033BECE /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867E52108519B0033BECE /* CodeInputView.swift */; };
 		0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */; };
 		0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */; };
 		0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225020FF8A0600CF2800 /* Checkbox.swift */; };
@@ -83,6 +84,7 @@
 		080867BE2105F2020033BECE /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		080867C72106FE430033BECE /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		080867C82106FE430033BECE /* ImageButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageButton.xib; sourceTree = "<group>"; };
+		080867E52108519B0033BECE /* CodeInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermConditionViewController.swift; sourceTree = "<group>"; };
 		0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessTransactionViewController.swift; sourceTree = "<group>"; };
 		0819225020FF8A0600CF2800 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		0819224F20FF89E500CF2800 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				080867E52108519B0033BECE /* CodeInputView.swift */,
 				080867BE2105F2020033BECE /* RoundView.swift */,
 				080867C72106FE430033BECE /* ImageButton.swift */,
 				080867C82106FE430033BECE /* ImageButton.xib */,
@@ -618,6 +621,7 @@
 				080867C02105F2020033BECE /* RoundView.swift in Sources */,
 				0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */,
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
+				080867E62108519B0033BECE /* CodeInputView.swift in Sources */,
 				081922582100295100CF2800 /* PhoneCell.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
 				08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */,

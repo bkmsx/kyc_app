@@ -27,7 +27,7 @@ class ImageButton: UIView {
         addSubview(contentView)
     }
 
-    @IBAction func clickButton(_ sender: Any) {
+    @IBAction func buttonClick(_ sender: Any) {
         delegate!.imageButtonClick(sender)
     }
 }
