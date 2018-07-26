@@ -22,6 +22,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func login(_ sender: Any) {
+        gotoListProject()
+        return//FIXME: Remove return
         if (emailTextField.text! == "") {
             showMessage(message: "Email is empty")
             return
@@ -43,6 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         customViews()
+        return //FIXME: Remove return
         if UserDefaults.standard.object(forKey: UserProfiles.securityToken) != nil {
             if let savedEmail = UserDefaults.standard.object(forKey: UserProfiles.email) {
                 email = savedEmail as! String
@@ -87,7 +90,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "UploadPassportViewController") as! UploadPassportViewController
                         self.present(vc, animated: true, completion: nil)
                     } else {
-                        self.performSegue(withIdentifier: SegueIdentifiers.segueListProject, sender: nil)
+                        self.gotoListProject()
                     }
                 } else {
                     self.showMessage(message: "Invalid email or password")
@@ -96,8 +99,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 self.showMessage(message: "Login error")
             }
             
-            
         }
+    }
+    
+    //MARK: - Go to List Project
+    func gotoListProject() {
+        //FIXME: Change viewcontroller
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.AgreeTermConditionViewController)
+        navigationController?.pushViewController(vc!, animated: true)
     }
     
     //MARK: - Touch Id
@@ -138,11 +147,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     //MARK: - Hide status bar
     override var prefersStatusBarHidden: Bool {
         return true
-    }
-    
-    //MARK: - Prevent segue
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return identifier != SegueIdentifiers.segueListProject && identifier != SegueIdentifiers.segueFromLogin
     }
     
     //MARK: - Hide Keyboard

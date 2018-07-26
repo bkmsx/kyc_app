@@ -10,26 +10,33 @@ import UIKit
 
 class ProjectDetailViewController: UIViewController {
 
+    @IBOutlet weak var companyLogo: UIView!
+    @IBOutlet weak var participateButton: UIButton!
+    @IBOutlet weak var inviteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupNavigationBar()
+        customViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: - Custom views
+    func customViews() {
+        companyLogo.layer.cornerRadius = 10
+        participateButton.layer.cornerRadius = participateButton.frame.size.height / 2
+        inviteButton.layer.cornerRadius = inviteButton.frame.size.height / 2
     }
-    */
-
+    
+    //MARK: - setup navigation bar
+    func setupNavigationBar() {
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
+                                                                        NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
+        
+    }
+    
+    //MARK: - Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }

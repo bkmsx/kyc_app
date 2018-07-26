@@ -10,25 +10,39 @@ import UIKit
 import DLRadioButton
 import LocalAuthentication
 
-class AgreeTermConditionViewController: UIViewController {
+class AgreeTermConditionViewController: ParticipateCommonController{
 
     @IBOutlet weak var acceptTerm: DLRadioButton!
     @IBOutlet weak var notUSCitizen: DLRadioButton!
+    @IBOutlet weak var imageButton: ImageButton!
+    @IBOutlet weak var header: ParticipateHeader!
     
-    @IBAction func gotoNext(_ sender: Any) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        acceptTerm.isMultipleSelectionEnabled = true;
+        setupNavigationBar()
+        customViews()
+    }
+    
+    //MARK: - Custom views
+    override func customViews() {
+        imageButton.setButtonTitle(title: "NEXT")
+        imageButton.delegate = self
+    }
+    
+    override func imageButtonClick(_ sender: Any) {
+        //FIXME: check selected
+        gotoNext()
+    }
+    
+    //MARK: - Touch Id
+    func checkSelectedTermCondition() {
         if (acceptTerm.isSelected && notUSCitizen.isSelected) {
             self.authenticateUserUsingTouchId()
         } else {
             showMessage(message: "Please select checkboxes to agree with terms and condition")
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        acceptTerm.isMultipleSelectionEnabled = true;
-    }
-    
-    //MARK: - Touch Id
     fileprivate func authenticateUserUsingTouchId() {
         let context = LAContext()
         if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: nil) {
@@ -40,23 +54,25 @@ class AgreeTermConditionViewController: UIViewController {
         context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: "Press your finger") {(success, error) in
             if (success) {
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: SegueIdentifiers.segueERC20Wallet, sender: nil)
+                    self.gotoNext()
                 }
             } else {
                 print("You are not the owner")
             }
         }
     }
-    
-    
-    //MARK: - Prevent segue
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return identifier != SegueIdentifiers.segueERC20Wallet
+    //MARK: - segue to next vc
+    func gotoNext() {
+       let vc = storyboard?.instantiateViewController(withIdentifier: "WalletInputController")
+        navigationController?.pushViewController(vc!, animated: true)
     }
+    
     //MARK: - Dialog
     func showMessage(message: String) {
         let alert = UIAlertController.init(title: "Notice", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
 }

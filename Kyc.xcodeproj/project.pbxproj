@@ -21,6 +21,8 @@
 		080867F52108878E0033BECE /* DropDownButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867F32108878E0033BECE /* DropDownButton.xib */; };
 		080868002108D7980033BECE /* UploadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080867FE2108D7980033BECE /* UploadButton.swift */; };
 		080868012108D7980033BECE /* UploadButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867FF2108D7980033BECE /* UploadButton.xib */; };
+		080868032109803E0033BECE /* CompleteRetreivePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080868022109803E0033BECE /* CompleteRetreivePasswordController.swift */; };
+		080868052109A9410033BECE /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080868042109A9410033BECE /* ProjectCell.swift */; };
 		0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */; };
 		0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */; };
 		0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225020FF8A0600CF2800 /* Checkbox.swift */; };
@@ -32,9 +34,17 @@
 		08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08192262210081B100CF2800 /* UpdatePassportViewController.swift */; };
 		0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */; };
 		0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819AC8720EC872100B1A3B4 /* CountryModel.swift */; };
+		082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C32109BC1D004AB6E8 /* LeftBarView.swift */; };
+		082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10C52109BC2C004AB6E8 /* LeftBarView.xib */; };
+		082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C72109D37C004AB6E8 /* WalletInputController.swift */; };
+		082A10CB2109D49C004AB6E8 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10CA2109D49C004AB6E8 /* CommonViewController.swift */; };
+		082A10CD2109D4FE004AB6E8 /* ParticipateCommonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10CC2109D4FE004AB6E8 /* ParticipateCommonController.swift */; };
+		082A10CF2109D731004AB6E8 /* TransactionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10CE2109D731004AB6E8 /* TransactionDetailController.swift */; };
+		082A10D3210A1A20004AB6E8 /* ParticipateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10D2210A1A20004AB6E8 /* ParticipateHeader.swift */; };
+		082A10D5210A1A31004AB6E8 /* ParticipateHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10D4210A1A31004AB6E8 /* ParticipateHeader.xib */; };
 		08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */; };
 		08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */; };
-		08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */; };
+		08301D4420E4D62000DEAAAB /* RetrievePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4320E4D62000DEAAAB /* RetrievePasswordViewController.swift */; };
 		08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */; };
 		08301D4920E4F55800DEAAAB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D4820E4F55800DEAAAB /* Alamofire.framework */; };
 		08301D4B20E5D2F700DEAAAB /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */; };
@@ -93,6 +103,8 @@
 		080867F32108878E0033BECE /* DropDownButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownButton.xib; sourceTree = "<group>"; };
 		080867FE2108D7980033BECE /* UploadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadButton.swift; path = ../../../../../TestCustomView/TestCustomView/UploadButton.swift; sourceTree = "<group>"; };
 		080867FF2108D7980033BECE /* UploadButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadButton.xib; path = ../../../../../TestCustomView/TestCustomView/UploadButton.xib; sourceTree = "<group>"; };
+		080868022109803E0033BECE /* CompleteRetreivePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRetreivePasswordController.swift; sourceTree = "<group>"; };
+		080868042109A9410033BECE /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermConditionViewController.swift; sourceTree = "<group>"; };
 		0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessTransactionViewController.swift; sourceTree = "<group>"; };
 		0819225020FF8A0600CF2800 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
@@ -104,9 +116,17 @@
 		08192262210081B100CF2800 /* UpdatePassportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassportViewController.swift; sourceTree = "<group>"; };
 		0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWalletAddressViewController.swift; sourceTree = "<group>"; };
 		0819AC8720EC872100B1A3B4 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		082A10C32109BC1D004AB6E8 /* LeftBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarView.swift; sourceTree = "<group>"; };
+		082A10C52109BC2C004AB6E8 /* LeftBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftBarView.xib; sourceTree = "<group>"; };
+		082A10C72109D37C004AB6E8 /* WalletInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInputController.swift; sourceTree = "<group>"; };
+		082A10CA2109D49C004AB6E8 /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
+		082A10CC2109D4FE004AB6E8 /* ParticipateCommonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateCommonController.swift; sourceTree = "<group>"; };
+		082A10CE2109D731004AB6E8 /* TransactionDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailController.swift; sourceTree = "<group>"; };
+		082A10D2210A1A20004AB6E8 /* ParticipateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateHeader.swift; sourceTree = "<group>"; };
+		082A10D4210A1A31004AB6E8 /* ParticipateHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipateHeader.xib; sourceTree = "<group>"; };
 		08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
-		08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		08301D4320E4D62000DEAAAB /* RetrievePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrievePasswordViewController.swift; sourceTree = "<group>"; };
 		08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProjectViewController.swift; sourceTree = "<group>"; };
 		08301D4820E4F55800DEAAAB /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
@@ -204,6 +224,10 @@
 				080867C82106FE430033BECE /* ImageButton.xib */,
 				080867BD2105F2020033BECE /* RoundView.xib */,
 				0819225020FF8A0600CF2800 /* Checkbox.swift */,
+				082A10C32109BC1D004AB6E8 /* LeftBarView.swift */,
+				082A10C52109BC2C004AB6E8 /* LeftBarView.xib */,
+				082A10D2210A1A20004AB6E8 /* ParticipateHeader.swift */,
+				082A10D4210A1A31004AB6E8 /* ParticipateHeader.xib */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -212,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				081922572100295100CF2800 /* PhoneCell.swift */,
+				080868042109A9410033BECE /* ProjectCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -234,6 +259,8 @@
 				0802992020EE28650044C4E5 /* ProjectDetailViewController.swift */,
 				0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */,
 				0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */,
+				082A10C72109D37C004AB6E8 /* WalletInputController.swift */,
+				082A10CE2109D731004AB6E8 /* TransactionDetailController.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -253,7 +280,8 @@
 		0819225E21006BE000CF2800 /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
-				08301D4320E4D62000DEAAAB /* ForgotPasswordViewController.swift */,
+				08301D4320E4D62000DEAAAB /* RetrievePasswordViewController.swift */,
+				080868022109803E0033BECE /* CompleteRetreivePasswordController.swift */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -264,6 +292,15 @@
 				0819225220FF8E8A00CF2800 /* PhoneListViewController.swift */,
 			);
 			path = InviteFriends;
+			sourceTree = "<group>";
+		};
+		082A10C92109D47E004AB6E8 /* CommonViewController */ = {
+			isa = PBXGroup;
+			children = (
+				082A10CA2109D49C004AB6E8 /* CommonViewController.swift */,
+				082A10CC2109D4FE004AB6E8 /* ParticipateCommonController.swift */,
+			);
+			path = CommonViewController;
 			sourceTree = "<group>";
 		};
 		08301D4C20E5E31B00DEAAAB /* Utilities */ = {
@@ -356,6 +393,7 @@
 		08AE3C9D20E37BDA009E4E48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				082A10C92109D47E004AB6E8 /* CommonViewController */,
 				0819225F21006C0B00CF2800 /* InviteFriends */,
 				0819225E21006BE000CF2800 /* ForgotPassword */,
 				0819225D21006BA400CF2800 /* Setting */,
@@ -503,6 +541,8 @@
 				080867F52108878E0033BECE /* DropDownButton.xib in Resources */,
 				08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */,
 				080868012108D7980033BECE /* UploadButton.xib in Resources */,
+				082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */,
+				082A10D5210A1A31004AB6E8 /* ParticipateHeader.xib in Resources */,
 				080867BF2105F2020033BECE /* RoundView.xib in Resources */,
 				08AE3C7520E377D8009E4E48 /* Assets.xcassets in Resources */,
 				08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */,
@@ -613,23 +653,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				08301D9E20EA0CE000DEAAAB /* CitizenshipModel.swift in Sources */,
+				082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */,
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
-				08301D4420E4D62000DEAAAB /* ForgotPasswordViewController.swift in Sources */,
+				08301D4420E4D62000DEAAAB /* RetrievePasswordViewController.swift in Sources */,
+				080868052109A9410033BECE /* ProjectCell.swift in Sources */,
 				0819225320FF8E8A00CF2800 /* PhoneListViewController.swift in Sources */,
 				080868002108D7980033BECE /* UploadButton.swift in Sources */,
 				08192255210026E400CF2800 /* ContactModel.swift in Sources */,
 				0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */,
 				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
 				080867C92106FE430033BECE /* ImageButton.swift in Sources */,
+				082A10CD2109D4FE004AB6E8 /* ParticipateCommonController.swift in Sources */,
 				0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */,
+				082A10D3210A1A20004AB6E8 /* ParticipateHeader.swift in Sources */,
 				0802992B20FEEDB70044C4E5 /* SettingViewController.swift in Sources */,
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
 				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
 				0802992920F2680A0044C4E5 /* ProjectModel.swift in Sources */,
 				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
+				082A10CB2109D49C004AB6E8 /* CommonViewController.swift in Sources */,
 				0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */,
+				082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
 				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
 				0819226121006F1A00CF2800 /* UpdatePersonalInformationViewController.swift in Sources */,
@@ -641,6 +687,8 @@
 				081922582100295100CF2800 /* PhoneCell.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
 				08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */,
+				080868032109803E0033BECE /* CompleteRetreivePasswordController.swift in Sources */,
+				082A10CF2109D731004AB6E8 /* TransactionDetailController.swift in Sources */,
 				0802992120EE28650044C4E5 /* ProjectDetailViewController.swift in Sources */,
 				08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */,
 				0819225A21004FFA00CF2800 /* HistoryTableViewController.swift in Sources */,

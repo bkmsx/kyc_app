@@ -8,12 +8,30 @@
 
 import UIKit
 
-class SuccessTransactionViewController: UIViewController {
+class SuccessTransactionViewController: ParticipateCommonController {
 
+    @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var qrImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         qrImageView.image = generateQRCode(from: "0xasdfadfasfasf")
+    }
+    
+    //MARK: - Custom views
+    @IBOutlet weak var header: ParticipateHeader!
+    override func customViews() {
+        imageButton.delegate = self
+        imageButton.setButtonTitle(title: "SHARE WITH FRIENDS")
+        header.setSelectIndicator(index: 3)
+    }
+    
+    override func imageButtonClick(_ sender: Any) {
+        gotoNext()
+    }
+    
+    //MARK: - Go to next
+    func gotoNext() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     //MARK: - QR code generator

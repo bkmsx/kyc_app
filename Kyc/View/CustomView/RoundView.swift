@@ -26,7 +26,7 @@ class RoundView: UIView {
     }
     
     @IBAction func clickButton(_ sender: Any) {
-        if clickable {
+        if (clickable && delegate != nil) {
             delegate?.clickRoundView()
         }
     }

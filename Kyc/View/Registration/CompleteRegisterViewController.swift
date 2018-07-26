@@ -8,15 +8,36 @@
 
 import UIKit
 
-class CompleteRegisterViewController: UIViewController {
-
+class CompleteRegisterViewController: UIViewController, ImageButtonDelegate {
+    @IBOutlet weak var roundView: RoundView!
+    
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        roundView.setImage(image: #imageLiteral(resourceName: "check"))
+        setupNavigationBar()
+        setupContinueButton()
+    }
+    
+    //MARK: - setup continue button
+    @IBOutlet weak var imageButton: ImageButton!
+    func setupContinueButton() {
+        imageButton.delegate = self
+        imageButton.setButtonTitle(title: "GO TO LOGIN PAGE")
+    }
+    
+    func imageButtonClick(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
     }
 
-    //MARK: - Hide navigation bar
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    //MARK: - Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    //MARK: - Hide back button
+    func setupNavigationBar(){
+        title = "NEW USER REGISTRATION"
+        navigationItem.setHidesBackButton(true, animated: false)
     }
 }

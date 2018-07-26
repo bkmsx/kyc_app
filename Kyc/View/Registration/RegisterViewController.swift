@@ -45,13 +45,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
         refillProfile()
     }
     
-    func setupNavigationBar() {
-        title = "NEW USER REGISTRATION"
-        navigationController?.navigationBar.topItem?.title = ""
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
-                                                                        NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
-    }
+    
     
     func refillProfile() {
         firstNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempFirstName) as? String
@@ -185,6 +179,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     //MARK: - Hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //MARK: - setup navigation bar
+    func setupNavigationBar() {
+        title = "NEW USER REGISTRATION"
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
+                                                                        NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
     }
     
     //MARK: - Hide status bar

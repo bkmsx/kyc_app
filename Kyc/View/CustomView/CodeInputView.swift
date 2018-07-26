@@ -53,7 +53,9 @@ open class CodeInputView: UIView, UIKeyInput {
                 for index in 1..<nextTag {
                     code += (viewWithTag(index)! as! UILabel).text!
                 }
-                delegate?.codeInputView(self, didFinishWithCode: code)
+                if (delegate != nil) {
+                    delegate?.codeInputView(self, didFinishWithCode: code)
+                }
             }
         }
     }

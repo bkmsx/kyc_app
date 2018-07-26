@@ -11,6 +11,7 @@ import UIKit
 class ImageButton: UIView {
     var delegate: ImageButtonDelegate?
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var label: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,9 +27,15 @@ class ImageButton: UIView {
         Bundle.main.loadNibNamed("ImageButton", owner: self, options: nil)
         addSubview(contentView)
     }
+    
+    func setButtonTitle(title: String) {
+        label.text = title
+    }
 
     @IBAction func buttonClick(_ sender: Any) {
-        delegate!.imageButtonClick(sender)
+        if (delegate != nil) {
+           delegate!.imageButtonClick(sender)
+        }
     }
 }
 

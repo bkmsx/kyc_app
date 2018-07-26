@@ -63,6 +63,15 @@ struct SegueIdentifiers {
     static let segueERC20Wallet = "segueERC20Wallet"
 }
 
+struct ViewControllerIdentifiers {
+    static let ListProjectViewController = "ListProjectViewController"
+    static let ProjectDetailViewController = "ProjectDetailViewController"
+    static let AgreeTermConditionViewController = "AgreeTermConditionViewController"
+    static let WalletInputController = "WalletInputController"
+    static let SuccessTransactionViewController = "SuccessTransactionViewController"
+    static let TransactionDetailController = "TransactionDetailController"
+}
+
 struct Colors {
     static let lightBlue = 0xff009cff
     static let easyBlue = 0xaa009cff

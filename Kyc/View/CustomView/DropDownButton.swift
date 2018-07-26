@@ -28,7 +28,8 @@ class DropDownButton: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed("DropDownButton", owner: self, options: nil)
         addSubview(contentView)
-        contentView.setBorderButtom(color: UIColor.init(argb: Colors.easyBlue))
+        contentView.frame = self.bounds
+        contentView.setBorderButtom(color: UIColor.init(argb: Colors.lightGray))
         
         self.dropDown.anchorView = selectButton
         self.dropDown.bottomOffset = CGPoint.init(x: 0, y: selectButton.bounds.height)
