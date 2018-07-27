@@ -11,7 +11,7 @@ import AVFoundation
 import Alamofire
 import DropDown
 
-class UpdatePassportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UpdatePassportViewController: ParticipateCommonController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //MARK: - Properties
     var passportPicker: UIImagePickerController!
     var imagePicker: UIImagePickerController!
@@ -19,32 +19,37 @@ class UpdatePassportViewController: UIViewController, UIImagePickerControllerDel
     var passportImage: UIImage!
     var citizenships = [CitizenshipModel]()
     var countries = [CountryModel]()
-    var citizenshipDropDown = DropDown()
-    var countryDropDown = DropDown()
     var selectedCitizenship: Int = 0
     var selectedCountry: Int = 0
     
     //MARK: - Outlet
-    @IBOutlet weak var citizenshipDropDownButton: UIButton!
-    @IBOutlet weak var countryDropDownButton: UIButton!
     @IBOutlet weak var passportNumberTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var citizenshipDropDown: DropDownButton!
+    @IBOutlet weak var countryDropDown: DropDownButton!
+    @IBOutlet weak var imageButton: ImageButton!
+    @IBOutlet weak var roundView: RoundView!
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
         getCitizenshipList()
     }
     
-    //MARK: - Setup citizenship and country
+    //MARK: - Custom views
+    override func customViews() {
+        imageButton.delegate = self
+        imageButton.setButtonTitle(title: "UPDATE")
+        roundView.setImage(image: #imageLiteral(resourceName: "camera"))
+        passportNumberTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
+    }
     
-    @IBAction func selectCitizenship(_ sender: Any) {
-        citizenshipDropDown.show()
+    override func imageButtonClick(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
-    @IBAction func selectCountry(_ sender: Any) {
-        countryDropDown.show()
-    }
+        
+    
+    //MARK: - Setup citizenship and country
     
     func getCitizenshipList() {
         Alamofire.request(URLConstant.baseURL + URLConstant.citizenshipList, method: .get, parameters: nil)
@@ -60,39 +65,24 @@ class UpdatePassportViewController: UIViewController, UIImagePickerControllerDel
                 }
                 self.setupCitizenshipDropDown(citizenships: self.citizenships)
                 self.setupCountryDropDown(countries: self.countries)
-                self.citizenshipDropDownButton.setTitle(self.citizenships[self.selectedCitizenship].nationality, for: .normal)
-                self.countryDropDownButton.setTitle(self.countries[self.selectedCountry].country, for: .normal)
         }
     }
     
     func setupCountryDropDown(countries: [CountryModel]) {
-        countryDropDown.anchorView = countryDropDownButton
-        countryDropDown.bottomOffset = CGPoint.init(x: 0, y: countryDropDownButton.bounds.height)
-        countryDropDown.selectionAction = { [weak self](index, item) in
-            self?.countryDropDownButton.setTitle(item, for: .normal)
-            self?.selectedCountry = index
-        }
-        
+       
         var countryList = [String]()
         for country in countries {
             countryList.append(country.country)
         }
-        countryDropDown.dataSource = countryList
+        countryDropDown.setDataSource(source: countryList)
     }
     
     func setupCitizenshipDropDown(citizenships: [CitizenshipModel]){
-        citizenshipDropDown.anchorView = citizenshipDropDownButton
-        citizenshipDropDown.bottomOffset = CGPoint.init(x: 0, y: citizenshipDropDownButton.bounds.height)
-        citizenshipDropDown.selectionAction = { [weak self](index, item) in
-            self?.citizenshipDropDownButton.setTitle(item, for: .normal)
-            self?.selectedCitizenship = index
-        }
-        
         var citizenshipList = [String]()
         for citizenship in citizenships {
             citizenshipList.append(citizenship.nationality)
         }
-        citizenshipDropDown.dataSource = citizenshipList
+        citizenshipDropDown.setDataSource(source: citizenshipList)
     }
     
     //MARK: - Pick images

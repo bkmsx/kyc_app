@@ -9,6 +9,7 @@
 import UIKit
 
 class Checkbox: UIButton {
+    var delegate: CheckboxDelegate?
     var isChecked: Bool = false {
         didSet{
             if isChecked == true {
@@ -27,6 +28,13 @@ class Checkbox: UIButton {
     @objc func buttonClicked(sender: UIButton) {
         if sender == self {
             isChecked = !isChecked
+            if (delegate != nil) {
+                delegate?.changeChecked(checkbox: self)
+            }
         }
     }
+}
+
+protocol CheckboxDelegate {
+    func changeChecked(checkbox: Checkbox)
 }

@@ -14,10 +14,10 @@ class ColorLabel: UILabel {
         
     }
     
-    func setTextColor(shortText: String) {
+    func setTextColor(shortText: String, color: UIColor) {
         let result = text!.range(of: shortText)
         let attrString = NSMutableAttributedString.init(attributedString: attributedText!)
-        attrString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white, range: result!.nsRange)
+        attrString.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: result!.nsRange)
        attributedText = attrString
     }
 

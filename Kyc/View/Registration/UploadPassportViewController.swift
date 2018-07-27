@@ -174,7 +174,7 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
         for country in countries {
             countryList.append(country.country)
         }
-        btnSelectCoutry.setDataSoure(source: countryList)
+        btnSelectCoutry.setDataSource(source: countryList)
     }
 
     func setupCitizenshipDropDown(citizenships: [CitizenshipModel]){
@@ -182,7 +182,7 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
         for citizenship in citizenships {
             citizenshipList.append(citizenship.nationality)
         }
-        btnSelectCitizenship.setDataSoure(source: citizenshipList)
+        btnSelectCitizenship.setDataSource(source: citizenshipList)
     }
     
     

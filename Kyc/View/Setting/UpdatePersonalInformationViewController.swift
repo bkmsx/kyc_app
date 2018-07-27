@@ -7,17 +7,25 @@
 //
 
 import UIKit
-import DropDown
-import DLRadioButton
 
 class UpdatePersonalInformationViewController: ParticipateCommonController, UITextFieldDelegate{
     @IBOutlet weak var imageButton: ImageButton!
+    @IBOutlet weak var dropDownButton: DropDownButton!
+    @IBOutlet weak var mobilePhone: UITextField!
     
     
     //MARK: - Custom views
     override func customViews() {
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
+        mobilePhone.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        setupDropdown()
+    }
+    
+    //MARK: - Setup Dropdown
+    func setupDropdown() {
+        dropDownButton.setDataSource(source: ["+65", "+84", "+79"])
+        dropDownButton.setTextMarginLeft(value: 15)
     }
     
     //MARK: - Update

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RadioGroup" customModule="Kyc" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ezo-zu-Msl"/>
+                <outlet property="noRadio" destination="8ph-gU-99E" id="o7Q-yY-gfD"/>
+                <outlet property="yesRadio" destination="gFb-3v-7L4" id="5yg-LU-FHk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFb-3v-7L4" customClass="Checkbox" customModule="Kyc" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="10" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="iVB-bI-JuV"/>
+                        <constraint firstAttribute="width" constant="20" id="sCM-so-SSJ"/>
+                    </constraints>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5L8-oa-rmz">
+                    <rect key="frame" x="30" y="9" width="31" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ph-gU-99E" customClass="Checkbox" customModule="Kyc" customModuleProvider="target">
+                    <rect key="frame" x="91" y="9.5" width="20" height="20"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDI-FF-OpE">
+                    <rect key="frame" x="121" y="9" width="25" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="gFb-3v-7L4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8ax-Rb-mGO"/>
+                <constraint firstItem="gFb-3v-7L4" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="AF4-0g-77N"/>
+                <constraint firstItem="KDI-FF-OpE" firstAttribute="leading" secondItem="8ph-gU-99E" secondAttribute="trailing" constant="10" id="CxI-hV-OMd"/>
+                <constraint firstItem="5L8-oa-rmz" firstAttribute="leading" secondItem="gFb-3v-7L4" secondAttribute="trailing" constant="10" id="D8p-Ju-agN"/>
+                <constraint firstItem="KDI-FF-OpE" firstAttribute="centerY" secondItem="8ph-gU-99E" secondAttribute="centerY" id="Gcc-nR-d4I"/>
+                <constraint firstItem="8ph-gU-99E" firstAttribute="centerY" secondItem="5L8-oa-rmz" secondAttribute="centerY" id="L2g-Tq-tXj"/>
+                <constraint firstItem="8ph-gU-99E" firstAttribute="width" secondItem="gFb-3v-7L4" secondAttribute="width" id="cn8-ZB-Mwx"/>
+                <constraint firstItem="8ph-gU-99E" firstAttribute="leading" secondItem="5L8-oa-rmz" secondAttribute="trailing" constant="30" id="dBE-ts-PNI"/>
+                <constraint firstItem="8ph-gU-99E" firstAttribute="height" secondItem="gFb-3v-7L4" secondAttribute="height" id="mXn-Ng-4rH"/>
+                <constraint firstItem="5L8-oa-rmz" firstAttribute="centerY" secondItem="gFb-3v-7L4" secondAttribute="centerY" id="mnA-bG-6Fw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="364" y="-297"/>
+        </view>
+    </objects>
+</document>

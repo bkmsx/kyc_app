@@ -8,20 +8,31 @@
 
 import UIKit
 
-class HistoryTableViewController: UITableViewController{
+class HistoryTableViewController: ParticipateCommonController, UITableViewDataSource{
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
+        
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    //MARK: - Custom views
+    override func customViews() {
+        setupTableView()
+    }
+    
+    //MARK: - Setup TableView
+    func setupTableView() {
+        tableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
-        return cell;
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryParticipateCell", for: indexPath) as UITableViewCell
+        return cell
+        
     }
 }

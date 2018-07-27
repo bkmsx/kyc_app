@@ -25,9 +25,9 @@ class SuccessTransactionViewController: ParticipateCommonController {
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "SHARE WITH FRIENDS")
         header.setSelectIndicator(index: 3)
-        tokenNumberLabel.setTextColor(shortText: "W Green Pay tokens")
-        tokenNumberLabel.setTextColor(shortText: "10 ETHER")
-        shareLabel.setTextColor(shortText: "GET 10 FREE TOKENS")
+        tokenNumberLabel.setTextColor(shortText: "W Green Pay tokens", color: UIColor.white)
+        tokenNumberLabel.setTextColor(shortText: "10 ETHER", color: UIColor.white)
+        shareLabel.setTextColor(shortText: "GET 10 FREE TOKENS", color: UIColor.white)
     }
     
     override func imageButtonClick(_ sender: Any) {

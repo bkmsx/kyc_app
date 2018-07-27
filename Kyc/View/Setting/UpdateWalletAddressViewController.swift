@@ -9,19 +9,30 @@
 import UIKit
 import QRCodeReader
 
-class UpdateWalletAddressViewController: UIViewController, QRCodeReaderViewControllerDelegate {
+class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeReaderViewControllerDelegate {
     //MARK: - Properties
     
     //MARK: - Outlet
     @IBOutlet weak var currentWalletTextField: UITextField!
     @IBOutlet weak var newWalletTextField: UITextField!
+    @IBOutlet weak var imageButton: ImageButton!
     
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    //MARK: - Custom views
+    override func customViews() {
+        currentWalletTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        newWalletTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        imageButton.delegate = self
+        imageButton.setButtonTitle(title: "UPDATE")
+    }
     
+    override func imageButtonClick(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     //MARK: - Scan wallet
     @IBAction func scanWallet(_ sender: Any) {
         startScan()

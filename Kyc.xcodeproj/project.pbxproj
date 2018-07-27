@@ -64,6 +64,9 @@
 		0874C82F210B166700628D5E /* SettingRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0874C82E210B166700628D5E /* SettingRow.xib */; };
 		0874C831210B16B100628D5E /* SettingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874C830210B16B100628D5E /* SettingRow.swift */; };
 		0874C833210B1E8800628D5E /* InvitationInforController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874C832210B1E8800628D5E /* InvitationInforController.swift */; };
+		0874C835210B5F5600628D5E /* RadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874C834210B5F5600628D5E /* RadioGroup.swift */; };
+		0874C837210B5F6800628D5E /* RadioGroup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0874C836210B5F6800628D5E /* RadioGroup.xib */; };
+		0874C83B210B879900628D5E /* HistoryParticipateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874C83A210B879900628D5E /* HistoryParticipateCell.swift */; };
 		08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */; };
 		08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */; };
 		08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7120E377D4009E4E48 /* Main.storyboard */; };
@@ -152,6 +155,9 @@
 		0874C82E210B166700628D5E /* SettingRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingRow.xib; sourceTree = "<group>"; };
 		0874C830210B16B100628D5E /* SettingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRow.swift; sourceTree = "<group>"; };
 		0874C832210B1E8800628D5E /* InvitationInforController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationInforController.swift; sourceTree = "<group>"; };
+		0874C834210B5F5600628D5E /* RadioGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioGroup.swift; sourceTree = "<group>"; };
+		0874C836210B5F6800628D5E /* RadioGroup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioGroup.xib; sourceTree = "<group>"; };
+		0874C83A210B879900628D5E /* HistoryParticipateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryParticipateCell.swift; sourceTree = "<group>"; };
 		08AE3C6A20E377D4009E4E48 /* Kyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +241,7 @@
 				080867C72106FE430033BECE /* ImageButton.swift */,
 				080867C82106FE430033BECE /* ImageButton.xib */,
 				080867BD2105F2020033BECE /* RoundView.xib */,
+				0874C836210B5F6800628D5E /* RadioGroup.xib */,
 				0819225020FF8A0600CF2800 /* Checkbox.swift */,
 				082A10C32109BC1D004AB6E8 /* LeftBarView.swift */,
 				082A10C52109BC2C004AB6E8 /* LeftBarView.xib */,
@@ -245,6 +252,7 @@
 				0874C82C210AF81E00628D5E /* ColorLabel.swift */,
 				0874C82E210B166700628D5E /* SettingRow.xib */,
 				0874C830210B16B100628D5E /* SettingRow.swift */,
+				0874C834210B5F5600628D5E /* RadioGroup.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 			children = (
 				081922572100295100CF2800 /* PhoneCell.swift */,
 				080868042109A9410033BECE /* ProjectCell.swift */,
+				0874C83A210B879900628D5E /* HistoryParticipateCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -567,6 +576,7 @@
 				08AE3C7520E377D8009E4E48 /* Assets.xcassets in Resources */,
 				08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */,
 				080867CA2106FE430033BECE /* ImageButton.xib in Resources */,
+				0874C837210B5F6800628D5E /* RadioGroup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,10 +723,12 @@
 				08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */,
 				080868032109803E0033BECE /* CompleteRetreivePasswordController.swift in Sources */,
 				082A10CF2109D731004AB6E8 /* TransactionDetailController.swift in Sources */,
+				0874C83B210B879900628D5E /* HistoryParticipateCell.swift in Sources */,
 				0802992120EE28650044C4E5 /* ProjectDetailViewController.swift in Sources */,
 				08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */,
 				0819225A21004FFA00CF2800 /* HistoryTableViewController.swift in Sources */,
 				0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */,
+				0874C835210B5F5600628D5E /* RadioGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

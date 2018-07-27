@@ -39,7 +39,7 @@ class DropDownButton: UIView {
         }
     }
     
-    func setDataSoure(source: [String]) {
+    func setDataSource(source: [String]) {
         self.dropDown.dataSource = source
         setSelection(item: source[0])
     }
@@ -53,6 +53,10 @@ class DropDownButton: UIView {
     
     @IBAction func clickSelect(_ sender: Any) {
         self.dropDown.show()
+    }
+    
+    func setTextMarginLeft(value: CGFloat) {
+        selectButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: value, bottom: 0, right: 0)
     }
 }
 
