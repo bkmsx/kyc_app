@@ -12,6 +12,8 @@ class SuccessTransactionViewController: ParticipateCommonController {
 
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var qrImageView: UIImageView!
+    @IBOutlet weak var tokenNumberLabel: ColorLabel!
+    @IBOutlet weak var shareLabel: ColorLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         qrImageView.image = generateQRCode(from: "0xasdfadfasfasf")
@@ -23,6 +25,9 @@ class SuccessTransactionViewController: ParticipateCommonController {
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "SHARE WITH FRIENDS")
         header.setSelectIndicator(index: 3)
+        tokenNumberLabel.setTextColor(shortText: "W Green Pay tokens")
+        tokenNumberLabel.setTextColor(shortText: "10 ETHER")
+        shareLabel.setTextColor(shortText: "GET 10 FREE TOKENS")
     }
     
     override func imageButtonClick(_ sender: Any) {

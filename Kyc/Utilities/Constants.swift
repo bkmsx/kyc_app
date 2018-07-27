@@ -70,6 +70,12 @@ struct ViewControllerIdentifiers {
     static let WalletInputController = "WalletInputController"
     static let SuccessTransactionViewController = "SuccessTransactionViewController"
     static let TransactionDetailController = "TransactionDetailController"
+    static let UpdatePersonalInformationViewController = "UpdatePersonalInformationViewController"
+    static let UpdatePassportViewController = "UpdatePassportViewController"
+    static let UpdateWalletAddressViewController = "UpdateWalletAddressViewController"
+    static let HistoryTableViewController = "HistoryTableViewController"
+    static let PhoneListViewController = "PhoneListViewController"
+    static let InvitationInforController = "InvitationInforController"
 }
 
 struct Colors {

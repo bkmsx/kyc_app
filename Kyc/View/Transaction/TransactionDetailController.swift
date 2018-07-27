@@ -11,6 +11,7 @@ import UIKit
 class TransactionDetailController: ParticipateCommonController {
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
+    @IBOutlet weak var tokenNumber: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,9 @@ class TransactionDetailController: ParticipateCommonController {
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "SUBMIT")
         header.setSelectIndicator(index: 2)
+        tokenNumber.layer.cornerRadius = tokenNumber.frame.size.height / 2
+        tokenNumber.layer.borderWidth = 1
+        tokenNumber.layer.borderColor = UIColor.init(argb: Colors.lightBlue).cgColor
     }
     
     override func imageButtonClick(_ sender: Any) {

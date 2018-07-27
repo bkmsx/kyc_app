@@ -12,6 +12,8 @@ class WalletInputController: ParticipateCommonController {
 
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
+    @IBOutlet weak var roundView: RoundView!
+    @IBOutlet weak var walletAddress: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,9 @@ class WalletInputController: ParticipateCommonController {
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "NEXT")
         header.setSelectIndicator(index: 1)
+        roundView.setImage(image: #imageLiteral(resourceName: "check"))
+        walletAddress.layer.cornerRadius = walletAddress.frame.size.height / 2
+        walletAddress.clipsToBounds = true
     }
     
     override func imageButtonClick(_ sender: Any) {

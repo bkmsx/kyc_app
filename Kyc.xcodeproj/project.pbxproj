@@ -42,6 +42,7 @@
 		082A10CF2109D731004AB6E8 /* TransactionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10CE2109D731004AB6E8 /* TransactionDetailController.swift */; };
 		082A10D3210A1A20004AB6E8 /* ParticipateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10D2210A1A20004AB6E8 /* ParticipateHeader.swift */; };
 		082A10D5210A1A31004AB6E8 /* ParticipateHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10D4210A1A31004AB6E8 /* ParticipateHeader.xib */; };
+		082A10D7210AF26D004AB6E8 /* CopyLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10D6210AF26D004AB6E8 /* CopyLabel.xib */; };
 		08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */; };
 		08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */; };
 		08301D4420E4D62000DEAAAB /* RetrievePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4320E4D62000DEAAAB /* RetrievePasswordViewController.swift */; };
@@ -58,6 +59,11 @@
 		08301D5C20E6408600DEAAAB /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */; };
 		08301D9E20EA0CE000DEAAAB /* CitizenshipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D9D20EA0CE000DEAAAB /* CitizenshipModel.swift */; };
 		08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301DA320EA34B300DEAAAB /* UserModel.swift */; };
+		0874C82B210AF58900628D5E /* CopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874C82A210AF58900628D5E /* CopyLabel.swift */; };
+		0874C82D210AF81E00628D5E /* ColorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874C82C210AF81E00628D5E /* ColorLabel.swift */; };
+		0874C82F210B166700628D5E /* SettingRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0874C82E210B166700628D5E /* SettingRow.xib */; };
+		0874C831210B16B100628D5E /* SettingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874C830210B16B100628D5E /* SettingRow.swift */; };
+		0874C833210B1E8800628D5E /* InvitationInforController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0874C832210B1E8800628D5E /* InvitationInforController.swift */; };
 		08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */; };
 		08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */; };
 		08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7120E377D4009E4E48 /* Main.storyboard */; };
@@ -124,6 +130,7 @@
 		082A10CE2109D731004AB6E8 /* TransactionDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailController.swift; sourceTree = "<group>"; };
 		082A10D2210A1A20004AB6E8 /* ParticipateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateHeader.swift; sourceTree = "<group>"; };
 		082A10D4210A1A31004AB6E8 /* ParticipateHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipateHeader.xib; sourceTree = "<group>"; };
+		082A10D6210AF26D004AB6E8 /* CopyLabel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyLabel.xib; sourceTree = "<group>"; };
 		08301D3F20E4ACC700DEAAAB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		08301D4120E4CD8F00DEAAAB /* CompleteRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegisterViewController.swift; sourceTree = "<group>"; };
 		08301D4320E4D62000DEAAAB /* RetrievePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrievePasswordViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +147,11 @@
 		08301D5B20E6408600DEAAAB /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		08301D9D20EA0CE000DEAAAB /* CitizenshipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitizenshipModel.swift; sourceTree = "<group>"; };
 		08301DA320EA34B300DEAAAB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		0874C82A210AF58900628D5E /* CopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabel.swift; sourceTree = "<group>"; };
+		0874C82C210AF81E00628D5E /* ColorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLabel.swift; sourceTree = "<group>"; };
+		0874C82E210B166700628D5E /* SettingRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingRow.xib; sourceTree = "<group>"; };
+		0874C830210B16B100628D5E /* SettingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRow.swift; sourceTree = "<group>"; };
+		0874C832210B1E8800628D5E /* InvitationInforController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationInforController.swift; sourceTree = "<group>"; };
 		08AE3C6A20E377D4009E4E48 /* Kyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C6D20E377D4009E4E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08AE3C6F20E377D4009E4E48 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +240,11 @@
 				082A10C52109BC2C004AB6E8 /* LeftBarView.xib */,
 				082A10D2210A1A20004AB6E8 /* ParticipateHeader.swift */,
 				082A10D4210A1A31004AB6E8 /* ParticipateHeader.xib */,
+				082A10D6210AF26D004AB6E8 /* CopyLabel.xib */,
+				0874C82A210AF58900628D5E /* CopyLabel.swift */,
+				0874C82C210AF81E00628D5E /* ColorLabel.swift */,
+				0874C82E210B166700628D5E /* SettingRow.xib */,
+				0874C830210B16B100628D5E /* SettingRow.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -290,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				0819225220FF8E8A00CF2800 /* PhoneListViewController.swift */,
+				0874C832210B1E8800628D5E /* InvitationInforController.swift */,
 			);
 			path = InviteFriends;
 			sourceTree = "<group>";
@@ -539,7 +557,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				080867F52108878E0033BECE /* DropDownButton.xib in Resources */,
+				0874C82F210B166700628D5E /* SettingRow.xib in Resources */,
 				08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */,
+				082A10D7210AF26D004AB6E8 /* CopyLabel.xib in Resources */,
 				080868012108D7980033BECE /* UploadButton.xib in Resources */,
 				082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */,
 				082A10D5210A1A31004AB6E8 /* ParticipateHeader.xib in Resources */,
@@ -657,14 +677,17 @@
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* RetrievePasswordViewController.swift in Sources */,
 				080868052109A9410033BECE /* ProjectCell.swift in Sources */,
+				0874C831210B16B100628D5E /* SettingRow.swift in Sources */,
 				0819225320FF8E8A00CF2800 /* PhoneListViewController.swift in Sources */,
 				080868002108D7980033BECE /* UploadButton.swift in Sources */,
 				08192255210026E400CF2800 /* ContactModel.swift in Sources */,
 				0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */,
+				0874C82D210AF81E00628D5E /* ColorLabel.swift in Sources */,
 				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
 				080867C92106FE430033BECE /* ImageButton.swift in Sources */,
 				082A10CD2109D4FE004AB6E8 /* ParticipateCommonController.swift in Sources */,
 				0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */,
+				0874C82B210AF58900628D5E /* CopyLabel.swift in Sources */,
 				082A10D3210A1A20004AB6E8 /* ParticipateHeader.swift in Sources */,
 				0802992B20FEEDB70044C4E5 /* SettingViewController.swift in Sources */,
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
@@ -673,6 +696,7 @@
 				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
 				082A10CB2109D49C004AB6E8 /* CommonViewController.swift in Sources */,
 				0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */,
+				0874C833210B1E8800628D5E /* InvitationInforController.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */,
 				082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */,

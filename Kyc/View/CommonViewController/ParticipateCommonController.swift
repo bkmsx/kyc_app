@@ -12,7 +12,7 @@ class ParticipateCommonController: CommonViewController, ImageButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupNavigationBar()
     }
 
     //MARK: - setup navigation bar

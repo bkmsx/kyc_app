@@ -12,15 +12,11 @@ import LocalAuthentication
 
 class AgreeTermConditionViewController: ParticipateCommonController{
 
-    @IBOutlet weak var acceptTerm: DLRadioButton!
-    @IBOutlet weak var notUSCitizen: DLRadioButton!
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        acceptTerm.isMultipleSelectionEnabled = true;
-        setupNavigationBar()
         customViews()
     }
     
@@ -37,11 +33,11 @@ class AgreeTermConditionViewController: ParticipateCommonController{
     
     //MARK: - Touch Id
     func checkSelectedTermCondition() {
-        if (acceptTerm.isSelected && notUSCitizen.isSelected) {
-            self.authenticateUserUsingTouchId()
-        } else {
-            showMessage(message: "Please select checkboxes to agree with terms and condition")
-        }
+//        if (acceptTerm.isSelected && notUSCitizen.isSelected) {
+//            self.authenticateUserUsingTouchId()
+//        } else {
+//            showMessage(message: "Please select checkboxes to agree with terms and condition")
+//        }
     }
     fileprivate func authenticateUserUsingTouchId() {
         let context = LAContext()

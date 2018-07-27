@@ -105,7 +105,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     //MARK: - Go to List Project
     func gotoListProject() {
         //FIXME: Change viewcontroller
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.AgreeTermConditionViewController)
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ListProjectViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     
