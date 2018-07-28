@@ -9,15 +9,23 @@
 import UIKit
 import Contacts
 
-class PhoneListViewController: UIViewController, UITableViewDataSource {
+class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate {
     //MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var phoneLabel: UILabel!
     var contacts: [ContactModel] = []
+    var selectedCotacts: [ContactModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         getContacts()
+    }
+    
+    //MARK: - Custom views
+    override func customViews() {
+        phoneLabel.layer.cornerRadius = phoneLabel.frame.size.height / 2
+        phoneLabel.clipsToBounds = true
     }
 
     //MARK: - TableView DataSource
@@ -27,8 +35,29 @@ class PhoneListViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell", for: indexPath) as! PhoneCell
-        cell.contactLabel.text = contacts[indexPath.row].contactName
+        cell.contact = contacts[indexPath.row]
+        cell.delegate = self
         return cell
+    }
+    
+    //MARK: - TableView Delegate
+    func changeChecked(contact: ContactModel, isChecked: Bool) {
+        if (isChecked) {
+            selectedCotacts.append(contact)
+        } else {
+            for index in 0...(selectedCotacts.count - 1) {
+                if (contact.contactName == selectedCotacts[index].contactName) {
+                    selectedCotacts.remove(at: index)
+                    break
+                }
+            }
+        }
+        phoneLabel.text = String(selectedCotacts.count)
+    }
+    
+    //MARK: - Send invitations
+    @IBAction func sendInvitations(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Contacts
