@@ -15,5 +15,8 @@ class InvitationInforController: ParticipateCommonController {
 
     }
 
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
     
 }

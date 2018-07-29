@@ -51,6 +51,12 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         UserModel.removeFromLocal()
         navigationController?.popToRootViewController(animated: true)
     }
+    
+    //MARK: - Setup Navigation Bar
+    @IBAction func backToProjectList(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     //MARK: - Share with friends
     @IBAction func shareWithFriends(_ sender: Any) {
         gotoInvitation()

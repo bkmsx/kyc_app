@@ -11,7 +11,7 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButtonDelegate{
+class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     
     //MARK: - Properties
     let countryCodeDropDown = DropDown()
@@ -36,9 +36,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         setupDropDown()
-        customView()
         noRadio.isSelected = true
         emailTextField.delegate = self
         continueImageButton.delegate = self
@@ -60,7 +58,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     }
     
     //MARK: - Custom views
-    func customView() {
+    override func customViews() {
         firstNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         lastNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         dateBirthTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
@@ -69,6 +67,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
         confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         erc20AddressTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+    }
+    
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
     
     //MARK: - Setup DropDown
@@ -88,7 +90,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     }
     
     //MARK: - Validate data
-    func imageButtonClick(_ sender: Any) {
+    override func imageButtonClick(_ sender: Any) {
         //FIXME: uncomment validateData
         //        validateData()
                 gotoVerifyOTP()
@@ -179,19 +181,5 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, ImageButton
     //MARK: - Hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    //MARK: - setup navigation bar
-    func setupNavigationBar() {
-        title = "NEW USER REGISTRATION"
-        navigationController?.navigationBar.topItem?.title = ""
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
-                                                                        NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
-    }
-    
-    //MARK: - Hide status bar
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 }

@@ -16,6 +16,7 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
     @IBOutlet weak var currentWalletTextField: UITextField!
     @IBOutlet weak var newWalletTextField: UITextField!
     @IBOutlet weak var imageButton: ImageButton!
+    @IBOutlet weak var scanButton: UploadButton!
     
     //MARK: - Initialization
     override func viewDidLoad() {
@@ -28,10 +29,16 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
         newWalletTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "UPDATE")
+        scanButton.setButtonIcon(image: #imageLiteral(resourceName: "blue_scan"))
+        scanButton.setButtonTitle(title: "SCAN")
+    }
+    
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
     
     override func imageButtonClick(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        goBack()
     }
     //MARK: - Scan wallet
     @IBAction func scanWallet(_ sender: Any) {
@@ -101,19 +108,20 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
     
     //MARK: - Update Wallet
     @IBAction func updateWallet(_ sender: Any) {
-        if (currentWalletTextField.text == "") {
-            showMessage(message: "Please input current wallet")
-            return
-        }
-        if (newWalletTextField.text == "") {
-            showMessage(message: "Please input new wallet")
-            return
-        }
-        if (currentWalletTextField.text == newWalletTextField.text) {
-            showMessage(message: "New wallet must be different to the current wallet")
-            return
-        }
-        self.navigationController?.popViewController(animated: true)
+        //FIXME: Remove comments
+//        if (currentWalletTextField.text == "") {
+//            showMessage(message: "Please input current wallet")
+//            return
+//        }
+//        if (newWalletTextField.text == "") {
+//            showMessage(message: "Please input new wallet")
+//            return
+//        }
+//        if (currentWalletTextField.text == newWalletTextField.text) {
+//            showMessage(message: "New wallet must be different to the current wallet")
+//            return
+//        }
+        
     }
     
     //MARK: - Dialog

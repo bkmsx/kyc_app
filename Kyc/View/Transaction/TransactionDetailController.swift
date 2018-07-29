@@ -27,6 +27,9 @@ class TransactionDetailController: ParticipateCommonController {
         tokenNumber.layer.borderWidth = 1
         tokenNumber.layer.borderColor = UIColor.init(argb: Colors.lightBlue).cgColor
     }
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
     
     override func imageButtonClick(_ sender: Any) {
         gotoNext()

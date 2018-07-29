@@ -28,6 +28,9 @@ class WalletInputController: ParticipateCommonController {
         walletAddress.layer.cornerRadius = walletAddress.frame.size.height / 2
         walletAddress.clipsToBounds = true
     }
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
     
     override func imageButtonClick(_ sender: Any) {
         gotoNext()

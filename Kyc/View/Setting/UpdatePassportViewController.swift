@@ -44,13 +44,15 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         passportNumberTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
     }
     
-    override func imageButtonClick(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
-        
+    
+    override func imageButtonClick(_ sender: Any) {
+        goBack()
+    }
     
     //MARK: - Setup citizenship and country
-    
     func getCitizenshipList() {
         Alamofire.request(URLConstant.baseURL + URLConstant.citizenshipList, method: .get, parameters: nil)
             .responseJSON { response in

@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ListProjectViewController: UIViewController, UITableViewDataSource {
+class ListProjectViewController: ParticipateCommonController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,7 +17,6 @@ class ListProjectViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        setupNavigationBar()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,23 +29,4 @@ class ListProjectViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.hidesBackButton = true;
-    }
-    
-    //MARK: - setup navigation bar
-    func setupNavigationBar() {
-       
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
-                                                                        NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
-        let barView = LeftBarView.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 15))
-        let button = UIBarButtonItem.init(customView: barView)
-        navigationItem.leftBarButtonItem = button
-    }
-    
-    //MARK: - Hide status bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
 }

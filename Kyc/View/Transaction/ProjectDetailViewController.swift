@@ -8,35 +8,24 @@
 
 import UIKit
 
-class ProjectDetailViewController: UIViewController {
+class ProjectDetailViewController: ParticipateCommonController {
 
     @IBOutlet weak var companyLogo: UIView!
     @IBOutlet weak var participateButton: UIButton!
     @IBOutlet weak var inviteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
-        customViews()
     }
     
     //MARK: - Custom views
-    func customViews() {
+    override func customViews() {
         companyLogo.layer.cornerRadius = 10
         participateButton.layer.cornerRadius = participateButton.frame.size.height / 2
         inviteButton.layer.cornerRadius = inviteButton.frame.size.height / 2
     }
     
-    //MARK: - setup navigation bar
-    func setupNavigationBar() {
-        
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
-                                                                        NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
-        
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
     
-    //MARK: - Hide status bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
 }

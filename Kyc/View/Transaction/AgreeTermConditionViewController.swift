@@ -26,6 +26,11 @@ class AgreeTermConditionViewController: ParticipateCommonController{
         imageButton.delegate = self
     }
     
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+    
+    
     override func imageButtonClick(_ sender: Any) {
         //FIXME: check selected
         gotoNext()

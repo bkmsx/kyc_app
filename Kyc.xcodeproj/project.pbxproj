@@ -23,6 +23,10 @@
 		080868012108D7980033BECE /* UploadButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080867FF2108D7980033BECE /* UploadButton.xib */; };
 		080868032109803E0033BECE /* CompleteRetreivePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080868022109803E0033BECE /* CompleteRetreivePasswordController.swift */; };
 		080868052109A9410033BECE /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080868042109A9410033BECE /* ProjectCell.swift */; };
+		0817C4EE210CDBC4001DC87B /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817C4ED210CDBC4001DC87B /* Modal.swift */; };
+		0817C4F0210CE3FB001DC87B /* CustomAlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817C4EF210CE3FB001DC87B /* CustomAlertDialog.swift */; };
+		0817C4F4210D8161001DC87B /* DialogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0817C4F3210D8161001DC87B /* DialogView.xib */; };
+		0817C4F6210D8174001DC87B /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817C4F5210D8174001DC87B /* DialogView.swift */; };
 		0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */; };
 		0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */; };
 		0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819225020FF8A0600CF2800 /* Checkbox.swift */; };
@@ -114,6 +118,10 @@
 		080867FF2108D7980033BECE /* UploadButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadButton.xib; path = ../../../../../TestCustomView/TestCustomView/UploadButton.xib; sourceTree = "<group>"; };
 		080868022109803E0033BECE /* CompleteRetreivePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRetreivePasswordController.swift; sourceTree = "<group>"; };
 		080868042109A9410033BECE /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		0817C4ED210CDBC4001DC87B /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		0817C4EF210CE3FB001DC87B /* CustomAlertDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertDialog.swift; sourceTree = "<group>"; };
+		0817C4F3210D8161001DC87B /* DialogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogView.xib; sourceTree = "<group>"; };
+		0817C4F5210D8174001DC87B /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		0819224B20FF1C0300CF2800 /* AgreeTermConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermConditionViewController.swift; sourceTree = "<group>"; };
 		0819224D20FF26AA00CF2800 /* SuccessTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessTransactionViewController.swift; sourceTree = "<group>"; };
 		0819225020FF8A0600CF2800 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
@@ -232,6 +240,7 @@
 		0819224F20FF89E500CF2800 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				0817C4ED210CDBC4001DC87B /* Modal.swift */,
 				080867FE2108D7980033BECE /* UploadButton.swift */,
 				080867FF2108D7980033BECE /* UploadButton.xib */,
 				080867F22108878D0033BECE /* DropDownButton.swift */,
@@ -253,6 +262,9 @@
 				0874C82E210B166700628D5E /* SettingRow.xib */,
 				0874C830210B16B100628D5E /* SettingRow.swift */,
 				0874C834210B5F5600628D5E /* RadioGroup.swift */,
+				0817C4EF210CE3FB001DC87B /* CustomAlertDialog.swift */,
+				0817C4F3210D8161001DC87B /* DialogView.xib */,
+				0817C4F5210D8174001DC87B /* DialogView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -566,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				080867F52108878E0033BECE /* DropDownButton.xib in Resources */,
+				0817C4F4210D8161001DC87B /* DialogView.xib in Resources */,
 				0874C82F210B166700628D5E /* SettingRow.xib in Resources */,
 				08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */,
 				082A10D7210AF26D004AB6E8 /* CopyLabel.xib in Resources */,
@@ -684,6 +697,7 @@
 			files = (
 				08301D9E20EA0CE000DEAAAB /* CitizenshipModel.swift in Sources */,
 				082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */,
+				0817C4F6210D8174001DC87B /* DialogView.swift in Sources */,
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* RetrievePasswordViewController.swift in Sources */,
 				080868052109A9410033BECE /* ProjectCell.swift in Sources */,
@@ -701,8 +715,10 @@
 				082A10D3210A1A20004AB6E8 /* ParticipateHeader.swift in Sources */,
 				0802992B20FEEDB70044C4E5 /* SettingViewController.swift in Sources */,
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
+				0817C4EE210CDBC4001DC87B /* Modal.swift in Sources */,
 				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
 				0802992920F2680A0044C4E5 /* ProjectModel.swift in Sources */,
+				0817C4F0210CE3FB001DC87B /* CustomAlertDialog.swift in Sources */,
 				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
 				082A10CB2109D49C004AB6E8 /* CommonViewController.swift in Sources */,
 				0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */,

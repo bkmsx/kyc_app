@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RetrievePasswordViewController: UIViewController, ImageButtonDelegate {
+class RetrievePasswordViewController: ParticipateCommonController{
 
     
     @IBOutlet weak var mailTextField: UITextField!
@@ -21,26 +21,15 @@ class RetrievePasswordViewController: UIViewController, ImageButtonDelegate {
         mailTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
         roundView.setImage(image: #imageLiteral(resourceName: "email"))
         continueButton.setButtonTitle(title: "RETRIEVE PASSWORD")
-        setupNavigationBar()
     }
     
-    //MARK: - setup navigation bar
-    func setupNavigationBar() {
-        title = "FORGOT PASSWORD"
-        navigationController?.navigationBar.topItem?.title = ""
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white,
-                                                                        NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)]
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
-
+    
     //MARK: - setup continue button
-    func imageButtonClick(_ sender: Any) {
+    override func imageButtonClick(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "CompleteRetreivePasswordController")
         navigationController?.pushViewController(vc!, animated: true)
-    }
-    
-    //MARK: - Hide status bar
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 }

@@ -11,7 +11,7 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class UploadPassportViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, ImageButtonDelegate, RoundViewDelegate {
+class UploadPassportViewController: ParticipateCommonController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, RoundViewDelegate {
     //MARK: - Properties
     var imagePicker, passportPicker: UIImagePickerController!
     var selectedCitizenship: Int = 0
@@ -39,7 +39,6 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
         passportTextField.delegate = self
         submitImageButton.delegate = self
         passportTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
-        setupNavigationBar()
         setupCameraButton()
     }
     
@@ -55,7 +54,7 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
     }
     
     //MARK: - Upload Passport
-    func imageButtonClick(_ sender: Any) {
+    override func imageButtonClick(_ sender: Any) {
         gotoRegistrationCompletion()
         //FIXME: submit here
     }
@@ -185,13 +184,6 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
         btnSelectCitizenship.setDataSource(source: citizenshipList)
     }
     
-    
-    //MARK: - Hide back button
-    func setupNavigationBar(){
-        title = "NEW USER REGISTRATION"
-        navigationItem.setHidesBackButton(true, animated: false)
-    }
-    
     //MARK: - Dialog
     func showMessage(title: String, message: String) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
@@ -204,8 +196,4 @@ class UploadPassportViewController: UIViewController, UINavigationControllerDele
         self.view.endEditing(true)
     }
     
-    //MARK: - Hide status bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
 }

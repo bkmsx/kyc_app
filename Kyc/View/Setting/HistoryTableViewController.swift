@@ -20,6 +20,9 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
     override func customViews() {
         setupTableView()
     }
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
     
     //MARK: - Setup TableView
     func setupTableView() {

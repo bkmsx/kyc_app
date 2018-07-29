@@ -23,4 +23,13 @@ class CommonViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    //MARK: - Navigate back
+    func goBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func goBackRootView() {
+        navigationController?.popToRootViewController(animated: true)
+    }
 }

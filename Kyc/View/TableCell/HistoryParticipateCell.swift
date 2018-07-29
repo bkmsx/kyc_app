@@ -17,10 +17,13 @@ class HistoryParticipateCell: UITableViewCell {
     @IBOutlet weak var ethPaid: ColorLabel!
     @IBOutlet weak var usdPaid: ColorLabel!
     @IBOutlet weak var discountLabel: ColorLabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         companyLogo.layer.cornerRadius = 10
+        backgroundImage.layer.cornerRadius = 10
+        backgroundImage.clipsToBounds = true
         participateButton.layer.cornerRadius = participateButton.frame.size.height / 2
         shareButton.layer.cornerRadius = shareButton.frame.size.height / 2
         
@@ -36,4 +39,9 @@ class HistoryParticipateCell: UITableViewCell {
         statusLabel.clipsToBounds = true
     }
 
+    @IBAction func clickDelete(_ sender: Any) {
+        let dialog = CustomAlertDialog()
+        dialog.show(animated: true)
+    }
+    
 }

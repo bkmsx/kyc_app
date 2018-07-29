@@ -12,16 +12,32 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var dropDownButton: DropDownButton!
     @IBOutlet weak var mobilePhone: UITextField!
-    
+    @IBOutlet weak var dateBirthTextField: UITextField!
+    @IBOutlet weak var currentPasswordTextField: UITextField!
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var confirmedPasswordTextField: UITextField!
     
     //MARK: - Custom views
     override func customViews() {
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
-        mobilePhone.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        setupTextField()
         setupDropdown()
     }
+    //MARK: - Setup Navigation Bar
     
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+
+    //MARK: - Setup TextField
+    func setupTextField() {
+        mobilePhone.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        dateBirthTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        currentPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        newPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+    }
     //MARK: - Setup Dropdown
     func setupDropdown() {
         dropDownButton.setDataSource(source: ["+65", "+84", "+79"])
@@ -41,7 +57,7 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
 //            }
 //        }
         //FIXME: Update here
-        self.navigationController?.popViewController(animated: true)
+        goBack()
     }
     
    

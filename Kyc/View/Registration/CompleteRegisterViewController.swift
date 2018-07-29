@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CompleteRegisterViewController: UIViewController, ImageButtonDelegate {
+class CompleteRegisterViewController: ParticipateCommonController{
     @IBOutlet weak var roundView: RoundView!
     
     //MARK: - Initialization
@@ -26,18 +26,7 @@ class CompleteRegisterViewController: UIViewController, ImageButtonDelegate {
         imageButton.setButtonTitle(title: "GO TO LOGIN PAGE")
     }
     
-    func imageButtonClick(_ sender: Any) {
+    override func imageButtonClick(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
-    }
-
-    //MARK: - Hide status bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    //MARK: - Hide back button
-    func setupNavigationBar(){
-        title = "NEW USER REGISTRATION"
-        navigationItem.setHidesBackButton(true, animated: false)
     }
 }

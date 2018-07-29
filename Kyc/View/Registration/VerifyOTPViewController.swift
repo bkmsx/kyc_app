@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class VerifyOTPViewController: UIViewController, UITextFieldDelegate, ImageButtonDelegate, CodeInputViewDelegate {
+class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,  CodeInputViewDelegate {
     //MARK: - Properties
     var code = ""
     //MARK: - Outlet
@@ -20,20 +20,12 @@ class VerifyOTPViewController: UIViewController, UITextFieldDelegate, ImageButto
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         continueImageButton.delegate = self
-        setupNavigationBar()
         setupOTPInput()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "NEW USER REGISTRATION"
-    }
- 
-    func setupNavigationBar() {
-        title = "NEW USER REGISTRATION"
-        navigationController?.navigationBar.topItem?.title = ""
-        self.navigationController?.navigationBar.backgroundColor = UIColor.black
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
     
     //MARK: - Setup OTP input
@@ -52,7 +44,7 @@ class VerifyOTPViewController: UIViewController, UITextFieldDelegate, ImageButto
         self.code = code
     }
     
-    func imageButtonClick(_ sender: Any) {
+    override func imageButtonClick(_ sender: Any) {
         //FIXME: uncomment verify
 //        verifyOTP()
         gotoUploadPassport()
@@ -147,9 +139,5 @@ class VerifyOTPViewController: UIViewController, UITextFieldDelegate, ImageButto
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    //MARK: - Hide status bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+
 }

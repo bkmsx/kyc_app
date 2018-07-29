@@ -27,7 +27,10 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
         phoneLabel.layer.cornerRadius = phoneLabel.frame.size.height / 2
         phoneLabel.clipsToBounds = true
     }
-
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+    
     //MARK: - TableView DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
