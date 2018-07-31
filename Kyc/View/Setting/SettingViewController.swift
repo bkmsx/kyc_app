@@ -17,6 +17,8 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     @IBOutlet weak var participateHistory: SettingRow!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +46,20 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         
         shareButton.layer.cornerRadius = shareButton.frame.size.height / 2
         logoutButton.layer.cornerRadius = logoutButton.frame.size.height / 2
+        
+        let firstName = UserDefaults.standard.string(forKey: UserProfiles.firstName)!
+        let lastName = UserDefaults.standard.string(forKey: UserProfiles.lastName)!
+        userName.text = "\(firstName.uppercased()) \(lastName.uppercased())"
+        userEmail.text = UserDefaults.standard.string(forKey: UserProfiles.email)!
+        let userAvatar = UserDefaults.standard.string(forKey: UserProfiles.selfiePhoto)!
+        roundView.loadImage(link: userAvatar)
     }
     
     //MARK: - Logout
     @IBAction func logout(_ sender: Any) {
         UserModel.removeFromLocal()
-        navigationController?.popToRootViewController(animated: true)
+        let nav = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.LoginNavigationController)
+        navigationController?.present(nav!, animated: true, completion: nil)
     }
     
     //MARK: - Setup Navigation Bar

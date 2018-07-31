@@ -14,6 +14,13 @@ class ProjectCell: UITableViewCell {
     @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var companyLogo: UIView!
     @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var addedDate: UILabel!
+    @IBOutlet weak var shortDescription: UITextView!
+    var projectId: Int?
+    var delegate: ProjectCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,10 +36,13 @@ class ProjectCell: UITableViewCell {
         discountPercent.layer.cornerRadius = discountPercent.frame.size.height / 2
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func clickDetail(_ sender: Any) {
+        if (projectId != nil && delegate != nil) {
+            delegate?.showDetail(projectId: projectId!)
+        }
     }
+}
 
+protocol ProjectCellDelegate {
+    func showDetail(projectId: Int)
 }

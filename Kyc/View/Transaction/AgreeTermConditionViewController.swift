@@ -11,9 +11,11 @@ import DLRadioButton
 import LocalAuthentication
 
 class AgreeTermConditionViewController: ParticipateCommonController{
-
+    var project: ProjectModel?
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
+    @IBOutlet weak var termCheckbox: Checkbox!
+    @IBOutlet weak var uscitizenCheckbox: Checkbox!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class AgreeTermConditionViewController: ParticipateCommonController{
     override func customViews() {
         imageButton.setButtonTitle(title: "NEXT")
         imageButton.delegate = self
+        header.setCompanyLogo(link: (project?.logo)!)
+        header.setProjectTitle(title: (project?.title?.uppercased())!)
     }
     
     @IBAction func clickBack(_ sender: Any) {
@@ -33,16 +37,17 @@ class AgreeTermConditionViewController: ParticipateCommonController{
     
     override func imageButtonClick(_ sender: Any) {
         //FIXME: check selected
-        gotoNext()
+//        gotoNext()
+        checkSelectedTermCondition()
     }
     
     //MARK: - Touch Id
     func checkSelectedTermCondition() {
-//        if (acceptTerm.isSelected && notUSCitizen.isSelected) {
-//            self.authenticateUserUsingTouchId()
-//        } else {
-//            showMessage(message: "Please select checkboxes to agree with terms and condition")
-//        }
+        if (termCheckbox.isChecked && uscitizenCheckbox.isChecked) {
+            self.authenticateUserUsingTouchId()
+        } else {
+            showMessage(message: "Please select checkboxes to agree with terms and condition")
+        }
     }
     fileprivate func authenticateUserUsingTouchId() {
         let context = LAContext()
@@ -64,8 +69,9 @@ class AgreeTermConditionViewController: ParticipateCommonController{
     }
     //MARK: - segue to next vc
     func gotoNext() {
-       let vc = storyboard?.instantiateViewController(withIdentifier: "WalletInputController")
-        navigationController?.pushViewController(vc!, animated: true)
+       let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.WalletInputController) as! WalletInputController
+        vc.project = project
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - Dialog

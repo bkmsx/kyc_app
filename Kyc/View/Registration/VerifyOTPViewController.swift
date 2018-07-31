@@ -35,19 +35,17 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
         let codeInputView = CodeInputView(frame: frame)
         codeInputView.delegate = self
         view.addSubview(codeInputView)
-        codeInputView.becomeFirstResponder()
     }
 
     //MARK: - Verify OTP
-    
     func codeInputView(_ codeInputView: CodeInputView, didFinishWithCode code: String) {
         self.code = code
     }
     
     override func imageButtonClick(_ sender: Any) {
         //FIXME: uncomment verify
-//        verifyOTP()
-        gotoUploadPassport()
+        verifyOTP()
+//        gotoUploadPassport()
     }
     
     func verifyOTP() {
@@ -124,7 +122,7 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
     }
     
     func gotoUploadPassport() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "UploadPassportViewController")
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -133,11 +131,6 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
         let alert = UIAlertController.init(title: "Verify OTP", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction.init(title: buttonName, style: .default, handler: handler))
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    //MARK: - Hide keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
 
 }

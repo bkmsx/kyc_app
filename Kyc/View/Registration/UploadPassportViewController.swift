@@ -11,7 +11,7 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class UploadPassportViewController: ParticipateCommonController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, RoundViewDelegate {
+class UploadPassportViewController: ParticipateCommonController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, RoundViewDelegate, UploadButtonDelegate {
     //MARK: - Properties
     var imagePicker, passportPicker: UIImagePickerController!
     var selectedCitizenship: Int = 0
@@ -23,13 +23,13 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     //MARK: - Outlet
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var cameraButton: RoundView!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var btnSelectCitizenship: DropDownButton!
     @IBOutlet weak var btnSelectCoutry: DropDownButton!
     @IBOutlet weak var passportTextField: UITextField!
     @IBOutlet weak var accuracyCheckbox: DLRadioButton!
     @IBOutlet weak var termOfUseCheckbox: DLRadioButton!
     @IBOutlet weak var submitImageButton: ImageButton!
+    @IBOutlet weak var uploadButton: UploadButton!
     
     //MARK: - Initialization
     override func viewDidLoad() {
@@ -44,18 +44,24 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     
     //MARK: - setup camera button
     func setupCameraButton() {
+        uploadButton.delegate = self
         cameraButton.clickable = true
         cameraButton.delegate = self
         cameraButton.setImage(image: #imageLiteral(resourceName: "camera"))
     }
     
     func clickRoundView() {
-        print("Click camera")
+        takeSelfie()
+    }
+    
+    func clickUploadButton(sender: Any) {
+        getPassport()
     }
     
     //MARK: - Upload Passport
     override func imageButtonClick(_ sender: Any) {
-        gotoRegistrationCompletion()
+//        gotoRegistrationCompletion()
+        submit()
         //FIXME: submit here
     }
     func submit() {
@@ -77,7 +83,6 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
             "Content-Type" : "multipart/form-data",
             "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
         ]
-        
         uploadPassport(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers)
     }
     
@@ -102,11 +107,18 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
             switch result {
             case .success(let upload, _, _):
                 upload.responseJSON { response in
-                    self.activityIndicator.stopAnimating()
-                  self.gotoRegistrationCompletion()
+                    let json = response.result.value as! [String:Any]
+                    let resultCode = json["code"] as! Int
+                    if (resultCode == 200) {
+                        self.activityIndicator.stopAnimating()
+                        self.gotoRegistrationCompletion()
+                    } else {
+                        let message = json["message"] as! String
+                        self.showMessage(title: "Upload Error", message: message)
+                    }
                 }
             case .failure(_):
-                print("Not ok")
+                self.showMessage(title: "Upload Error", message: "Please try upload later")
             }
         }
     }
@@ -117,14 +129,14 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     }
 
     //MARK: - Take photo and got image
-    @IBAction func getPassport(_ sender: Any) {
+    func getPassport() {
         passportPicker = UIImagePickerController()
         passportPicker.delegate = self
         passportPicker.sourceType = .photoLibrary
         self.present(passportPicker, animated: true, completion: nil)
     }
     
-    @IBAction func takeSelfie(_ sender: Any) {
+    func takeSelfie() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -139,10 +151,15 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if (picker == imagePicker) {
-            imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-            selfieImage = imageView.image
+            selfieImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+            cameraButton.setPhoto(image: selfieImage)
         } else {
             passportImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+            if (passportImage != nil) {
+                uploadButton.setButtonIcon(image: passportImage)
+            } else {
+                showMessage(title: "Pick Image Error", message: "Please choose another image!!")
+            }
         }
     }
     
@@ -190,10 +207,5 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
         alert.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
-    //MARK: - Hide keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
+ 
 }

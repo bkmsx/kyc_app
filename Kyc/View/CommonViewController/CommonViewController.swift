@@ -32,4 +32,9 @@ class CommonViewController: UIViewController {
     func goBackRootView() {
         navigationController?.popToRootViewController(animated: true)
     }
+    
+    //MARK: - Hide keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

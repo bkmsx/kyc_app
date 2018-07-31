@@ -19,7 +19,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     var phoneNumber: String = ""
     
     //MARK: - Outlet
-    @IBOutlet weak var btnCountryCode: UIButton!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var dateBirthTextField: UITextField!
@@ -27,38 +26,31 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmedPasswordTextField: UITextField!
-    @IBOutlet weak var noRadio: DLRadioButton!
     @IBOutlet weak var erc20AddressTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var continueImageButton: ImageButton!
-
+    @IBOutlet weak var dropDrown: DropDownButton!
+    @IBOutlet weak var radioGroup: RadioGroup!
+    
     
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDropDown()
-        noRadio.isSelected = true
-        emailTextField.delegate = self
-        continueImageButton.delegate = self
-        refillProfile()
+        listenToKeyBoard()
     }
     
     
-    
-    func refillProfile() {
-        firstNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempFirstName) as? String
-        lastNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempLastName) as? String
-        dateBirthTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempDateOfBirth) as? String
-        emailTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempEmail) as? String
-        passwordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
-        confirmedPasswordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
-        mobileTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber) as? String
-        btnCountryCode.setTitle("+\(UserDefaults.standard.object(forKey: UserProfiles.tempCountryCode) as? Int ?? 84)", for: .normal)
-        erc20AddressTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempErc20Address) as? String
-    }
     
     //MARK: - Custom views
     override func customViews() {
+        setupDropDown()
+        setupTextFields()
+        emailTextField.delegate = self
+        continueImageButton.delegate = self
+    }
+    
+    //MARK: - Setup Textfields
+    func setupTextFields() {
         firstNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         lastNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         dateBirthTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
@@ -67,6 +59,15 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         erc20AddressTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        
+        firstNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempFirstName) as? String
+        lastNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempLastName) as? String
+        dateBirthTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempDateOfBirth) as? String
+        emailTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempEmail) as? String
+        passwordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
+        confirmedPasswordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
+        mobileTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber) as? String
+        erc20AddressTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempErc20Address) as? String
     }
     
     @IBAction func clickBack(_ sender: Any) {
@@ -74,26 +75,19 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     }
     
     //MARK: - Setup DropDown
-    @IBAction func selectCountryCode(_ sender: Any) {
-        countryCodeDropDown.show()
-    }
     
     func setupDropDown() {
-        countryCodeDropDown.anchorView = btnCountryCode
-        countryCodeDropDown.bottomOffset = CGPoint(x: 0, y: btnCountryCode.bounds.height)
-        countryCodeDropDown.dataSource = [
+        dropDrown.setDataSource(source: [
             "+84", "+65", "+60", "+79"
-        ]
-        countryCodeDropDown.selectionAction = { [weak self] (index, item) in
-                self?.btnCountryCode.setTitle(item, for: .normal)
-        }
+            ])
+        dropDrown.setTextMarginLeft(value: 10)
     }
     
     //MARK: - Validate data
     override func imageButtonClick(_ sender: Any) {
         //FIXME: uncomment validateData
-        //        validateData()
-                gotoVerifyOTP()
+                validateData()
+//                gotoVerifyOTP()
     }
     
     func validateData() {
@@ -104,10 +98,9 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         let password = passwordTextField.text!
         let confirmedPassword = confirmedPasswordTextField.text!
         let erc20Address = erc20AddressTextField.text!
-        let enableSecurityId = !noRadio.isSelected
-        countryCode = String(btnCountryCode.currentTitle!.suffix(2))
+        let enableSecurityId = radioGroup.chooseYes()
+        countryCode = String(dropDrown.text.suffix(2))
         phoneNumber = mobileTextField.text!
-        
         
         if (password != confirmedPassword) {
             self.showMessage(message: "Passwords are not matched")
@@ -167,7 +160,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     }
     
     func gotoVerifyOTP() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "VerifyOTPViewController")
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.VerifyOTPViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -177,9 +170,27 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         alert.addAction(UIAlertAction.init(title: "Try again", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-
-    //MARK: - Hide keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    
+    //MARK: - Listen to keyboard
+    func listenToKeyBoard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if (erc20AddressTextField.isFirstResponder || mobileTextField.isFirstResponder) {
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= (keyboardSize.height - 100)
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 }

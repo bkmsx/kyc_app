@@ -60,7 +60,7 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
     
     //MARK: - Send invitations
     @IBAction func sendInvitations(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        goBackRootView()
     }
     
     //MARK: - Contacts

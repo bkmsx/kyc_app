@@ -60,13 +60,6 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
         goBack()
     }
     
-   
-    
-    //MARK: - Hide Keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     //MARK: - Dialog
     func showMessage(message: String) {
         let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: .alert)

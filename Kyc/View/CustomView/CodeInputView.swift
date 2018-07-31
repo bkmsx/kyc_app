@@ -32,7 +32,14 @@ open class CodeInputView: UIView, UIKeyInput {
             addSubview(digitLabel)
             frame.origin.x += CGFloat(CodeInputView.NUMBER_WIDTH)
         }
+        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(onTapGesture))
+        self.addGestureRecognizer(gesture)
     }
+    
+    @objc func onTapGesture(_ sender: UITapGestureRecognizer) {
+        self.becomeFirstResponder()
+    }
+    
     required public init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") } // NSCoding
 
     // MARK: - UIKeyInput

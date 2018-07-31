@@ -38,6 +38,10 @@ class CopyLabel: UIView {
             delegate?.copyText(text: label.text!)
         }
     }
+    
+    func setText(text: String) {
+        label.text = text
+    }
 }
 
 protocol CopyLabelDelegate {

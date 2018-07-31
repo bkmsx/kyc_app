@@ -15,6 +15,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="QFc-wv-g17"/>
                 <outlet property="imageView" destination="AJB-vx-OTo" id="dqQ-xP-cXQ"/>
                 <outlet property="innerView" destination="1X7-Uy-KQV" id="jSE-C7-DT7"/>
+                <outlet property="photo" destination="Sdy-ia-ai2" id="ZZz-kf-xky"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -39,6 +40,9 @@
                         <constraint firstItem="AJB-vx-OTo" firstAttribute="centerX" secondItem="1X7-Uy-KQV" secondAttribute="centerX" id="i6N-Pg-ool"/>
                     </constraints>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sdy-ia-ai2">
+                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcB-As-KTb">
                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                     <connections>
@@ -51,11 +55,15 @@
                 <constraint firstItem="DcB-As-KTb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0PR-o7-Bio"/>
                 <constraint firstItem="1X7-Uy-KQV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="8ry-iT-Pdp"/>
                 <constraint firstItem="1X7-Uy-KQV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="C3p-aJ-iEM"/>
+                <constraint firstItem="Sdy-ia-ai2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Fc2-Ia-A7O"/>
                 <constraint firstItem="DcB-As-KTb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="TV7-eY-NMe"/>
+                <constraint firstItem="Sdy-ia-ai2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WWk-HF-hPH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DcB-As-KTb" secondAttribute="bottom" id="aOW-Y4-ASn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Sdy-ia-ai2" secondAttribute="trailing" id="bCR-q6-0vn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1X7-Uy-KQV" secondAttribute="trailing" constant="5" id="dOg-Ha-VbL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DcB-As-KTb" secondAttribute="trailing" id="m0V-rk-hfr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="1X7-Uy-KQV" secondAttribute="bottom" constant="5" id="s5J-BY-8m7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Sdy-ia-ai2" secondAttribute="bottom" id="z7C-29-Wwp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

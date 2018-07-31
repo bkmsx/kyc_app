@@ -31,6 +31,8 @@ struct UserProfiles {
     static let passportPhoto = "passportPhoto"
     static let selfiePhoto = "selfiePhoto"
     static let password = "password"
+    static let citizenship = "citizenship"
+    static let country = "country"
     
     static let tempPassword = "tempPassword"
     static let tempEmail = "tempEmail"
@@ -52,6 +54,9 @@ struct URLConstant {
     static let loginSecurityId = "/login/securityid"
     static let citizenshipList = "/citizenship/list"
     static let uploadPassport = "/upload/passport"
+    static let projectList = "/project/list"
+    static let projectDetail = "/project/detail"
+    static let updateWallet = "/update-erc-wallet"
 }
 
 struct SegueIdentifiers {
@@ -76,6 +81,11 @@ struct ViewControllerIdentifiers {
     static let HistoryTableViewController = "HistoryTableViewController"
     static let PhoneListViewController = "PhoneListViewController"
     static let InvitationInforController = "InvitationInforController"
+    static let UploadPassportViewController = "UploadPassportViewController"
+    static let VerifyOTPViewController = "VerifyOTPViewController"
+    static let CompleteRegisterViewController = "CompleteRegisterViewController"
+    static let ProjectNavigationController = "ProjectNavigationController"
+    static let LoginNavigationController = "LoginNavigationController"
 }
 
 struct Colors {

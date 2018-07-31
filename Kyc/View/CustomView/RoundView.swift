@@ -12,6 +12,7 @@ class RoundView: UIView {
     @IBOutlet weak var innerView: UIView!
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var photo: UIImageView!
     var delegate: RoundViewDelegate?
     var clickable = false
     
@@ -35,17 +36,27 @@ class RoundView: UIView {
         imageView.image = image
     }
     
+    func loadImage(link: String) {
+        photo.downloadedFrom(link: link)
+    }
+    
+    func setPhoto(image: UIImage) {
+        photo.image = image
+    }
+    
     private func commonInit() {
         Bundle.main.loadNibNamed("RoundView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         contentView.layer.cornerRadius = self.frame.size.height / 2
-        self.clipsToBounds = true
+        contentView.clipsToBounds = true
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.init(argb: Colors.easyBlue).cgColor
         innerView.backgroundColor = UIColor.init(argb: Colors.lightBlue)
         innerView.layer.cornerRadius = self.frame.size.height / 2 - 5
+        photo.contentMode = UIViewContentMode.scaleAspectFit
+        photo.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
     }
 }
 

@@ -15,6 +15,8 @@
                 <outlet property="companyLogo" destination="sqJ-l0-lDa" id="TE2-ly-YuL"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="FWH-QD-gOu"/>
                 <outlet property="indicatorContainer" destination="gee-o6-loo" id="QXa-0X-bko"/>
+                <outlet property="logoImage" destination="KJu-Ep-UsZ" id="YJR-tH-0lR"/>
+                <outlet property="projectTitle" destination="7bj-VE-9CB" id="AES-qY-Aed"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -28,7 +30,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqJ-l0-lDa">
                     <rect key="frame" x="135.5" y="20" width="90" height="90"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="W28x28" translatesAutoresizingMaskIntoConstraints="NO" id="KJu-Ep-UsZ">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KJu-Ep-UsZ">
                             <rect key="frame" x="15" y="15" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="C5z-0h-UKd"/>
@@ -44,14 +46,14 @@
                         <constraint firstItem="KJu-Ep-UsZ" firstAttribute="centerX" secondItem="sqJ-l0-lDa" secondAttribute="centerX" id="gHu-79-Rav"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W GREEN PAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bj-VE-9CB">
-                    <rect key="frame" x="129" y="130" width="102.5" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bj-VE-9CB">
+                    <rect key="frame" x="180.5" y="130" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gee-o6-loo">
-                    <rect key="frame" x="111" y="168" width="138" height="12"/>
+                    <rect key="frame" x="111" y="150" width="138" height="12"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="138" id="X7B-SH-RF5"/>
@@ -78,7 +80,6 @@
         </view>
     </objects>
     <resources>
-        <image name="W28x28" width="28" height="28"/>
         <image name="pattern_top" width="270" height="270"/>
     </resources>
 </document>

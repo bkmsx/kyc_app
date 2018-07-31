@@ -11,7 +11,7 @@ import AVFoundation
 import Alamofire
 import DropDown
 
-class UpdatePassportViewController: ParticipateCommonController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UpdatePassportViewController: ParticipateCommonController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UploadButtonDelegate, RoundViewDelegate {
     //MARK: - Properties
     var passportPicker: UIImagePickerController!
     var imagePicker: UIImagePickerController!
@@ -24,12 +24,12 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     
     //MARK: - Outlet
     @IBOutlet weak var passportNumberTextField: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var citizenshipDropDown: DropDownButton!
     @IBOutlet weak var countryDropDown: DropDownButton!
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var roundView: RoundView!
+    @IBOutlet weak var uploadButton: UploadButton!
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,19 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "UPDATE")
         roundView.setImage(image: #imageLiteral(resourceName: "camera"))
+        roundView.clickable = true
+        roundView.delegate = self
         passportNumberTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
+        passportNumberTextField.text = UserDefaults.standard.string(forKey: UserProfiles.passportNumber)!
+        uploadButton.delegate = self
+    }
+    
+    func clickUploadButton(sender: Any) {
+        getPassportImage()
+    }
+    
+    func clickRoundView() {
+        takeSelfie()
     }
     
     @IBAction func clickBack(_ sender: Any) {
@@ -49,7 +61,7 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     }
     
     override func imageButtonClick(_ sender: Any) {
-        goBack()
+        updatePassport()
     }
     
     //MARK: - Setup citizenship and country
@@ -88,14 +100,14 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     }
     
     //MARK: - Pick images
-    @IBAction func getPassportImage(_ sender: Any) {
+    func getPassportImage() {
         passportPicker = UIImagePickerController()
         passportPicker.delegate = self
         passportPicker.sourceType = .photoLibrary
         self.present(passportPicker, animated: true, completion: nil)
     }
     
-    @IBAction func takeSelfie(_ sender: Any) {
+    func takeSelfie() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -110,20 +122,21 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if (picker == imagePicker) {
-            imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-            selfieImage = imageView.image
+            selfieImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+            if let selfieImage = selfieImage {
+                roundView.setPhoto(image: selfieImage)
+            }
         } else {
             passportImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+            if let passportImage = passportImage {
+                uploadButton.setButtonIcon(image: passportImage)
+            }
         }
     }
     
     //MARK: - Update passport
 
-    @IBAction func updatePassport(_ sender: Any) {
-        if (selfieImage == nil && passportImage == nil) {
-            showMessage(message: "Please take a picture")
-            return
-        }
+    func updatePassport() {
         let params = [
             "citizenship" : citizenships[selectedCitizenship].nationality,
             "citizenship_id" : citizenships[selectedCitizenship].id,
@@ -160,7 +173,7 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             case .success(let upload, _, _):
                 upload.responseJSON { response in
                     self.activityIndicator.stopAnimating()
-                    self.navigationController?.popViewController(animated: true)
+                    self.goBack()
                 }
             case .failure(_):
                 print("Not ok")

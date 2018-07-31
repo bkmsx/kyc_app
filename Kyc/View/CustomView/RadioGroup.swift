@@ -39,4 +39,8 @@ class RadioGroup: UIView, CheckboxDelegate {
             yesRadio.isChecked = !yesRadio.isChecked
         }
     }
+    
+    func chooseYes() -> Bool {
+        return yesRadio.isChecked
+    }
 }

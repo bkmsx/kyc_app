@@ -8,8 +8,9 @@
 
 import UIKit
 import QRCodeReader
+import Alamofire
 
-class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeReaderViewControllerDelegate {
+class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeReaderViewControllerDelegate, UploadButtonDelegate {
     //MARK: - Properties
     
     //MARK: - Outlet
@@ -31,6 +32,8 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
         imageButton.setButtonTitle(title: "UPDATE")
         scanButton.setButtonIcon(image: #imageLiteral(resourceName: "blue_scan"))
         scanButton.setButtonTitle(title: "SCAN")
+        scanButton.delegate = self
+        currentWalletTextField.text = UserDefaults.standard.string(forKey: UserProfiles.erc20Address)!
     }
     
     @IBAction func clickBack(_ sender: Any) {
@@ -38,12 +41,13 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
     }
     
     override func imageButtonClick(_ sender: Any) {
-        goBack()
+        updateWallet()
     }
     //MARK: - Scan wallet
-    @IBAction func scanWallet(_ sender: Any) {
+    func clickUploadButton(sender: Any) {
         startScan()
     }
+    
     //MARK: QRCode
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -107,21 +111,35 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
     }
     
     //MARK: - Update Wallet
-    @IBAction func updateWallet(_ sender: Any) {
+    func updateWallet() {
         //FIXME: Remove comments
-//        if (currentWalletTextField.text == "") {
-//            showMessage(message: "Please input current wallet")
-//            return
-//        }
-//        if (newWalletTextField.text == "") {
-//            showMessage(message: "Please input new wallet")
-//            return
-//        }
-//        if (currentWalletTextField.text == newWalletTextField.text) {
-//            showMessage(message: "New wallet must be different to the current wallet")
-//            return
-//        }
+
+        if (newWalletTextField.text == "") {
+            showMessage(message: "Please input new wallet")
+            return
+        }
+        if (currentWalletTextField.text == newWalletTextField.text) {
+            showMessage(message: "New wallet must be different to the current wallet")
+            return
+        }
         
+        let params = [
+            "erc20_address":newWalletTextField.text!
+            ] as [String : Any]
+        let headers = [
+            "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        
+        Alamofire.request(URLConstant.baseURL + URLConstant.updateWallet, method:.post, parameters: params, encoding:JSONEncoding.default, headers: headers).responseJSON { response in
+            let JSON = response.result.value as! NSDictionary
+            let resultCode = JSON["code"] as! Int
+            if (resultCode == 200) {
+                self.goBack()
+            } else {
+                let message = JSON["message"] as! String
+                self.showMessage(message: message)
+            }
+        }
     }
     
     //MARK: - Dialog

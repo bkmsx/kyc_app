@@ -12,7 +12,9 @@ class ParticipateHeader: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var companyLogo: UIView!
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var indicatorContainer: UIView!
+    @IBOutlet weak var projectTitle: UILabel!
     var indicators: [UIView] = []
     static let INDICATOR_WIDTH = 12
     static let SPACE = 30
@@ -45,5 +47,13 @@ class ParticipateHeader: UIView {
         for i in 0...index {
             indicators[i].backgroundColor = UIColor.init(argb: Colors.lightBlue)
         }
+    }
+    
+    func setCompanyLogo(link: String) {
+        logoImage.downloadedFrom(link: link)
+    }
+    
+    func setProjectTitle(title: String) {
+        projectTitle.text = title
     }
 }

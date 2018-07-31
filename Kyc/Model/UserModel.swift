@@ -26,6 +26,8 @@ struct UserModel: Codable {
     let passportNumber: String!
     let passportPhoto: String!
     let selfiePhoto: String!
+    let citizenship: String!
+    let country: String!
     
     init(dictionary: [String:Any]) {
         userId = dictionary["id"] as? Int ?? nil
@@ -45,6 +47,8 @@ struct UserModel: Codable {
         citizenshipId = dictionary["citizenship_id"] as? Int ?? nil
         passportPhoto = dictionary["passport_photo"] as? String ?? nil
         selfiePhoto = dictionary["selfie_photo"] as? String ?? nil
+        citizenship = dictionary["citizenship"] as? String ?? nil
+        country = dictionary["country_of_residence"] as? String ?? nil
     }
     
     func saveToLocal() {
@@ -65,6 +69,8 @@ struct UserModel: Codable {
         UserDefaults.standard.set(citizenshipId, forKey: UserProfiles.citizenshipId)
         UserDefaults.standard.set(passportPhoto, forKey: UserProfiles.passportPhoto)
         UserDefaults.standard.set(selfiePhoto, forKey: UserProfiles.selfiePhoto)
+        UserDefaults.standard.set(citizenship, forKey: UserProfiles.citizenship)
+        UserDefaults.standard.set(country, forKey: UserProfiles.country)
     }
     
     static func removeFromLocal() {
@@ -85,5 +91,7 @@ struct UserModel: Codable {
         UserDefaults.standard.removeObject(forKey: UserProfiles.citizenshipId);
         UserDefaults.standard.removeObject(forKey: UserProfiles.passportPhoto);
         UserDefaults.standard.removeObject(forKey: UserProfiles.selfiePhoto);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.citizenship);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.country);
     }
 }
