@@ -40,6 +40,9 @@
 		08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08192262210081B100CF2800 /* UpdatePassportViewController.swift */; };
 		0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */; };
 		0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819AC8720EC872100B1A3B4 /* CountryModel.swift */; };
+		081B5B9D2111BE6000AFE162 /* TermConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5B9C2111BE6000AFE162 /* TermConditionView.swift */; };
+		081B5B9F2111BE7600AFE162 /* TermConditionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081B5B9E2111BE7600AFE162 /* TermConditionView.xib */; };
+		081B5BA12111C13500AFE162 /* TermConditionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BA02111C13500AFE162 /* TermConditionDialog.swift */; };
 		082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C32109BC1D004AB6E8 /* LeftBarView.swift */; };
 		082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10C52109BC2C004AB6E8 /* LeftBarView.xib */; };
 		082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C72109D37C004AB6E8 /* WalletInputController.swift */; };
@@ -137,6 +140,9 @@
 		08192262210081B100CF2800 /* UpdatePassportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassportViewController.swift; sourceTree = "<group>"; };
 		0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWalletAddressViewController.swift; sourceTree = "<group>"; };
 		0819AC8720EC872100B1A3B4 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		081B5B9C2111BE6000AFE162 /* TermConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermConditionView.swift; sourceTree = "<group>"; };
+		081B5B9E2111BE7600AFE162 /* TermConditionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermConditionView.xib; sourceTree = "<group>"; };
+		081B5BA02111C13500AFE162 /* TermConditionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermConditionDialog.swift; sourceTree = "<group>"; };
 		082A10C32109BC1D004AB6E8 /* LeftBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarView.swift; sourceTree = "<group>"; };
 		082A10C52109BC2C004AB6E8 /* LeftBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftBarView.xib; sourceTree = "<group>"; };
 		082A10C72109D37C004AB6E8 /* WalletInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInputController.swift; sourceTree = "<group>"; };
@@ -269,6 +275,9 @@
 				0817C4EF210CE3FB001DC87B /* CustomAlertDialog.swift */,
 				0817C4F3210D8161001DC87B /* DialogView.xib */,
 				0817C4F5210D8174001DC87B /* DialogView.swift */,
+				081B5B9C2111BE6000AFE162 /* TermConditionView.swift */,
+				081B5BA02111C13500AFE162 /* TermConditionDialog.swift */,
+				081B5B9E2111BE7600AFE162 /* TermConditionView.xib */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -585,6 +594,7 @@
 			files = (
 				080867F52108878E0033BECE /* DropDownButton.xib in Resources */,
 				0817C4F4210D8161001DC87B /* DialogView.xib in Resources */,
+				081B5B9F2111BE7600AFE162 /* TermConditionView.xib in Resources */,
 				0874C82F210B166700628D5E /* SettingRow.xib in Resources */,
 				08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */,
 				082A10D7210AF26D004AB6E8 /* CopyLabel.xib in Resources */,
@@ -707,6 +717,7 @@
 				0817C4F6210D8174001DC87B /* DialogView.swift in Sources */,
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* RetrievePasswordViewController.swift in Sources */,
+				081B5B9D2111BE6000AFE162 /* TermConditionView.swift in Sources */,
 				080868052109A9410033BECE /* ProjectCell.swift in Sources */,
 				0874C831210B16B100628D5E /* SettingRow.swift in Sources */,
 				0819225320FF8E8A00CF2800 /* PhoneListViewController.swift in Sources */,
@@ -751,6 +762,7 @@
 				0802992120EE28650044C4E5 /* ProjectDetailViewController.swift in Sources */,
 				08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */,
 				0819225A21004FFA00CF2800 /* HistoryTableViewController.swift in Sources */,
+				081B5BA12111C13500AFE162 /* TermConditionDialog.swift in Sources */,
 				0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */,
 				0874C835210B5F5600628D5E /* RadioGroup.swift in Sources */,
 			);

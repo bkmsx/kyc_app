@@ -31,7 +31,8 @@ class AgreeTermConditionViewController: ParticipateCommonController{
     }
     
     @IBAction func showTermsAndCoditions(_ sender: Any) {
-        
+        let dialog = TermConditionDialog()
+        dialog.show(animated: true)
     }
     
     @IBAction func clickBack(_ sender: Any) {

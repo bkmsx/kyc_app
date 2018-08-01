@@ -4,7 +4,7 @@ protocol Modal {
     func show(animated:Bool)
     func dismiss(animated:Bool)
     var backgroundView:UIView {get}
-    var dialogView:DialogView {get set}
+    var dialogView:UIView {get set}
 }
 
 extension Modal where Self:UIView{

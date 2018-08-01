@@ -9,8 +9,9 @@
 import UIKit
 
 class CustomAlertDialog: UIView, Modal, DialogViewDelegate{
+    var dialogView = UIView()
     var backgroundView = UIView()
-    var dialogView = DialogView()
+    
     var delegate: CustomAlertDialogDelegate?
     convenience init() {
         self.init(frame: UIScreen.main.bounds)
@@ -20,7 +21,7 @@ class CustomAlertDialog: UIView, Modal, DialogViewDelegate{
         print(frame)
         addSubview(backgroundView)
         dialogView = DialogView.init(frame: CGRect.init(x: 32, y: frame.height, width: frame.width - 64, height: 300))
-        dialogView.delegate = self
+        (dialogView as! DialogView).delegate = self
         addSubview(dialogView)
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedOnBackgroundView)))
     }
