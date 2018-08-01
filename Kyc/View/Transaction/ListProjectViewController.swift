@@ -28,7 +28,6 @@ class ListProjectViewController: ParticipateCommonController, UITableViewDataSou
         activityIndicator.startAnimating()
         let token = UserDefaults.standard.string(forKey: UserProfiles.token)!
         let header = ["token": token]
-        print(header)
         Alamofire.request(URLConstant.baseURL + URLConstant.projectList, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { response in
             let json = response.result.value as! [String:Any]
             let projectsDic = json["projects"] as! [[String:Any]]

@@ -44,7 +44,7 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
     }
     //MARK: - Setup Dropdown
     func setupDropdown() {
-        dropDownButton.setDataSource(source: ["+65", "+84", "+79"])
+        dropDownButton.setDataSource(source: Configs.PHONE_CODES)
         dropDownButton.setTextMarginLeft(value: 15)
     }
     

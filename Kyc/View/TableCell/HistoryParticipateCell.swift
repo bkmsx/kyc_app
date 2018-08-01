@@ -45,7 +45,6 @@ class HistoryParticipateCell: UITableViewCell {
     }
 
     @IBAction func clickDelete(_ sender: Any) {
-        print("Click delete")
         let dialog = CustomAlertDialog()
         dialog.show(animated: true)
     }

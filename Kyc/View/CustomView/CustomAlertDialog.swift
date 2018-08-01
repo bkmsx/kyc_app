@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomAlertDialog: UIView, Modal, DialogViewDelegate {
+class CustomAlertDialog: UIView, Modal, DialogViewDelegate{
     var backgroundView = UIView()
     var dialogView = DialogView()
     
@@ -18,7 +18,7 @@ class CustomAlertDialog: UIView, Modal, DialogViewDelegate {
         backgroundView.backgroundColor = UIColor.black
         backgroundView.alpha = 0.6
         addSubview(backgroundView)
-        dialogView = DialogView.init(frame: CGRect.init(x: 32, y: frame.height, width: frame.width - 64, height: 300))
+        dialogView = DialogView.init(frame: CGRect.init(x: 32, y: 0, width: frame.width - 64, height: 300))
         dialogView.delegate = self
         addSubview(dialogView)
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedOnBackgroundView)))

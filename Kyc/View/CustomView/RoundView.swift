@@ -26,8 +26,14 @@ class RoundView: UIView {
         commonInit()
     }
     
-    @IBAction func clickButton(_ sender: Any) {
+    @IBAction func clickButton(_ sender: Any) { 
         if (clickable && delegate != nil) {
+            UIView.animate(withDuration: 0.1) {
+                self.contentView.backgroundColor = UIColor.lightGray
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.contentView.backgroundColor = UIColor.clear
+                })
+            }
             delegate?.clickRoundView()
         }
     }

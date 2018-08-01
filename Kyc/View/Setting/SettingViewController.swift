@@ -28,7 +28,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     override func customViews() {
         roundView.setImage(image: #imageLiteral(resourceName: "account"))
         verifyView.layer.cornerRadius = verifyView.frame.size.height / 2
-        personalSetting.settingLabel.text = "Update Personal Infor"
+        personalSetting.settingLabel.text = "Change Password"
         personalSetting.iconImage.image = #imageLiteral(resourceName: "blue_account")
         personalSetting.delegate = self
         

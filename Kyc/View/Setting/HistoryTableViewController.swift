@@ -12,6 +12,7 @@ import Alamofire
 class HistoryTableViewController: ParticipateCommonController, UITableViewDataSource, HistoryParticipateCellDelegate{
     var histories: [ParticipateHistoryModel] = []
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,9 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
+        activityIndicator.startAnimating()
         Alamofire.request(URLConstant.baseURL + URLConstant.participateHistory, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON {response in
+            self.activityIndicator.stopAnimating()
             let json = response.result.value as! [String:Any]
             let code = json["code"] as! Int
             if (code == 200) {

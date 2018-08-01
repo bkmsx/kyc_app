@@ -33,6 +33,12 @@ class SettingRow: UIView {
     
     var delegate: SettingRowDelegate?
     @IBAction func clickButton(_ sender: Any) {
+        UIView.animate(withDuration: 0.12) {
+            self.contentView.backgroundColor = UIColor.darkGray
+            UIView.animate(withDuration: 0.12) {
+                self.contentView.backgroundColor = UIColor.clear
+            }
+        }
         if (delegate != nil) {
             delegate?.clickSettingRow(setting: self)
         }

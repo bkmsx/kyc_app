@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RetrievePasswordViewController: ParticipateCommonController{
 
@@ -29,7 +30,30 @@ class RetrievePasswordViewController: ParticipateCommonController{
     
     //MARK: - setup continue button
     override func imageButtonClick(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "CompleteRetreivePasswordController")
+        let params = [
+            "email" : mailTextField.text!
+        ]
+        Alamofire.request(URLConstant.baseURL + URLConstant.resetPassword, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON {response in
+            let json = response.result.value as! [String:Any]
+            let code = json["code"] as! Int
+            if (code == 200) {
+                self.gotoNext()
+            } else {
+                self.showMessage(message: json["message"] as! String)
+            }
+        }
+    }
+    
+    //MARK: - Go to Next
+    func gotoNext() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.CompleteRetreivePasswordController)
         navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    //MARK: - Dialog
+    func showMessage(message: String) {
+        let alert = UIAlertController.init(title: "Notice", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

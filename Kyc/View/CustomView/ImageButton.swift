@@ -26,6 +26,7 @@ class ImageButton: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed("ImageButton", owner: self, options: nil)
         addSubview(contentView)
+        contentView.backgroundColor = UIColor.init(argb: Colors.lightBlue)
     }
     
     func setButtonTitle(title: String) {
@@ -34,6 +35,12 @@ class ImageButton: UIView {
 
     @IBAction func buttonClick(_ sender: Any) {
         if (delegate != nil) {
+            UIView.animate(withDuration: 0.1) {
+                self.contentView.backgroundColor = UIColor.init(argb: Colors.easyBlue)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.contentView.backgroundColor = UIColor.init(argb: Colors.lightBlue)
+                })
+            }
            delegate!.imageButtonClick(sender)
         }
     }

@@ -77,9 +77,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     //MARK: - Setup DropDown
     
     func setupDropDown() {
-        dropDrown.setDataSource(source: [
-            "+84", "+65", "+60", "+79"
-            ])
+        dropDrown.setDataSource(source: Configs.PHONE_CODES)
         dropDrown.setTextMarginLeft(value: 10)
     }
     
