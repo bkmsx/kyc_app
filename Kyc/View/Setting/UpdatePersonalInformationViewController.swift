@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class UpdatePersonalInformationViewController: ParticipateCommonController, UITextFieldDelegate{
     @IBOutlet weak var imageButton: ImageButton!
@@ -37,6 +38,9 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
         currentPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         newPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        
+        mobilePhone.text = UserDefaults.standard.string(forKey: UserProfiles.phoneNumber)
+        dateBirthTextField.text = UserDefaults.standard.string(forKey: UserProfiles.dateOfBirth)
     }
     //MARK: - Setup Dropdown
     func setupDropdown() {
@@ -47,17 +51,27 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
     //MARK: - Update
     override func imageButtonClick(_ sender: Any) {
        
-//        if (currenPaswordTextField.text != "") {
-//            if (newPasswordTextField.text == "") {
-//                showMessage(message: "Please input new password")
-//                return
-//            } else if (newPasswordTextField.text != confirmPasswordTextField.text) {
-//                showMessage(message: "New passwords don't match")
-//                return
-//            }
-//        }
+        if (currentPasswordTextField.text != "") {
+            if (newPasswordTextField.text == "") {
+                showMessage(message: "Please input new password")
+                return
+            } else if (newPasswordTextField.text != confirmedPasswordTextField.text) {
+                showMessage(message: "New passwords don't match")
+                return
+            }
+        }
+        let params = [
+            "old_password" : currentPasswordTextField.text!,
+            "password" : newPasswordTextField.text!
+            ]
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
         //FIXME: Update here
-        goBack()
+        Alamofire.request(URLConstant.baseURL + URLConstant.changePassword, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            print(response)
+            self.goBack()
+        }
     }
     
     //MARK: - Dialog

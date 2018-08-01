@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class TransactionDetailController: ParticipateCommonController {
     var project: ProjectModel?
@@ -49,7 +50,26 @@ class TransactionDetailController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
-        gotoNext()
+        let method = project?.paymentMethods[0]
+        let params = [
+            "project_id": project?.projectId as Any,
+            "payment_method" : method?.methodName as Any,
+            "payment_method_id" : method?.methodId as Any,
+            "amount_tokens" : tokenNumber.text as Any,
+            "payment_amount" : ethAmount.text as Any,
+            "discount" : project?.currentDiscount ?? "0"
+            ]
+        let headers = [
+            "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        Alamofire.request(URLConstant.baseURL + URLConstant.participate, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            let json = response.result.value as! [String:Any]
+            if (json["code"] as! Int == 200) {
+                self.gotoNext()
+            } else {
+                self.showMessage(message: json["message"] as! String)
+            }
+        }
     }
     
     //MARK: - Go to next
@@ -82,4 +102,10 @@ class TransactionDetailController: ParticipateCommonController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    //MARK: - Dialog
+    func showMessage(message: String) {
+        let alert = UIAlertController.init(title: "Notice", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

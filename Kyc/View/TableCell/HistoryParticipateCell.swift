@@ -9,7 +9,10 @@
 import UIKit
 
 class HistoryParticipateCell: UITableViewCell {
+    var delegate: HistoryParticipateCellDelegate?
+    
     @IBOutlet weak var companyLogo: UIView!
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var participateButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var statusLabel: ColorLabel!
@@ -18,6 +21,8 @@ class HistoryParticipateCell: UITableViewCell {
     @IBOutlet weak var usdPaid: ColorLabel!
     @IBOutlet weak var discountLabel: ColorLabel!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var projectTitle: UILabel!
+    @IBOutlet weak var participateDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,4 +50,13 @@ class HistoryParticipateCell: UITableViewCell {
         dialog.show(animated: true)
     }
     
+    @IBAction func gotoDetailProject(_ sender: Any) {
+        if let delegate = delegate {
+            delegate.participateAgain()
+        }
+    }
+}
+
+protocol HistoryParticipateCellDelegate {
+    func participateAgain()
 }

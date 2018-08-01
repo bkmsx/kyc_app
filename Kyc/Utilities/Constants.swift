@@ -57,6 +57,9 @@ struct URLConstant {
     static let projectList = "/project/list"
     static let projectDetail = "/project/detail"
     static let updateWallet = "/update-erc-wallet"
+    static let changePassword = "/change-password"
+    static let participate = "/project/participate"
+    static let participateHistory = "/project/participate-history"
 }
 
 struct SegueIdentifiers {

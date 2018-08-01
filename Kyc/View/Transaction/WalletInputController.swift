@@ -32,6 +32,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         header.setCompanyLogo(link: (project?.logo)!)
         header.setProjectTitle(title: (project?.title?.uppercased())!)
         uploadButton.delegate = self
+        uploadButton.isHidden = UserDefaults.standard.string(forKey: UserProfiles.passportPhoto) != nil
         
         roundView.setImage(image: #imageLiteral(resourceName: "check"))
         walletAddress.layer.cornerRadius = walletAddress.frame.size.height / 2

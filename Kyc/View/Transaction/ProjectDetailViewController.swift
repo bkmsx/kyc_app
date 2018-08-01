@@ -43,6 +43,7 @@ class ProjectDetailViewController: ParticipateCommonController {
             self.project = ProjectModel(json: projectDic)
             self.populateViews(project: self.project!)
             self.activityIndicator.stopAnimating()
+            print(self.project)
         }
     }
     
