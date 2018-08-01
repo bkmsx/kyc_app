@@ -62,6 +62,7 @@ struct URLConstant {
     static let participate = "/project/participate"
     static let participateHistory = "/project/participate-history"
     static let resetPassword = "/forgot-password"
+    static let participateDelete = "/project/participate-delete"
 }
 
 struct SegueIdentifiers {

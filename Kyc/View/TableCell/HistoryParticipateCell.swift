@@ -8,8 +8,9 @@
 
 import UIKit
 
-class HistoryParticipateCell: UITableViewCell {
+class HistoryParticipateCell: UITableViewCell, CustomAlertDialogDelegate{
     var delegate: HistoryParticipateCellDelegate?
+    var historyId: Int?
     
     @IBOutlet weak var companyLogo: UIView!
     @IBOutlet weak var logoImage: UIImageView!
@@ -47,6 +48,13 @@ class HistoryParticipateCell: UITableViewCell {
     @IBAction func clickDelete(_ sender: Any) {
         let dialog = CustomAlertDialog()
         dialog.show(animated: true)
+        dialog.delegate = self
+    }
+    
+    func agreeToDelete() {
+        if let historyId = historyId, let delegate = delegate {
+            delegate.deleteParticipateHistory(historyId: historyId)
+        }
     }
     
     @IBAction func gotoDetailProject(_ sender: Any) {
@@ -58,4 +66,5 @@ class HistoryParticipateCell: UITableViewCell {
 
 protocol HistoryParticipateCellDelegate {
     func participateAgain()
+    func deleteParticipateHistory(historyId: Int)
 }

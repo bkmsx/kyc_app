@@ -11,21 +11,24 @@ import UIKit
 class CustomAlertDialog: UIView, Modal, DialogViewDelegate{
     var backgroundView = UIView()
     var dialogView = DialogView()
-    
+    var delegate: CustomAlertDialogDelegate?
     convenience init() {
         self.init(frame: UIScreen.main.bounds)
         backgroundView.frame = frame
         backgroundView.backgroundColor = UIColor.black
         backgroundView.alpha = 0.6
+        print(frame)
         addSubview(backgroundView)
-        dialogView = DialogView.init(frame: CGRect.init(x: 32, y: 0, width: frame.width - 64, height: 300))
+        dialogView = DialogView.init(frame: CGRect.init(x: 32, y: frame.height, width: frame.width - 64, height: 300))
         dialogView.delegate = self
         addSubview(dialogView)
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedOnBackgroundView)))
     }
+    
     @objc func didTappedOnBackgroundView(){
         dismiss(animated: true)
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -36,9 +39,15 @@ class CustomAlertDialog: UIView, Modal, DialogViewDelegate{
 
     func chooseOption(yes: Bool) {
         if (yes) {
-            print("Delete Items")
+            if let delegate = delegate {
+                delegate.agreeToDelete()
+            }
         }
         dismiss(animated: true)
     }
     
+}
+
+protocol CustomAlertDialogDelegate {
+    func agreeToDelete()
 }

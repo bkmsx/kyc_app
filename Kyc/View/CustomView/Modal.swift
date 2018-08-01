@@ -11,7 +11,7 @@ extension Modal where Self:UIView{
     func show(animated:Bool){
         self.backgroundView.alpha = 0
         self.dialogView.center = CGPoint(x: self.center.x, y: self.frame.height + self.dialogView.frame.height/2)
-        UIApplication.shared.keyWindow?.addSubview(self.dialogView)
+        UIApplication.shared.keyWindow?.addSubview(self)
         
         if animated {
             UIView.animate(withDuration: 0.33, animations: {

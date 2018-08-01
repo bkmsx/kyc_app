@@ -21,6 +21,7 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
     
     //MARK: - Get History List
     func getHistoryList() {
+        histories = []
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
@@ -48,7 +49,7 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         goBack()
     }
     
-    //MARK: - Setup TableView
+    //MARK: - TableView Datasource
     func setupTableView() {
         tableView.dataSource = self
     }
@@ -61,19 +62,47 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryParticipateCell", for: indexPath) as! HistoryParticipateCell
         cell.delegate = self
         let history = histories[indexPath.row]
-        cell.logoImage.loadImage(urlString: history.logo!)
+        cell.logoImage.downloadedFrom(link: history.logo!)
         cell.projectTitle.text = history.title!.uppercased()
         cell.tokenPurchased.text = "\(history.tokensPurchased!) tokens purchased"
         cell.discountLabel.text = "\(history.discount!)% Discount"
         cell.participateDate.text = history.addedDate!
+        cell.historyId = history.historyId!
         return cell
         
     }
     
-    //MARK: Goto next
+    //MARK: TableView Delegate
     func participateAgain() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ProjectDetailViewController) as! ProjectDetailViewController
         vc.projectId = 1
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func deleteParticipateHistory(historyId: Int) {
+        let params = [
+            "history_id" : String(historyId)
+        ]
+        
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        
+        Alamofire.request(URLConstant.baseURL + URLConstant.participateDelete, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON {response in
+            let json = response.result.value as! [String:Any]
+            let code = json["code"] as! Int
+            if (code == 200) {
+                self.getHistoryList()
+            } else {
+                self.showMessage(message: json["message"] as! String)
+            }
+        }
+    }
+    
+    //MARK: - Dialog
+    func showMessage(message: String) {
+        let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
