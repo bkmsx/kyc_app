@@ -30,6 +30,10 @@ class AgreeTermConditionViewController: ParticipateCommonController{
         header.setProjectTitle(title: (project?.title?.uppercased())!)
     }
     
+    @IBAction func showTermsAndCoditions(_ sender: Any) {
+        
+    }
+    
     @IBAction func clickBack(_ sender: Any) {
         goBack()
     }
