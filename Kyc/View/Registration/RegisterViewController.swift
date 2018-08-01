@@ -26,7 +26,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmedPasswordTextField: UITextField!
-    @IBOutlet weak var erc20AddressTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var continueImageButton: ImageButton!
     @IBOutlet weak var dropDrown: DropDownButton!
@@ -58,7 +57,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        erc20AddressTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         
         firstNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempFirstName) as? String
         lastNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempLastName) as? String
@@ -67,7 +65,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         passwordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
         confirmedPasswordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
         mobileTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber) as? String
-        erc20AddressTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempErc20Address) as? String
     }
     
     @IBAction func clickBack(_ sender: Any) {
@@ -95,7 +92,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         let email = emailTextField.text!
         let password = passwordTextField.text!
         let confirmedPassword = confirmedPasswordTextField.text!
-        let erc20Address = erc20AddressTextField.text!
         let enableSecurityId = radioGroup.chooseYes()
         countryCode = String(dropDrown.text.suffix(2))
         phoneNumber = mobileTextField.text!
@@ -114,7 +110,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
             "phone_number" : phoneNumber,
             "device_security_enable" : enableSecurityId,
             "type_of_security" : "TOUCHID",
-            "erc20_address" : erc20Address,
             "device_id" : "23232",
             "validation" : 1,
             "platform": "iOS"
@@ -134,8 +129,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
                     UserDefaults.standard.set(dateBirth, forKey: UserProfiles.tempDateOfBirth)
                     UserDefaults.standard.set(email, forKey: UserProfiles.tempEmail)
                     UserDefaults.standard.set(password, forKey: UserProfiles.tempPassword)
-                    UserDefaults.standard.set(erc20Address, forKey: UserProfiles.tempErc20Address)
-                    UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.tempDeviceSecurityEnable)
+                     UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.tempDeviceSecurityEnable)
                     UserDefaults.standard.set(self.countryCode, forKey: UserProfiles.tempCountryCode)
                     UserDefaults.standard.set(self.phoneNumber, forKey: UserProfiles.tempPhoneNumber)
                     self.sendOTPCode()
@@ -176,7 +170,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if (erc20AddressTextField.isFirstResponder || mobileTextField.isFirstResponder) {
+        if (mobileTextField.isFirstResponder) {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.view.frame.origin.y -= (keyboardSize.height - 100)
             }

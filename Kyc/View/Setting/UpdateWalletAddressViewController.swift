@@ -33,7 +33,6 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
         scanButton.setButtonIcon(image: #imageLiteral(resourceName: "blue_scan"))
         scanButton.setButtonTitle(title: "SCAN")
         scanButton.delegate = self
-        currentWalletTextField.text = UserDefaults.standard.string(forKey: UserProfiles.erc20Address)!
     }
     
     @IBAction func clickBack(_ sender: Any) {
