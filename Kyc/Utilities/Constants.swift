@@ -93,6 +93,7 @@ struct ViewControllerIdentifiers {
     static let ProjectNavigationController = "ProjectNavigationController"
     static let LoginNavigationController = "LoginNavigationController"
     static let CompleteRetreivePasswordController = "CompleteRetreivePasswordController"
+    static let USDDetailViewController = "USDDetailViewController"
 }
 
 struct Colors {

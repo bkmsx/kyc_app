@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class WalletInputController: ParticipateCommonController, UploadButtonDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class WalletInputController: ParticipateCommonController, UploadButtonDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DropDownButtonDelegate {
     var project: ProjectModel?
     var passportImage: UIImage?
     @IBOutlet weak var imageButton: ImageButton!
@@ -18,6 +18,9 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     @IBOutlet weak var walletAddress: UITextField!
     @IBOutlet weak var uploadButton: UploadButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var dropdownButton: DropDownButton!
+    @IBOutlet weak var walletAddressTitle: UILabel!
+    @IBOutlet weak var walletNotice: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +32,10 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "NEXT")
         header.setSelectIndicator(index: 1)
-        header.setCompanyLogo(link: (project?.logo)!)
-        header.setProjectTitle(title: (project?.title?.uppercased())!)
+        if let project = project {
+            header.setCompanyLogo(link: (project.logo)!)
+            header.setProjectTitle(title: (project.title?.uppercased())!)
+        }
         uploadButton.delegate = self
         uploadButton.isHidden = UserDefaults.standard.string(forKey: UserProfiles.passportPhoto) != nil
         
@@ -38,6 +43,10 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         walletAddress.layer.cornerRadius = walletAddress.frame.size.height / 2
         walletAddress.clipsToBounds = true
         walletAddress.text = UserDefaults.standard.string(forKey: UserProfiles.erc20Address)
+        
+        dropdownButton.setDataSource(source: ["ETH", "BTC", "USD"])
+        dropdownButton.setTextMarginLeft(value: 10)
+        dropdownButton.delegate = self
     }
     @IBAction func clickBack(_ sender: Any) {
         goBack()
@@ -49,7 +58,12 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         } else {
             gotoNext()
         }
-        
+    }
+    
+    //MARK: - Delegate
+    func didSelectDropDown(text: String) {
+        walletAddressTitle.text = "Your \(dropdownButton.text) Wallet:"
+        walletNotice.text = "Your \(dropdownButton.text) must be sent from this wallet"
     }
     
     //MARK: - Upload Passport
@@ -130,6 +144,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     func gotoNext(){
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.TransactionDetailController) as! TransactionDetailController
         vc.project = project
+        vc.paymentMethod = dropdownButton.text
         navigationController?.pushViewController(vc, animated: true)
     }
     

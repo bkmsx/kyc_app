@@ -12,6 +12,7 @@ import DropDown
 class DropDownButton: UIView {
     var text = ""
     var dropDown = DropDown()
+    var delegate: DropDownButtonDelegate?
     
     @IBOutlet var contentView: UIView!
     
@@ -36,6 +37,9 @@ class DropDownButton: UIView {
         self.dropDown.selectionAction = { [weak self] (index, item) in
             self?.selectButton.setTitle(item, for: .normal)
             self?.text = item
+            if let delegate = self?.delegate {
+                delegate.didSelectDropDown(text: item)
+            }
         }
     }
     
@@ -58,6 +62,10 @@ class DropDownButton: UIView {
     func setTextMarginLeft(value: CGFloat) {
         selectButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: value, bottom: 0, right: 0)
     }
+}
+
+protocol DropDownButtonDelegate {
+    func didSelectDropDown(text: String)
 }
 
 extension UIView {

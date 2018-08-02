@@ -11,12 +11,15 @@ import Alamofire
 
 class TransactionDetailController: ParticipateCommonController {
     var project: ProjectModel?
+    var paymentMethod: String?
+
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
     @IBOutlet weak var tokenNumber: UITextField!
     @IBOutlet weak var ethAmount: UILabel!
     @IBOutlet weak var usdAmount: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         listenToKeyBoard()
@@ -27,8 +30,10 @@ class TransactionDetailController: ParticipateCommonController {
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "SUBMIT")
         header.setSelectIndicator(index: 2)
-        header.setCompanyLogo(link: (project?.logo)!)
-        header.setProjectTitle(title: (project?.title?.uppercased())!)
+        if let project = project {
+            header.setCompanyLogo(link: (project.logo)!)
+            header.setProjectTitle(title: (project.title?.uppercased())!)
+        }
         tokenNumber.layer.cornerRadius = tokenNumber.frame.size.height / 2
         tokenNumber.layer.borderWidth = 1
         tokenNumber.layer.borderColor = UIColor.init(argb: Colors.lightBlue).cgColor
@@ -50,33 +55,51 @@ class TransactionDetailController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
-        let method = project?.paymentMethods[0]
+        
+        guard let project = project else {return}
+        let method = project.paymentMethods[0]
         let params = [
-            "project_id": project?.projectId as Any,
-            "payment_method" : method?.methodName as Any,
-            "payment_method_id" : method?.methodId as Any,
+            "project_id": project.projectId as Any,
+            "payment_method" : method.methodName as Any,
+            "payment_method_id" : method.methodId as Any,
             "amount_tokens" : tokenNumber.text as Any,
             "payment_amount" : ethAmount.text as Any,
-            "discount" : project?.currentDiscount ?? "0"
+            "discount" : project.currentDiscount ?? "0",
+            "wallet_address" : "dkjsfakfja"
             ]
         let headers = [
             "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
+        activityIndicator.startAnimating()
         Alamofire.request(URLConstant.baseURL + URLConstant.participate, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            let json = response.result.value as! [String:Any]
-            if (json["code"] as! Int == 200) {
-                self.gotoNext()
-            } else {
-                self.showMessage(message: json["message"] as! String)
+            self.activityIndicator.stopAnimating()
+            switch (response.result) {
+            case .success:
+                let json = response.result.value as! [String:Any]
+                if (json["code"] as! Int == 200) {
+                    self.gotoNext()
+                } else {
+                    self.showMessage(message: json["message"] as! String)
+                }
+                break
+            case .failure(_):
+                self.showMessage(message: "There is an error!")
             }
+            
         }
     }
     
     //MARK: - Go to next
     func gotoNext() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.SuccessTransactionViewController) as! SuccessTransactionViewController
-        vc.project = project
-        navigationController?.pushViewController(vc, animated: true)
+        if let paymentMethod = paymentMethod, paymentMethod == "USD" {
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.USDDetailViewController) as! USDDetailViewController
+            vc.project = project
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.SuccessTransactionViewController) as! SuccessTransactionViewController
+            vc.project = project
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     //MARK: - Listen to keyboard

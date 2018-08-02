@@ -27,8 +27,10 @@ class SuccessTransactionViewController: ParticipateCommonController {
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "SHARE WITH FRIENDS")
         header.setSelectIndicator(index: 3)
-        header.setCompanyLogo(link: (project?.logo)!)
-        header.setProjectTitle(title: (project?.title?.uppercased())!)
+        if let project = project {
+            header.setCompanyLogo(link: (project.logo)!)
+            header.setProjectTitle(title: (project.title?.uppercased())!)
+        }
         copyLabel.setText(text: walletAddress)
         
         tokenNumberLabel.setTextColor(shortText: "W Green Pay tokens", color: UIColor.white)
