@@ -94,6 +94,7 @@ struct ViewControllerIdentifiers {
     static let LoginNavigationController = "LoginNavigationController"
     static let CompleteRetreivePasswordController = "CompleteRetreivePasswordController"
     static let USDDetailViewController = "USDDetailViewController"
+    static let OTPUpdateMobileViewController = "OTPUpdateMobileViewController"
 }
 
 struct Colors {

@@ -11,13 +11,14 @@ import Alamofire
 
 class TransactionDetailController: ParticipateCommonController {
     var project: ProjectModel?
-    var paymentMethod: String?
+    var paymentMethod: PaymentMethodModel?
 
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
     @IBOutlet weak var tokenNumber: UITextField!
     @IBOutlet weak var ethAmount: UILabel!
-    @IBOutlet weak var usdAmount: UILabel!
+    @IBOutlet weak var tokenPrice: UILabel!
+    @IBOutlet weak var totalAmountTitle: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
@@ -33,6 +34,8 @@ class TransactionDetailController: ParticipateCommonController {
         if let project = project {
             header.setCompanyLogo(link: (project.logo)!)
             header.setProjectTitle(title: (project.title?.uppercased())!)
+            tokenPrice.text = "1 TOKEN = \(paymentMethod!.price!) \(paymentMethod!.methodName!)"
+            totalAmountTitle.text = "Total \(paymentMethod!.methodName!) amount:"
         }
         tokenNumber.layer.cornerRadius = tokenNumber.frame.size.height / 2
         tokenNumber.layer.borderWidth = 1
@@ -46,8 +49,9 @@ class TransactionDetailController: ParticipateCommonController {
     }
     
     func countAmount() {
-        ethAmount.text = "\(Float(tokenNumber.text!)! / 1000)"
-        usdAmount.text = "US$\(Float(tokenNumber.text!)! * 453 / 1000)"
+        let price = (paymentMethod?.price as! NSString).floatValue
+        ethAmount.text = String(format: "%.2f", Float(tokenNumber.text!)! * price)
+        
     }
     
     @IBAction func clickBack(_ sender: Any) {
@@ -56,8 +60,7 @@ class TransactionDetailController: ParticipateCommonController {
     
     override func imageButtonClick(_ sender: Any) {
         
-        guard let project = project else {return}
-        let method = project.paymentMethods[0]
+        guard let project = project, let method = paymentMethod else {return}
         let params = [
             "project_id": project.projectId as Any,
             "payment_method" : method.methodName as Any,
@@ -91,7 +94,7 @@ class TransactionDetailController: ParticipateCommonController {
     
     //MARK: - Go to next
     func gotoNext() {
-        if let paymentMethod = paymentMethod, paymentMethod == "USD" {
+        if let paymentMethod = paymentMethod, paymentMethod.methodName == "USD" {
             let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.USDDetailViewController) as! USDDetailViewController
             vc.project = project
             navigationController?.pushViewController(vc, animated: true)

@@ -11,7 +11,7 @@ import Foundation
 struct PaymentMethodModel {
     let methodName: String?
     let methodId: Int?
-    let price: Float?
+    let price: String?
     let type: String?
     let accountName: String?
     let holderAddress: String?
@@ -24,7 +24,7 @@ struct PaymentMethodModel {
     init(dic: [String:Any]) {
         methodId = dic["method_id"] as? Int ?? nil
         methodName = dic["method_name"] as? String ?? nil
-        price = dic["price_per_token"] as? Float ?? nil
+        price = dic["price_per_token"] as? String ?? nil
         type = dic["method_type"] as? String ?? nil
         accountName = dic["account_name"] as? String ?? nil
         holderAddress = dic["holder_address"] as? String ?? nil

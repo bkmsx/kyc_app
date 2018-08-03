@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class CopyLabel: UIView {
     @IBOutlet var contentView: UIView!
@@ -34,6 +35,7 @@ class CopyLabel: UIView {
 
     @IBAction func copyText(_ sender: Any) {
         UIPasteboard.general.string = label.text
+        contentView.makeToast("Copied to clipboard")
         if (delegate != nil) {
             delegate?.copyText(text: label.text!)
         }

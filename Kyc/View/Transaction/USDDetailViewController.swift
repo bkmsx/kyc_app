@@ -13,6 +13,7 @@ class USDDetailViewController: ParticipateCommonController {
     @IBOutlet weak var participateHeader: ParticipateHeader!
     @IBOutlet weak var bankDetailBackground: UIView!
     
+    @IBOutlet weak var imageButton: ImageButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,13 @@ class USDDetailViewController: ParticipateCommonController {
             participateHeader.setProjectTitle(title: project.title!)
             participateHeader.setCompanyLogo(link: project.logo!)
         }
+        imageButton.delegate = self
+        imageButton.setButtonTitle(title: "SHARE WITH FRIENDS")
+    }
+    
+    override func imageButtonClick(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickDone(_ sender: Any) {

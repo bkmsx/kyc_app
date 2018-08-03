@@ -3,12 +3,14 @@ PODS:
   - DLRadioButton (1.4.12)
   - DropDown (2.3.2)
   - QRCodeReader.swift (8.2.0)
+  - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - DLRadioButton (~> 1.4)
   - DropDown
   - QRCodeReader.swift (~> 8.2.0)
+  - Toast-Swift (~> 3.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - DLRadioButton
     - DropDown
     - QRCodeReader.swift
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 71bf24306f3e79d044ee8d444b327840ebe41b84
+PODFILE CHECKSUM: 53d2a26224738d7e25069b1f1b563811769f3dea
 
 COCOAPODS: 1.5.3

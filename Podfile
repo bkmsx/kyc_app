@@ -13,6 +13,7 @@ target 'Kyc' do
   pod 'DropDown'
   pod 'DLRadioButton', '~> 1.4'
   pod 'QRCodeReader.swift', '~> 8.2.0'
+  pod 'Toast-Swift', '~> 3.0.1'
 
   target 'KycTests' do
     inherit! :search_paths
