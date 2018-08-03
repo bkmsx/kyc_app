@@ -8,8 +8,12 @@
 
 import UIKit
 import Contacts
+import MessageUI
+import Toast_Swift
 
-class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate {
+class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate, MFMessageComposeViewControllerDelegate {
+    
+    
     //MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var phoneLabel: UILabel!
@@ -60,7 +64,30 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
     
     //MARK: - Send invitations
     @IBAction func sendInvitations(_ sender: Any) {
-        goBackRootView()
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Please join us by install KYC app to get free tokens"
+            controller.recipients = []
+            for contact in selectedCotacts {
+                controller.recipients?.append(contact.contactNumber)
+            }
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            showMessages(message: "This device doesn't support SMS")
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        if (result == .cancelled || result == .failed) {
+            UIApplication.shared.keyWindow?.makeToast("You are not successful to send invitations")
+
+        } else {
+            UIApplication.shared.keyWindow?.makeToast("You've sent invitations to friends")
+        }
+        
+        controller.dismiss(animated: true, completion: nil)
+        goBack()
     }
     
     //MARK: - Contacts

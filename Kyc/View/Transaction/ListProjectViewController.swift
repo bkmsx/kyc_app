@@ -61,8 +61,8 @@ class ListProjectViewController: ParticipateCommonController, UITableViewDataSou
     }
     
     func showDetail(projectId: Int) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ProjectDetailViewController) as! ProjectDetailViewController
-        vc.projectId = projectId
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController) as! ChooseShareMethodViewController
+//        vc.projectId = projectId
         //FIXME: Segue to Transaction detail
 //        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.USDDetailViewController) as! UIViewController
         navigationController?.pushViewController(vc, animated: true)

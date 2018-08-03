@@ -69,7 +69,6 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         cell.participateDate.text = history.addedDate!
         cell.historyId = history.historyId!
         return cell
-        
     }
     
     //MARK: TableView Delegate

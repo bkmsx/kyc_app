@@ -15,6 +15,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     @IBOutlet weak var updatePassport: SettingRow!
     @IBOutlet weak var updateWallet: SettingRow!
     @IBOutlet weak var participateHistory: SettingRow!
+    @IBOutlet weak var setting: SettingRow!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userName: UILabel!
@@ -43,6 +44,10 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         participateHistory.settingLabel.text = "Participation History"
         participateHistory.iconImage.image = #imageLiteral(resourceName: "blue_history")
         participateHistory.delegate = self
+        
+        setting.settingLabel.text = "Settings"
+        setting.iconImage.image = #imageLiteral(resourceName: "blue_setting")
+        setting.delegate = self
         
         shareButton.layer.cornerRadius = shareButton.frame.size.height / 2
         logoutButton.layer.cornerRadius = logoutButton.frame.size.height / 2
@@ -80,8 +85,10 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
             gotoUpdatePassport()
         } else if (setting == updateWallet) {
             gotoWalletAddress()
-        } else {
+        } else if (setting == participateHistory) {
             gotoParticipateHistory()
+        } else if (setting == self.setting) {
+            gotoSettings()
         }
     }
     
@@ -113,5 +120,11 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     func gotoInvitation() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController)
         navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    //MARK: - Goto Setting
+    func gotoSettings() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ConfigurationViewController) as! ConfigurationViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
