@@ -49,6 +49,9 @@
 		081B5BA92113491400AFE162 /* OTPUpdateMobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BA82113491400AFE162 /* OTPUpdateMobileViewController.swift */; };
 		081B5BAB21142D9A00AFE162 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BAA21142D9A00AFE162 /* ConfigurationViewController.swift */; };
 		081B5BAD2114436000AFE162 /* ChooseShareMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BAC2114436000AFE162 /* ChooseShareMethodViewController.swift */; };
+		081B5BAF2114639200AFE162 /* PaymentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BAE2114639200AFE162 /* PaymentCategory.swift */; };
+		081B5BB321154A4800AFE162 /* ETHParticipateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BB221154A4800AFE162 /* ETHParticipateDetailViewController.swift */; };
+		081B5BB521160B2F00AFE162 /* USDParticipateHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BB421160B2F00AFE162 /* USDParticipateHistoryController.swift */; };
 		082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C32109BC1D004AB6E8 /* LeftBarView.swift */; };
 		082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10C52109BC2C004AB6E8 /* LeftBarView.xib */; };
 		082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C72109D37C004AB6E8 /* WalletInputController.swift */; };
@@ -155,6 +158,9 @@
 		081B5BA82113491400AFE162 /* OTPUpdateMobileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPUpdateMobileViewController.swift; sourceTree = "<group>"; };
 		081B5BAA21142D9A00AFE162 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		081B5BAC2114436000AFE162 /* ChooseShareMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseShareMethodViewController.swift; sourceTree = "<group>"; };
+		081B5BAE2114639200AFE162 /* PaymentCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCategory.swift; sourceTree = "<group>"; };
+		081B5BB221154A4800AFE162 /* ETHParticipateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETHParticipateDetailViewController.swift; sourceTree = "<group>"; };
+		081B5BB421160B2F00AFE162 /* USDParticipateHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDParticipateHistoryController.swift; sourceTree = "<group>"; };
 		082A10C32109BC1D004AB6E8 /* LeftBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarView.swift; sourceTree = "<group>"; };
 		082A10C52109BC2C004AB6E8 /* LeftBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftBarView.xib; sourceTree = "<group>"; };
 		082A10C72109D37C004AB6E8 /* WalletInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInputController.swift; sourceTree = "<group>"; };
@@ -333,9 +339,11 @@
 		0819225D21006BA400CF2800 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				081B5BB421160B2F00AFE162 /* USDParticipateHistoryController.swift */,
 				0802992A20FEEDB70044C4E5 /* SettingViewController.swift */,
 				0819225921004FFA00CF2800 /* HistoryTableViewController.swift */,
 				0819226021006F1A00CF2800 /* UpdatePersonalInformationViewController.swift */,
+				081B5BB221154A4800AFE162 /* ETHParticipateDetailViewController.swift */,
 				08192262210081B100CF2800 /* UpdatePassportViewController.swift */,
 				081B5BAA21142D9A00AFE162 /* ConfigurationViewController.swift */,
 				0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */,
@@ -458,6 +466,7 @@
 				08192254210026E400CF2800 /* ContactModel.swift */,
 				0817C4F72110539A001DC87B /* PaymentMethodModel.swift */,
 				0817C4F92110CB85001DC87B /* ParticipateHistoryModel.swift */,
+				081B5BAE2114639200AFE162 /* PaymentCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -743,6 +752,7 @@
 				080868052109A9410033BECE /* ProjectCell.swift in Sources */,
 				081B5BAB21142D9A00AFE162 /* ConfigurationViewController.swift in Sources */,
 				0874C831210B16B100628D5E /* SettingRow.swift in Sources */,
+				081B5BB321154A4800AFE162 /* ETHParticipateDetailViewController.swift in Sources */,
 				0819225320FF8E8A00CF2800 /* PhoneListViewController.swift in Sources */,
 				080868002108D7980033BECE /* UploadButton.swift in Sources */,
 				08192255210026E400CF2800 /* ContactModel.swift in Sources */,
@@ -772,12 +782,14 @@
 				0819226121006F1A00CF2800 /* UpdatePersonalInformationViewController.swift in Sources */,
 				0817C4F82110539A001DC87B /* PaymentMethodModel.swift in Sources */,
 				080867C02105F2020033BECE /* RoundView.swift in Sources */,
+				081B5BAF2114639200AFE162 /* PaymentCategory.swift in Sources */,
 				0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */,
 				081B5BA721131A1C00AFE162 /* ChangeMobileViewController.swift in Sources */,
 				081B5BAD2114436000AFE162 /* ChooseShareMethodViewController.swift in Sources */,
 				08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */,
 				080867E62108519B0033BECE /* CodeInputView.swift in Sources */,
 				080867F42108878E0033BECE /* DropDownButton.swift in Sources */,
+				081B5BB521160B2F00AFE162 /* USDParticipateHistoryController.swift in Sources */,
 				081922582100295100CF2800 /* PhoneCell.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,
 				081B5BA92113491400AFE162 /* OTPUpdateMobileViewController.swift in Sources */,

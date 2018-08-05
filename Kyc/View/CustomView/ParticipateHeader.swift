@@ -56,4 +56,8 @@ class ParticipateHeader: UIView {
     func setProjectTitle(title: String) {
         projectTitle.text = title
     }
+    
+    func hideIndicator() {
+        indicatorContainer.isHidden = true
+    }
 }

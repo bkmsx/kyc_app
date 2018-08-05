@@ -65,8 +65,8 @@ class CommonViewController: UIViewController {
     
     //MARK: - HTTP request
     func httpRequest(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, headers: HTTPHeaders? = nil, success: @escaping (_ json: [String:Any]) -> Void) {
-        activityIndicatorView?.startAnimating()
-        Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ response in
+        self.activityIndicatorView?.startAnimating()
+        Alamofire.request(url, method: method, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON{ response in
             self.activityIndicatorView?.stopAnimating()
             switch (response.result) {
             case .success(_):
@@ -83,5 +83,21 @@ class CommonViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    //MARK: - QR code generator
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+            
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        
+        return nil
     }
 }

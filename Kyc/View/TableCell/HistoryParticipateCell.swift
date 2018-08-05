@@ -11,6 +11,7 @@ import UIKit
 class HistoryParticipateCell: UITableViewCell, CustomAlertDialogDelegate{
     var delegate: HistoryParticipateCellDelegate?
     var historyId: Int?
+    var paymentMethod: String?
     
     @IBOutlet weak var companyLogo: UIView!
     @IBOutlet weak var logoImage: UIImageView!
@@ -19,7 +20,6 @@ class HistoryParticipateCell: UITableViewCell, CustomAlertDialogDelegate{
     @IBOutlet weak var statusLabel: ColorLabel!
     @IBOutlet weak var tokenPurchased: ColorLabel!
     @IBOutlet weak var ethPaid: ColorLabel!
-    @IBOutlet weak var usdPaid: ColorLabel!
     @IBOutlet weak var discountLabel: ColorLabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var projectTitle: UILabel!
@@ -37,7 +37,6 @@ class HistoryParticipateCell: UITableViewCell, CustomAlertDialogDelegate{
         statusLabel.setTextColor(shortText: "STATUS:", color: UIColor.init(argb: Colors.darkGray))
         tokenPurchased.setTextColor(shortText: "tokens purchased", color: UIColor.init(argb: Colors.darkGray))
         ethPaid.setTextColor(shortText: "ETH paid", color: UIColor.init(argb: Colors.darkGray))
-        usdPaid.setTextColor(shortText: "USD paid", color: UIColor.init(argb: Colors.darkGray))
         discountLabel.setTextColor(shortText: "Discount", color: UIColor.init(argb: Colors.darkGray))
         statusLabel.layer.borderColor = UIColor.init(argb: Colors.lightBlue).cgColor
         statusLabel.layer.borderWidth = 1
@@ -57,6 +56,11 @@ class HistoryParticipateCell: UITableViewCell, CustomAlertDialogDelegate{
         }
     }
     
+    @IBAction func gotoHistoryDetail(_ sender: Any) {
+        if let delegate = delegate, let historyId = historyId, let paymentMethod = paymentMethod {
+            delegate.gotoHistoryDetail(historyId: historyId, paymentMethod: paymentMethod)
+        }
+    }
     @IBAction func gotoDetailProject(_ sender: Any) {
         if let delegate = delegate {
             delegate.participateAgain()
@@ -67,4 +71,5 @@ class HistoryParticipateCell: UITableViewCell, CustomAlertDialogDelegate{
 protocol HistoryParticipateCellDelegate {
     func participateAgain()
     func deleteParticipateHistory(historyId: Int)
+    func gotoHistoryDetail(historyId: Int, paymentMethod: String)
 }

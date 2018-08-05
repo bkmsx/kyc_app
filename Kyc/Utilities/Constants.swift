@@ -63,6 +63,7 @@ struct URLConstant {
     static let participateHistory = "/project/participate-history"
     static let resetPassword = "/forgot-password"
     static let participateDelete = "/project/participate-delete"
+    static let participateDetail = "/project/participate-detail"
 }
 
 struct SegueIdentifiers {
@@ -97,6 +98,8 @@ struct ViewControllerIdentifiers {
     static let OTPUpdateMobileViewController = "OTPUpdateMobileViewController"
     static let ConfigurationViewController = "ConfigurationViewController"
     static let ChooseShareMethodViewController = "ChooseShareMethodViewController"
+    static let ETHParticipateDetailViewController = "ETHParticipateDetailViewController"
+    static let USDParticipateHistoryController = "USDParticipateHistoryController"
 }
 
 struct Colors {

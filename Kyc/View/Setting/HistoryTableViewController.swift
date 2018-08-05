@@ -12,7 +12,6 @@ import Alamofire
 class HistoryTableViewController: ParticipateCommonController, UITableViewDataSource, HistoryParticipateCellDelegate{
     var histories: [ParticipateHistoryModel] = []
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +24,12 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
-        activityIndicator.startAnimating()
-        Alamofire.request(URLConstant.baseURL + URLConstant.participateHistory, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON {response in
-            self.activityIndicator.stopAnimating()
-            let json = response.result.value as! [String:Any]
-            let code = json["code"] as! Int
-            if (code == 200) {
-                let historiesDic = json["history"] as! [[String:Any]]
-                for historyDic in historiesDic {
-                    let history = ParticipateHistoryModel(dic: historyDic)
-                    self.histories.append(history)
-                    self.tableView.reloadData()
-                }
+        httpRequest(URLConstant.baseURL + URLConstant.participateHistory, method: .get, parameters: nil, headers: headers) { (json) in
+            let historiesDic = json["history"] as! [[String:Any]]
+            for historyDic in historiesDic {
+                let history = ParticipateHistoryModel(dic: historyDic)
+                self.histories.append(history)
+                self.tableView.reloadData()
             }
         }
     }
@@ -45,6 +38,7 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
     override func customViews() {
         setupTableView()
     }
+    
     @IBAction func clickBack(_ sender: Any) {
         goBack()
     }
@@ -67,7 +61,9 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         cell.tokenPurchased.text = "\(history.tokensPurchased!) tokens purchased"
         cell.discountLabel.text = "\(history.discount!)% Discount"
         cell.participateDate.text = history.addedDate!
+        cell.ethPaid.text = "\(history.amount!) \(history.paymentMode!) paid"
         cell.historyId = history.historyId!
+        cell.paymentMethod = history.paymentMode
         return cell
     }
     
@@ -86,15 +82,20 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
-        
-        Alamofire.request(URLConstant.baseURL + URLConstant.participateDelete, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON {response in
-            let json = response.result.value as! [String:Any]
-            let code = json["code"] as! Int
-            if (code == 200) {
-                self.getHistoryList()
-            } else {
-                self.showMessage(message: json["message"] as! String)
-            }
+        httpRequest(URLConstant.baseURL + URLConstant.participateDelete, method: .post, parameters: params, headers: headers) { (json) in
+            self.getHistoryList()
+        }
+    }
+    
+    func gotoHistoryDetail(historyId: Int, paymentMethod: String) {
+        if (paymentMethod != "USD") {
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ETHParticipateDetailViewController) as! ETHParticipateDetailViewController
+            vc.historyId = historyId
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.USDParticipateHistoryController) as! USDParticipateHistoryController
+            vc.historyId = historyId
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

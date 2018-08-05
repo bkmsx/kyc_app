@@ -72,33 +72,15 @@ class LoginViewController: ParticipateCommonController, UITextFieldDelegate{
     
     //MARK: - Login
     func loginAccount(params: [String: Any]) {
-        Alamofire.request(URLConstant.baseURL + URLConstant.loginAccount, method: .post, parameters: params).responseJSON { response in
-            switch response.result {
-            case .success:
-                if (response.result.value == nil) {
-                    self.showMessage(message: "There is problem with network")
-                    return
-                }
-                let json = response.result.value as! [String:Any]
-                
-                let resultCode = json["code"] as! Int
-                if (resultCode == 200) {
-                    
-                    let user = UserModel(dictionary: json["user"] as! [String : Any])
-                    user.saveToLocal()
-                    if (user.passportNumber == nil) {
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController) as! UploadPassportViewController
-                        self.present(vc, animated: true, completion: nil)
-                    } else {
-                        self.gotoListProject()
-                    }
-                } else {
-                    self.showMessage(message: "Invalid email or password")
-                }
-            case .failure:
-                self.showMessage(message: "Login error")
+        httpRequest(URLConstant.baseURL + URLConstant.loginAccount, method: .post, parameters: params, headers: nil) { (json) in
+            let user = UserModel(dictionary: json["user"] as! [String : Any])
+            user.saveToLocal()
+            if (user.passportNumber == nil) {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController) as! UploadPassportViewController
+                self.present(vc, animated: true, completion: nil)
+            } else {
+                self.gotoListProject()
             }
-            
         }
     }
     
