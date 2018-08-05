@@ -37,7 +37,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         updatePassport.iconImage.image = #imageLiteral(resourceName: "blue_passport")
         updatePassport.delegate = self
         
-        updateWallet.settingLabel.text = "Update ERC20 Wallet"
+        updateWallet.settingLabel.text = "Update Wallet"
         updateWallet.iconImage.image = #imageLiteral(resourceName: "blue_wallet")
         updateWallet.delegate = self
         
@@ -106,7 +106,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     
     //MARK: - Goto Wallet Address
     func gotoWalletAddress() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UpdateWalletAddressViewController)
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.WalletListController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     

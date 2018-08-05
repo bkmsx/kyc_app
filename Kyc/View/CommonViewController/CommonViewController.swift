@@ -65,9 +65,14 @@ class CommonViewController: UIViewController {
     
     //MARK: - HTTP request
     func httpRequest(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, headers: HTTPHeaders? = nil, success: @escaping (_ json: [String:Any]) -> Void) {
-        self.activityIndicatorView?.startAnimating()
+        DispatchQueue.main.async {
+            self.activityIndicatorView?.startAnimating()
+        }
+        
         Alamofire.request(url, method: method, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON{ response in
-            self.activityIndicatorView?.stopAnimating()
+            DispatchQueue.main.async {
+                self.activityIndicatorView?.stopAnimating()
+            }
             switch (response.result) {
             case .success(_):
                 let json = response.result.value as! [String:Any]

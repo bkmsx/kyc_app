@@ -1,56 +1,51 @@
 //
-//  UpdateWalletAddressViewController.swift
+//  AddWalletController.swift
 //  Kyc
 //
-//  Created by Lai Trung Tien on 7/19/18.
+//  Created by Lai Trung Tien on 8/5/18.
 //  Copyright © 2018 Lai Trung Tien. All rights reserved.
 //
 
 import UIKit
 import QRCodeReader
 
-class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeReaderViewControllerDelegate, UploadButtonDelegate {
-    //MARK: - Properties
-    var walletAddress: WalletAddress?
-    //MARK: - Outlet
-    @IBOutlet weak var currentWalletTextField: UITextField!
-    @IBOutlet weak var newWalletTextField: UITextField!
-    @IBOutlet weak var imageButton: ImageButton!
-    @IBOutlet weak var scanButton: UploadButton!
+class AddWalletController: ParticipateCommonController, UploadButtonDelegate, QRCodeReaderViewControllerDelegate {
+
+    var payments: [AppPaymentMethod] = []
     
-    //MARK: - Initialization
+    @IBOutlet weak var imageButton: ImageButton!
+    @IBOutlet weak var roundView: RoundView!
+    @IBOutlet weak var walletAddress: UITextField!
+    @IBOutlet weak var scanButton: UploadButton!
+    @IBOutlet weak var dropDownButton: DropDownButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getPaymentMethods()
     }
+    
     //MARK: - Custom views
     override func customViews() {
-        currentWalletTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        newWalletTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         imageButton.delegate = self
-        imageButton.setButtonTitle(title: "UPDATE")
+        imageButton.setButtonTitle(title: "ADD")
+        roundView.setImage(image: #imageLiteral(resourceName: "account"))
+        walletAddress.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
         scanButton.setButtonIcon(image: #imageLiteral(resourceName: "blue_scan"))
         scanButton.setButtonTitle(title: "SCAN")
         scanButton.delegate = self
-        
-        if let walletAddress = walletAddress {
-            currentWalletTextField.text = walletAddress.address!
+        dropDownButton.setTextMarginLeft(value: 10)
+    }
+    
+    func getPaymentMethodId() -> Int {
+        for payment in payments {
+            if payment.name == dropDownButton.text {
+                return payment.id!
+            }
         }
+        return 0
     }
     
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
-    }
-    
-    override func imageButtonClick(_ sender: Any) {
-        updateWallet()
-    }
-    //MARK: - Scan wallet
-    func clickUploadButton(sender: Any) {
-        startScan()
-    }
-    
-    //MARK: QRCode
+    //MARK: - Scan QR
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader                  = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
@@ -103,7 +98,7 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         dismiss(animated: true){
-            self.newWalletTextField.text = result.value
+            self.walletAddress.text = result.value
         }
     }
     
@@ -112,39 +107,48 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
         dismiss(animated: true, completion: nil)
     }
     
-    //MARK: - Update Wallet
-    func updateWallet() {
-        //FIXME: Remove comments
-        guard let walletAddress = walletAddress else {
-            return
-        }
-        if (newWalletTextField.text == "") {
-            showMessage(message: "Please input new wallet")
-            return
-        }
-        if (currentWalletTextField.text == newWalletTextField.text) {
-            showMessage(message: "New wallet must be different to the current wallet")
-            return
-        }
-        
-        let params = [
-            "wallet_address" : newWalletTextField.text!,
-            "wallet_id" : walletAddress.walletId!,
-            "method_id" : walletAddress.methodId!
-            ] as [String : Any]
-        let headers = [
-            "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
-        ]
-        
-        httpRequest(URLConstant.baseURL + URLConstant.updateWallet, method: .post, parameters: params, headers: headers) { json in
-            self.goBack()
+    //MARK: - Call API
+    func getPaymentMethods() {
+        httpRequest(URLConstant.baseURL + URLConstant.paymentMethods) { json in
+            var paymentString: [String] = []
+            let dicPayments = json["paymentMethods"] as! [[String:Any]]
+            for dicPayment in dicPayments {
+                let payment = AppPaymentMethod.init(dic: dicPayment)
+                self.payments.append(payment)
+                paymentString.append(payment.name!)
+                self.dropDownButton.setDataSource(source: paymentString)
+            }
         }
     }
     
-    //MARK: - Dialog
-    func showMessage(message: String) {
-        let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    func addNewWallet() {
+        guard !(walletAddress.text?.isEmpty)! else {
+            return
+        }
+        let params = [
+            "method_id" : getPaymentMethodId(),
+            "wallet_address" : walletAddress.text!
+        ] as [String:Any]
+        
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        httpRequest(URLConstant.baseURL + URLConstant.addWallet, method: .post
+        , parameters: params, headers: headers) { _ in
+            self.goBack()
+        }
+    }
+
+    //MARK: - Navigations
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+    
+    override func imageButtonClick(_ sender: Any) {
+        addNewWallet()
+    }
+    
+    func clickUploadButton(sender: Any) {
+        startScan()
     }
 }

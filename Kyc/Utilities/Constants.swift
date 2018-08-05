@@ -57,13 +57,18 @@ struct URLConstant {
     static let uploadPassport = "/upload/passport"
     static let projectList = "/project/list"
     static let projectDetail = "/project/detail"
-    static let updateWallet = "/update-erc-wallet"
     static let changePassword = "/change-password"
     static let participate = "/project/participate"
     static let participateHistory = "/project/participate-history"
     static let resetPassword = "/forgot-password"
     static let participateDelete = "/project/participate-delete"
     static let participateDetail = "/project/participate-detail"
+    static let userWallets = "/user-wallets"
+    static let addWallet = "/wallet-add"
+    static let updateWallet = "/wallet-update"
+    static let deleteWallet = "/wallet-delete"
+    static let paymentMethods = "/app-payment-methods"
+    static let updateUserInfor = "/update-personal-info"
 }
 
 struct SegueIdentifiers {
@@ -100,6 +105,8 @@ struct ViewControllerIdentifiers {
     static let ChooseShareMethodViewController = "ChooseShareMethodViewController"
     static let ETHParticipateDetailViewController = "ETHParticipateDetailViewController"
     static let USDParticipateHistoryController = "USDParticipateHistoryController"
+    static let WalletListController = "WalletListController"
+    static let AddWalletController = "AddWalletController"
 }
 
 struct Colors {
