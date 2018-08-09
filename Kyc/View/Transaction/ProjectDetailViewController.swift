@@ -74,6 +74,7 @@ class ProjectDetailViewController: ParticipateCommonController {
         inviteButton.layer.cornerRadius = inviteButton.frame.size.height / 2
     }
     
+    //MARK: - Navigations
     @IBAction func clickBack(_ sender: Any) {
         goBack()
     }

@@ -8,9 +8,10 @@
 
 import UIKit
 
-class WalletListController: ParticipateCommonController, UITableViewDataSource, UITableViewDelegate, WalletCellDelegate {
+class WalletListController: ParticipateCommonController, UITableViewDataSource, UITableViewDelegate, WalletCellDelegate, NoParticipateViewDelegate {
     var walletCategories: [WalletCategory] = []
     var selectedAddress: WalletAddress?
+    var noParticipateView: NoParticipateView?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageButton: ImageButton!
@@ -33,6 +34,30 @@ class WalletListController: ParticipateCommonController, UITableViewDataSource, 
         
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    func addNoParticipateView() {
+        DispatchQueue.main.async {
+            self.noParticipateView = NoParticipateView.init(frame: self.view.bounds)
+            self.noParticipateView?.layer.zPosition = 500
+            self.noParticipateView?.delegate = self
+            self.noParticipateView?.setTitle("No wallet found")
+            self.noParticipateView?.setMessage("You have not added any wallet")
+            self.noParticipateView?.setButtonTitle("ADD NEW WALLET")
+            self.view.addSubview(self.noParticipateView!)
+        }
+    }
+    
+    func removeNoParticipateView() {
+        DispatchQueue.main.async {
+            if let noParticipateView = self.noParticipateView {
+                noParticipateView.removeFromSuperview()
+            }
+        }
+    }
+    
+    func addNewItems() {
+        gotoAddNewWallet()
     }
     
     //MARK: - TableView DataSource
@@ -86,7 +111,12 @@ class WalletListController: ParticipateCommonController, UITableViewDataSource, 
                 let walletCategory = WalletCategory.init(dic: category)
                 self.walletCategories.append(walletCategory)
             }
-            self.tableView.reloadData()
+            if (self.walletCategories.count == 0) {
+                self.addNoParticipateView()
+            } else {
+                self.removeNoParticipateView()
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -110,6 +140,10 @@ class WalletListController: ParticipateCommonController, UITableViewDataSource, 
     }
     
     override func imageButtonClick(_ sender: Any) {
+        gotoAddNewWallet()
+    }
+    
+    func gotoAddNewWallet() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.AddWalletController) as! AddWalletController
         navigationController?.pushViewController(vc, animated: true)
     }

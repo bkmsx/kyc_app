@@ -76,13 +76,9 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     
     //MARK: - Setup Navigation Bar
     @IBAction func backToProjectList(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        goBack()
     }
     
-    //MARK: - Share with friends
-    @IBAction func shareWithFriends(_ sender: Any) {
-        gotoInvitation()
-    }
     
     //MARK: - Setting Row Delegate
     func clickSettingRow(setting: SettingRow) {
@@ -120,12 +116,6 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     //MARK: - Goto Participate History
     func gotoParticipateHistory() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.HistoryTableViewController)
-        navigationController?.pushViewController(vc!, animated: true)
-    }
-    
-    //MARK: - Goto Invitation
-    func gotoInvitation() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     

@@ -58,6 +58,8 @@
 		081B5BBD2117237A00AFE162 /* WalletCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BBC2117237A00AFE162 /* WalletCategory.swift */; };
 		081B5BBF211723BC00AFE162 /* WalletAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BBE211723BC00AFE162 /* WalletAddress.swift */; };
 		081B5BC1211753AB00AFE162 /* AppPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC0211753AB00AFE162 /* AppPaymentMethod.swift */; };
+		081B5BC3211BF6F400AFE162 /* NoParticipateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC2211BF6F400AFE162 /* NoParticipateView.swift */; };
+		081B5BC5211BF70E00AFE162 /* NoParticipateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081B5BC4211BF70E00AFE162 /* NoParticipateView.xib */; };
 		082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C32109BC1D004AB6E8 /* LeftBarView.swift */; };
 		082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10C52109BC2C004AB6E8 /* LeftBarView.xib */; };
 		082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C72109D37C004AB6E8 /* WalletInputController.swift */; };
@@ -173,6 +175,8 @@
 		081B5BBC2117237A00AFE162 /* WalletCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCategory.swift; sourceTree = "<group>"; };
 		081B5BBE211723BC00AFE162 /* WalletAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddress.swift; sourceTree = "<group>"; };
 		081B5BC0211753AB00AFE162 /* AppPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPaymentMethod.swift; sourceTree = "<group>"; };
+		081B5BC2211BF6F400AFE162 /* NoParticipateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoParticipateView.swift; sourceTree = "<group>"; };
+		081B5BC4211BF70E00AFE162 /* NoParticipateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoParticipateView.xib; sourceTree = "<group>"; };
 		082A10C32109BC1D004AB6E8 /* LeftBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarView.swift; sourceTree = "<group>"; };
 		082A10C52109BC2C004AB6E8 /* LeftBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftBarView.xib; sourceTree = "<group>"; };
 		082A10C72109D37C004AB6E8 /* WalletInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInputController.swift; sourceTree = "<group>"; };
@@ -283,7 +287,9 @@
 			children = (
 				0817C4ED210CDBC4001DC87B /* Modal.swift */,
 				080867FE2108D7980033BECE /* UploadButton.swift */,
+				081B5BC2211BF6F400AFE162 /* NoParticipateView.swift */,
 				080867FF2108D7980033BECE /* UploadButton.xib */,
+				081B5BC4211BF70E00AFE162 /* NoParticipateView.xib */,
 				080867F22108878D0033BECE /* DropDownButton.swift */,
 				080867F32108878E0033BECE /* DropDownButton.xib */,
 				080867E52108519B0033BECE /* CodeInputView.swift */,
@@ -642,6 +648,7 @@
 				0817C4F4210D8161001DC87B /* DialogView.xib in Resources */,
 				081B5B9F2111BE7600AFE162 /* TermConditionView.xib in Resources */,
 				0874C82F210B166700628D5E /* SettingRow.xib in Resources */,
+				081B5BC5211BF70E00AFE162 /* NoParticipateView.xib in Resources */,
 				08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */,
 				082A10D7210AF26D004AB6E8 /* CopyLabel.xib in Resources */,
 				080868012108D7980033BECE /* UploadButton.xib in Resources */,
@@ -795,6 +802,7 @@
 				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
 				081B5BBB211711D300AFE162 /* WalletCell.swift in Sources */,
 				082A10CB2109D49C004AB6E8 /* CommonViewController.swift in Sources */,
+				081B5BC3211BF6F400AFE162 /* NoParticipateView.swift in Sources */,
 				0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */,
 				0874C833210B1E8800628D5E /* InvitationInforController.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,

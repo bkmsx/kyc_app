@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class HistoryTableViewController: ParticipateCommonController, UITableViewDataSource, HistoryParticipateCellDelegate{
+class HistoryTableViewController: ParticipateCommonController, UITableViewDataSource, HistoryParticipateCellDelegate, NoParticipateViewDelegate{
     var histories: [ParticipateHistoryModel] = []
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,15 +20,20 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
     
     //MARK: - Get History List
     func getHistoryList() {
-        histories = []
+        
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
         httpRequest(URLConstant.baseURL + URLConstant.participateHistory, method: .get, parameters: nil, headers: headers) { (json) in
             let historiesDic = json["history"] as! [[String:Any]]
+            self.histories = []
             for historyDic in historiesDic {
                 let history = ParticipateHistoryModel(dic: historyDic)
                 self.histories.append(history)
+            }
+            if (self.histories.count == 0) {
+               self.addNoParticipateView()
+            } else {
                 self.tableView.reloadData()
             }
         }
@@ -39,8 +44,17 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         setupTableView()
     }
     
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
+    func addNoParticipateView() {
+        DispatchQueue.main.async {
+            let noParticipateView = NoParticipateView.init(frame: self.view.bounds)
+            noParticipateView.layer.zPosition = 500
+            noParticipateView.delegate = self
+            self.view.addSubview(noParticipateView)
+        }
+    }
+    
+    func addNewItems() {
+        goBackRootView()
     }
     
     //MARK: - TableView Datasource
@@ -87,6 +101,12 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         }
     }
     
+    //MARK: - Navigations
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+    
+    
     func gotoHistoryDetail(historyId: Int, paymentMethod: String) {
         if (paymentMethod != "USD") {
             let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ETHParticipateDetailViewController) as! ETHParticipateDetailViewController
@@ -98,6 +118,8 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    
     
     //MARK: - Dialog
     func showMessage(message: String) {

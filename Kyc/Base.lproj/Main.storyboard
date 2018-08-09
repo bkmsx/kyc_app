@@ -430,7 +430,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="l5X-qu-efa" kind="show" id="JNj-Wz-Owx"/>
+                                                    <segue destination="9Gk-eG-GPL" kind="show" id="PG1-w0-0UD"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRg-uH-ZKH" userLabel="Seperator">
@@ -1157,7 +1157,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-subtle" translatesAutoresizingMaskIntoConstraints="NO" id="l2C-uS-1zM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="l2C-uS-1zM">
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uyo-gN-d6p">
@@ -1669,12 +1669,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="copyLabel" destination="hRC-T3-G6L" id="Lf8-yK-kCH"/>
-                        <segue destination="9Gk-eG-GPL" kind="show" id="HjK-E9-kfS"/>
+                        <segue destination="diy-wH-OS2" kind="show" id="suw-DD-paw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIf-Q1-of8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2729" y="1567"/>
+            <point key="canvasLocation" x="3628" y="1567"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="xBG-ZH-HYA">
@@ -1831,7 +1831,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="shareWithFriends:" destination="XvT-E1-6vW" eventType="touchUpInside" id="KTL-IS-AN8"/>
+                                    <segue destination="9Gk-eG-GPL" kind="show" id="Z21-rZ-Ddn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQk-RW-mHt">
@@ -1917,7 +1917,6 @@
                         <segue destination="W3R-PZ-tJa" kind="show" id="K4m-lD-90X"/>
                         <segue destination="MlS-X7-L7Q" kind="show" id="ja4-gJ-YOz"/>
                         <segue destination="UYn-X0-NdT" kind="show" id="6Ty-01-2jT"/>
-                        <segue destination="l5X-qu-efa" kind="show" id="YdR-8v-9Ub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4st-dk-cFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1988,7 +1987,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="diy-wH-OS2" kind="show" id="NFM-Fk-vHp"/>
+                                    <segue destination="l5X-qu-efa" kind="show" id="K5I-sK-JOj"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_friends" translatesAutoresizingMaskIntoConstraints="NO" id="FXW-Fg-Yco">
@@ -2038,7 +2037,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwc-gK-VQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3707" y="1567"/>
+            <point key="canvasLocation" x="2630" y="1567"/>
         </scene>
         <!--SHARE WITH FRIENDS-->
         <scene sceneID="rtE-uV-5rg">
@@ -4666,7 +4665,7 @@
         <image name="whatsapp" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YdR-8v-9Ub"/>
+        <segue reference="PG1-w0-0UD"/>
         <segue reference="1Mg-Lj-W6W"/>
     </inferredMetricsTieBreakers>
 </document>
