@@ -22,7 +22,7 @@ class ConfigurationViewController: ParticipateCommonController {
         roundView.setImage(image: #imageLiteral(resourceName: "setting"))
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
-        radioGroup.setYes(UserDefaults.standard.bool(forKey: UserProfiles.deviceSecurityEnable))
+        radioGroup.setYes(UserDefaults.standard.integer(forKey: UserProfiles.deviceSecurityEnable) == 1 ? true : false)
     }
     
     override func imageButtonClick(_ sender: Any) {
@@ -33,7 +33,7 @@ class ConfigurationViewController: ParticipateCommonController {
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
         httpRequest(URLConstant.baseURL + URLConstant.updateUserInfor, method: .post, parameters: params, headers: headers) { _ in
-            UserDefaults.standard.set(String(self.radioGroup.chooseYes()), forKey: UserProfiles.deviceSecurityEnable)
+            UserDefaults.standard.set(self.radioGroup.chooseYes() ? 1 : 0, forKey: UserProfiles.deviceSecurityEnable)
             self.goBack()
         }
     }

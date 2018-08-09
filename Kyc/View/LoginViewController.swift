@@ -52,10 +52,10 @@ class LoginViewController: ParticipateCommonController, UITextFieldDelegate{
                 emailTextField.text = email
             }
             
-            if let deviceSecurityEnable = UserDefaults.standard.object(forKey: UserProfiles.deviceSecurityEnable) {
-                if (deviceSecurityEnable as! String == "true") {
-                    authenticateUserUsingTouchId()
-                }
+            if let deviceSecurityEnable = UserDefaults.standard.object(forKey: UserProfiles.deviceSecurityEnable) as? Int, deviceSecurityEnable == 1 {
+
+                authenticateUserUsingTouchId()
+                
             }
         }
     }
@@ -75,6 +75,7 @@ class LoginViewController: ParticipateCommonController, UITextFieldDelegate{
     func loginAccount(params: [String: Any]) {
         httpRequest(URLConstant.baseURL + URLConstant.loginAccount, method: .post, parameters: params, headers: nil) { (json) in
             let user = UserModel(dictionary: json["user"] as! [String : Any])
+            print(user.deviceSecurityEnable)
             user.saveToLocal()
             if (user.passportNumber == nil) {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController) as! UploadPassportViewController

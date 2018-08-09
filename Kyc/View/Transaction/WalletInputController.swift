@@ -10,9 +10,12 @@ import UIKit
 import Alamofire
 
 class WalletInputController: ParticipateCommonController, UploadButtonDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DropDownButtonDelegate {
+    //From previous
     var project: ProjectModel?
+    //Inside
     var selectedPaymentMethod: PaymentMethodModel?
     var passportImage: UIImage?
+    
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
     @IBOutlet weak var roundView: RoundView!
@@ -22,6 +25,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     @IBOutlet weak var dropdownButton: DropDownButton!
     @IBOutlet weak var walletAddressTitle: UILabel!
     @IBOutlet weak var walletNotice: UILabel!
+    @IBOutlet weak var walletView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,8 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         uploadButton.isHidden = UserDefaults.standard.string(forKey: UserProfiles.passportPhoto) != nil
         
         roundView.setImage(image: #imageLiteral(resourceName: "check"))
-        walletAddress.layer.cornerRadius = walletAddress.frame.size.height / 2
-        walletAddress.clipsToBounds = true
+        walletView.layer.cornerRadius = walletView.frame.size.height / 2
+        walletView.clipsToBounds = true
         walletAddress.text = UserDefaults.standard.string(forKey: UserProfiles.erc20Address)
         
         if let project = project {
@@ -56,16 +60,8 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         }
     }
     
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
-    }
-    
-    override func imageButtonClick(_ sender: Any) {
-        if (passportImage != nil) {
-            startUpload()
-        } else {
-            gotoNext()
-        }
+    func clickUploadButton(sender: Any) {
+        getPassport()
     }
     
     //MARK: - Delegate
@@ -95,6 +91,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         uploadPassport(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: nil, passport: passportImage, parameters: params, headers: headers)
     }
     
+    //MARK: - Call API
     func uploadPassport(endUrl: String, avatar: UIImage?, passport: UIImage?, parameters: [String : Any], headers: HTTPHeaders){
         activityIndicator.startAnimating()
         Alamofire.upload(multipartFormData: { (multipartFormData) in
@@ -132,10 +129,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         }
     }
     
-    func clickUploadButton(sender: Any) {
-        getPassport()
-    }
-    
+    //MARK: - Get Image
     func getPassport() {
         let passportPicker = UIImagePickerController()
         passportPicker.delegate = self
@@ -151,15 +145,6 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         } else {
             showMessage(title: "Pick Image Error", message: "Please choose another image!!")
         }
-    }
-    
-
-    //MARK: - Goto next
-    func gotoNext(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.TransactionDetailController) as! TransactionDetailController
-        vc.project = project
-        vc.paymentMethod = selectedPaymentMethod
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - Listen to keyboard
@@ -183,6 +168,26 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    //MARK: - Navigations
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+    
+    override func imageButtonClick(_ sender: Any) {
+        if (passportImage != nil) {
+            startUpload()
+        } else {
+            gotoNext()
+        }
+    }
+    
+    func gotoNext(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.TransactionDetailController) as! TransactionDetailController
+        vc.project = project
+        vc.paymentMethod = selectedPaymentMethod
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - Dialog

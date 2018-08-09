@@ -80,7 +80,8 @@ class ProjectDetailViewController: ParticipateCommonController {
     }
     
     @IBAction func goNext(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.AgreeTermConditionViewController) as! AgreeTermConditionViewController
+//        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.AgreeTermConditionViewController) as! AgreeTermConditionViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.WalletInputController) as! WalletInputController
         vc.project = project
         navigationController?.pushViewController(vc, animated: true)
     }

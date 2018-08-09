@@ -13,7 +13,7 @@ struct UserModel: Codable {
     let countryCode: Int!
     let phoneNumber: String!
     let dateOfBirth: String!
-    let deviceSecurityEnable: String!
+    let deviceSecurityEnable: Int!
     let email: String!
     let erc20Address: String!
     let firstName: String!
@@ -35,7 +35,7 @@ struct UserModel: Codable {
         phoneNumber = dictionary["phone_number"] as? String ?? nil
         dateOfBirth = dictionary["date_of_birth"] as? String ?? nil
         passportNumber = dictionary["passport_number"] as? String ?? nil
-        deviceSecurityEnable = dictionary["device_security_enable"] as? String ?? nil
+        deviceSecurityEnable = (dictionary["device_security_enable"] as! NSString).integerValue
         email = dictionary["email"] as? String ?? nil
         erc20Address = dictionary["erc20_address"] as? String ?? nil
         firstName = dictionary["first_name"] as? String ?? nil
