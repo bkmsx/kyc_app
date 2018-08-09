@@ -60,6 +60,8 @@
 		081B5BC1211753AB00AFE162 /* AppPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC0211753AB00AFE162 /* AppPaymentMethod.swift */; };
 		081B5BC3211BF6F400AFE162 /* NoParticipateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC2211BF6F400AFE162 /* NoParticipateView.swift */; };
 		081B5BC5211BF70E00AFE162 /* NoParticipateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081B5BC4211BF70E00AFE162 /* NoParticipateView.xib */; };
+		081B5BC7211C1BE200AFE162 /* ReferralCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC6211C1BE200AFE162 /* ReferralCodeController.swift */; };
+		081B5BC9211C20AD00AFE162 /* EarnedTokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC8211C20AD00AFE162 /* EarnedTokenCell.swift */; };
 		082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C32109BC1D004AB6E8 /* LeftBarView.swift */; };
 		082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10C52109BC2C004AB6E8 /* LeftBarView.xib */; };
 		082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C72109D37C004AB6E8 /* WalletInputController.swift */; };
@@ -177,6 +179,8 @@
 		081B5BC0211753AB00AFE162 /* AppPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPaymentMethod.swift; sourceTree = "<group>"; };
 		081B5BC2211BF6F400AFE162 /* NoParticipateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoParticipateView.swift; sourceTree = "<group>"; };
 		081B5BC4211BF70E00AFE162 /* NoParticipateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoParticipateView.xib; sourceTree = "<group>"; };
+		081B5BC6211C1BE200AFE162 /* ReferralCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralCodeController.swift; sourceTree = "<group>"; };
+		081B5BC8211C20AD00AFE162 /* EarnedTokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnedTokenCell.swift; sourceTree = "<group>"; };
 		082A10C32109BC1D004AB6E8 /* LeftBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarView.swift; sourceTree = "<group>"; };
 		082A10C52109BC2C004AB6E8 /* LeftBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftBarView.xib; sourceTree = "<group>"; };
 		082A10C72109D37C004AB6E8 /* WalletInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInputController.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				081922572100295100CF2800 /* PhoneCell.swift */,
+				081B5BC8211C20AD00AFE162 /* EarnedTokenCell.swift */,
 				080868042109A9410033BECE /* ProjectCell.swift */,
 				0874C83A210B879900628D5E /* HistoryParticipateCell.swift */,
 				081B5BBA211711D300AFE162 /* WalletCell.swift */,
@@ -361,6 +366,7 @@
 				081B5BB421160B2F00AFE162 /* USDParticipateHistoryController.swift */,
 				0802992A20FEEDB70044C4E5 /* SettingViewController.swift */,
 				0819225921004FFA00CF2800 /* HistoryTableViewController.swift */,
+				081B5BC6211C1BE200AFE162 /* ReferralCodeController.swift */,
 				0819226021006F1A00CF2800 /* UpdatePersonalInformationViewController.swift */,
 				081B5BB62116A5FF00AFE162 /* WalletListController.swift */,
 				081B5BB221154A4800AFE162 /* ETHParticipateDetailViewController.swift */,
@@ -791,6 +797,7 @@
 				080867C92106FE430033BECE /* ImageButton.swift in Sources */,
 				082A10CD2109D4FE004AB6E8 /* ParticipateCommonController.swift in Sources */,
 				0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */,
+				081B5BC9211C20AD00AFE162 /* EarnedTokenCell.swift in Sources */,
 				0874C82B210AF58900628D5E /* CopyLabel.swift in Sources */,
 				082A10D3210A1A20004AB6E8 /* ParticipateHeader.swift in Sources */,
 				0802992B20FEEDB70044C4E5 /* SettingViewController.swift in Sources */,
@@ -833,6 +840,7 @@
 				08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */,
 				0819225A21004FFA00CF2800 /* HistoryTableViewController.swift in Sources */,
 				081B5BA12111C13500AFE162 /* TermConditionDialog.swift in Sources */,
+				081B5BC7211C1BE200AFE162 /* ReferralCodeController.swift in Sources */,
 				0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */,
 				0874C835210B5F5600628D5E /* RadioGroup.swift in Sources */,
 			);

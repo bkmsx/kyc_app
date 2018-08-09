@@ -16,6 +16,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     @IBOutlet weak var updateWallet: SettingRow!
     @IBOutlet weak var participateHistory: SettingRow!
     @IBOutlet weak var setting: SettingRow!
+    @IBOutlet weak var referralCode: SettingRow!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userName: UILabel!
@@ -56,6 +57,10 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         setting.iconImage.image = #imageLiteral(resourceName: "blue_setting")
         setting.delegate = self
         
+        referralCode.settingLabel.text = "Referral Code"
+        referralCode.iconImage.image = #imageLiteral(resourceName: "blue_setting")
+        referralCode.delegate = self
+        
         shareButton.layer.cornerRadius = shareButton.frame.size.height / 2
         logoutButton.layer.cornerRadius = logoutButton.frame.size.height / 2
         
@@ -66,19 +71,6 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         let userAvatar = UserDefaults.standard.string(forKey: UserProfiles.selfiePhoto)!
         roundView.loadImage(link: userAvatar)
     }
-    
-    //MARK: - Logout
-    @IBAction func logout(_ sender: Any) {
-        UserModel.removeFromLocal()
-        let nav = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.LoginNavigationController)
-        navigationController?.present(nav!, animated: true, completion: nil)
-    }
-    
-    //MARK: - Setup Navigation Bar
-    @IBAction func backToProjectList(_ sender: Any) {
-        goBack()
-    }
-    
     
     //MARK: - Setting Row Delegate
     func clickSettingRow(setting: SettingRow) {
@@ -92,36 +84,49 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
             gotoParticipateHistory()
         } else if (setting == self.setting) {
             gotoSettings()
+        } else if (setting == self.referralCode) {
+            gotoReferralCode()
         }
     }
     
-    //MARK: - Goto Personal Information
+    //MARK: - Navigations
+    @IBAction func logout(_ sender: Any) {
+        UserModel.removeFromLocal()
+        let nav = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.LoginNavigationController)
+        navigationController?.present(nav!, animated: true, completion: nil)
+    }
+    
+    @IBAction func backToProjectList(_ sender: Any) {
+        goBack()
+    }
+    
     func gotoPersonalInformation() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UpdatePersonalInformationViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     
-    //MARK: - Goto Update Passport
     func gotoUpdatePassport() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UpdatePassportViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     
-    //MARK: - Goto Wallet Address
     func gotoWalletAddress() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.WalletListController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     
-    //MARK: - Goto Participate History
     func gotoParticipateHistory() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.HistoryTableViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     
-    //MARK: - Goto Setting
     func gotoSettings() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ConfigurationViewController) as! ConfigurationViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func gotoReferralCode() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ReferralCodeController) as! ReferralCodeController
         navigationController?.pushViewController(vc, animated: true)
     }
 }

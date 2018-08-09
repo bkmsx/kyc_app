@@ -108,6 +108,7 @@ struct ViewControllerIdentifiers {
     static let WalletListController = "WalletListController"
     static let AddWalletController = "AddWalletController"
     static let SettingViewController = "SettingViewController"
+    static let ReferralCodeController = "ReferralCodeController"
 }
 
 struct Colors {
