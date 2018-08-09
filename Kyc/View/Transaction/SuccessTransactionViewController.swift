@@ -44,7 +44,7 @@ class SuccessTransactionViewController: ParticipateCommonController {
     
     //MARK: - Go to next
     func gotoNext() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController)
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     

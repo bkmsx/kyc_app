@@ -329,7 +329,6 @@
                         <outlet property="activityIndicator" destination="aW3-8L-DCq" id="KdY-TD-t56"/>
                         <outlet property="tableView" destination="w8R-Fe-2FK" id="66u-et-7sY"/>
                         <segue destination="pCD-yj-CW5" kind="show" id="X3l-6B-9ub"/>
-                        <segue destination="l5X-qu-efa" kind="show" id="5gT-Fn-jyq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwV-Kj-XbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,7 +430,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="9Gk-eG-GPL" kind="show" id="X4f-IL-5OZ"/>
+                                                    <segue destination="l5X-qu-efa" kind="show" id="JNj-Wz-Owx"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRg-uH-ZKH" userLabel="Seperator">
@@ -626,10 +625,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5A-7u-IVT">
-                                <rect key="frame" x="0.0" y="274" width="414" height="363"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="383"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="DSl-BK-EFu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-6Y-Ykf">
                                         <rect key="frame" x="30" y="40" width="364" height="30"/>
@@ -712,10 +711,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aad-cw-aBZ" customClass="ParticipateHeader" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="414" height="210"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="190"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="QxQ-kU-RrX"/>
+                                    <constraint firstAttribute="height" constant="190" id="QxQ-kU-RrX"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fow-rA-wD8" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
@@ -1539,7 +1538,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHp-i3-J35">
-                                <rect key="frame" x="0.0" y="264" width="414" height="472"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="428"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_invite" translatesAutoresizingMaskIntoConstraints="NO" id="hzC-Ft-RU2">
@@ -1550,7 +1549,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="f41-bI-qfC">
-                                <rect key="frame" x="0.0" y="264" width="414" height="472"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="428"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your referral code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t2-D9-hSG">
@@ -1670,16 +1669,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="copyLabel" destination="hRC-T3-G6L" id="Lf8-yK-kCH"/>
+                        <segue destination="9Gk-eG-GPL" kind="show" id="HjK-E9-kfS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIf-Q1-of8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="508.69565217391306" y="1551.358695652174"/>
+            <point key="canvasLocation" x="2729" y="1567"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="xBG-ZH-HYA">
             <objects>
-                <viewController id="XvT-E1-6vW" customClass="SettingViewController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" id="XvT-E1-6vW" customClass="SettingViewController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ax-xL-nln">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1903,6 +1903,7 @@
                         <outlet property="logoutButton" destination="cQk-RW-mHt" id="hRg-Pj-Gci"/>
                         <outlet property="participateHistory" destination="ix8-pl-5b1" id="9eS-iy-WMP"/>
                         <outlet property="personalSetting" destination="dTa-bO-zzD" id="sFh-tg-PVM"/>
+                        <outlet property="phoneLabel" destination="tkz-fB-4Xa" id="qfh-97-4u7"/>
                         <outlet property="roundView" destination="9H0-1p-R6V" id="a9Q-4K-96g"/>
                         <outlet property="setting" destination="32F-UV-6Of" id="r3T-UI-15c"/>
                         <outlet property="shareButton" destination="yAv-NY-z0K" id="Wa2-KM-DYD"/>
@@ -1911,12 +1912,12 @@
                         <outlet property="userEmail" destination="JnN-ac-aBP" id="pnN-at-ChJ"/>
                         <outlet property="userName" destination="UlF-sT-wof" id="Jky-9O-5NG"/>
                         <outlet property="verifyView" destination="bhf-5f-9vV" id="4tH-2k-hNl"/>
-                        <segue destination="9Gk-eG-GPL" kind="show" id="l8v-P1-6fq"/>
                         <segue destination="FYk-5Q-U1i" kind="show" id="xzB-j1-UQN"/>
                         <segue destination="ENm-cs-PkA" kind="show" id="jUD-T7-zb4"/>
                         <segue destination="W3R-PZ-tJa" kind="show" id="K4m-lD-90X"/>
                         <segue destination="MlS-X7-L7Q" kind="show" id="ja4-gJ-YOz"/>
                         <segue destination="UYn-X0-NdT" kind="show" id="6Ty-01-2jT"/>
+                        <segue destination="l5X-qu-efa" kind="show" id="YdR-8v-9Ub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4st-dk-cFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2037,7 +2038,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwc-gK-VQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2720.289855072464" y="1566.8478260869567"/>
+            <point key="canvasLocation" x="3707" y="1567"/>
         </scene>
         <!--SHARE WITH FRIENDS-->
         <scene sceneID="rtE-uV-5rg">
@@ -2160,7 +2161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gs-56-zie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3565.217391304348" y="1566.0326086956522"/>
+            <point key="canvasLocation" x="4562" y="1567"/>
         </scene>
         <!--NEW USER REGISTRATION-->
         <scene sceneID="udz-nE-oJY">
@@ -2192,7 +2193,7 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQJ-mz-AFK">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd/mm/yyyy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQJ-mz-AFK">
                                                 <rect key="frame" x="0.0" y="18.333333333333343" width="294" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="be8-qX-Q1P"/>
@@ -3217,10 +3218,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xt5-Ia-ada">
-                                <rect key="frame" x="0.0" y="274" width="414" height="363"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="383"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="LvE-Eq-1EW">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 TOKENS = 1 ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0C-B8-oxT">
                                         <rect key="frame" x="116.33333333333331" y="30" width="181" height="21"/>
@@ -3315,10 +3316,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqJ-4J-nGQ" customClass="ParticipateHeader" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="414" height="210"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="190"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="kWJ-j5-Gvk"/>
+                                    <constraint firstAttribute="height" constant="190" id="kWJ-j5-Gvk"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="3tA-Qc-UkM">
@@ -3631,10 +3632,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbP-lb-QF2">
-                                <rect key="frame" x="0.0" y="274" width="414" height="363"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="383"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="g9b-Sd-EMl">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONGRATULATIONS!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyU-bX-j38">
                                         <rect key="frame" x="129" y="20" width="156" height="18"/>
@@ -3705,10 +3706,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otS-t7-5WP" customClass="ParticipateHeader" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="414" height="210"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="190"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="Acz-C6-7fs"/>
+                                    <constraint firstAttribute="height" constant="190" id="Acz-C6-7fs"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -4665,7 +4666,7 @@
         <image name="whatsapp" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l8v-P1-6fq"/>
+        <segue reference="YdR-8v-9Ub"/>
         <segue reference="1Mg-Lj-W6W"/>
     </inferredMetricsTieBreakers>
 </document>

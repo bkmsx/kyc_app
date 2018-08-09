@@ -20,9 +20,16 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let countryCode = UserDefaults.standard.string(forKey: UserProfiles.countryCode)!
+        let phoneNumber = UserDefaults.standard.string(forKey: UserProfiles.phoneNumber)!
+        phoneLabel.text = "+\(countryCode) \(phoneNumber)"
     }
     
     //MARK: - Custom views
@@ -118,7 +125,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     
     //MARK: - Goto Invitation
     func gotoInvitation() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController)
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     

@@ -76,7 +76,7 @@ class USDParticipateHistoryController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController) as! ChooseShareMethodViewController
         navigationController?.pushViewController(vc, animated: true)
     }
 }

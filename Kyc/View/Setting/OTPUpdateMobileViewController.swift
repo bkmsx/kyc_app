@@ -70,7 +70,19 @@ class OTPUpdateMobileViewController: ParticipateCommonController, CodeInputViewD
     
     //MARK: - Submit phone number
     func submitPhoneNumber() {
-        goBackSomeViewControllers(backNumber: 2)
+        let params = [
+            "phone_number" : phoneNumber!,
+            "country_code" : countryCode!
+        ] as [String:Any]
+        
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        httpRequest(URLConstant.baseURL + URLConstant.updateUserInfor, method: .post, parameters: params, headers: headers) { _ in
+            UserDefaults.standard.set(self.phoneNumber, forKey: UserProfiles.phoneNumber)
+            UserDefaults.standard.set(self.countryCode, forKey: UserProfiles.countryCode)
+            self.goBackSomeViewControllers(backNumber: 2)
+        }
     }
     
     //MARK: - Navigation

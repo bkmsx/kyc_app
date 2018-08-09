@@ -50,8 +50,12 @@ class TransactionDetailController: ParticipateCommonController {
     
     func countAmount() {
         let price = (paymentMethod?.price as! NSString).floatValue
-        ethAmount.text = String(format: "%.2f", Float(tokenNumber.text!)! * price)
-        
+//        let price: Float  = 2
+        if (tokenNumber.text! == "") {
+            ethAmount.text = "0"
+        } else {
+            ethAmount.text = String(format: "%.2f", Float(tokenNumber.text!)! * price)
+        }
     }
     
     @IBAction func clickBack(_ sender: Any) {

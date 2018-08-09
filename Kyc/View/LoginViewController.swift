@@ -22,7 +22,8 @@ class LoginViewController: ParticipateCommonController, UITextFieldDelegate{
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func login(_ sender: Any) {
-//        gotoListProject()
+//        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ConfigurationViewController)
+//        navigationController?.pushViewController(vc!, animated: true)
 //        return //FIXME: remove return
         if (emailTextField.text! == "") {
             showMessage(message: "Email is empty")
@@ -44,7 +45,7 @@ class LoginViewController: ParticipateCommonController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customViews()
+        
         if UserDefaults.standard.object(forKey: UserProfiles.securityToken) != nil {
             if let savedEmail = UserDefaults.standard.object(forKey: UserProfiles.email) {
                 email = savedEmail as! String

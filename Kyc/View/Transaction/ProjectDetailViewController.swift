@@ -37,6 +37,7 @@ class ProjectDetailViewController: ParticipateCommonController {
         let token = UserDefaults.standard.string(forKey: UserProfiles.token)!
         let headers = ["token": token]
         let params = ["project_id": String(projectId)]
+        
         Alamofire.request(URLConstant.baseURL + URLConstant.projectDetail, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             let json = response.result.value as! [String:Any]
             let projectDic = json["project"] as! [String:Any]
