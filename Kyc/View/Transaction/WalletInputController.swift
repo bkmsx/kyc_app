@@ -211,7 +211,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     @objc func keyboardWillShow(notification: NSNotification) {
         if (walletAddress.isFirstResponder) {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= (keyboardSize.height - 50)
+                self.view.frame.origin.y = -(keyboardSize.height - 50)
             }
         }
     }

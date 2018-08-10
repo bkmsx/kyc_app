@@ -26,7 +26,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmedPasswordTextField: UITextField!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var continueImageButton: ImageButton!
     @IBOutlet weak var dropDrown: DropDownButton!
     @IBOutlet weak var radioGroup: RadioGroup!
@@ -59,7 +58,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         dateBirthTextField.text = dateFormatter.string(from: sender.date)
     }
     
-    //MARK: - Setup Textfields
     func setupTextFields() {
         firstNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         lastNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
@@ -78,12 +76,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         mobileTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber) as? String
     }
     
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
-    }
-    
-    //MARK: - Setup DropDown
-    
     func setupDropDown() {
         dropDrown.setDataSource(source: Configs.PHONE_CODES)
         dropDrown.setTextMarginLeft(value: 10)
@@ -96,6 +88,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
 //                gotoVerifyOTP()
     }
     
+    //MARK: - Call API
     func validateData() {
         let firstName = firstNameTextField.text!
         let lastName = lastNameTextField.text!
@@ -125,46 +118,38 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
             "validation" : 1,
             "platform": "iOS"
             ] as [String : Any]
-        activityIndicator.startAnimating()
-        Alamofire.request(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params)
-            .responseJSON{ response in
-                let JSON = response.result.value as! NSDictionary
-                let responseCode = JSON["code"] as! Int
-                if (responseCode == 404) {
-                    let message = JSON["message"] as! String
-                    self.showMessage(message: message)
-                    self.activityIndicator.stopAnimating()
-                } else {
-                    UserDefaults.standard.set(firstName, forKey: UserProfiles.tempFirstName)
-                    UserDefaults.standard.set(lastName, forKey: UserProfiles.tempLastName)
-                    UserDefaults.standard.set(dateBirth, forKey: UserProfiles.tempDateOfBirth)
-                    UserDefaults.standard.set(email, forKey: UserProfiles.tempEmail)
-                    UserDefaults.standard.set(password, forKey: UserProfiles.tempPassword)
-                     UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.tempDeviceSecurityEnable)
-                    UserDefaults.standard.set(self.countryCode, forKey: UserProfiles.tempCountryCode)
-                    UserDefaults.standard.set(self.phoneNumber, forKey: UserProfiles.tempPhoneNumber)
-                    self.sendOTPCode()
-                }
+        httpRequest(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params, headers: nil) { _ in
+            UserDefaults.standard.set(firstName, forKey: UserProfiles.tempFirstName)
+            UserDefaults.standard.set(lastName, forKey: UserProfiles.tempLastName)
+            UserDefaults.standard.set(dateBirth, forKey: UserProfiles.tempDateOfBirth)
+            UserDefaults.standard.set(email, forKey: UserProfiles.tempEmail)
+            UserDefaults.standard.set(password, forKey: UserProfiles.tempPassword)
+            UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.tempDeviceSecurityEnable)
+            UserDefaults.standard.set(self.countryCode, forKey: UserProfiles.tempCountryCode)
+            UserDefaults.standard.set(self.phoneNumber, forKey: UserProfiles.tempPhoneNumber)
+            self.sendOTPCode()
         }
     }
     
-    //MARK: - Success validate data
     func sendOTPCode(){
         let params = [
             "country_code" : countryCode,
             "phone_number" : phoneNumber,
             "via" : "sms"
             ] as [String : Any]
-        Alamofire.request(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params)
-            .responseJSON{ response in
-                self.activityIndicator.stopAnimating()
-                self.gotoVerifyOTP()
+        httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { _ in
+            self.gotoVerifyOTP()
         }
     }
     
+    //MARK: - Navigations
     func gotoVerifyOTP() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.VerifyOTPViewController)
         navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
     
     //MARK: - Dialog
@@ -183,7 +168,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     @objc func keyboardWillShow(notification: NSNotification) {
         if (mobileTextField.isFirstResponder) {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= (keyboardSize.height - 100)
+                self.view.frame.origin.y = -(keyboardSize.height - 100)
             }
         }
     }

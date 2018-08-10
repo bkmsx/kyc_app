@@ -2628,22 +2628,12 @@
                                     <constraint firstItem="c59-E4-rVH" firstAttribute="leading" secondItem="aiH-mi-vKQ" secondAttribute="leading" constant="60" id="rt7-bq-qAK"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dAP-al-L2Q">
-                                <rect key="frame" x="182" y="375" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.83959228811037556" green="0.90035258656591244" blue="0.99705451726913452" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1i9-VT-NSB"/>
-                                    <constraint firstAttribute="width" constant="50" id="VTN-M9-cza"/>
-                                </constraints>
-                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="R5V-d5-r7Y" firstAttribute="top" secondItem="aiH-mi-vKQ" secondAttribute="bottom" id="0ZV-mP-b6m"/>
                             <constraint firstItem="V5q-EQ-7vm" firstAttribute="trailing" secondItem="5lV-nQ-Irb" secondAttribute="trailing" id="2zr-No-6Cz"/>
                             <constraint firstItem="aiH-mi-vKQ" firstAttribute="leading" secondItem="V5q-EQ-7vm" secondAttribute="leading" id="7hw-Ax-2fh"/>
-                            <constraint firstItem="dAP-al-L2Q" firstAttribute="centerY" secondItem="V5q-EQ-7vm" secondAttribute="centerY" id="C2r-8E-ahF"/>
                             <constraint firstItem="5lV-nQ-Irb" firstAttribute="leading" secondItem="V5q-EQ-7vm" secondAttribute="leading" id="N3T-XO-ZJb"/>
                             <constraint firstItem="V5q-EQ-7vm" firstAttribute="trailing" secondItem="aiH-mi-vKQ" secondAttribute="trailing" id="Qdu-Tl-MGN"/>
                             <constraint firstItem="5lV-nQ-Irb" firstAttribute="top" secondItem="V5q-EQ-7vm" secondAttribute="top" id="ZwI-sq-JOj"/>
@@ -2652,7 +2642,6 @@
                             <constraint firstItem="aiH-mi-vKQ" firstAttribute="top" secondItem="V5q-EQ-7vm" secondAttribute="top" id="h7v-va-iv4"/>
                             <constraint firstItem="R5V-d5-r7Y" firstAttribute="leading" secondItem="V5q-EQ-7vm" secondAttribute="leading" id="nYd-qn-mkW"/>
                             <constraint firstItem="R5V-d5-r7Y" firstAttribute="bottom" secondItem="V5q-EQ-7vm" secondAttribute="bottom" id="ouB-pK-ep2"/>
-                            <constraint firstItem="dAP-al-L2Q" firstAttribute="centerX" secondItem="V5q-EQ-7vm" secondAttribute="centerX" id="p8g-Ii-TVR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V5q-EQ-7vm"/>
                     </view>
@@ -2664,7 +2653,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="dAP-al-L2Q" id="U9u-Zr-gXV"/>
                         <outlet property="confirmedPasswordTextField" destination="vuK-Nf-hoX" id="OcQ-Ib-cvD"/>
                         <outlet property="continueImageButton" destination="R5V-d5-r7Y" id="Ikx-dF-EXm"/>
                         <outlet property="dateBirthTextField" destination="ZQJ-mz-AFK" id="ky6-cn-MmI"/>
