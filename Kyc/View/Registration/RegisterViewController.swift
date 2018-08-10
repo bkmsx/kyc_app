@@ -27,9 +27,8 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmedPasswordTextField: UITextField!
     @IBOutlet weak var continueImageButton: ImageButton!
-    @IBOutlet weak var dropDrown: DropDownButton!
     @IBOutlet weak var radioGroup: RadioGroup!
-    
+    @IBOutlet weak var phoneCode: TextFieldPicker!
     
     //MARK: - Initialization
     override func viewDidLoad() {
@@ -39,7 +38,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     
     //MARK: - Custom views
     override func customViews() {
-        setupDropDown()
         setupTextFields()
         emailTextField.delegate = self
         continueImageButton.delegate = self
@@ -66,6 +64,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
+        phoneCode.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         
         firstNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempFirstName) as? String
         lastNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempLastName) as? String
@@ -74,11 +73,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         passwordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
         confirmedPasswordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
         mobileTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber) as? String
-    }
-    
-    func setupDropDown() {
-        dropDrown.setDataSource(source: Configs.PHONE_CODES)
-        dropDrown.setTextMarginLeft(value: 10)
     }
     
     //MARK: - Validate data
@@ -97,7 +91,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         let password = passwordTextField.text!
         let confirmedPassword = confirmedPasswordTextField.text!
         let enableSecurityId = radioGroup.chooseYes()
-        countryCode = String(dropDrown.text.suffix(2))
+        countryCode = String((phoneCode.text?.suffix(2))!)
         phoneNumber = mobileTextField.text!
         
         if (password != confirmedPassword) {

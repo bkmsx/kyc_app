@@ -62,6 +62,8 @@
 		081B5BC5211BF70E00AFE162 /* NoParticipateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081B5BC4211BF70E00AFE162 /* NoParticipateView.xib */; };
 		081B5BC7211C1BE200AFE162 /* ReferralCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC6211C1BE200AFE162 /* ReferralCodeController.swift */; };
 		081B5BC9211C20AD00AFE162 /* EarnedTokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC8211C20AD00AFE162 /* EarnedTokenCell.swift */; };
+		081B5BCB211D700100AFE162 /* TextFieldPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BCA211D700100AFE162 /* TextFieldPicker.swift */; };
+		081B5BCD211D701C00AFE162 /* TextFieldPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081B5BCC211D701C00AFE162 /* TextFieldPicker.xib */; };
 		082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C32109BC1D004AB6E8 /* LeftBarView.swift */; };
 		082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10C52109BC2C004AB6E8 /* LeftBarView.xib */; };
 		082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C72109D37C004AB6E8 /* WalletInputController.swift */; };
@@ -181,6 +183,8 @@
 		081B5BC4211BF70E00AFE162 /* NoParticipateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoParticipateView.xib; sourceTree = "<group>"; };
 		081B5BC6211C1BE200AFE162 /* ReferralCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralCodeController.swift; sourceTree = "<group>"; };
 		081B5BC8211C20AD00AFE162 /* EarnedTokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnedTokenCell.swift; sourceTree = "<group>"; };
+		081B5BCA211D700100AFE162 /* TextFieldPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPicker.swift; sourceTree = "<group>"; };
+		081B5BCC211D701C00AFE162 /* TextFieldPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldPicker.xib; sourceTree = "<group>"; };
 		082A10C32109BC1D004AB6E8 /* LeftBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarView.swift; sourceTree = "<group>"; };
 		082A10C52109BC2C004AB6E8 /* LeftBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftBarView.xib; sourceTree = "<group>"; };
 		082A10C72109D37C004AB6E8 /* WalletInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInputController.swift; sourceTree = "<group>"; };
@@ -297,6 +301,8 @@
 				080867F22108878D0033BECE /* DropDownButton.swift */,
 				080867F32108878E0033BECE /* DropDownButton.xib */,
 				080867E52108519B0033BECE /* CodeInputView.swift */,
+				081B5BCA211D700100AFE162 /* TextFieldPicker.swift */,
+				081B5BCC211D701C00AFE162 /* TextFieldPicker.xib */,
 				080867BE2105F2020033BECE /* RoundView.swift */,
 				080867C72106FE430033BECE /* ImageButton.swift */,
 				080867C82106FE430033BECE /* ImageButton.xib */,
@@ -661,6 +667,7 @@
 				082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */,
 				082A10D5210A1A31004AB6E8 /* ParticipateHeader.xib in Resources */,
 				080867BF2105F2020033BECE /* RoundView.xib in Resources */,
+				081B5BCD211D701C00AFE162 /* TextFieldPicker.xib in Resources */,
 				08AE3C7520E377D8009E4E48 /* Assets.xcassets in Resources */,
 				08AE3C7320E377D4009E4E48 /* Main.storyboard in Resources */,
 				080867CA2106FE430033BECE /* ImageButton.xib in Resources */,
@@ -811,6 +818,7 @@
 				082A10CB2109D49C004AB6E8 /* CommonViewController.swift in Sources */,
 				081B5BC3211BF6F400AFE162 /* NoParticipateView.swift in Sources */,
 				0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */,
+				081B5BCB211D700100AFE162 /* TextFieldPicker.swift in Sources */,
 				0874C833210B1E8800628D5E /* InvitationInforController.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */,

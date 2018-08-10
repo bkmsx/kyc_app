@@ -2536,8 +2536,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDx-MN-egk">
                                         <rect key="frame" x="60" y="370" width="294" height="48.333333333333314"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-Vb-5rv">
-                                                <rect key="frame" x="80" y="18.333333333333314" width="214" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-Vb-5rv" customClass="TextFieldPicker" customModule="Kyc" customModuleProvider="target">
+                                                <rect key="frame" x="269" y="18.333333333333314" width="25" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Vw-pz-bpD"/>
                                                 </constraints>
@@ -2551,23 +2551,19 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fua-rM-SAG" customClass="DropDownButton" customModule="Kyc" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="18.333333333333314" width="80" height="30"/>
-                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="n29-39-XXy"/>
-                                                </constraints>
-                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pzM-3r-ZWT" customClass="TextFieldPicker" customModule="Kyc" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="21" width="84" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="KAQ-Vb-5rv" firstAttribute="leading" secondItem="fua-rM-SAG" secondAttribute="trailing" id="2ex-Yk-Feh"/>
                                             <constraint firstItem="WwL-3x-8RJ" firstAttribute="top" secondItem="dDx-MN-egk" secondAttribute="top" id="3kW-gi-eJl"/>
                                             <constraint firstAttribute="bottom" secondItem="KAQ-Vb-5rv" secondAttribute="bottom" id="4QJ-Bk-JfZ"/>
                                             <constraint firstItem="KAQ-Vb-5rv" firstAttribute="top" secondItem="WwL-3x-8RJ" secondAttribute="bottom" constant="5" id="813-sq-vn3"/>
-                                            <constraint firstItem="fua-rM-SAG" firstAttribute="centerY" secondItem="KAQ-Vb-5rv" secondAttribute="centerY" id="VSa-6C-lKX"/>
-                                            <constraint firstItem="fua-rM-SAG" firstAttribute="height" secondItem="KAQ-Vb-5rv" secondAttribute="height" id="XG1-KM-DLw"/>
-                                            <constraint firstItem="fua-rM-SAG" firstAttribute="leading" secondItem="dDx-MN-egk" secondAttribute="leading" id="fNj-Sn-sgJ"/>
                                             <constraint firstAttribute="trailing" secondItem="KAQ-Vb-5rv" secondAttribute="trailing" id="pNO-A9-coo"/>
                                             <constraint firstItem="WwL-3x-8RJ" firstAttribute="leading" secondItem="dDx-MN-egk" secondAttribute="leading" id="sSF-cc-xY4"/>
                                         </constraints>
@@ -2656,12 +2652,12 @@
                         <outlet property="confirmedPasswordTextField" destination="vuK-Nf-hoX" id="OcQ-Ib-cvD"/>
                         <outlet property="continueImageButton" destination="R5V-d5-r7Y" id="Ikx-dF-EXm"/>
                         <outlet property="dateBirthTextField" destination="ZQJ-mz-AFK" id="ky6-cn-MmI"/>
-                        <outlet property="dropDrown" destination="fua-rM-SAG" id="cVW-Sj-rmP"/>
                         <outlet property="emailTextField" destination="rKO-ma-7GI" id="6lr-Li-sJh"/>
                         <outlet property="firstNameTextField" destination="hO8-q2-M4K" id="DYr-X9-fz1"/>
                         <outlet property="lastNameTextField" destination="lsI-1m-juQ" id="m9B-S9-LXS"/>
                         <outlet property="mobileTextField" destination="KAQ-Vb-5rv" id="7Cw-46-19K"/>
                         <outlet property="passwordTextField" destination="hCW-U1-gmP" id="AS6-oD-LcB"/>
+                        <outlet property="phoneCode" destination="pzM-3r-ZWT" id="dFc-Y1-cBQ"/>
                         <outlet property="radioGroup" destination="S0o-un-Uji" id="lGt-Hn-Lea"/>
                         <segue destination="a8q-Ia-ym4" kind="show" identifier="very" id="gl0-na-3ub"/>
                     </connections>
