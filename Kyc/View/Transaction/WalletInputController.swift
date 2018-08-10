@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import DropDown
 
 class WalletInputController: ParticipateCommonController, UploadButtonDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DropDownButtonDelegate {
     //From previous
@@ -15,6 +16,8 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     //Inside
     var selectedPaymentMethod: PaymentMethodModel?
     var passportImage: UIImage?
+    var walletDropDown = DropDown()
+    var walletList: [WalletCategory] = []
     
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
@@ -26,10 +29,12 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     @IBOutlet weak var walletAddressTitle: UILabel!
     @IBOutlet weak var walletNotice: UILabel!
     @IBOutlet weak var walletView: UIView!
+    @IBOutlet weak var walletContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         listenToKeyBoard()
+        getWalletList()
     }
 
     //MARK: - Custom views
@@ -44,7 +49,6 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         roundView.setImage(image: #imageLiteral(resourceName: "check"))
         walletView.layer.cornerRadius = walletView.frame.size.height / 2
         walletView.clipsToBounds = true
-        walletAddress.text = UserDefaults.standard.string(forKey: UserProfiles.erc20Address)
         
         if let project = project {
             header.setCompanyLogo(link: (project.logo)!)
@@ -57,6 +61,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
             dropdownButton.setTextMarginLeft(value: 10)
             dropdownButton.delegate = self
             didSelectDropDown(text: paymentMethods[0])
+            setupWalletDropDown()
         }
     }
     
@@ -64,16 +69,49 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         getPassport()
     }
     
-    //MARK: - Delegate
+    //MARK: - Dropdown
+    func setupWalletDropDown() {
+        walletDropDown.anchorView = walletView
+        walletDropDown.bottomOffset = CGPoint.init(x: 0, y: walletView.frame.size.height)
+        walletDropDown.selectionAction = { [weak self] (index, item) in
+            self?.walletAddress.text = item
+        }
+    }
+    
+    @IBAction func showWalletDropDown(_ sender: Any) {
+        walletDropDown.show()
+    }
+    
+    func setDropDownDataSource() {
+        var source = [String]()
+        for walletCategory in walletList {
+            if (walletCategory.methodName == dropdownButton.text) {
+                for wallet in walletCategory.wallets {
+                    source.append(wallet.address!)
+                }
+                break
+            }
+        }
+        walletDropDown.dataSource = source
+    }
+    
     func didSelectDropDown(text: String) {
-        walletAddressTitle.text = "Your \(dropdownButton.text) Wallet:"
-        walletNotice.text = "Your \(dropdownButton.text) must be sent from this wallet"
         for paymentMethod in (project?.paymentMethods)! {
             if (paymentMethod.methodName == dropdownButton.text) {
                 selectedPaymentMethod = paymentMethod
                 break
             }
         }
+        if (text == "USD") {
+            walletContainer.isHidden = true
+            return
+        } else {
+            walletContainer.isHidden = false
+        }
+        walletAddressTitle.text = "Your \(dropdownButton.text) Wallet:"
+        walletNotice.text = "Your \(dropdownButton.text) must be sent from this wallet"
+        
+        setDropDownDataSource()
     }
     
     //MARK: - Upload Passport
@@ -92,6 +130,21 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     }
     
     //MARK: - Call API
+    func getWalletList() {
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        
+        httpRequest(URLConstant.baseURL + URLConstant.userWallets, method: .get, parameters: nil, headers: headers) { json in
+            let list = json["wallets"] as! [[String:Any]]
+            for walletDic in list {
+                let walletCategory = WalletCategory.init(dic: walletDic)
+                self.walletList.append(walletCategory)
+            }
+            self.setDropDownDataSource()
+        }
+    }
+    
     func uploadPassport(endUrl: String, avatar: UIImage?, passport: UIImage?, parameters: [String : Any], headers: HTTPHeaders){
         activityIndicator.startAnimating()
         Alamofire.upload(multipartFormData: { (multipartFormData) in
@@ -187,6 +240,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.TransactionDetailController) as! TransactionDetailController
         vc.project = project
         vc.paymentMethod = selectedPaymentMethod
+        vc.walletAddress = walletAddress.text
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -10,8 +10,10 @@ import UIKit
 import Alamofire
 
 class TransactionDetailController: ParticipateCommonController {
+    //From previous
     var project: ProjectModel?
     var paymentMethod: PaymentMethodModel?
+    var walletAddress: String?
 
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
@@ -64,7 +66,7 @@ class TransactionDetailController: ParticipateCommonController {
     
     override func imageButtonClick(_ sender: Any) {
         
-        guard let project = project, let method = paymentMethod else {return}
+        guard let project = project, let method = paymentMethod, let walletAddress = walletAddress else {return}
         let params = [
             "project_id": project.projectId as Any,
             "payment_method" : method.methodName as Any,
@@ -72,7 +74,7 @@ class TransactionDetailController: ParticipateCommonController {
             "amount_tokens" : tokenNumber.text as Any,
             "payment_amount" : ethAmount.text as Any,
             "discount" : project.currentDiscount ?? "0",
-            "wallet_address" : "dkjsfakfja"
+            "wallet_address" : walletAddress as Any
             ]
         let headers = [
             "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
