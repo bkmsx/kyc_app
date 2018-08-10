@@ -69,6 +69,8 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         getPassport()
     }
     
+    
+    
     //MARK: - Dropdown
     func setupWalletDropDown() {
         walletDropDown.anchorView = walletView

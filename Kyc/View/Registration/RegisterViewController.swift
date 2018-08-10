@@ -38,14 +38,25 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         listenToKeyBoard()
     }
     
-    
-    
     //MARK: - Custom views
     override func customViews() {
         setupDropDown()
         setupTextFields()
         emailTextField.delegate = self
         continueImageButton.delegate = self
+    }
+    
+    @IBAction func textFieldEditing(_ sender: UITextField) {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        sender.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+    }
+    
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateBirthTextField.text = dateFormatter.string(from: sender.date)
     }
     
     //MARK: - Setup Textfields
