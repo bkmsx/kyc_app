@@ -18,6 +18,8 @@ class TextFieldPicker: UITextField, UIPickerViewDataSource, UIPickerViewDelegate
     
     override func awakeFromNib() {
        createPickerView()
+        setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
+        self.backgroundColor = UIColor.clear
     }
     
     func createPickerView() {

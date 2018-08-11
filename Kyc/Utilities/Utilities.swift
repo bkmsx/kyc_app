@@ -67,7 +67,7 @@ extension UITextField {
         let width = CGFloat(1.0)
         border.borderColor = color.cgColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width,   width:  self.frame.size.width, height: self.frame.size.height)
-        
+        self.backgroundColor = UIColor.clear
         border.borderWidth = width
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true

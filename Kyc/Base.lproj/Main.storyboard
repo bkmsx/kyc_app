@@ -22,7 +22,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-subtle" translatesAutoresizingMaskIntoConstraints="NO" id="W6p-H9-eJk">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dU-Dw-Ao6">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dU-Dw-Ao6" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                 <rect key="frame" x="60" y="314" width="294" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ePR-pf-6y0"/>
@@ -49,7 +49,7 @@
                                     <constraint firstAttribute="width" constant="90" id="yTA-lM-TQo"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZI-Lw-s3A">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZI-Lw-s3A" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                 <rect key="frame" x="60" y="394" width="294" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xg4-eM-iNs"/>
@@ -780,7 +780,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SP-ou-Z3K">
                                 <rect key="frame" x="50" y="234" width="314" height="49"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SO5-zr-dwK">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SO5-zr-dwK" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="19" width="314" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="t0y-HA-9eY"/>
@@ -809,7 +809,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSG-Vx-Ed4">
                                 <rect key="frame" x="50" y="303" width="314" height="49"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ev2-A0-uAt">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ev2-A0-uAt" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="19" width="314" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="zAy-gM-bJD"/>
@@ -838,7 +838,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dh-7j-oDA">
                                 <rect key="frame" x="50" y="372" width="314" height="49"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gaQ-b9-8Qy">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gaQ-b9-8Qy" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="19" width="314" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="fF7-se-Wn9"/>
@@ -1046,7 +1046,7 @@
                                         <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVV-fU-gmJ">
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVV-fU-gmJ" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="354" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="P2p-b2-lF0"/>
@@ -1075,7 +1075,7 @@
                                         <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEs-Ej-7ZE">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New wallet address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEs-Ej-7ZE" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="354" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3Jj-bf-1uJ"/>
@@ -1621,9 +1621,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmu-yP-q5j">
                                 <rect key="frame" x="82.333333333333314" y="281" width="250" height="30"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haO-Ou-aTw">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="123456789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haO-Ou-aTw" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                         <rect key="frame" x="70.333333333333314" y="0.0" width="180" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="PSk-a9-2u5"/>
                                             <constraint firstAttribute="width" constant="180" id="ux9-QJ-qDf"/>
@@ -2364,10 +2364,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE OF BIRTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nk5-ca-q0W">
                                                 <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="13.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd/mm/yyyy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQJ-mz-AFK">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd/mm/yyyy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQJ-mz-AFK" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="18.333333333333343" width="294" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="be8-qX-Q1P"/>
@@ -2396,10 +2396,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-vQ-enq">
                                                 <rect key="frame" x="0.0" y="0.0" width="66.333333333333329" height="13.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsI-1m-juQ">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsI-1m-juQ" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="18.333333333333314" width="294" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="sDj-xS-896"/>
@@ -2425,11 +2425,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIRST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atn-xa-hIl">
                                                 <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="13.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hO8-q2-M4K">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hO8-q2-M4K" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="18.333333333333329" width="294" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="nTL-cm-IYO"/>
                                                 </constraints>
@@ -2454,10 +2455,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYr-gJ-REI">
                                                 <rect key="frame" x="0.0" y="0.0" width="35.333333333333336" height="13.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKO-ma-7GI">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name@domain.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKO-ma-7GI" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="18.333333333333314" width="294" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="oMX-IN-3oK"/>
@@ -2480,7 +2481,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Lm-Fp-Tle">
                                         <rect key="frame" x="60" y="253.33333333333334" width="294" height="48.333333333333343"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hCW-U1-gmP">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hCW-U1-gmP" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="18.333333333333371" width="294" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="2Pq-NE-iHp"/>
@@ -2492,7 +2493,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKP-6m-TiY">
                                                 <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="13.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -2509,7 +2510,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6N-Gz-2fu">
                                         <rect key="frame" x="60" y="311.66666666666669" width="294" height="48.333333333333314"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuK-Nf-hoX">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="***" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuK-Nf-hoX" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="18.333333333333314" width="294" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="2LO-Wy-1B5"/>
@@ -2521,7 +2522,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRM PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJk-q8-cPT">
                                                 <rect key="frame" x="0.0" y="0.0" width="122" height="13.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -2538,7 +2539,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDx-MN-egk">
                                         <rect key="frame" x="60" y="370" width="294" height="48.333333333333314"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-Vb-5rv">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="123456789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-Vb-5rv" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="70" y="18.333333333333314" width="224" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Vw-pz-bpD"/>
@@ -2550,7 +2551,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOBILE PHONE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwL-3x-8RJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="87" height="13.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+93" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pzM-3r-ZWT" customClass="TextFieldPicker" customModule="Kyc" customModuleProvider="target">
@@ -2582,7 +2583,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENABLE FACE/TOUCH ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzz-NC-3hI">
                                                 <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="13.333333333333334"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0o-un-Uji" customClass="RadioGroup" customModule="Kyc" customModuleProvider="target">
@@ -2771,7 +2772,7 @@
                                         <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MZd-3g-5s9">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="B1234343" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MZd-3g-5s9" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                         <rect key="frame" x="0.33333333333334281" y="15.333333333333343" width="260" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="7Ft-rT-hhc"/>
@@ -3118,7 +3119,7 @@
                                 <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hello@wpay.sg" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-X5-390">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hello@wpay.sg" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-X5-390" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                 <rect key="frame" x="107" y="331" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0nk-mT-PVc"/>
@@ -4038,7 +4039,7 @@
                                         <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8F-sR-saY">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8F-sR-saY" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                         <rect key="frame" x="0.33333333333334281" y="15.333333333333343" width="260" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="7Hk-XW-zql"/>

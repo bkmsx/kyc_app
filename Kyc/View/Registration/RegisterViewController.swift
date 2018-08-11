@@ -57,15 +57,6 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     }
     
     func setupTextFields() {
-        firstNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        lastNameTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        dateBirthTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        emailTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        phoneCode.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        
         firstNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempFirstName) as? String
         lastNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempLastName) as? String
         dateBirthTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempDateOfBirth) as? String

@@ -26,12 +26,13 @@ class ChangeMobileViewController: ParticipateCommonController {
     //MARK: - Custom Views
     override func customViews() {
         roundView.setImage(image: #imageLiteral(resourceName: "mobile"))
-        mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
-        phoneCode.setBorderButtom(color: UIColor.init(argb: Colors.darkGray))
     }
     
+    override func imageButtonClick(_ sender: Any) {
+        self.authenticateUserUsingTouchId()
+    }
     //MARK: - Touch Id
     
     fileprivate func authenticateUserUsingTouchId() {
@@ -53,7 +54,7 @@ class ChangeMobileViewController: ParticipateCommonController {
         }
     }
     
-    //MARK: - Request OTP
+    //MARK: - Call API
     func requestOTP() {
         let text = phoneCode.text!
         let index = text.index(text.startIndex, offsetBy: 1)
@@ -65,9 +66,7 @@ class ChangeMobileViewController: ParticipateCommonController {
             "phone_number" : phoneNumber,
             "via" : "sms"
             ] as [String : Any]
-        activityIndicatorView?.startAnimating()
-        httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { (json) in
-            self.activityIndicatorView?.stopAnimating()
+        httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { _ in
             self.gotoOTPVerification()
         }
     }
@@ -75,10 +74,6 @@ class ChangeMobileViewController: ParticipateCommonController {
     //MARK: - Navigation
     @IBAction func clickBack(_ sender: Any) {
         goBack()
-    }
-    
-    override func imageButtonClick(_ sender: Any) {
-        self.authenticateUserUsingTouchId()
     }
     
     func gotoOTPVerification() {

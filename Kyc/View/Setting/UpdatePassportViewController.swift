@@ -43,7 +43,6 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         roundView.setImage(image: #imageLiteral(resourceName: "camera"))
         roundView.clickable = true
         roundView.delegate = self
-        passportNumberTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
         passportNumberTextField.text = UserDefaults.standard.string(forKey: UserProfiles.passportNumber)!
         uploadButton.delegate = self
     }
@@ -65,23 +64,6 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     }
     
     //MARK: - Setup citizenship and country
-    func getCitizenshipList() {
-        Alamofire.request(URLConstant.baseURL + URLConstant.citizenshipList, method: .get, parameters: nil)
-            .responseJSON { response in
-                let json = response.result.value as! [String:Any]
-                let citizenshipArray = json["citizenships"] as! [[String:Any]]
-                for citizenship in citizenshipArray {
-                    self.citizenships.append(CitizenshipModel(dictionary: citizenship))
-                }
-                let countryArray = json["countries"] as! [[String:Any]]
-                for country in countryArray {
-                    self.countries.append(CountryModel(dictionary: country))
-                }
-                self.setupCitizenshipDropDown(citizenships: self.citizenships)
-                self.setupCountryDropDown(countries: self.countries)
-        }
-    }
-    
     func setupCountryDropDown(countries: [CountryModel]) {
        
         var countryList = [String]()
@@ -134,7 +116,21 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         }
     }
     
-    //MARK: - Update passport
+    //MARK: - Call API
+    func getCitizenshipList() {
+        httpRequest(URLConstant.baseURL + URLConstant.citizenshipList) { (json) in
+            let citizenshipArray = json["citizenships"] as! [[String:Any]]
+            for citizenship in citizenshipArray {
+                self.citizenships.append(CitizenshipModel(dictionary: citizenship))
+            }
+            let countryArray = json["countries"] as! [[String:Any]]
+            for country in countryArray {
+                self.countries.append(CountryModel(dictionary: country))
+            }
+            self.setupCitizenshipDropDown(citizenships: self.citizenships)
+            self.setupCountryDropDown(countries: self.countries)
+        }
+    }
 
     func updatePassport() {
         let params = [

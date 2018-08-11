@@ -13,12 +13,11 @@ import LocalAuthentication
 import AVFoundation
 import QRCodeReader
 
-class LoginViewController: ParticipateCommonController, UITextFieldDelegate{
+class LoginViewController: ParticipateCommonController {
     //MARK: Outlet
     var email: String = ""
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var lockImage: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func login(_ sender: Any) {
@@ -62,12 +61,8 @@ class LoginViewController: ParticipateCommonController, UITextFieldDelegate{
     
     //MARK: - Custom Views
     override func customViews() {
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
         emailTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
         passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
         loginButton.layer.cornerRadius = loginButton.frame.size.height / 2
     }
     
@@ -75,22 +70,25 @@ class LoginViewController: ParticipateCommonController, UITextFieldDelegate{
     func loginAccount(params: [String: Any]) {
         httpRequest(URLConstant.baseURL + URLConstant.loginAccount, method: .post, parameters: params, headers: nil) { (json) in
             let user = UserModel(dictionary: json["user"] as! [String : Any])
-            print(user.deviceSecurityEnable)
             user.saveToLocal()
             if (user.passportNumber == nil) {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController) as! UploadPassportViewController
-                self.present(vc, animated: true, completion: nil)
+                self.gotoUploadPassport()
             } else {
                 self.gotoListProject()
             }
         }
     }
     
-    //MARK: - Go to List Project
+    //MARK: - Navigations
     func gotoListProject() {
         //FIXME: Change viewcontroller
         let nav = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ProjectNavigationController)
         navigationController?.present(nav!, animated: true, completion: nil)
+    }
+    
+    func gotoUploadPassport() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController) as! UploadPassportViewController
+        self.present(vc, animated: true, completion: nil)
     }
     
     //MARK: - Touch Id

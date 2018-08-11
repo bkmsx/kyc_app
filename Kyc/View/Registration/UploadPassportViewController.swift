@@ -35,14 +35,16 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     override func viewDidLoad() {
         super.viewDidLoad()
         getCitizenshipList()
+    }
+    
+    //MARK: - Custom views
+    override func customViews() {
         accuracyCheckbox.isMultipleSelectionEnabled = true
         passportTextField.delegate = self
         submitImageButton.delegate = self
-        passportTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
         setupCameraButton()
     }
     
-    //MARK: - setup camera button
     func setupCameraButton() {
         uploadButton.delegate = self
         cameraButton.clickable = true
@@ -58,11 +60,44 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
         getPassport()
     }
     
-    //MARK: - Upload Passport
+    func setupCountryDropDown(countries: [CountryModel]) {
+        
+        var countryList = [String]()
+        for country in countries {
+            countryList.append(country.country)
+        }
+        btnSelectCoutry.setDataSource(source: countryList)
+    }
+    
+    func setupCitizenshipDropDown(citizenships: [CitizenshipModel]){
+        var citizenshipList = [String]()
+        for citizenship in citizenships {
+            citizenshipList.append(citizenship.nationality)
+        }
+        btnSelectCitizenship.setDataSource(source: citizenshipList)
+    }
+    
+    
     override func imageButtonClick(_ sender: Any) {
 //        gotoRegistrationCompletion()
         submit()
         //FIXME: submit here
+    }
+    
+    //MARK: - Call API
+    func getCitizenshipList() {
+        httpRequest(URLConstant.baseURL + URLConstant.citizenshipList) { (json) in
+            let citizenshipArray = json["citizenships"] as! [[String:Any]]
+            for citizenship in citizenshipArray {
+                self.citizenships.append(CitizenshipModel(dictionary: citizenship))
+            }
+            let countryArray = json["countries"] as! [[String:Any]]
+            for country in countryArray {
+                self.countries.append(CountryModel(dictionary: country))
+            }
+            self.setupCitizenshipDropDown(citizenships: self.citizenships)
+            self.setupCountryDropDown(countries: self.countries)
+        }
     }
     func submit() {
         if (passportTextField.text!.isEmpty) {
@@ -123,11 +158,7 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
         }
     }
     
-    func gotoRegistrationCompletion() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "CompleteRegisterViewController")
-        navigationController?.pushViewController(vc!, animated: true)
-    }
-
+   
     //MARK: - Take photo and got image
     func getPassport() {
         passportPicker = UIImagePickerController()
@@ -164,42 +195,13 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     }
     
     
-    //MARK: - Setup Dropdown for citizenship and country
     
-    func getCitizenshipList() {
-        Alamofire.request(URLConstant.baseURL + URLConstant.citizenshipList, method: .get, parameters: nil)
-            .responseJSON { response in
-                let json = response.result.value as! [String:Any]
-                let citizenshipArray = json["citizenships"] as! [[String:Any]]
-                for citizenship in citizenshipArray {
-                    self.citizenships.append(CitizenshipModel(dictionary: citizenship))
-                }
-                let countryArray = json["countries"] as! [[String:Any]]
-                for country in countryArray {
-                    self.countries.append(CountryModel(dictionary: country))
-                }
-                self.setupCitizenshipDropDown(citizenships: self.citizenships)
-                self.setupCountryDropDown(countries: self.countries)
-                
-        }
-    }
-    
-    func setupCountryDropDown(countries: [CountryModel]) {
-        
-        var countryList = [String]()
-        for country in countries {
-            countryList.append(country.country)
-        }
-        btnSelectCoutry.setDataSource(source: countryList)
+    //MARK: - Navigations
+    func gotoRegistrationCompletion() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.CompleteRegisterViewController) as! CompleteRegisterViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
 
-    func setupCitizenshipDropDown(citizenships: [CitizenshipModel]){
-        var citizenshipList = [String]()
-        for citizenship in citizenships {
-            citizenshipList.append(citizenship.nationality)
-        }
-        btnSelectCitizenship.setDataSource(source: citizenshipList)
-    }
     
     //MARK: - Dialog
     func showMessage(title: String, message: String) {

@@ -21,31 +21,9 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
         roundView.setImage(image: #imageLiteral(resourceName: "lock"))
-        setupTextField()
-    }
-    //MARK: - Setup Navigation Bar
-    
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
     }
     
-    func logout() {
-        UserModel.removeFromLocal()
-        let nav = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.LoginNavigationController)
-        navigationController?.present(nav!, animated: true, completion: nil)
-    }
-
-    //MARK: - Setup TextField
-    func setupTextField() {
-        currentPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        newPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        confirmedPasswordTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-    }
-    
-    
-    //MARK: - Update
     override func imageButtonClick(_ sender: Any) {
-       
         if (currentPasswordTextField.text != "") {
             if (newPasswordTextField.text == "") {
                 showMessage(message: "Please input new password")
@@ -55,10 +33,27 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
                 return
             }
         }
+        updatePassword()
+    }
+    
+    //MARK: - Navigations
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+    
+    func logout() {
+        UserModel.removeFromLocal()
+        let nav = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.LoginNavigationController)
+        navigationController?.present(nav!, animated: true, completion: nil)
+    }
+    
+    
+    //MARK: - Call API
+    func updatePassword() {
         let params = [
             "old_password" : currentPasswordTextField.text!,
             "password" : newPasswordTextField.text!
-            ]
+        ]
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
@@ -67,7 +62,6 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
             self.logout()
         }
     }
-    
     
     //MARK: - Dialog
     func showMessage(message: String) {

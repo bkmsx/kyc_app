@@ -25,8 +25,6 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
     }
     //MARK: - Custom views
     override func customViews() {
-        currentWalletTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
-        newWalletTextField.setBottomBorder(color: UIColor.init(argb: Colors.darkGray))
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "UPDATE")
         scanButton.setButtonIcon(image: #imageLiteral(resourceName: "blue_scan"))
