@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Toast_Swift
 
 class CommonViewController: UIViewController {
     var activityIndicatorView: UIActivityIndicatorView?
@@ -63,6 +64,11 @@ class CommonViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    //MARK: - Toast
+    func makeToast(_ message: String) {
+        UIApplication.shared.keyWindow?.makeToast(message)
+    }
+    
     //MARK: - HTTP request
     func httpRequest(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, headers: HTTPHeaders? = nil, success: @escaping (_ json: [String:Any]) -> Void) {
         DispatchQueue.main.async {
@@ -90,6 +96,47 @@ class CommonViewController: UIViewController {
         }
     }
     
+    func httpUpload(endUrl: String, avatar: UIImage?, passport: UIImage?, parameters: [String : Any], headers: HTTPHeaders, success: @escaping (_ json: [String:Any]) -> Void){
+        DispatchQueue.main.async {
+            self.activityIndicatorView?.startAnimating()
+        }
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+            }
+            
+            if let avatar = avatar{
+                let data = UIImageJPEGRepresentation(avatar, 0.5)!
+                multipartFormData.append(data, withName: "selfie_photo", fileName: "selfie.jpeg", mimeType: "image/jpeg")
+            }
+            
+            if let passport = passport {
+                let data = UIImageJPEGRepresentation(passport, 0.5)!
+                multipartFormData.append(data, withName: "passport_photo", fileName: "passport.jpeg", mimeType: "image/jpeg")
+            }
+            
+        }, usingThreshold: UInt64.init(), to: endUrl, method: .post, headers: headers) { (result) in
+            switch result {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    DispatchQueue.main.async {
+                        self.activityIndicatorView?.stopAnimating()
+                    }
+                    let json = response.result.value as! [String:Any]
+                    let resultCode = json["code"] as? Int ?? 404
+                    if (resultCode == 200) {
+                        success(json)
+                    } else {
+                        let message = json["message"] as! String
+                        self.showMessages(message: message)
+                    }
+                }
+            case .failure(_):
+                self.showMessages(message: "Please try upload later")
+            }
+        }
+    }
+    
     //MARK: - QR code generator
     func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
@@ -102,7 +149,6 @@ class CommonViewController: UIViewController {
                 return UIImage(ciImage: output)
             }
         }
-        
         return nil
     }
 }

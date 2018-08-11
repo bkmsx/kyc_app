@@ -26,27 +26,31 @@ class ProjectDetailViewController: ParticipateCommonController {
     @IBOutlet weak var period: UILabel!
     @IBOutlet weak var discountPercent: UILabel!
     @IBOutlet weak var navigationTitle: UINavigationItem!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getProjectDetail()
     }
+    //MARK: - Custom views
+    override func customViews() {
+        companyLogo.layer.cornerRadius = 10
+        participateButton.layer.cornerRadius = participateButton.frame.size.height / 2
+        inviteButton.layer.cornerRadius = inviteButton.frame.size.height / 2
+    }
     
     //MARK: - Get Project Detail
     func getProjectDetail() {
         guard let projectId = projectId else {return}
-        activityIndicator.startAnimating()
-        let token = UserDefaults.standard.string(forKey: UserProfiles.token)!
-        let headers = ["token": token]
-        let params = ["project_id": String(projectId)]
-        
-        Alamofire.request(URLConstant.baseURL + URLConstant.projectDetail, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            let json = response.result.value as! [String:Any]
+        let headers = [
+            "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        let params = [
+            "project_id": String(projectId)
+        ]
+        httpRequest(URLConstant.baseURL + URLConstant.projectDetail, method: .get, parameters: params, headers: headers) { (json) in
             let projectDic = json["project"] as! [String:Any]
             self.project = ProjectModel(json: projectDic)
             self.populateViews(project: self.project!)
-            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -70,12 +74,6 @@ class ProjectDetailViewController: ParticipateCommonController {
         }
     }
     
-    //MARK: - Custom views
-    override func customViews() {
-        companyLogo.layer.cornerRadius = 10
-        participateButton.layer.cornerRadius = participateButton.frame.size.height / 2
-        inviteButton.layer.cornerRadius = inviteButton.frame.size.height / 2
-    }
     
     //MARK: - Navigations
     @IBAction func clickBack(_ sender: Any) {

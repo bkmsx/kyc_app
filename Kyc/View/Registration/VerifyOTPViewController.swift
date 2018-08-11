@@ -7,28 +7,25 @@
 //
 
 import UIKit
-import Alamofire
+import Toast_Swift
 
 class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,  CodeInputViewDelegate {
     //MARK: - Properties
     var code = ""
     //MARK: - Outlet
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var continueImageButton: ImageButton!
     
-    //MARK: - Initialization
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    //MARK: - Custom views
+    override func customViews() {
         continueImageButton.delegate = self
         setupOTPInput()
     }
     
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
+    override func imageButtonClick(_ sender: Any) {
+        verifyOTP()
     }
     
-    //MARK: - Setup OTP input
     func setupOTPInput() {
         let OTPWidth = Int(CodeInputView.OTP_LENGTH * CodeInputView.NUMBER_WIDTH + CodeInputView.NUMBER_SPACE)
         let frame = CGRect(x: (Int(view.frame.width) - OTPWidth) / 2, y: 242, width: OTPWidth, height: CodeInputView.INPUT_HEIGHT)
@@ -37,15 +34,22 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
         view.addSubview(codeInputView)
     }
 
-    //MARK: - Verify OTP
     func codeInputView(_ codeInputView: CodeInputView, didFinishWithCode code: String) {
         self.code = code
     }
     
-    override func imageButtonClick(_ sender: Any) {
-        //FIXME: uncomment verify
-        verifyOTP()
-//        gotoUploadPassport()
+    //MARK: - Call API
+    @IBAction func resendOTP(_ sender: Any) {
+        let countryCode = UserDefaults.standard.object(forKey: UserProfiles.tempCountryCode)!
+        let phoneNumber = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber)!
+        let params = [
+            "country_code" : countryCode,
+            "phone_number" : phoneNumber,
+            "via" : "sms"
+            ] as [String : Any]
+        httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { _ in
+            self.view.makeToast("OTP code was sent")
+        }
     }
     
     func verifyOTP() {
@@ -55,30 +59,14 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
             "otp_code" : code,
             "country_code" : countryCode,
             "phone_number" : phoneNumber
-        ] as [String : Any]
-        activityIndicator.startAnimating()
-        Alamofire.request(URLConstant.baseURL + URLConstant.verifyOTP, method: .post, parameters: params).responseJSON { response in
-            let JSON = response.result.value as! NSDictionary
-            let resultCode = JSON["code"] as! Int
-            if (resultCode == 200) {
-                self.showMessage(message: "Register successfully!", buttonName: "Continue"){ alert in
-                    self.submitUserProfile()
-                }
-            } else {
-                self.activityIndicator.stopAnimating()
-                let message = JSON["message"] as! String
-                self.showMessage(message: message, buttonName: "Try again", handler: nil)
+            ] as [String : Any]
+        httpRequest(URLConstant.baseURL + URLConstant.verifyOTP, method: .post, parameters: params, headers: nil) { _ in
+            self.showMessage(message: "Register successfully!", buttonName: "Continue"){ alert in
+                self.submitUserProfile()
             }
         }
     }
     
-    //MARK: - Resend OTP
-    @IBAction func resendOTP(_ sender: Any) {
-        //TODO: - ResendOTP
-    }
-    
-    
-    //MARK: - Success verify OTP
     func submitUserProfile() {
         let params = [
             "first_name" : UserDefaults.standard.object(forKey: UserProfiles.tempFirstName)!,
@@ -96,14 +84,11 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
             "platform": "iOS"
             ] as [String : Any]
         
-        Alamofire.request(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params)
-            .responseJSON{ response in
-                let json = response.result.value as! [String:Any]
-                let user = UserModel(dictionary: json["user"] as! [String : Any])
-                user.saveToLocal()
-                self.removeTempInformation()
-                self.activityIndicator.stopAnimating()
-               self.gotoUploadPassport()
+        httpRequest(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params, headers: nil) { (json) in
+            let user = UserModel(dictionary: json["user"] as! [String : Any])
+            user.saveToLocal()
+            self.removeTempInformation()
+            self.gotoUploadPassport()
         }
     }
     
@@ -121,10 +106,16 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
         pref.removeObject(forKey: UserProfiles.tempDeviceSecurityEnable)
     }
     
+    //MARK: - Navigations
     func gotoUploadPassport() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
+    
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+    
     
     //MARK: - Dialog
     func showMessage(message: String, buttonName: String, handler:((UIAlertAction) -> Swift.Void)?=nil) {

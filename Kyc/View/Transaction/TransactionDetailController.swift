@@ -22,7 +22,6 @@ class TransactionDetailController: ParticipateCommonController {
     @IBOutlet weak var tokenPrice: UILabel!
     @IBOutlet weak var totalAmountTitle: UILabel!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         listenToKeyBoard()
@@ -60,12 +59,8 @@ class TransactionDetailController: ParticipateCommonController {
         }
     }
     
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
-    }
-    
+    //MARK: - Call API
     override func imageButtonClick(_ sender: Any) {
-        
         guard let project = project, let method = paymentMethod, let walletAddress = walletAddress else {return}
         let params = [
             "project_id": project.projectId as Any,
@@ -75,30 +70,20 @@ class TransactionDetailController: ParticipateCommonController {
             "payment_amount" : ethAmount.text as Any,
             "discount" : project.currentDiscount ?? "0",
             "wallet_address" : walletAddress as Any
-            ]
+        ]
         let headers = [
             "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
-        activityIndicator.startAnimating()
-        Alamofire.request(URLConstant.baseURL + URLConstant.participate, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            self.activityIndicator.stopAnimating()
-            switch (response.result) {
-            case .success:
-                let json = response.result.value as! [String:Any]
-                if (json["code"] as! Int == 200) {
-                    self.gotoNext()
-                } else {
-                    self.showMessage(message: json["message"] as! String)
-                }
-                break
-            case .failure(_):
-                self.showMessage(message: "There is an error!")
-            }
-            
+        httpRequest(URLConstant.baseURL + URLConstant.participate, method: .post, parameters: params, headers: headers) { _ in
+            self.gotoNext()
         }
     }
     
-    //MARK: - Go to next
+    //MARK: - Navigations
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
+    }
+    
     func gotoNext() {
         if let paymentMethod = paymentMethod, paymentMethod.methodName == "USD" {
             let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.USDDetailViewController) as! USDDetailViewController

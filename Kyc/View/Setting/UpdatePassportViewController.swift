@@ -24,7 +24,6 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     
     //MARK: - Outlet
     @IBOutlet weak var passportNumberTextField: UITextField!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var citizenshipDropDown: DropDownButton!
     @IBOutlet weak var countryDropDown: DropDownButton!
     @IBOutlet weak var imageButton: ImageButton!
@@ -143,37 +142,9 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             "Content-Type" : "multipart/form-data",
             "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
         ]
-        
-        uploadPassport(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers)
-    }
-    
-    func uploadPassport(endUrl: String, avatar: UIImage?, passport: UIImage?, parameters: [String : Any], headers: HTTPHeaders){
-        activityIndicator.startAnimating()
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
-            for (key, value) in parameters {
-                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-            }
-            
-            if let avatar = avatar{
-                let data = UIImageJPEGRepresentation(avatar, 0.5)!
-                multipartFormData.append(data, withName: "selfie_photo", fileName: "selfie.jpeg", mimeType: "image/jpeg")
-            }
-            
-            if let passport = passport {
-                let data = UIImageJPEGRepresentation(passport, 0.5)!
-                multipartFormData.append(data, withName: "passport_photo", fileName: "passport.jpeg", mimeType: "image/jpeg")
-            }
-            
-        }, usingThreshold: UInt64.init(), to: endUrl, method: .post, headers: headers) { (result) in
-            switch result {
-            case .success(let upload, _, _):
-                upload.responseJSON { response in
-                    self.activityIndicator.stopAnimating()
-                    self.goBack()
-                }
-            case .failure(_):
-                print("Not ok")
-            }
+        httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers) { _ in
+            self.makeToast("Updated new images")
+            self.goBack()
         }
     }
     

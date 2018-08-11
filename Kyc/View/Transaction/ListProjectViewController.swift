@@ -14,7 +14,6 @@ class ListProjectViewController: ParticipateCommonController, UITableViewDataSou
     var projects: [ProjectModel] = []
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //MARK: - Initialization
     override func viewDidLoad() {
@@ -23,20 +22,18 @@ class ListProjectViewController: ParticipateCommonController, UITableViewDataSou
         getProjectList()
     }
 
-    //MARK: - Get Project List
+    //MARK: - Call API
     func getProjectList() {
-        activityIndicator.startAnimating()
-        let token = UserDefaults.standard.string(forKey: UserProfiles.token)!
-        let header = ["token": token]
-        Alamofire.request(URLConstant.baseURL + URLConstant.projectList, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { response in
-            let json = response.result.value as! [String:Any]
+        let headers = [
+            "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        httpRequest(URLConstant.baseURL + URLConstant.projectList, method: .get, parameters: nil, headers: headers) { (json) in
             let projectsDic = json["projects"] as! [[String:Any]]
             for projectDic in projectsDic {
                 let project = ProjectModel.init(json: projectDic)
                 self.projects.append(project)
             }
             self.tableView.reloadData()
-            self.activityIndicator.stopAnimating()
         }
     }
     

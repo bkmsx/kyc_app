@@ -24,7 +24,6 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var walletAddress: UITextField!
     @IBOutlet weak var uploadButton: UploadButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var dropdownButton: DropDownButton!
     @IBOutlet weak var walletAddressTitle: UILabel!
     @IBOutlet weak var walletNotice: UILabel!
@@ -115,22 +114,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         
         setDropDownDataSource()
     }
-    
-    //MARK: - Upload Passport
-    func startUpload() {
-        let params = [
-            "citizenship" : UserDefaults.standard.string(forKey: UserProfiles.citizenship)!,
-            "citizenship_id" : UserDefaults.standard.string(forKey: UserProfiles.citizenshipId)!,
-            "passport_number" : UserDefaults.standard.string(forKey: UserProfiles.passportNumber)!,
-            "country_of_residence" : UserDefaults.standard.string(forKey: UserProfiles.country)!
-            ] as [String : Any]
-        let headers: HTTPHeaders = [
-            "Content-Type" : "multipart/form-data",
-            "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
-        ]
-        uploadPassport(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: nil, passport: passportImage, parameters: params, headers: headers)
-    }
-    
+
     //MARK: - Call API
     func getWalletList() {
         let headers = [
@@ -147,40 +131,20 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         }
     }
     
-    func uploadPassport(endUrl: String, avatar: UIImage?, passport: UIImage?, parameters: [String : Any], headers: HTTPHeaders){
-        activityIndicator.startAnimating()
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
-            for (key, value) in parameters {
-                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-            }
-            
-            if let avatar = avatar{
-                let data = UIImageJPEGRepresentation(avatar, 0.5)!
-                multipartFormData.append(data, withName: "selfie_photo", fileName: "selfie.jpeg", mimeType: "image/jpeg")
-            }
-            
-            if let passport = passport {
-                let data = UIImageJPEGRepresentation(passport, 0.5)!
-                multipartFormData.append(data, withName: "passport_photo", fileName: "passport.jpeg", mimeType: "image/jpeg")
-            }
-            
-        }, usingThreshold: UInt64.init(), to: endUrl, method: .post, headers: headers) { (result) in
-            switch result {
-            case .success(let upload, _, _):
-                upload.responseJSON { response in
-                    let json = response.result.value as! [String:Any]
-                    let resultCode = json["code"] as! Int
-                    if (resultCode == 200) {
-                        self.activityIndicator.stopAnimating()
-                        self.gotoNext()
-                    } else {
-                        let message = json["message"] as! String
-                        self.showMessage(title: "Upload Error", message: message)
-                    }
-                }
-            case .failure(_):
-                self.showMessage(title: "Upload Error", message: "Please try upload later")
-            }
+    func startUpload() {
+        let params = [
+            "citizenship" : UserDefaults.standard.string(forKey: UserProfiles.citizenship)!,
+            "citizenship_id" : UserDefaults.standard.string(forKey: UserProfiles.citizenshipId)!,
+            "passport_number" : UserDefaults.standard.string(forKey: UserProfiles.passportNumber)!,
+            "country_of_residence" : UserDefaults.standard.string(forKey: UserProfiles.country)!
+            ] as [String : Any]
+        let headers: HTTPHeaders = [
+            "Content-Type" : "multipart/form-data",
+            "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
+        ]
+        httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: nil, passport: passportImage, parameters: params, headers: headers) { _ in
+            self.makeToast("Uploaded passport")
+            self.gotoNext()
         }
     }
     
