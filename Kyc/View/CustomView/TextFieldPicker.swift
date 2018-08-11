@@ -42,7 +42,7 @@ class TextFieldPicker: UITextField, UIPickerViewDataSource, UIPickerViewDelegate
             useKeyBoard = false
             self.inputView = nil
             self.keyboardAppearance = UIKeyboardAppearance.default
-            self.keyboardType = UIKeyboardType.default
+            self.keyboardType = UIKeyboardType.phonePad
             self.customButton?.title = "Selection"
             self.reloadInputViews()
         } else {

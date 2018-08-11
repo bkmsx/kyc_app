@@ -15,8 +15,8 @@ class ChangeMobileViewController: ParticipateCommonController {
     var phoneNumber: String!
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var mobileTextField: UITextField!
-    @IBOutlet weak var dropdownButton: DropDownButton!
     @IBOutlet weak var imageButton: ImageButton!
+    @IBOutlet weak var phoneCode: TextFieldPicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,9 @@ class ChangeMobileViewController: ParticipateCommonController {
     override func customViews() {
         roundView.setImage(image: #imageLiteral(resourceName: "mobile"))
         mobileTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightGray))
-        dropdownButton.setDataSource(source: Configs.PHONE_CODES)
-        dropdownButton.setTextMarginLeft(value: 10)
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
-        
+        phoneCode.setBorderButtom(color: UIColor.init(argb: Colors.darkGray))
     }
     
     //MARK: - Touch Id
@@ -57,9 +55,9 @@ class ChangeMobileViewController: ParticipateCommonController {
     
     //MARK: - Request OTP
     func requestOTP() {
-        let text = dropdownButton.text
+        let text = phoneCode.text!
         let index = text.index(text.startIndex, offsetBy: 1)
-        countryCode = String(dropdownButton.text[index...])
+        countryCode = String(text[index...])
         phoneNumber = mobileTextField.text!
         
         let params = [

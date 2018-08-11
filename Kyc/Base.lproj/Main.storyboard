@@ -29,7 +29,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-bd-oQ9">
                                 <rect key="frame" x="151" y="449" width="112" height="24"/>
@@ -56,7 +56,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLD-nP-Kyr">
                                 <rect key="frame" x="60" y="508" width="294" height="40"/>
@@ -1619,18 +1619,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmu-yP-q5j">
-                                <rect key="frame" x="82" y="281" width="250" height="30"/>
+                                <rect key="frame" x="82.333333333333314" y="281" width="250" height="30"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8L8-H4-HwI" customClass="DropDownButton" customModule="Kyc" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="2PJ-9K-erB"/>
-                                            <constraint firstAttribute="height" constant="30" id="Bqd-gf-Rf0"/>
-                                        </constraints>
-                                    </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haO-Ou-aTw">
-                                        <rect key="frame" x="70" y="0.0" width="180" height="30"/>
+                                        <rect key="frame" x="70.333333333333314" y="0.0" width="180" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="PSk-a9-2u5"/>
@@ -1638,17 +1630,27 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+93" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ai8-J3-yxi" customClass="TextFieldPicker" customModule="Kyc" customModuleProvider="target">
+                                        <rect key="frame" x="0.33333333333334281" y="0.0" width="60" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="wpP-JR-sri"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="8L8-H4-HwI" firstAttribute="top" secondItem="Nmu-yP-q5j" secondAttribute="top" id="HJQ-Z8-3Uc"/>
-                                    <constraint firstAttribute="bottom" secondItem="8L8-H4-HwI" secondAttribute="bottom" id="SAK-Sy-cgc"/>
-                                    <constraint firstItem="8L8-H4-HwI" firstAttribute="leading" secondItem="Nmu-yP-q5j" secondAttribute="leading" id="fWY-TC-wuN"/>
+                                    <constraint firstItem="haO-Ou-aTw" firstAttribute="leading" secondItem="ai8-J3-yxi" secondAttribute="trailing" constant="10" id="Aye-pN-5h3"/>
+                                    <constraint firstItem="ai8-J3-yxi" firstAttribute="top" secondItem="Nmu-yP-q5j" secondAttribute="top" id="DUW-90-fWB"/>
+                                    <constraint firstAttribute="bottom" secondItem="ai8-J3-yxi" secondAttribute="bottom" id="WsA-eB-MlE"/>
+                                    <constraint firstItem="ai8-J3-yxi" firstAttribute="leading" secondItem="Nmu-yP-q5j" secondAttribute="leading" id="Z3B-Bm-lE7"/>
                                     <constraint firstAttribute="trailing" secondItem="haO-Ou-aTw" secondAttribute="trailing" id="hgx-Y6-ekL"/>
                                     <constraint firstItem="haO-Ou-aTw" firstAttribute="top" secondItem="Nmu-yP-q5j" secondAttribute="top" id="jrD-uj-ZCA"/>
-                                    <constraint firstItem="haO-Ou-aTw" firstAttribute="leading" secondItem="8L8-H4-HwI" secondAttribute="trailing" id="lda-Bu-0A7"/>
                                     <constraint firstAttribute="bottom" secondItem="haO-Ou-aTw" secondAttribute="bottom" id="n2I-d0-tC8"/>
                                 </constraints>
                             </view>
@@ -1679,16 +1681,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dropdownButton" destination="8L8-H4-HwI" id="Sf7-XM-z7l"/>
                         <outlet property="imageButton" destination="5Kd-sr-URp" id="gtm-KD-h3P"/>
                         <outlet property="mobileTextField" destination="haO-Ou-aTw" id="45g-BQ-Leq"/>
+                        <outlet property="phoneCode" destination="ai8-J3-yxi" id="x3u-uh-Oz5"/>
                         <outlet property="roundView" destination="MTZ-sh-y6P" id="0Pk-rg-Ryv"/>
                         <segue destination="yIx-rf-nMr" kind="show" id="ezb-1O-XjV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZp-T6-1Uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-233" y="2341"/>
+            <point key="canvasLocation" x="-233.33333333333334" y="2340.489130434783"/>
         </scene>
         <!--INVITE FRIENDS-->
         <scene sceneID="efY-UX-oa7">
@@ -2536,14 +2538,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDx-MN-egk">
                                         <rect key="frame" x="60" y="370" width="294" height="48.333333333333314"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-Vb-5rv" customClass="TextFieldPicker" customModule="Kyc" customModuleProvider="target">
-                                                <rect key="frame" x="269" y="18.333333333333314" width="25" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-Vb-5rv">
+                                                <rect key="frame" x="70" y="18.333333333333314" width="224" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Vw-pz-bpD"/>
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOBILE PHONE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwL-3x-8RJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="87" height="13.333333333333334"/>
@@ -2551,10 +2553,12 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pzM-3r-ZWT" customClass="TextFieldPicker" customModule="Kyc" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="21" width="84" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+93" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pzM-3r-ZWT" customClass="TextFieldPicker" customModule="Kyc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="18.333333333333314" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="Dk1-HQ-wRd"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -2564,6 +2568,10 @@
                                             <constraint firstItem="WwL-3x-8RJ" firstAttribute="top" secondItem="dDx-MN-egk" secondAttribute="top" id="3kW-gi-eJl"/>
                                             <constraint firstAttribute="bottom" secondItem="KAQ-Vb-5rv" secondAttribute="bottom" id="4QJ-Bk-JfZ"/>
                                             <constraint firstItem="KAQ-Vb-5rv" firstAttribute="top" secondItem="WwL-3x-8RJ" secondAttribute="bottom" constant="5" id="813-sq-vn3"/>
+                                            <constraint firstItem="pzM-3r-ZWT" firstAttribute="leading" secondItem="dDx-MN-egk" secondAttribute="leading" id="GXr-xZ-abT"/>
+                                            <constraint firstItem="KAQ-Vb-5rv" firstAttribute="leading" secondItem="pzM-3r-ZWT" secondAttribute="trailing" constant="10" id="ZE6-Jm-pM8"/>
+                                            <constraint firstAttribute="bottom" secondItem="pzM-3r-ZWT" secondAttribute="bottom" id="d9Z-8J-zf0"/>
+                                            <constraint firstItem="pzM-3r-ZWT" firstAttribute="top" secondItem="WwL-3x-8RJ" secondAttribute="bottom" constant="5" id="mci-EY-Izb"/>
                                             <constraint firstAttribute="trailing" secondItem="KAQ-Vb-5rv" secondAttribute="trailing" id="pNO-A9-coo"/>
                                             <constraint firstItem="WwL-3x-8RJ" firstAttribute="leading" secondItem="dDx-MN-egk" secondAttribute="leading" id="sSF-cc-xY4"/>
                                         </constraints>

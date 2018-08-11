@@ -160,7 +160,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if (mobileTextField.isFirstResponder) {
+        if (mobileTextField.isFirstResponder || phoneCode.isFirstResponder) {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.view.frame.origin.y = -(keyboardSize.height - 100)
             }
