@@ -10,7 +10,10 @@ import UIKit
 import Alamofire
 
 class ProjectDetailViewController: ParticipateCommonController {
+    //From previous
     var projectId: Int?
+    var participateAgain: Bool?
+    //Inside
     var project: ProjectModel?
     @IBOutlet weak var companyLogo: UIView!
     @IBOutlet weak var participateButton: UIButton!
@@ -80,10 +83,17 @@ class ProjectDetailViewController: ParticipateCommonController {
     }
     
     @IBAction func goNext(_ sender: Any) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.AgreeTermConditionViewController) as! AgreeTermConditionViewController
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.WalletInputController) as! WalletInputController
-        vc.project = project
-        navigationController?.pushViewController(vc, animated: true)
+        
+        if (participateAgain == nil) {
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.AgreeTermConditionViewController) as! AgreeTermConditionViewController
+            vc.project = project
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.WalletInputController) as! WalletInputController
+            vc.project = project
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
 }

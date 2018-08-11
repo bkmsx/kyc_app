@@ -78,14 +78,13 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         cell.ethPaid.text = "\(history.amount!) \(history.paymentMode!) paid"
         cell.historyId = history.historyId!
         cell.paymentMethod = history.paymentMode
+        cell.projectId = history.projectId
         return cell
     }
     
     //MARK: TableView Delegate
-    func participateAgain() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ProjectDetailViewController) as! ProjectDetailViewController
-        vc.projectId = 1
-        navigationController?.pushViewController(vc, animated: true)
+    func participateAgain(_ projectId: Int) {
+        gotoProjectDetail(projectId)
     }
     
     func deleteParticipateHistory(historyId: Int) {
@@ -119,7 +118,12 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         }
     }
     
-    
+    func gotoProjectDetail(_ projectId: Int) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ProjectDetailViewController) as! ProjectDetailViewController
+        vc.projectId = projectId
+        vc.participateAgain = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     //MARK: - Dialog
     func showMessage(message: String) {

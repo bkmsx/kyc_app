@@ -12,6 +12,7 @@ class HistoryParticipateCell: UITableViewCell, CustomAlertDialogDelegate{
     var delegate: HistoryParticipateCellDelegate?
     var historyId: Int?
     var paymentMethod: String?
+    var projectId: Int?
     
     @IBOutlet weak var companyLogo: UIView!
     @IBOutlet weak var logoImage: UIImageView!
@@ -62,14 +63,14 @@ class HistoryParticipateCell: UITableViewCell, CustomAlertDialogDelegate{
         }
     }
     @IBAction func gotoDetailProject(_ sender: Any) {
-        if let delegate = delegate {
-            delegate.participateAgain()
+        if let delegate = delegate, let projectId = projectId {
+            delegate.participateAgain(projectId)
         }
     }
 }
 
 protocol HistoryParticipateCellDelegate {
-    func participateAgain()
+    func participateAgain(_ projectId: Int)
     func deleteParticipateHistory(historyId: Int)
     func gotoHistoryDetail(historyId: Int, paymentMethod: String)
 }
