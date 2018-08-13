@@ -14,6 +14,7 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
     @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var totalPoint: UILabel!
     
+    @IBOutlet weak var referralCodeView: UIView!
     @IBOutlet weak var tableView: UITableView!
     //MARK: - Custom views
     override func customViews() {
@@ -22,6 +23,9 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
         totalPoint.layer.cornerRadius = totalPoint.frame.size.height / 2
         totalPoint.clipsToBounds = true
         tableView.dataSource = self
+    }
+    @IBAction func applyReferralCode(_ sender: Any) {
+        submitReferralCode()
     }
     
     //MARK: - TableView Datasource
@@ -32,6 +36,20 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EarnedTokenCell", for: indexPath) as! EarnedTokenCell
         return cell
+    }
+    
+    //MARK: - Call API
+    func submitReferralCode() {
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        let params = [
+            "referral_code" : codeTextField.text!
+        ] as [String:Any]
+        httpRequest(URLConstant.baseURL + URLConstant.updateReferralCode, method: .post, parameters: params, headers: headers) { _ in
+            self.makeToast("Update referral code successfully")
+            self.referralCodeView.isHidden = true
+        }
     }
     
     //MARK: - Navigations

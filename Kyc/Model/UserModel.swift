@@ -28,6 +28,8 @@ struct UserModel: Codable {
     let selfiePhoto: String!
     let citizenship: String!
     let country: String!
+    let referralCode: String!
+    let referralBy: String!
     
     init(dictionary: [String:Any]) {
         userId = dictionary["id"] as? Int ?? nil
@@ -49,6 +51,8 @@ struct UserModel: Codable {
         selfiePhoto = dictionary["selfie_photo"] as? String ?? nil
         citizenship = dictionary["citizenship"] as? String ?? nil
         country = dictionary["country_of_residence"] as? String ?? nil
+        referralCode = dictionary["referral_code"] as? String ?? nil
+        referralBy = dictionary["referred_by"] as? String ?? nil
     }
     
     func saveToLocal() {
@@ -71,6 +75,8 @@ struct UserModel: Codable {
         UserDefaults.standard.set(selfiePhoto, forKey: UserProfiles.selfiePhoto)
         UserDefaults.standard.set(citizenship, forKey: UserProfiles.citizenship)
         UserDefaults.standard.set(country, forKey: UserProfiles.country)
+        UserDefaults.standard.set(referralCode, forKey: UserProfiles.referralCode)
+        UserDefaults.standard.set(referralBy, forKey: UserProfiles.referralBy)
     }
     
     static func removeFromLocal() {
@@ -93,5 +99,7 @@ struct UserModel: Codable {
         UserDefaults.standard.removeObject(forKey: UserProfiles.selfiePhoto);
         UserDefaults.standard.removeObject(forKey: UserProfiles.citizenship);
         UserDefaults.standard.removeObject(forKey: UserProfiles.country);
+        UserDefaults.standard.removeObject(forKey: UserProfiles.referralCode)
+        UserDefaults.standard.removeObject(forKey: UserProfiles.referralBy)
     }
 }

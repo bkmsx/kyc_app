@@ -15,6 +15,11 @@ class ChooseShareMethodViewController: ParticipateCommonController {
         super.viewDidLoad()
         
     }
+    
+    //MARK: - Custom views
+    override func customViews() {
+        copyLabel.setText(text: UserDefaults.standard.string(forKey: UserProfiles.referralCode)!)
+    }
 
     //MARK: - Navigation
     @IBAction func clickBack(_ sender: Any) {

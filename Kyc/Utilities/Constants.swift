@@ -35,6 +35,8 @@ struct UserProfiles {
     static let password = "password"
     static let citizenship = "citizenship"
     static let country = "country"
+    static let referralCode = "referralCode"
+    static let referralBy = "referralBy"
     
     static let tempPassword = "tempPassword"
     static let tempEmail = "tempEmail"
@@ -71,6 +73,7 @@ struct URLConstant {
     static let paymentMethods = "/app-payment-methods"
     static let updateUserInfor = "/update-personal-info"
     static let projectShare = "/project/share"
+    static let updateReferralCode = "/update-referral-code"
 }
 
 struct SegueIdentifiers {

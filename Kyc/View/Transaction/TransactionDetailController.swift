@@ -21,6 +21,7 @@ class TransactionDetailController: ParticipateCommonController {
     @IBOutlet weak var ethAmount: UILabel!
     @IBOutlet weak var tokenPrice: UILabel!
     @IBOutlet weak var totalAmountTitle: UILabel!
+    @IBOutlet weak var referralCode: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,10 @@ class TransactionDetailController: ParticipateCommonController {
         tokenNumber.layer.borderWidth = 1
         tokenNumber.layer.borderColor = UIColor.init(argb: Colors.lightBlue).cgColor
         tokenNumber.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+//        referralCode.layer.cornerRadius = referralCode.frame.size.height / 2
+//        referralCode.layer.borderWidth = 1
+//        referralCode.layer.borderColor = UIColor.init(argb: Colors.lightBlue).cgColor
+        referralCode.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
         countAmount()
     }
     
@@ -104,7 +109,7 @@ class TransactionDetailController: ParticipateCommonController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if (tokenNumber.isFirstResponder) {
+        if (tokenNumber.isFirstResponder || referralCode.isFirstResponder) {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.view.frame.origin.y -= (keyboardSize.height - 120)
             }
