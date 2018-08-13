@@ -63,14 +63,15 @@ class TransactionDetailController: ParticipateCommonController {
     override func imageButtonClick(_ sender: Any) {
         guard let project = project, let method = paymentMethod, let walletAddress = walletAddress else {return}
         let params = [
-            "project_id": project.projectId as Any,
-            "payment_method" : method.methodName as Any,
-            "payment_method_id" : method.methodId as Any,
-            "amount_tokens" : tokenNumber.text as Any,
-            "payment_amount" : ethAmount.text as Any,
+            "project_id": project.projectId! as Any,
+            "payment_method" : method.methodName! as Any,
+            "payment_method_id" : method.methodId! as Any,
+            "amount_tokens" : tokenNumber.text! as Any,
+            "payment_amount" : ethAmount.text! as Any,
             "discount" : project.currentDiscount ?? "0",
             "wallet_address" : walletAddress as Any
         ]
+        
         let headers = [
             "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]

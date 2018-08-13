@@ -44,8 +44,9 @@ class SuccessTransactionViewController: ParticipateCommonController {
     
     //MARK: - Navigations
     func gotoNext() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController)
-        navigationController?.pushViewController(vc!, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
+        vc.projectId = project?.projectId
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func backToProjectList(_ sender: Any) {

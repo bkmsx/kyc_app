@@ -11,6 +11,7 @@ import DropDown
 
 class DropDownButton: UIView {
     var text = ""
+    var index = 0
     var dropDown = DropDown()
     var delegate: DropDownButtonDelegate?
     
@@ -37,8 +38,9 @@ class DropDownButton: UIView {
         self.dropDown.selectionAction = { [weak self] (index, item) in
             self?.selectButton.setTitle(item, for: .normal)
             self?.text = item
+            self?.index = index
             if let delegate = self?.delegate {
-                delegate.didSelectDropDown(text: item)
+                delegate.didSelectDropDown(index: index, text: item)
             }
         }
     }
@@ -49,8 +51,10 @@ class DropDownButton: UIView {
     }
     
     func setSelection(item: String) {
-        selectButton.setTitle(item, for:.normal )
+        selectButton.setTitle(item, for:.normal)
         text = item
+        index = self.dropDown.dataSource.index(of: item)!
+        print(index)
     }
     
     @IBOutlet weak var selectButton: UIButton!
@@ -65,7 +69,7 @@ class DropDownButton: UIView {
 }
 
 protocol DropDownButtonDelegate {
-    func didSelectDropDown(text: String)
+    func didSelectDropDown(index: Int,text: String)
 }
 
 extension UIView {

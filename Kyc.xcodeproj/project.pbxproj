@@ -64,6 +64,7 @@
 		081B5BC9211C20AD00AFE162 /* EarnedTokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BC8211C20AD00AFE162 /* EarnedTokenCell.swift */; };
 		081B5BCB211D700100AFE162 /* TextFieldPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BCA211D700100AFE162 /* TextFieldPicker.swift */; };
 		081B5BCF211E913A00AFE162 /* TextFieldBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BCE211E913A00AFE162 /* TextFieldBottomBorder.swift */; };
+		081B5BFB2121881600AFE162 /* PromotionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BFA2121881600AFE162 /* PromotionInformation.swift */; };
 		082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C32109BC1D004AB6E8 /* LeftBarView.swift */; };
 		082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10C52109BC2C004AB6E8 /* LeftBarView.xib */; };
 		082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C72109D37C004AB6E8 /* WalletInputController.swift */; };
@@ -185,6 +186,7 @@
 		081B5BC8211C20AD00AFE162 /* EarnedTokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnedTokenCell.swift; sourceTree = "<group>"; };
 		081B5BCA211D700100AFE162 /* TextFieldPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPicker.swift; sourceTree = "<group>"; };
 		081B5BCE211E913A00AFE162 /* TextFieldBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBottomBorder.swift; sourceTree = "<group>"; };
+		081B5BFA2121881600AFE162 /* PromotionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionInformation.swift; sourceTree = "<group>"; };
 		082A10C32109BC1D004AB6E8 /* LeftBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarView.swift; sourceTree = "<group>"; };
 		082A10C52109BC2C004AB6E8 /* LeftBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftBarView.xib; sourceTree = "<group>"; };
 		082A10C72109D37C004AB6E8 /* WalletInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInputController.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				0817C4F92110CB85001DC87B /* ParticipateHistoryModel.swift */,
 				081B5BAE2114639200AFE162 /* PaymentCategory.swift */,
 				081B5BBE211723BC00AFE162 /* WalletAddress.swift */,
+				081B5BFA2121881600AFE162 /* PromotionInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				081B5BBF211723BC00AFE162 /* WalletAddress.swift in Sources */,
 				080867E62108519B0033BECE /* CodeInputView.swift in Sources */,
 				080867F42108878E0033BECE /* DropDownButton.swift in Sources */,
+				081B5BFB2121881600AFE162 /* PromotionInformation.swift in Sources */,
 				081B5BB521160B2F00AFE162 /* USDParticipateHistoryController.swift in Sources */,
 				081922582100295100CF2800 /* PhoneCell.swift in Sources */,
 				08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */,

@@ -70,6 +70,7 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             countryList.append(country.country)
         }
         countryDropDown.setDataSource(source: countryList)
+        countryDropDown.setSelection(item: UserDefaults.standard.string(forKey: UserProfiles.country)!)
     }
     
     func setupCitizenshipDropDown(citizenships: [CitizenshipModel]){
@@ -78,6 +79,7 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             citizenshipList.append(citizenship.nationality)
         }
         citizenshipDropDown.setDataSource(source: citizenshipList)
+        citizenshipDropDown.setSelection(item: UserDefaults.standard.string(forKey: UserProfiles.citizenship)!)
     }
     
     //MARK: - Pick images
@@ -133,16 +135,19 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
 
     func updatePassport() {
         let params = [
-            "citizenship" : citizenships[selectedCitizenship].nationality,
-            "citizenship_id" : citizenships[selectedCitizenship].id,
+            "citizenship" : citizenshipDropDown.text,
+            "citizenship_id" : citizenships[citizenshipDropDown.index].id,
             "passport_number" : passportNumberTextField.text!,
-            "country_of_residence" : countries[selectedCountry].country
+            "country_of_residence" : citizenshipDropDown.text
             ] as [String : Any]
         let headers: HTTPHeaders = [
             "Content-Type" : "multipart/form-data",
             "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
         ]
         httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers) { _ in
+            UserDefaults.standard.set(self.citizenships[self.citizenshipDropDown.index].nationality, forKey: UserProfiles.citizenship)
+            UserDefaults.standard.set(self.countries[self.countryDropDown.index].country, forKey: UserProfiles.country)
+            UserDefaults.standard.set(self.passportNumberTextField.text!, forKey: UserProfiles.passportNumber)
             self.makeToast("Updated new images")
             self.goBack()
         }

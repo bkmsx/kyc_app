@@ -36,6 +36,7 @@ class USDDetailViewController: ParticipateCommonController {
     
     override func imageButtonClick(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
+        vc.projectId = project?.projectId
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -94,4 +94,9 @@ class ProjectDetailViewController: ParticipateCommonController {
         
     }
     
+    @IBAction func inviteFriend(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
+        vc.projectId = projectId
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

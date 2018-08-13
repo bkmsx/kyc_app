@@ -59,7 +59,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
             dropdownButton.setDataSource(source: paymentMethods)
             dropdownButton.setTextMarginLeft(value: 10)
             dropdownButton.delegate = self
-            didSelectDropDown(text: paymentMethods[0])
+            didSelectDropDown(index: 0, text: paymentMethods[0])
             setupWalletDropDown()
         }
     }
@@ -96,7 +96,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         walletDropDown.dataSource = source
     }
     
-    func didSelectDropDown(text: String) {
+    func didSelectDropDown(index: Int,text: String) {
         for paymentMethod in (project?.paymentMethods)! {
             if (paymentMethod.methodName == dropdownButton.text) {
                 selectedPaymentMethod = paymentMethod

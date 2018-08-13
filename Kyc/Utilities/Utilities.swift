@@ -75,14 +75,6 @@ extension UITextField {
 }
 
 extension UIImageView {
-    func loadImage(urlString: String){
-        let url = URL(string: urlString)
-        let data = try? Data(contentsOf: url!)
-        
-        if let imageData = data {
-            self.image = UIImage(data: imageData)
-        }
-    }
     
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode

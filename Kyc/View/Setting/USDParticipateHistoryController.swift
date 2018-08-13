@@ -9,7 +9,11 @@
 import UIKit
 
 class USDParticipateHistoryController: ParticipateCommonController {
+    //From previous
     var historyId: Int?
+    //Inside
+    var history: ParticipateHistoryModel?
+    
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var participateHeader: ParticipateHeader!
     @IBOutlet weak var price: UILabel!
@@ -67,6 +71,7 @@ class USDParticipateHistoryController: ParticipateCommonController {
             self.accountName.text = paymentMethod?.accountName
             self.accountNumber.text = paymentMethod?.accountNumber
             self.businessAddress.text = paymentMethod?.holderAddress
+            self.history = history
         }
     }
 
@@ -76,7 +81,11 @@ class USDParticipateHistoryController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
+        guard let history = history else {
+            return
+        }
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
+        vc.projectId = history.projectId
         navigationController?.pushViewController(vc, animated: true)
     }
 }

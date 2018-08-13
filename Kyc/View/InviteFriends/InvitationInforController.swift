@@ -9,12 +9,69 @@
 import UIKit
 
 class InvitationInforController: ParticipateCommonController {
-
+    //From previous
+    var projectId: Int?
+    
+    @IBOutlet weak var promotionTitle: UILabel!
+    @IBOutlet weak var subTitle: UILabel!
+    @IBOutlet weak var exampleDes: UILabel!
+    @IBOutlet weak var longDes: UILabel!
+    @IBOutlet weak var shortDes: UILabel!
+    @IBOutlet weak var caption: UILabel!
+    @IBOutlet weak var bannerImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getPromotionInformation()
+    }
+    //MARK: - Custom views
+    override func customViews() {
+        
+    }
+    
+    func setupDefaultLayout() {
+        promotionTitle.text = "EARN FREE TOKENS"
+        subTitle.text = "for every friend referred!"
+        bannerImage.image = #imageLiteral(resourceName: "share_friends")
+        caption.text = "We are giving away special prizes for referring a friend to download this App"
+        shortDes.text = "Win 3 Nano Ledger S every month!"
+        longDes.text = "One chance earned for every friend referred. Double your total chances if you refer more than 10 friends."
+        exampleDes.text = "E.g. Friends referred 9. Chances = 9"
+    }
+    
+    func setupLayout(_ promotion: PromotionInformation) {
+        promotionTitle.text = promotion.title!
+        subTitle.text = promotion.subTitle!
+        if (promotion.useDefaultBanner == 0) {
+            bannerImage.downloadedFrom(link: promotion.bannerImage!)
+        }
+        caption.text = promotion.caption!
+        shortDes.text = promotion.shortDes!
+        longDes.text = promotion.detailDes!
+        exampleDes.text = promotion.exampleDes!
     }
 
+    //MARK: - Call API
+    func getPromotionInformation() {
+        guard let projectId = projectId else {
+            setupDefaultLayout()
+            return
+        }
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        let params = [
+            "project_id" : projectId
+        ] as [String:Any]
+        
+        httpRequest(URLConstant.baseURL + URLConstant.projectShare, method: .get, parameters: params, headers: headers) { (json) in
+            let promotionDic = json["promotion"] as! [String:Any]
+            let promotion = PromotionInformation.init(dic: promotionDic)
+            self.setupLayout(promotion)
+        }
+    }
+    
+    //MARK: - Navigations
     @IBAction func clickBack(_ sender: Any) {
         goBack()
     }

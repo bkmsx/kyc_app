@@ -9,7 +9,10 @@
 import UIKit
 
 class ETHParticipateDetailViewController: ParticipateCommonController {
+    //From previous
     var historyId: Int?
+    //Inside
+    var history: ParticipateHistoryModel?
     @IBOutlet weak var participateHeader: ParticipateHeader!
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var price: UILabel!
@@ -55,6 +58,7 @@ class ETHParticipateDetailViewController: ParticipateCommonController {
             self.copyLabel.setText(text: (history.paymentDestination?.walletAddress!)!)
             self.qrCode.image = self.generateQRCode(from: (history.paymentDestination?.walletAddress!)!)
             self.price.text = "1 TOKEN = \(history.price!) \(history.paymentMode!)"
+            self.history = history
         }
     }
 
@@ -64,7 +68,11 @@ class ETHParticipateDetailViewController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
+        guard let history = history else {
+            return
+        }
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
+        vc.projectId = history.projectId
         navigationController?.pushViewController(vc, animated: true)
     }
 }

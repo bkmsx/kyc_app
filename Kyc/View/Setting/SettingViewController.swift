@@ -68,8 +68,6 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         let lastName = UserDefaults.standard.string(forKey: UserProfiles.lastName)!
         userName.text = "\(firstName.uppercased()) \(lastName.uppercased())"
         userEmail.text = UserDefaults.standard.string(forKey: UserProfiles.email)!
-        let userAvatar = UserDefaults.standard.string(forKey: UserProfiles.selfiePhoto)!
-        roundView.loadImage(link: userAvatar)
     }
     
     //MARK: - Setting Row Delegate

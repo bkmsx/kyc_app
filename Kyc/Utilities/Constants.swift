@@ -70,6 +70,7 @@ struct URLConstant {
     static let deleteWallet = "/wallet-delete"
     static let paymentMethods = "/app-payment-methods"
     static let updateUserInfor = "/update-personal-info"
+    static let projectShare = "/project/share"
 }
 
 struct SegueIdentifiers {
