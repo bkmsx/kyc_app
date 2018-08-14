@@ -43,9 +43,6 @@ class TransactionDetailController: ParticipateCommonController {
         tokenNumber.layer.borderWidth = 1
         tokenNumber.layer.borderColor = UIColor.init(argb: Colors.lightBlue).cgColor
         tokenNumber.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
-//        referralCode.layer.cornerRadius = referralCode.frame.size.height / 2
-//        referralCode.layer.borderWidth = 1
-//        referralCode.layer.borderColor = UIColor.init(argb: Colors.lightBlue).cgColor
         referralCode.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
         countAmount()
     }
@@ -74,7 +71,8 @@ class TransactionDetailController: ParticipateCommonController {
             "amount_tokens" : tokenNumber.text! as Any,
             "payment_amount" : ethAmount.text! as Any,
             "discount" : project.currentDiscount ?? "0",
-            "wallet_address" : walletAddress as Any
+            "wallet_address" : walletAddress as Any,
+            "referral_code" : referralCode.text! as Any
         ]
         
         let headers = [
