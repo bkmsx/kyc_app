@@ -60,6 +60,7 @@ open class CodeInputView: UIView, UIKeyInput {
                 for index in 1..<nextTag {
                     code += (viewWithTag(index)! as! UILabel).text!
                 }
+                self.resignFirstResponder()
                 if (delegate != nil) {
                     delegate?.codeInputView(self, didFinishWithCode: code)
                 }

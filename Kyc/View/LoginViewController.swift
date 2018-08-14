@@ -42,9 +42,9 @@ class LoginViewController: ParticipateCommonController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//                let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.PhoneListViewController)
-//                navigationController?.pushViewController(vc!, animated: true)
-//                return //FIXME: remove return
+                let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.VerifyOTPViewController)
+                navigationController?.pushViewController(vc!, animated: true)
+                return //FIXME: remove return
         if UserDefaults.standard.object(forKey: UserProfiles.securityToken) != nil {
             if let savedEmail = UserDefaults.standard.object(forKey: UserProfiles.email) {
                 email = savedEmail as! String
