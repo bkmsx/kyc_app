@@ -46,7 +46,6 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     
     func setupCameraButton() {
         uploadButton.delegate = self
-        cameraButton.clickable = true
         cameraButton.delegate = self
         cameraButton.setImage(image: #imageLiteral(resourceName: "camera"))
     }

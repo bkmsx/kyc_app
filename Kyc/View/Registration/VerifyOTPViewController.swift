@@ -10,9 +10,10 @@ import UIKit
 import Toast_Swift
 
 class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,  CodeInputViewDelegate {
-    //MARK: - Properties
+    //Inside
     var code = ""
-    //MARK: - Outlet
+    var lockResend = true
+    var timer: Timer!
     
     @IBOutlet weak var continueImageButton: ImageButton!
     
@@ -20,6 +21,9 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
     override func customViews() {
         continueImageButton.delegate = self
         setupOTPInput()
+        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { _ in
+            self.lockResend = false
+        })
     }
     
     override func imageButtonClick(_ sender: Any) {
@@ -40,6 +44,10 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
     
     //MARK: - Call API
     @IBAction func resendOTP(_ sender: Any) {
+        guard !lockResend else {
+            makeToast("You can resend after 60 seconds")
+            return
+        }
         let countryCode = UserDefaults.standard.object(forKey: UserProfiles.tempCountryCode)!
         let phoneNumber = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber)!
         let params = [
@@ -49,6 +57,10 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
             ] as [String : Any]
         httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { _ in
             self.view.makeToast("OTP code was sent")
+            self.lockResend = true
+            self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { _ in
+                self.lockResend = false
+            })
         }
     }
     
@@ -124,4 +136,8 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
         self.present(alert, animated: true, completion: nil)
     }
 
+    //MARK: - Clean
+    override func viewWillDisappear(_ animated: Bool) {
+        timer.invalidate()
+    }
 }

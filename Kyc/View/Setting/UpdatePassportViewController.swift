@@ -40,7 +40,6 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "UPDATE")
         roundView.setImage(image: #imageLiteral(resourceName: "camera"))
-        roundView.clickable = true
         roundView.delegate = self
         passportNumberTextField.text = UserDefaults.standard.string(forKey: UserProfiles.passportNumber)!
         uploadButton.delegate = self

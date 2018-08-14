@@ -14,7 +14,8 @@ class RoundView: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var photo: UIImageView!
     var delegate: RoundViewDelegate?
-    var clickable = false
+    var lock = false
+    var timer: Timer!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,15 +28,22 @@ class RoundView: UIView {
     }
     
     @IBAction func clickButton(_ sender: Any) { 
-        if (clickable && delegate != nil) {
-            UIView.animate(withDuration: 0.1) {
-                self.contentView.backgroundColor = UIColor.lightGray
-                UIView.animate(withDuration: 0.1, animations: {
-                    self.contentView.backgroundColor = UIColor.clear
-                })
-            }
-            delegate?.clickRoundView()
+       
+        UIView.animate(withDuration: 0.1) {
+            self.contentView.backgroundColor = UIColor.lightGray
+            UIView.animate(withDuration: 0.1, animations: {
+                self.contentView.backgroundColor = UIColor.clear
+            })
         }
+        guard let delegate = delegate, !lock else {
+            return
+        }
+        delegate.clickRoundView()
+        lock = true
+        timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: false, block: { _ in
+            self.lock = false
+        })
+        
     }
     
     func setImage(image: UIImage) {
@@ -63,6 +71,7 @@ class RoundView: UIView {
         innerView.layer.cornerRadius = self.frame.size.height / 2 - 5
         photo.contentMode = UIViewContentMode.scaleAspectFit
         photo.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
+        
     }
 }
 
