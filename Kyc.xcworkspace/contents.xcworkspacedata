@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/bkmsx/Documents/iOS/Kyc_App/Kyc/Kyc/View/Setting/SelectAll.xib">
-   </FileRef>
-   <FileRef
       location = "group:Kyc.xcodeproj">
    </FileRef>
    <FileRef

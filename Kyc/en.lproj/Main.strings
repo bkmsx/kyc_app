@@ -1,0 +1,666 @@
+
+/* Class = "UINavigationItem"; title = "UPDATE WALLETS"; ObjectID = "0qX-Ym-ZxZ"; */
+"0qX-Ym-ZxZ.title" = "UPDATE WALLETS";
+
+/* Class = "UILabel"; text = "3529528548"; ObjectID = "1Ak-qD-NkL"; */
+"1Ak-qD-NkL.text" = "3529528548";
+
+/* Class = "UILabel"; text = "CITIZENSHIP"; ObjectID = "1W2-sc-hhv"; */
+"1W2-sc-hhv.text" = "CITIZENSHIP";
+
+/* Class = "UILabel"; text = "DISCOUNT TIER"; ObjectID = "20T-NQ-AVc"; */
+"20T-NQ-AVc.text" = "DISCOUNT TIER";
+
+/* Class = "UITextField"; placeholder = "hello@wpay.sg"; ObjectID = "2ba-X5-390"; */
+"2ba-X5-390.placeholder" = "hello@wpay.sg";
+
+/* Class = "UILabel"; text = "SMS"; ObjectID = "2dQ-bC-i2U"; */
+"2dQ-bC-i2U.text" = "SMS";
+
+/* Class = "UINavigationItem"; title = "UPDATE MOBILE NUMBER"; ObjectID = "3PS-Q9-zeL"; */
+"3PS-Q9-zeL.title" = "UPDATE MOBILE NUMBER";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "3RR-PU-0lV"; */
+"3RR-PU-0lV.title" = "Item";
+
+/* Class = "UILabel"; text = "Total amount: ???"; ObjectID = "3su-6f-sfP"; */
+"3su-6f-sfP.text" = "Total amount: ???";
+
+/* Class = "UILabel"; text = "IDENTITY VERIFICATION SUCCESSFUL"; ObjectID = "3vD-Gw-WRX"; */
+"3vD-Gw-WRX.text" = "IDENTITY VERIFICATION SUCCESSFUL";
+
+/* Class = "UILabel"; text = "CURRENT PASSWORD"; ObjectID = "3xT-bQ-blV"; */
+"3xT-bQ-blV.text" = "CURRENT PASSWORD";
+
+/* Class = "UITextField"; placeholder = "R32SDF"; ObjectID = "51S-XV-Feh"; */
+"51S-XV-Feh.placeholder" = "R32SDF";
+
+/* Class = "UILabel"; text = "Amazing Appventures Pte Ltd"; ObjectID = "56T-Yj-uHc"; */
+"56T-Yj-uHc.text" = "Amazing Appventures Pte Ltd";
+
+/* Class = "UILabel"; text = "REFERRAL CODE"; ObjectID = "5Cb-xN-3hb"; */
+"5Cb-xN-3hb.text" = "REFERRAL CODE";
+
+/* Class = "UILabel"; text = "Trung Tien"; ObjectID = "5Ks-Ph-cZs"; */
+"5Ks-Ph-cZs.text" = "Trung Tien";
+
+/* Class = "UILabel"; text = "Accept "; ObjectID = "5Vd-xM-D33"; */
+"5Vd-xM-D33.text" = "Accept ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "63Z-pd-1XE"; */
+"63Z-pd-1XE.text" = " ";
+
+/* Class = "UILabel"; text = "BANK ADDRESS"; ObjectID = "69S-Fe-RF6"; */
+"69S-Fe-RF6.text" = "BANK ADDRESS";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "6Cq-1e-RGE"; */
+"6Cq-1e-RGE.text" = "???";
+
+/* Class = "UINavigationItem"; title = "PARTICIPATE HISTORY"; ObjectID = "6am-ld-jaq"; */
+"6am-ld-jaq.title" = "PARTICIPATE HISTORY";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "6dU-Dw-Ao6"; */
+"6dU-Dw-Ao6.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "1 TOKEN = ????"; ObjectID = "6qW-bg-sBI"; */
+"6qW-bg-sBI.text" = "1 TOKEN = ????";
+
+/* Class = "UILabel"; text = "ENTER NEW MOBILE NUMBER"; ObjectID = "6tK-jh-2bH"; */
+"6tK-jh-2bH.text" = "ENTER NEW MOBILE NUMBER";
+
+/* Class = "UILabel"; text = " "; ObjectID = "6tQ-p3-H09"; */
+"6tQ-p3-H09.text" = " ";
+
+/* Class = "UILabel"; text = "BANK ADDRESS"; ObjectID = "6wF-mC-3aH"; */
+"6wF-mC-3aH.text" = "BANK ADDRESS";
+
+/* Class = "UILabel"; text = "CITIZENSHIP"; ObjectID = "6xX-fv-cJh"; */
+"6xX-fv-cJh.text" = "CITIZENSHIP";
+
+/* Class = "UIViewController"; title = "PARTICIPATE"; ObjectID = "7N6-SC-myg"; */
+"7N6-SC-myg.title" = "PARTICIPATE";
+
+/* Class = "UIButton"; normalTitle = "Go to our site"; ObjectID = "8nR-yv-TJ6"; */
+"8nR-yv-TJ6.normalTitle" = "Go to our site";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "9KM-le-TqH"; */
+"9KM-le-TqH.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "9gb-kl-5EX"; */
+"9gb-kl-5EX.title" = "Item";
+
+/* Class = "UILabel"; text = "Referral code:"; ObjectID = "9oa-2b-QPg"; */
+"9oa-2b-QPg.text" = "Referral code:";
+
+/* Class = "UILabel"; text = "Share your referral code"; ObjectID = "9t2-D9-hSG"; */
+"9t2-D9-hSG.text" = "Share your referral code";
+
+/* Class = "UILabel"; text = "WALLET ADDRESS"; ObjectID = "9wj-AU-U5j"; */
+"9wj-AU-U5j.text" = "WALLET ADDRESS";
+
+/* Class = "UINavigationItem"; title = "SETTINGS"; ObjectID = "A8M-dk-12H"; */
+"A8M-dk-12H.title" = "SETTINGS";
+
+/* Class = "UILabel"; text = "ACCOUNT NAME"; ObjectID = "AWg-7g-vRT"; */
+"AWg-7g-vRT.text" = "ACCOUNT NAME";
+
+/* Class = "UIViewController"; title = "Login"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Login";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Bfm-Jb-HS5"; */
+"Bfm-Jb-HS5.title" = "Item";
+
+/* Class = "UILabel"; text = "We have sent you a One Time PIN via SMS. Please enter the PIN number below:"; ObjectID = "Bp0-Jz-8Fn"; */
+"Bp0-Jz-8Fn.text" = "We have sent you a One Time PIN via SMS. Please enter the PIN number below:";
+
+/* Class = "UILabel"; text = "BUSINESS ADDRESS"; ObjectID = "C19-Ri-Ji9"; */
+"C19-Ri-Ji9.text" = "BUSINESS ADDRESS";
+
+/* Class = "UILabel"; text = "your current payment method:"; ObjectID = "D5P-zB-pbI"; */
+"D5P-zB-pbI.text" = "your current payment method:";
+
+/* Class = "UILabel"; text = "Payment method: ???"; ObjectID = "Dxm-VW-2cb"; */
+"Dxm-VW-2cb.text" = "Payment method: ???";
+
+/* Class = "UINavigationItem"; title = "NEW USER REGISTRATION"; ObjectID = "EZ5-Hs-3RN"; */
+"EZ5-Hs-3RN.title" = "NEW USER REGISTRATION";
+
+/* Class = "UILabel"; text = "SELECT WALLET TYPE"; ObjectID = "Eoj-1o-CIy"; */
+"Eoj-1o-CIy.text" = "SELECT WALLET TYPE";
+
+/* Class = "UILabel"; text = "NEW PASSWORD"; ObjectID = "F8o-ZN-TW9"; */
+"F8o-ZN-TW9.text" = "NEW PASSWORD";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "FSk-07-0li"; */
+"FSk-07-0li.title" = "Item";
+
+/* Class = "UILabel"; text = "Verified"; ObjectID = "Fqw-Ru-MJg"; */
+"Fqw-Ru-MJg.text" = "Verified";
+
+/* Class = "UILabel"; text = "PRE-SALE PERIOD"; ObjectID = "GFi-mj-jFO"; */
+"GFi-mj-jFO.text" = "PRE-SALE PERIOD";
+
+/* Class = "UINavigationItem"; title = "NEW USER REGISTRATION"; ObjectID = "GN1-Rx-ytb"; */
+"GN1-Rx-ytb.title" = "NEW USER REGISTRATION";
+
+/* Class = "UIButton"; normalTitle = "RESEND PIN"; ObjectID = "GuM-7G-H0X"; */
+"GuM-7G-H0X.normalTitle" = "RESEND PIN";
+
+/* Class = "UILabel"; text = "COMPLETE"; ObjectID = "HK6-q5-kxP"; */
+"HK6-q5-kxP.text" = "COMPLETE";
+
+/* Class = "UINavigationItem"; title = "UPDATE ERC20 WALLET"; ObjectID = "HhO-e6-ePE"; */
+"HhO-e6-ePE.title" = "UPDATE ERC20 WALLET";
+
+/* Class = "UILabel"; text = "User name"; ObjectID = "IMf-0l-Q38"; */
+"IMf-0l-Q38.text" = "User name";
+
+/* Class = "UILabel"; text = "WHATSAPP"; ObjectID = "IkW-Mv-mJ6"; */
+"IkW-Mv-mJ6.text" = "WHATSAPP";
+
+/* Class = "UILabel"; text = "10 ETH paid"; ObjectID = "InU-Jd-itF"; */
+"InU-Jd-itF.text" = "10 ETH paid";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "J1O-kQ-kaf"; */
+"J1O-kQ-kaf.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "JJa-qg-Fbd"; */
+"JJa-qg-Fbd.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "JTV-LV-IBu"; */
+"JTV-LV-IBu.title" = "Item";
+
+/* Class = "UILabel"; text = "john.doe@gmail.com"; ObjectID = "JnN-ac-aBP"; */
+"JnN-ac-aBP.text" = "john.doe@gmail.com";
+
+/* Class = "UITextField"; placeholder = "123456789"; ObjectID = "KAQ-Vb-5rv"; */
+"KAQ-Vb-5rv.placeholder" = "123456789";
+
+/* Class = "UINavigationItem"; title = "PARTICIPATE"; ObjectID = "KsH-vh-Rfk"; */
+"KsH-vh-Rfk.title" = "PARTICIPATE";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "L7z-L5-IVQ"; */
+"L7z-L5-IVQ.text" = "10";
+
+/* Class = "UILabel"; text = " "; ObjectID = "LbI-Vf-zNV"; */
+"LbI-Vf-zNV.text" = " ";
+
+/* Class = "UINavigationItem"; title = "ADD NEW WALLET"; ObjectID = "MGl-OG-tda"; */
+"MGl-OG-tda.title" = "ADD NEW WALLET";
+
+/* Class = "UILabel"; text = "Payment sent to:"; ObjectID = "MOl-a0-ua6"; */
+"MOl-a0-ua6.text" = "Payment sent to:";
+
+/* Class = "UILabel"; text = "PASSPORT NUMBER"; ObjectID = "MTQ-dH-IbA"; */
+"MTQ-dH-IbA.text" = "PASSPORT NUMBER";
+
+/* Class = "UITextField"; placeholder = "B1234343"; ObjectID = "MZd-3g-5s9"; */
+"MZd-3g-5s9.placeholder" = "B1234343";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "NC4-Hh-Uip"; */
+"NC4-Hh-Uip.text" = "???";
+
+/* Class = "UINavigationItem"; title = "PARTICIPATE"; ObjectID = "NND-1l-vKs"; */
+"NND-1l-vKs.title" = "PARTICIPATE";
+
+/* Class = "UILabel"; text = "ACCOUNT NO."; ObjectID = "NfL-E0-NJQ"; */
+"NfL-E0-NJQ.text" = "ACCOUNT NO.";
+
+/* Class = "UILabel"; text = "ACCOUNT NAME"; ObjectID = "NgD-3u-6jW"; */
+"NgD-3u-6jW.text" = "ACCOUNT NAME";
+
+/* Class = "UILabel"; text = "DATE OF BIRTH"; ObjectID = "Nk5-ca-q0W"; */
+"Nk5-ca-q0W.text" = "DATE OF BIRTH";
+
+/* Class = "UILabel"; text = "Tokens purchased: ???"; ObjectID = "Nl5-sU-hCW"; */
+"Nl5-sU-hCW.text" = "Tokens purchased: ???";
+
+/* Class = "UILabel"; text = "Amount of Tokens to buy:"; ObjectID = "Ny6-hT-efs"; */
+"Ny6-hT-efs.text" = "Amount of Tokens to buy:";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "O5d-pF-Qe2"; */
+"O5d-pF-Qe2.text" = "30";
+
+/* Class = "UIButton"; normalTitle = "REGISTER"; ObjectID = "OPH-2m-Pk6"; */
+"OPH-2m-Pk6.normalTitle" = "REGISTER";
+
+/* Class = "UINavigationItem"; title = "PARTICIPATE"; ObjectID = "OVD-3a-CeZ"; */
+"OVD-3a-CeZ.title" = "PARTICIPATE";
+
+/* Class = "UIButton"; normalTitle = "PARTICIPATE AGAIN"; ObjectID = "OVP-ul-Lla"; */
+"OVP-ul-Lla.normalTitle" = "PARTICIPATE AGAIN";
+
+/* Class = "UILabel"; text = "Enter your referral code"; ObjectID = "OZp-lo-YcB"; */
+"OZp-lo-YcB.text" = "Enter your referral code";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Ojo-To-IKT"; */
+"Ojo-To-IKT.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "PWC-MC-rIh"; */
+"PWC-MC-rIh.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "SHARE WITH FRIENDS"; ObjectID = "PX2-k5-qMf"; */
+"PX2-k5-qMf.title" = "SHARE WITH FRIENDS";
+
+/* Class = "UILabel"; text = "Tokens purchased: ???"; ObjectID = "PzM-89-o7R"; */
+"PzM-89-o7R.text" = "Tokens purchased: ???";
+
+/* Class = "UILabel"; text = "40% Discount"; ObjectID = "QNB-wb-K0g"; */
+"QNB-wb-K0g.text" = "40% Discount";
+
+/* Class = "UILabel"; text = "By clicking Submit you are bounded to purchase the tokens indicated above."; ObjectID = "RDB-h6-m1h"; */
+"RDB-h6-m1h.text" = "By clicking Submit you are bounded to purchase the tokens indicated above.";
+
+/* Class = "UILabel"; text = "CONFIRM PASSWORD"; ObjectID = "RJk-q8-cPT"; */
+"RJk-q8-cPT.text" = "CONFIRM PASSWORD";
+
+/* Class = "UILabel"; text = "Your ETH Wallet:"; ObjectID = "RlG-UW-GYO"; */
+"RlG-UW-GYO.text" = "Your ETH Wallet:";
+
+/* Class = "UINavigationItem"; title = "FORGOT PASSWORD"; ObjectID = "S0V-p2-Unz"; */
+"S0V-p2-Unz.title" = "FORGOT PASSWORD";
+
+/* Class = "UIButton"; normalTitle = "DETAILS"; ObjectID = "SAU-Mv-veU"; */
+"SAU-Mv-veU.normalTitle" = "DETAILS";
+
+/* Class = "UITextField"; placeholder = "***"; ObjectID = "SO5-zr-dwK"; */
+"SO5-zr-dwK.placeholder" = "***";
+
+/* Class = "UIViewController"; title = "NEW USER REGISTRATION"; ObjectID = "SSZ-mi-q0K"; */
+"SSZ-mi-q0K.title" = "NEW USER REGISTRATION";
+
+/* Class = "UILabel"; text = "EMAIL"; ObjectID = "SYr-gJ-REI"; */
+"SYr-gJ-REI.text" = "EMAIL";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Sba-B5-BVO"; */
+"Sba-B5-BVO.title" = "Item";
+
+/* Class = "UILabel"; text = "TIER 1:"; ObjectID = "SiK-rg-KGf"; */
+"SiK-rg-KGf.text" = "TIER 1:";
+
+/* Class = "UILabel"; text = "We have sent you a One Time PIN via SMS. Please enter the PIN number below:"; ObjectID = "Sj8-LP-h63"; */
+"Sj8-LP-h63.text" = "We have sent you a One Time PIN via SMS. Please enter the PIN number below:";
+
+/* Class = "UINavigationItem"; title = "UPDATE MOBILE NUMBER"; ObjectID = "Szb-gM-Miz"; */
+"Szb-gM-Miz.title" = "UPDATE MOBILE NUMBER";
+
+/* Class = "UILabel"; text = "SHARE THIS WITH YOUR FRIENDS AND GET 10 FREE TOKENS FOR EACH REFERRAL"; ObjectID = "T3B-2r-GVL"; */
+"T3B-2r-GVL.text" = "SHARE THIS WITH YOUR FRIENDS AND GET 10 FREE TOKENS FOR EACH REFERRAL";
+
+/* Class = "UILabel"; text = "STATUS: PENDING PAYMENT"; ObjectID = "T61-mD-amd"; */
+"T61-mD-amd.text" = "STATUS: PENDING PAYMENT";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "T9R-g3-wXZ"; */
+"T9R-g3-wXZ.title" = "Item";
+
+/* Class = "UILabel"; text = "COUNTRY"; ObjectID = "TFA-vH-XdR"; */
+"TFA-vH-XdR.text" = "COUNTRY";
+
+/* Class = "UILabel"; text = "Total ETH amount:"; ObjectID = "THn-X6-NjO"; */
+"THn-X6-NjO.text" = "Total ETH amount:";
+
+/* Class = "UINavigationItem"; title = "FORGOT PASSWORD"; ObjectID = "UQ7-WA-B5P"; */
+"UQ7-WA-B5P.title" = "FORGOT PASSWORD";
+
+/* Class = "UINavigationItem"; title = "INVITE FRIENDS"; ObjectID = "USw-Bj-yZE"; */
+"USw-Bj-yZE.title" = "INVITE FRIENDS";
+
+/* Class = "UIButton"; normalTitle = "DETAILS"; ObjectID = "Ui6-zC-u4q"; */
+"Ui6-zC-u4q.normalTitle" = "DETAILS";
+
+/* Class = "UILabel"; text = "JOHN DOE"; ObjectID = "UlF-sT-wof"; */
+"UlF-sT-wof.text" = "JOHN DOE";
+
+/* Class = "UILabel"; text = "1 TOKEN = ????"; ObjectID = "Utx-UU-iAT"; */
+"Utx-UU-iAT.text" = "1 TOKEN = ????";
+
+/* Class = "UILabel"; text = "W GREEN PAY"; ObjectID = "V2D-av-u6X"; */
+"V2D-av-u6X.text" = "W GREEN PAY";
+
+/* Class = "UIButton"; normalTitle = "APPLY"; ObjectID = "VBs-W5-laO"; */
+"VBs-W5-laO.normalTitle" = "APPLY";
+
+/* Class = "UITextField"; placeholder = "New wallet address"; ObjectID = "VEs-Ej-7ZE"; */
+"VEs-Ej-7ZE.placeholder" = "New wallet address";
+
+/* Class = "UILabel"; text = "BANK NAME"; ObjectID = "VMt-BM-Ela"; */
+"VMt-BM-Ela.text" = "BANK NAME";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "VSe-hp-F0y"; */
+"VSe-hp-F0y.text" = "???";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "WP5-KW-wLv"; */
+"WP5-KW-wLv.text" = "???";
+
+/* Class = "UILabel"; text = "SWIFT CODE"; ObjectID = "WYV-lk-sMi"; */
+"WYV-lk-sMi.text" = "SWIFT CODE";
+
+/* Class = "UILabel"; text = "MOBILE PHONE"; ObjectID = "WwL-3x-8RJ"; */
+"WwL-3x-8RJ.text" = "MOBILE PHONE";
+
+/* Class = "UIButton"; normalTitle = "SEND INVITATIONS"; ObjectID = "X4Z-ts-VwX"; */
+"X4Z-ts-VwX.normalTitle" = "SEND INVITATIONS";
+
+/* Class = "UIButton"; normalTitle = "PARTICIPATE"; ObjectID = "XJE-xE-xoY"; */
+"XJE-xE-xoY.normalTitle" = "PARTICIPATE";
+
+/* Class = "UILabel"; text = " "; ObjectID = "XdE-F6-XM0"; */
+"XdE-F6-XM0.text" = " ";
+
+/* Class = "UILabel"; text = "LAST NAME"; ObjectID = "Xky-vQ-enq"; */
+"Xky-vQ-enq.text" = "LAST NAME";
+
+/* Class = "UILabel"; text = "CONGRATULATIONS!"; ObjectID = "XyU-bX-j38"; */
+"XyU-bX-j38.text" = "CONGRATULATIONS!";
+
+/* Class = "UILabel"; text = "MOX, Level 3, 451 Joo Chiat Rd, #03-02 Singapore 427664"; ObjectID = "YNc-xL-m5O"; */
+"YNc-xL-m5O.text" = "MOX, Level 3, 451 Joo Chiat Rd, #03-02 Singapore 427664";
+
+/* Class = "UILabel"; text = "TAKE A SELFIE"; ObjectID = "YbM-d7-ZxQ"; */
+"YbM-d7-ZxQ.text" = "TAKE A SELFIE";
+
+/* Class = "UILabel"; text = "Start invite friends"; ObjectID = "YwC-HO-Qba"; */
+"YwC-HO-Qba.text" = "Start invite friends";
+
+/* Class = "UITextField"; placeholder = "dd/mm/yyyy"; ObjectID = "ZQJ-mz-AFK"; */
+"ZQJ-mz-AFK.placeholder" = "dd/mm/yyyy";
+
+/* Class = "UIViewController"; title = "NEW USER REGISTRATION"; ObjectID = "a8q-Ia-ym4"; */
+"a8q-Ia-ym4.title" = "NEW USER REGISTRATION";
+
+/* Class = "UILabel"; text = "ENTER YOUR EMAIL"; ObjectID = "aIv-co-SKQ"; */
+"aIv-co-SKQ.text" = "ENTER YOUR EMAIL";
+
+/* Class = "UIButton"; normalTitle = "INVITE FRIENDS"; ObjectID = "ahe-61-FdM"; */
+"ahe-61-FdM.normalTitle" = "INVITE FRIENDS";
+
+/* Class = "UITextField"; text = "+93"; ObjectID = "ai8-J3-yxi"; */
+"ai8-J3-yxi.text" = "+93";
+
+/* Class = "UILabel"; text = "0%"; ObjectID = "aj8-O2-jQx"; */
+"aj8-O2-jQx.text" = "0%";
+
+/* Class = "UILabel"; text = " "; ObjectID = "akY-a9-4oU"; */
+"akY-a9-4oU.text" = " ";
+
+/* Class = "UILabel"; text = "FIRST NAME"; ObjectID = "atn-xa-hIl"; */
+"atn-xa-hIl.text" = "FIRST NAME";
+
+/* Class = "UILabel"; text = "Thank you for registering. It may take up to 3 business days to process your application."; ObjectID = "axi-td-7k1"; */
+"axi-td-7k1.text" = "Thank you for registering. It may take up to 3 business days to process your application.";
+
+/* Class = "UILabel"; text = "1000 TOKENS = 1 ETH"; ObjectID = "b0C-B8-oxT"; */
+"b0C-B8-oxT.text" = "1000 TOKENS = 1 ETH";
+
+/* Class = "UIViewController"; title = "PARTICIPATE"; ObjectID = "bUD-QC-Vn6"; */
+"bUD-QC-Vn6.title" = "PARTICIPATE";
+
+/* Class = "UIButton"; normalTitle = "Terms and Conditions"; ObjectID = "bbx-gI-tyV"; */
+"bbx-gI-tyV.normalTitle" = "Terms and Conditions";
+
+/* Class = "UIButton"; normalTitle = "LOGOUT"; ObjectID = "cQk-RW-mHt"; */
+"cQk-RW-mHt.normalTitle" = "LOGOUT";
+
+/* Class = "UILabel"; text = "ACCOUNT NO."; ObjectID = "cZP-S2-cBh"; */
+"cZP-S2-cBh.text" = "ACCOUNT NO.";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et"; ObjectID = "cuA-cY-VzD"; */
+"cuA-cY-VzD.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et";
+
+/* Class = "UILabel"; text = "ENABLE FACE / TOUCH ID"; ObjectID = "cx9-BZ-oJK"; */
+"cx9-BZ-oJK.text" = "ENABLE FACE / TOUCH ID";
+
+/* Class = "UINavigationItem"; title = "PARTICIPATE"; ObjectID = "cya-R8-cmj"; */
+"cya-R8-cmj.title" = "PARTICIPATE";
+
+/* Class = "UINavigationItem"; title = "UPDATE PASSPORT DETAILS"; ObjectID = "dIU-c6-3uK"; */
+"dIU-c6-3uK.title" = "UPDATE PASSPORT DETAILS";
+
+/* Class = "UINavigationItem"; title = "NEW USER REGISTRATION"; ObjectID = "dQJ-uJ-Ebz"; */
+"dQJ-uJ-Ebz.title" = "NEW USER REGISTRATION";
+
+/* Class = "UILabel"; text = "United Overseas Bank Limited Co."; ObjectID = "dS0-K4-7DF"; */
+"dS0-K4-7DF.text" = "United Overseas Bank Limited Co.";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "eGF-Qg-jRo"; */
+"eGF-Qg-jRo.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "eLD-nP-Kyr"; */
+"eLD-nP-Kyr.normalTitle" = "LOGIN";
+
+/* Class = "UILabel"; text = "CURRENT BONUS"; ObjectID = "eOF-6I-eRF"; */
+"eOF-6I-eRF.text" = "CURRENT BONUS";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "ePh-KP-nmy"; */
+"ePh-KP-nmy.text" = "???";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "eQF-bq-M9y"; */
+"eQF-bq-M9y.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "eZI-Lw-s3A"; */
+"eZI-Lw-s3A.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "***"; ObjectID = "ev2-A0-uAt"; */
+"ev2-A0-uAt.placeholder" = "***";
+
+/* Class = "UIViewController"; title = "Forgot password"; ObjectID = "g9m-mK-Y2e"; */
+"g9m-mK-Y2e.title" = "Forgot password";
+
+/* Class = "UILabel"; text = "COUNTRY"; ObjectID = "gSN-Mv-RhX"; */
+"gSN-Mv-RhX.text" = "COUNTRY";
+
+/* Class = "UILabel"; text = "Total amount: ???"; ObjectID = "gTg-cH-Noy"; */
+"gTg-cH-Noy.text" = "Total amount: ???";
+
+/* Class = "UITextField"; placeholder = "***"; ObjectID = "gaQ-b9-8Qy"; */
+"gaQ-b9-8Qy.placeholder" = "***";
+
+/* Class = "UILabel"; text = "ENABLE FACE/TOUCH ID"; ObjectID = "gzz-NC-3hI"; */
+"gzz-NC-3hI.text" = "ENABLE FACE/TOUCH ID";
+
+/* Class = "UITextField"; placeholder = "***"; ObjectID = "hCW-U1-gmP"; */
+"hCW-U1-gmP.placeholder" = "***";
+
+/* Class = "UILabel"; text = "Payment method: ???"; ObjectID = "hGm-cl-LKF"; */
+"hGm-cl-LKF.text" = "Payment method: ???";
+
+/* Class = "UITextField"; placeholder = "First name"; ObjectID = "hO8-q2-M4K"; */
+"hO8-q2-M4K.placeholder" = "First name";
+
+/* Class = "UITextField"; placeholder = "123456789"; ObjectID = "haO-Ou-aTw"; */
+"haO-Ou-aTw.placeholder" = "123456789";
+
+/* Class = "UILabel"; text = "BANK NAME"; ObjectID = "hbI-jq-SP6"; */
+"hbI-jq-SP6.text" = "BANK NAME";
+
+/* Class = "UIViewController"; title = "List Project"; ObjectID = "hpy-hG-hSh"; */
+"hpy-hG-hSh.title" = "List Project";
+
+/* Class = "UILabel"; text = "W GREEN PAY"; ObjectID = "i4x-rv-9Pm"; */
+"i4x-rv-9Pm.text" = "W GREEN PAY";
+
+/* Class = "UILabel"; text = "SWIFT CODE"; ObjectID = "iYz-vv-yTc"; */
+"iYz-vv-yTc.text" = "SWIFT CODE";
+
+/* Class = "UITextField"; placeholder = "JF45343"; ObjectID = "jN3-uN-FCa"; */
+"jN3-uN-FCa.placeholder" = "JF45343";
+
+/* Class = "UILabel"; text = "You may proceed to login and view the list of token sales available for participation."; ObjectID = "jP8-4D-oqT"; */
+"jP8-4D-oqT.text" = "You may proceed to login and view the list of token sales available for participation.";
+
+/* Class = "UILabel"; text = "TOTAL POINTS EARNED"; ObjectID = "jQt-Sd-6xR"; */
+"jQt-Sd-6xR.text" = "TOTAL POINTS EARNED";
+
+/* Class = "UINavigationItem"; title = "CHANGE PASSWORD"; ObjectID = "jnM-ST-Xua"; */
+"jnM-ST-Xua.title" = "CHANGE PASSWORD";
+
+/* Class = "UINavigationItem"; title = "REFERRAL PROGRAMME"; ObjectID = "js4-KD-9MN"; */
+"js4-KD-9MN.title" = "REFERRAL PROGRAMME";
+
+/* Class = "UILabel"; text = "NEW ERC20 WALLET"; ObjectID = "kcr-SV-YRm"; */
+"kcr-SV-YRm.text" = "NEW ERC20 WALLET";
+
+/* Class = "UILabel"; text = "+10"; ObjectID = "lK0-aa-eOd"; */
+"lK0-aa-eOd.text" = "+10";
+
+/* Class = "UINavigationItem"; title = "NEW USER REGISTRATION"; ObjectID = "lQQ-mB-Oew"; */
+"lQQ-mB-Oew.title" = "NEW USER REGISTRATION";
+
+/* Class = "UINavigationItem"; title = "PARTICIPATE"; ObjectID = "lYu-9N-1cO"; */
+"lYu-9N-1cO.title" = "PARTICIPATE";
+
+/* Class = "UITextField"; placeholder = "Last name"; ObjectID = "lsI-1m-juQ"; */
+"lsI-1m-juQ.placeholder" = "Last name";
+
+/* Class = "UIButton"; normalTitle = "Agree to Terms of Use"; ObjectID = "m5w-YC-TzB"; */
+"m5w-YC-TzB.normalTitle" = "Agree to Terms of Use";
+
+/* Class = "UILabel"; text = "CONGRATULATIONS!"; ObjectID = "m6d-Qs-62y"; */
+"m6d-Qs-62y.text" = "CONGRATULATIONS!";
+
+/* Class = "UINavigationItem"; title = "PARTICIPATE"; ObjectID = "mNh-Cu-mme"; */
+"mNh-Cu-mme.title" = "PARTICIPATE";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "mqT-aT-Kd6"; */
+"mqT-aT-Kd6.title" = "Done";
+
+/* Class = "UILabel"; text = "08 JUNE 2018"; ObjectID = "n72-8V-pKx"; */
+"n72-8V-pKx.text" = "08 JUNE 2018";
+
+/* Class = "UILabel"; text = "TOTAL FRIENDS INVITED:"; ObjectID = "nDZ-FX-WKL"; */
+"nDZ-FX-WKL.text" = "TOTAL FRIENDS INVITED:";
+
+/* Class = "UILabel"; text = "PASSWORD"; ObjectID = "nKP-6m-TiY"; */
+"nKP-6m-TiY.text" = "PASSWORD";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "nlO-S1-1K5"; */
+"nlO-S1-1K5.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "nvQ-Y9-Ley"; */
+"nvQ-Y9-Ley.title" = "Item";
+
+/* Class = "UIViewController"; title = "PARTICIPATE"; ObjectID = "ob9-yE-Ryr"; */
+"ob9-yE-Ryr.title" = "PARTICIPATE";
+
+/* Class = "UIViewController"; title = "PARTICIPATE"; ObjectID = "odu-zX-gkW"; */
+"odu-zX-gkW.title" = "PARTICIPATE";
+
+/* Class = "UIViewController"; title = "PARTICIPATE"; ObjectID = "oqq-LW-qgD"; */
+"oqq-LW-qgD.title" = "PARTICIPATE";
+
+/* Class = "UILabel"; text = "ADDED:"; ObjectID = "p0I-rq-gWf"; */
+"p0I-rq-gWf.text" = "ADDED:";
+
+/* Class = "UIViewController"; title = "W GREEN PAY"; ObjectID = "pCD-yj-CW5"; */
+"pCD-yj-CW5.title" = "W GREEN PAY";
+
+/* Class = "UITextField"; text = "+93"; ObjectID = "pzM-3r-ZWT"; */
+"pzM-3r-ZWT.text" = "+93";
+
+/* Class = "UILabel"; text = "80 Raffles Place UOB Plaza 1"; ObjectID = "q5V-7q-KpS"; */
+"q5V-7q-KpS.text" = "80 Raffles Place UOB Plaza 1";
+
+/* Class = "UITextField"; placeholder = "name@domain.com"; ObjectID = "rKO-ma-7GI"; */
+"rKO-ma-7GI.placeholder" = "name@domain.com";
+
+/* Class = "UILabel"; text = "SHARE THIS WITH YOUR FRIENDS AND GET 10 FREE TOKENS FOR EACH REFERRAL"; ObjectID = "rTO-yT-ud4"; */
+"rTO-yT-ud4.text" = "SHARE THIS WITH YOUR FRIENDS AND GET 10 FREE TOKENS FOR EACH REFERRAL";
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "rVx-ok-1K4"; */
+"rVx-ok-1K4.text" = "Don't have an account?";
+
+/* Class = "UILabel"; text = " "; ObjectID = "rzk-nd-nEO"; */
+"rzk-nd-nEO.text" = " ";
+
+/* Class = "UILabel"; text = "REGISTRATION"; ObjectID = "s8U-fq-FSt"; */
+"s8U-fq-FSt.text" = "REGISTRATION";
+
+/* Class = "UILabel"; text = "Your pasword has been reset and a new password has been sent to you."; ObjectID = "sFR-hA-A7C"; */
+"sFR-hA-A7C.text" = "Your pasword has been reset and a new password has been sent to you.";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "sH6-pb-AP8"; */
+"sH6-pb-AP8.text" = "???";
+
+/* Class = "UINavigationItem"; title = "SHARE WITH FRIENDS"; ObjectID = "svO-I7-qIm"; */
+"svO-I7-qIm.title" = "SHARE WITH FRIENDS";
+
+/* Class = "UIButton"; normalTitle = "INVITE FRIENDS"; ObjectID = "t4k-ws-NHi"; */
+"t4k-ws-NHi.normalTitle" = "INVITE FRIENDS";
+
+/* Class = "UILabel"; text = "+84 984217085"; ObjectID = "tkz-fB-4Xa"; */
+"tkz-fB-4Xa.text" = "+84 984217085";
+
+/* Class = "UILabel"; text = "BUSINESS ADDRESS"; ObjectID = "u34-ss-zdJ"; */
+"u34-ss-zdJ.text" = "BUSINESS ADDRESS";
+
+/* Class = "UILabel"; text = "CONFIRM NEW PASSWORD"; ObjectID = "uNk-67-xI0"; */
+"uNk-67-xI0.text" = "CONFIRM NEW PASSWORD";
+
+/* Class = "UIButton"; normalTitle = "Agree to Accuracy"; ObjectID = "ucv-Je-Ay0"; */
+"ucv-Je-Ay0.normalTitle" = "Agree to Accuracy";
+
+/* Class = "UILabel"; text = "0xadsfafdsafsdfafdsafdsfafas"; ObjectID = "ui1-wb-onq"; */
+"ui1-wb-onq.text" = "0xadsfafdsafsdfafdsafdsfafas";
+
+/* Class = "UIButton"; normalTitle = "RESEND PIN"; ObjectID = "uxO-rX-627"; */
+"uxO-rX-627.normalTitle" = "RESEND PIN";
+
+/* Class = "UILabel"; text = "ADDED: 23/06/2018"; ObjectID = "vMK-Fb-o1c"; */
+"vMK-Fb-o1c.text" = "ADDED: 23/06/2018";
+
+/* Class = "UILabel"; text = "UOVBSGSG"; ObjectID = "vOj-rd-YGB"; */
+"vOj-rd-YGB.text" = "UOVBSGSG";
+
+/* Class = "UILabel"; text = "TAKE A SELFIE WITH NEW PASSPORT"; ObjectID = "vbd-oL-JHy"; */
+"vbd-oL-JHy.text" = "TAKE A SELFIE WITH NEW PASSPORT";
+
+/* Class = "UIViewController"; title = "Forgot password"; ObjectID = "vh1-40-YCT"; */
+"vh1-40-YCT.title" = "Forgot password";
+
+/* Class = "UITextField"; text = "10000"; ObjectID = "vkb-kz-GgE"; */
+"vkb-kz-GgE.text" = "10000";
+
+/* Class = "UIViewController"; title = "PARTICIPATE"; ObjectID = "vo7-a3-Rad"; */
+"vo7-a3-Rad.title" = "PARTICIPATE";
+
+/* Class = "UITextField"; placeholder = "***"; ObjectID = "vuK-Nf-hoX"; */
+"vuK-Nf-hoX.placeholder" = "***";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "wHJ-Cq-45V"; */
+"wHJ-Cq-45V.title" = "Item";
+
+/* Class = "UILabel"; text = "Payment sent to:"; ObjectID = "wQ7-QB-guD"; */
+"wQ7-QB-guD.text" = "Payment sent to:";
+
+/* Class = "UILabel"; text = "Your Ether must be sent from this wallet"; ObjectID = "wzA-Ps-Xtw"; */
+"wzA-Ps-Xtw.text" = "Your Ether must be sent from this wallet";
+
+/* Class = "UILabel"; text = "CURRENT ERC20 WALLET"; ObjectID = "x7R-vq-aTg"; */
+"x7R-vq-aTg.text" = "CURRENT ERC20 WALLET";
+
+/* Class = "UILabel"; text = "Confirm that I am not an USA citizen"; ObjectID = "xQG-F8-V6y"; */
+"xQG-F8-V6y.text" = "Confirm that I am not an USA citizen";
+
+/* Class = "UIButton"; normalTitle = "FORGOT PASSWORD?"; ObjectID = "xqg-bd-oQ9"; */
+"xqg-bd-oQ9.normalTitle" = "FORGOT PASSWORD?";
+
+/* Class = "UIButton"; normalTitle = "SHARE WITH FRIENDS"; ObjectID = "yAv-NY-z0K"; */
+"yAv-NY-z0K.normalTitle" = "SHARE WITH FRIENDS";
+
+/* Class = "UIViewController"; title = "NEW USER REGISTRATION"; ObjectID = "yIx-rf-nMr"; */
+"yIx-rf-nMr.title" = "NEW USER REGISTRATION";
+
+/* Class = "UINavigationItem"; title = "PARTICIPATE"; ObjectID = "ycJ-pS-Rhy"; */
+"ycJ-pS-Rhy.title" = "PARTICIPATE";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "ycb-7p-lZw"; */
+"ycb-7p-lZw.title" = "Item";
+
+/* Class = "UILabel"; text = "You are successfully verified"; ObjectID = "yfv-3X-AZ5"; */
+"yfv-3X-AZ5.text" = "You are successfully verified";
+
+/* Class = "UILabel"; text = "10000 tokens purchased"; ObjectID = "z2t-WE-KPS"; */
+"z2t-WE-KPS.text" = "10000 tokens purchased";
+
+/* Class = "UILabel"; text = "PASSPORT NUMBER"; ObjectID = "zY4-wc-VQx"; */
+"zY4-wc-VQx.text" = "PASSPORT NUMBER";
