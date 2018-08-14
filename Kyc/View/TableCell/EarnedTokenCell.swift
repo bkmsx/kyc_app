@@ -10,8 +10,15 @@ import UIKit
 
 class EarnedTokenCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var tokenNumber: UILabel!
+    @IBOutlet weak var tokenName: UILabel!
+    
+    var bonusToken: BonusToken? {
+        didSet{
+            userName.text = bonusToken?.userName!
+            tokenNumber.text = String.init(format: "+%d", (bonusToken?.amount!)!)
+            tokenName.text = bonusToken?.token!
+        }
     }
 }

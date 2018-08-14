@@ -24,6 +24,7 @@
 		080868032109803E0033BECE /* CompleteRetreivePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080868022109803E0033BECE /* CompleteRetreivePasswordController.swift */; };
 		080868052109A9410033BECE /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080868042109A9410033BECE /* ProjectCell.swift */; };
 		08117EE92122DCEB00C03C98 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08117EE72122DCEB00C03C98 /* Localizable.strings */; };
+		08117EEE2122E81700C03C98 /* BonusToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08117EED2122E81700C03C98 /* BonusToken.swift */; };
 		0817C4EE210CDBC4001DC87B /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817C4ED210CDBC4001DC87B /* Modal.swift */; };
 		0817C4F0210CE3FB001DC87B /* CustomAlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817C4EF210CE3FB001DC87B /* CustomAlertDialog.swift */; };
 		0817C4F4210D8161001DC87B /* DialogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0817C4F3210D8161001DC87B /* DialogView.xib */; };
@@ -153,6 +154,7 @@
 		08117EEA2122DD2000C03C98 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
 		08117EEB2122DD2000C03C98 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		08117EEC2122DD2000C03C98 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		08117EED2122E81700C03C98 /* BonusToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusToken.swift; sourceTree = "<group>"; };
 		0817C4ED210CDBC4001DC87B /* Modal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		0817C4EF210CE3FB001DC87B /* CustomAlertDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertDialog.swift; sourceTree = "<group>"; };
 		0817C4F3210D8161001DC87B /* DialogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogView.xib; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 				08301D9D20EA0CE000DEAAAB /* CitizenshipModel.swift */,
 				08301DA320EA34B300DEAAAB /* UserModel.swift */,
 				081B5BBC2117237A00AFE162 /* WalletCategory.swift */,
+				08117EED2122E81700C03C98 /* BonusToken.swift */,
 				0819AC8720EC872100B1A3B4 /* CountryModel.swift */,
 				0802992820F2680A0044C4E5 /* ProjectModel.swift */,
 				08192254210026E400CF2800 /* ContactModel.swift */,
@@ -872,6 +875,7 @@
 				081B5BC7211C1BE200AFE162 /* ReferralCodeController.swift in Sources */,
 				0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */,
 				0874C835210B5F5600628D5E /* RadioGroup.swift in Sources */,
+				08117EEE2122E81700C03C98 /* BonusToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

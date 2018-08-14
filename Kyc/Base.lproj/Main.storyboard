@@ -1396,7 +1396,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Xtd-TZ-xPz"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1429,21 +1429,34 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lK0-aa-eOd">
-                                                    <rect key="frame" x="330" y="13.333333333333336" width="24" height="17"/>
+                                                    <rect key="frame" x="290" y="13.333333333333336" width="24" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WGP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hce-tI-Jb3">
+                                                    <rect key="frame" x="321" y="13.333333333333336" width="33" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="hce-tI-Jb3" secondAttribute="trailing" id="4OP-S0-6Kw"/>
                                                 <constraint firstItem="lK0-aa-eOd" firstAttribute="centerY" secondItem="ohh-oL-051" secondAttribute="centerY" id="AdP-Ng-ric"/>
+                                                <constraint firstItem="hce-tI-Jb3" firstAttribute="centerY" secondItem="ohh-oL-051" secondAttribute="centerY" id="C3f-dX-jR6"/>
                                                 <constraint firstItem="IMf-0l-Q38" firstAttribute="leading" secondItem="ohh-oL-051" secondAttribute="leading" id="EdP-7f-AwH"/>
-                                                <constraint firstAttribute="trailing" secondItem="lK0-aa-eOd" secondAttribute="trailing" id="PFD-RT-nb6"/>
                                                 <constraint firstItem="IMf-0l-Q38" firstAttribute="centerY" secondItem="ohh-oL-051" secondAttribute="centerY" id="iVG-cr-bNM"/>
+                                                <constraint firstAttribute="trailing" secondItem="lK0-aa-eOd" secondAttribute="trailing" constant="40" id="lzj-dn-fIi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="tokenName" destination="hce-tI-Jb3" id="c0y-ki-IaF"/>
+                                            <outlet property="tokenNumber" destination="lK0-aa-eOd" id="ddH-Tz-sZp"/>
+                                            <outlet property="userName" destination="IMf-0l-Q38" id="th0-sN-Wya"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

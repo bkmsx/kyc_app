@@ -75,6 +75,7 @@ struct URLConstant {
     static let updateUserInfor = "/update-personal-info"
     static let projectShare = "/project/share"
     static let updateReferralCode = "/update-referral-code"
+    static let bonusList = "/referral-bonus-list"
 }
 
 struct SegueIdentifiers {
