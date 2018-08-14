@@ -23,6 +23,12 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
         totalPoint.layer.cornerRadius = totalPoint.frame.size.height / 2
         totalPoint.clipsToBounds = true
         tableView.dataSource = self
+        let referredBy = UserDefaults.standard.integer(forKey: UserProfiles.referralBy)
+        if (referredBy != 0) {
+            for childView in referralCodeView.subviews {
+                childView.removeFromSuperview()
+            }
+        }
     }
     @IBAction func applyReferralCode(_ sender: Any) {
         submitReferralCode()

@@ -29,7 +29,7 @@ struct UserModel: Codable {
     let citizenship: String!
     let country: String!
     let referralCode: String!
-    let referralBy: String!
+    let referralBy: Int!
     
     init(dictionary: [String:Any]) {
         userId = dictionary["id"] as? Int ?? nil
@@ -52,7 +52,7 @@ struct UserModel: Codable {
         citizenship = dictionary["citizenship"] as? String ?? nil
         country = dictionary["country_of_residence"] as? String ?? nil
         referralCode = dictionary["referral_code"] as? String ?? nil
-        referralBy = dictionary["referred_by"] as? String ?? nil
+        referralBy = dictionary["referred_by"] as? Int ?? nil
     }
     
     func saveToLocal() {
