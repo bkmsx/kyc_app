@@ -44,6 +44,10 @@ class CopyLabel: UIView {
     func setText(text: String) {
         label.text = text
     }
+    
+    func setFontSize(_ size: CGFloat) {
+        label.font = label.font.withSize(size)
+    }
 }
 
 protocol CopyLabelDelegate {

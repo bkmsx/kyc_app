@@ -19,6 +19,7 @@ class ChooseShareMethodViewController: ParticipateCommonController {
     //MARK: - Custom views
     override func customViews() {
         copyLabel.setText(text: UserDefaults.standard.string(forKey: UserProfiles.referralCode)!)
+        copyLabel.setFontSize(22)
     }
 
     //MARK: - Navigation
