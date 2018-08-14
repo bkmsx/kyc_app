@@ -11,18 +11,30 @@ import Contacts
 import MessageUI
 import Toast_Swift
 
-class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate, MFMessageComposeViewControllerDelegate {
+class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate, SelectAllDelegate {
     
     
     //MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var phoneLabel: UILabel!
+    
     var contacts: [ContactModel] = []
-    var selectedCotacts: [ContactModel] = []
+    var selectedContacts: [ContactModel] = []
+    var selectAll: Int = 0 {
+        didSet {
+            if (selectAll == 1) {
+                selectAllView?.setChecked(true)
+            } else {
+                selectAllView?.setChecked(false)
+            }
+        }
+    }
+    var selectAllView: SelectAll?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         getContacts()
     }
     
@@ -30,9 +42,7 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
     override func customViews() {
         phoneLabel.layer.cornerRadius = phoneLabel.frame.size.height / 2
         phoneLabel.clipsToBounds = true
-    }
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
+        
     }
     
     //MARK: - TableView DataSource
@@ -42,33 +52,66 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell", for: indexPath) as! PhoneCell
+        if (selectAll == 1) {
+            cell.setCheck(true)
+        } else if (selectAll == 2) {
+            cell.setCheck(false)
+        }
         cell.contact = contacts[indexPath.row]
         cell.delegate = self
         return cell
     }
     
-    //MARK: - TableView Delegate
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        selectAllView = SelectAll.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 50))
+        selectAllView?.delegate = self
+        selectAllView?.setChecked(selectAll == 1)
+        return selectAllView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
     func changeChecked(contact: ContactModel, isChecked: Bool) {
         if (isChecked) {
-            selectedCotacts.append(contact)
+            selectedContacts.append(contact)
         } else {
-            for index in 0...(selectedCotacts.count - 1) {
-                if (contact.contactName == selectedCotacts[index].contactName) {
-                    selectedCotacts.remove(at: index)
+            for index in 0...(selectedContacts.count - 1) {
+                if (contact.contactName == selectedContacts[index].contactName) {
+                    selectedContacts.remove(at: index)
                     break
                 }
             }
         }
-        phoneLabel.text = String(selectedCotacts.count)
+        if (selectedContacts.count == contacts.count) {
+            selectAll = 1
+        } else {
+            selectAll = 0
+        }
+        phoneLabel.text = String(selectedContacts.count)
     }
     
-    //MARK: - Send invitations
+    func toggleSellectAll(_ select: Bool) {
+        if (select) {
+            selectAll = 1
+            selectedContacts.removeAll()
+            selectedContacts.append(contentsOf: contacts)
+        } else {
+            selectAll = 2
+            selectedContacts.removeAll()
+        }
+        phoneLabel.text = String(selectedContacts.count)
+        tableView.reloadData()
+    }
+    
+    //MARK: - Navigations
     @IBAction func sendInvitations(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
             controller.body = "Please join us by install KYC app to get free tokens"
             controller.recipients = []
-            for contact in selectedCotacts {
+            for contact in selectedContacts {
                 controller.recipients?.append(contact.contactNumber)
             }
             controller.messageComposeDelegate = self
@@ -87,6 +130,10 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
         }
         
         controller.dismiss(animated: true, completion: nil)
+        goBack()
+    }
+    
+    @IBAction func clickBack(_ sender: Any) {
         goBack()
     }
     

@@ -27,6 +27,10 @@ class PhoneCell: UITableViewCell, CheckboxDelegate {
             delegate?.changeChecked(contact: contact!, isChecked: checkbox.isChecked)
         }
     }
+    
+    func setCheck(_ checked: Bool) {
+        contactCheckbox.isChecked = checked
+    }
 }
 
 protocol PhoneCellDelegate {

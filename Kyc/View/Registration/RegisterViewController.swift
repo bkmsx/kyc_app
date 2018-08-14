@@ -29,6 +29,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     @IBOutlet weak var continueImageButton: ImageButton!
     @IBOutlet weak var radioGroup: RadioGroup!
     @IBOutlet weak var phoneCode: TextFieldPicker!
+    @IBOutlet weak var referralCodeTextField: TextFieldBottomBorder!
     
     //MARK: - Initialization
     override func viewDidLoad() {
@@ -82,6 +83,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         let password = passwordTextField.text!
         let confirmedPassword = confirmedPasswordTextField.text!
         let enableSecurityId = radioGroup.chooseYes()
+        let referralCode = referralCodeTextField.text!
         countryCode = String((phoneCode.text?.suffix(2))!)
         phoneNumber = mobileTextField.text!
         
@@ -112,6 +114,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
             UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.tempDeviceSecurityEnable)
             UserDefaults.standard.set(self.countryCode, forKey: UserProfiles.tempCountryCode)
             UserDefaults.standard.set(self.phoneNumber, forKey: UserProfiles.tempPhoneNumber)
+            UserDefaults.standard.set(referralCode, forKey: UserProfiles.tempReferralCode)
             self.sendOTPCode()
         }
     }
@@ -151,7 +154,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if (mobileTextField.isFirstResponder || phoneCode.isFirstResponder) {
+        if (mobileTextField.isFirstResponder || phoneCode.isFirstResponder || referralCodeTextField.isFirstResponder) {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.view.frame.origin.y = -(keyboardSize.height - 100)
             }

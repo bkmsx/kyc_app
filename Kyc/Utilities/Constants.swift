@@ -47,6 +47,7 @@ struct UserProfiles {
     static let tempErc20Address = "tempErc20Address"
     static let tempDateOfBirth = "tempDateOfBirth"
     static let tempDeviceSecurityEnable = "tempDeviceSecurityEnable"
+    static let tempReferralCode = "tempReferralCode"
 }
 
 struct URLConstant {

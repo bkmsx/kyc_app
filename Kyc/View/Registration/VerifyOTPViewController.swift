@@ -78,7 +78,7 @@ class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,
             "phone_number" : UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber)!,
             "device_security_enable" : UserDefaults.standard.object(forKey: UserProfiles.tempDeviceSecurityEnable)!,
             "type_of_security" : "TOUCHID",
-            "erc20_address" : UserDefaults.standard.object(forKey: UserProfiles.tempErc20Address)!,
+            "referral_code" : UserDefaults.standard.string(forKey: UserProfiles.tempReferralCode)!,
             "device_id" : "23232",
             "validation" : 0,
             "platform": "iOS"
