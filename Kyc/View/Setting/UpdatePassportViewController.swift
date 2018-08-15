@@ -137,16 +137,13 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             "citizenship" : citizenshipDropDown.text,
             "citizenship_id" : citizenships[citizenshipDropDown.index].id,
             "passport_number" : passportNumberTextField.text!,
-            "country_of_residence" : citizenshipDropDown.text
+            "country_of_residence" : countryDropDown.text
             ] as [String : Any]
         let headers: HTTPHeaders = [
             "Content-Type" : "multipart/form-data",
             "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
         ]
-        httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers) { _ in
-            UserDefaults.standard.set(self.citizenships[self.citizenshipDropDown.index].nationality, forKey: UserProfiles.citizenship)
-            UserDefaults.standard.set(self.countries[self.countryDropDown.index].country, forKey: UserProfiles.country)
-            UserDefaults.standard.set(self.passportNumberTextField.text!, forKey: UserProfiles.passportNumber)
+        httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers) { json in
             self.makeToast("Updated new images")
             self.goBack()
         }

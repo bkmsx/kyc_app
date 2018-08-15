@@ -61,11 +61,11 @@ class ChangeMobileViewController: ParticipateCommonController {
         countryCode = String(text[index...])
         phoneNumber = mobileTextField.text!
         
-        let params = [
-            "country_code" : countryCode,
-            "phone_number" : phoneNumber,
+        let params: [String : Any] = [
+            "country_code" : countryCode!,
+            "phone_number" : phoneNumber!,
             "via" : "sms"
-            ] as [String : Any]
+            ]
         httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { _ in
             self.gotoOTPVerification()
         }

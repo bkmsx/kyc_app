@@ -58,7 +58,8 @@ class UpdatePersonalInformationViewController: ParticipateCommonController, UITe
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
         //FIXME: Update here
-        httpRequest(URLConstant.baseURL + URLConstant.changePassword, method: .post, parameters: params, headers: headers) { (json) in
+        httpRequest(URLConstant.baseURL + URLConstant.changePassword, method: .post, parameters: params, headers: headers) { _ in
+            self.makeToast("Password has changed")
             self.logout()
         }
     }

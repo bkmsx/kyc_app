@@ -98,6 +98,7 @@ class CommonViewController: UIViewController {
     }
     
     func httpUpload(endUrl: String, avatar: UIImage?, passport: UIImage?, parameters: [String : Any], headers: HTTPHeaders, success: @escaping (_ json: [String:Any]) -> Void){
+        print(parameters)
         DispatchQueue.main.async {
             self.activityIndicatorView?.startAnimating()
         }
