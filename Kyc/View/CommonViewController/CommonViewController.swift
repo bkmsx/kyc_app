@@ -10,16 +10,27 @@ import UIKit
 import Alamofire
 import Toast_Swift
 
-class CommonViewController: UIViewController {
+class CommonViewController: UIViewController, UITextFieldDelegate {
     var activityIndicatorView: UIActivityIndicatorView?
     override func viewDidLoad() {
         super.viewDidLoad()
         customViews()
         setupActivityIndicator()
+        setupTextFields(self.view)
     }
     
     func customViews() {
         
+    }
+    
+    func setupTextFields(_ view : UIView) {
+        for subView in view.subviews {
+            if subView is UITextField {
+                (subView as! UITextField).delegate = self
+            } else {
+                setupTextFields(subView)
+            }
+        }
     }
     
     //MARK: - Activity Indicator
@@ -55,6 +66,11 @@ class CommonViewController: UIViewController {
     //MARK: - Hide keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     //MARK: - Dialog

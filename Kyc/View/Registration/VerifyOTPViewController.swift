@@ -9,7 +9,7 @@
 import UIKit
 import Toast_Swift
 
-class VerifyOTPViewController: ParticipateCommonController, UITextFieldDelegate,  CodeInputViewDelegate {
+class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegate {
     //Inside
     var code = ""
     var lockResend = true

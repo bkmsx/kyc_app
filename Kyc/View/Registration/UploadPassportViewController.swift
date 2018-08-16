@@ -11,7 +11,7 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class UploadPassportViewController: ParticipateCommonController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, RoundViewDelegate, UploadButtonDelegate {
+class UploadPassportViewController: ParticipateCommonController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, RoundViewDelegate, UploadButtonDelegate {
     //MARK: - Properties
     var imagePicker, passportPicker: UIImagePickerController!
     var selectedCitizenship: Int = 0

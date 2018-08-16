@@ -11,7 +11,7 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
+class RegisterViewController: ParticipateCommonController {
     
     //MARK: - Properties
     let countryCodeDropDown = DropDown()
@@ -39,8 +39,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
     
     //MARK: - Custom views
     override func customViews() {
-        setupTextFields()
-        emailTextField.delegate = self
+        fillTextFields()
         continueImageButton.delegate = self
     }
     
@@ -57,7 +56,7 @@ class RegisterViewController: ParticipateCommonController, UITextFieldDelegate{
         dateBirthTextField.text = dateFormatter.string(from: sender.date)
     }
     
-    func setupTextFields() {
+    func fillTextFields() {
         firstNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempFirstName) as? String
         lastNameTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempLastName) as? String
         dateBirthTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempDateOfBirth) as? String

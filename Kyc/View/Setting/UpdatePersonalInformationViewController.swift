@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class UpdatePersonalInformationViewController: ParticipateCommonController, UITextFieldDelegate{
+class UpdatePersonalInformationViewController: ParticipateCommonController {
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var currentPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
