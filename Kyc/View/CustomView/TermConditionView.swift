@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import WebKit
 
-class TermConditionView: UIView{
+class TermConditionView: UIView, WKNavigationDelegate{
     var delegate: TermConditionViewDelegate?
+    var webView: WKWebView!
     
+    @IBOutlet weak var webContainer: UIView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,12 +33,30 @@ class TermConditionView: UIView{
         contentView.frame = bounds
         layer.cornerRadius = 10
         clipsToBounds = true
+        
+        webView = WKWebView(frame: webContainer.bounds)
+        let url = URL.init(string: "http://wpay.sg/kyc/terms.php")
+        webView.load(URLRequest.init(url: url!))
+        webView.navigationDelegate = self
+        webContainer.addSubview(webView)
+        activityIndicator.layer.zPosition = 100
+        activityIndicator.layer.cornerRadius = 5
+        activityIndicator.startAnimating()
     }
     
     @IBAction func close(_ sender: Any) {
         if let delegate = delegate {
             delegate.closeDialog()
         }
+    }
+    
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        activityIndicator.stopAnimating()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        activityIndicator.stopAnimating()
     }
 }
 

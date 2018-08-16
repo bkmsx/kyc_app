@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TermConditionView" customModule="Kyc" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="lp3-z9-fid" id="ZSZ-9L-D6f"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="iNS-Oh-kxl"/>
+                <outlet property="webContainer" destination="LdM-9y-a2s" id="BQw-BQ-4sT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,13 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="634"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Gd-PW-q6e">
-                    <rect key="frame" x="10" y="81" width="355" height="543"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TERMS &amp; CONDITIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="in1-Ro-8gX">
                     <rect key="frame" x="10" y="40" width="187" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -44,17 +39,36 @@
                         <action selector="close:" destination="-1" eventType="touchUpInside" id="G55-xn-yth"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdM-9y-a2s">
+                    <rect key="frame" x="0.0" y="71" width="375" height="563"/>
+                    <subviews>
+                        <activityIndicatorView hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lp3-z9-fid">
+                            <rect key="frame" x="167" y="261" width="40" height="40"/>
+                            <color key="backgroundColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="CTO-FB-Ijt"/>
+                                <constraint firstAttribute="width" constant="40" id="ijF-YH-01c"/>
+                            </constraints>
+                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="lp3-z9-fid" firstAttribute="centerX" secondItem="LdM-9y-a2s" secondAttribute="centerX" id="9rr-zN-CDG"/>
+                        <constraint firstItem="lp3-z9-fid" firstAttribute="centerY" secondItem="LdM-9y-a2s" secondAttribute="centerY" id="Ejv-7Q-cFN"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LdM-9y-a2s" secondAttribute="bottom" id="6r5-5D-S6q"/>
                 <constraint firstItem="in1-Ro-8gX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="KOV-4y-YFH"/>
                 <constraint firstItem="dPy-yg-1dE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="QTq-1J-osu"/>
-                <constraint firstItem="7Gd-PW-q6e" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="VaJ-Hb-a1W"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LdM-9y-a2s" secondAttribute="trailing" id="fXV-e9-q22"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dPy-yg-1dE" secondAttribute="trailing" constant="5" id="jX8-lM-JZJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7Gd-PW-q6e" secondAttribute="trailing" constant="10" id="jxD-dY-TrV"/>
-                <constraint firstItem="7Gd-PW-q6e" firstAttribute="top" secondItem="in1-Ro-8gX" secondAttribute="bottom" constant="20" id="pCO-fK-vmk"/>
+                <constraint firstItem="LdM-9y-a2s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kF4-Jh-dHJ"/>
                 <constraint firstItem="in1-Ro-8gX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="sbQ-UL-YE6"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7Gd-PW-q6e" secondAttribute="bottom" constant="10" id="szk-zd-IyB"/>
+                <constraint firstItem="LdM-9y-a2s" firstAttribute="top" secondItem="in1-Ro-8gX" secondAttribute="bottom" constant="10" id="uIz-q2-lOT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
