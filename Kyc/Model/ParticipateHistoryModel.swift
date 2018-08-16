@@ -22,6 +22,7 @@ struct ParticipateHistoryModel {
     let paymentDestination: PaymentMethodModel?
     let paymentSource: String?
     let price: String?
+    let isPromoted: Int?
     
     init(dic: [String:Any]) {
         projectId = dic["project_id"] as? Int ?? nil
@@ -41,5 +42,6 @@ struct ParticipateHistoryModel {
         }
         paymentSource = dic["payment_source"] as? String ?? nil
         price = dic["price_per_token"] as? String ?? nil
+        isPromoted = dic["promotion"] as? Int ?? 0
     }
 }

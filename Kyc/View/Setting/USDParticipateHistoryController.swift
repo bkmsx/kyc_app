@@ -81,7 +81,8 @@ class USDParticipateHistoryController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
-        guard let history = history else {
+        guard let history = history, history.isPromoted == 1 else {
+            showMessages("This project is not promoted")
             return
         }
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
