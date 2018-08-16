@@ -238,6 +238,13 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="participated" translatesAutoresizingMaskIntoConstraints="NO" id="1TG-f5-nKC">
+                                                            <rect key="frame" x="284" y="0.0" width="110" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="110" id="PM7-xE-D8D"/>
+                                                                <constraint firstAttribute="height" constant="60" id="UeO-1K-jdA"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -248,6 +255,7 @@
                                                         <constraint firstItem="dSt-0F-LUy" firstAttribute="leading" secondItem="BEN-Jz-byk" secondAttribute="leading" id="9Dw-Lj-nH3"/>
                                                         <constraint firstItem="i4x-rv-9Pm" firstAttribute="top" secondItem="Bdb-sc-pVp" secondAttribute="top" id="BQf-Rb-v9N"/>
                                                         <constraint firstItem="aj8-O2-jQx" firstAttribute="leading" secondItem="eOF-6I-eRF" secondAttribute="trailing" constant="10" id="COi-GH-gTR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1TG-f5-nKC" secondAttribute="trailing" id="Caa-9Z-xC5"/>
                                                         <constraint firstItem="eOF-6I-eRF" firstAttribute="leading" secondItem="i4x-rv-9Pm" secondAttribute="leading" id="DBG-tl-Ybd"/>
                                                         <constraint firstItem="aj8-O2-jQx" firstAttribute="top" secondItem="cuA-cY-VzD" secondAttribute="bottom" constant="10" id="DhA-TS-1jP"/>
                                                         <constraint firstItem="cuA-cY-VzD" firstAttribute="trailing" secondItem="i4x-rv-9Pm" secondAttribute="trailing" id="EaC-g5-dUM"/>
@@ -258,6 +266,7 @@
                                                         <constraint firstItem="Ui6-zC-u4q" firstAttribute="centerX" secondItem="BEN-Jz-byk" secondAttribute="centerX" id="aep-tb-wa3"/>
                                                         <constraint firstItem="vMK-Fb-o1c" firstAttribute="leading" secondItem="i4x-rv-9Pm" secondAttribute="leading" id="eUH-XG-ZKs"/>
                                                         <constraint firstItem="Bdb-sc-pVp" firstAttribute="top" secondItem="BEN-Jz-byk" secondAttribute="top" constant="20" id="gVM-W5-7T1"/>
+                                                        <constraint firstItem="1TG-f5-nKC" firstAttribute="top" secondItem="BEN-Jz-byk" secondAttribute="top" id="h7G-0l-prE"/>
                                                         <constraint firstItem="dSt-0F-LUy" firstAttribute="top" secondItem="BEN-Jz-byk" secondAttribute="top" id="jXP-zJ-JGU"/>
                                                         <constraint firstAttribute="bottom" secondItem="Ui6-zC-u4q" secondAttribute="bottom" constant="15" id="meQ-gz-cht"/>
                                                         <constraint firstAttribute="trailing" secondItem="i4x-rv-9Pm" secondAttribute="trailing" constant="15" id="owt-iL-Tao"/>
@@ -275,6 +284,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addedDate" destination="vMK-Fb-o1c" id="vl6-Ou-CNU"/>
+                                            <outlet property="badge" destination="1TG-f5-nKC" id="rTl-Nf-qM7"/>
                                             <outlet property="companyLogo" destination="Bdb-sc-pVp" id="y8F-cg-csc"/>
                                             <outlet property="detailButton" destination="Ui6-zC-u4q" id="MHm-bb-F3O"/>
                                             <outlet property="discountPercent" destination="aj8-O2-jQx" id="DeS-rb-Jou"/>
@@ -4864,6 +4874,7 @@
         <image name="close" width="32" height="32"/>
         <image name="logo" width="416" height="65"/>
         <image name="menu" width="34" height="34"/>
+        <image name="participated" width="204" height="118"/>
         <image name="pattern_top" width="270" height="270"/>
         <image name="sms" width="84" height="84"/>
         <image name="whatsapp" width="84" height="84"/>
