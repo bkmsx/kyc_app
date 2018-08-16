@@ -86,6 +86,7 @@ class USDParticipateHistoryController: ParticipateCommonController {
         }
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
         vc.projectId = history.projectId
+        vc.projectName = history.title
         navigationController?.pushViewController(vc, animated: true)
     }
 }

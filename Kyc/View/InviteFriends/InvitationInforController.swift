@@ -11,6 +11,7 @@ import UIKit
 class InvitationInforController: ParticipateCommonController {
     //From previous
     var projectId: Int?
+    var projectName: String?
     
     @IBOutlet weak var promotionTitle: UILabel!
     @IBOutlet weak var subTitle: UILabel!
@@ -74,6 +75,12 @@ class InvitationInforController: ParticipateCommonController {
     //MARK: - Navigations
     @IBAction func clickBack(_ sender: Any) {
         goBack()
+    }
+    
+    @IBAction func gotoChooseShareMethod(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController) as! ChooseShareMethodViewController
+        vc.projectName = projectName
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

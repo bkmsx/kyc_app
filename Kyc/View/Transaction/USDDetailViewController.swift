@@ -35,8 +35,13 @@ class USDDetailViewController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
+        guard project?.isPromoted == 1 else {
+            showMessages("This project is not promoted")
+            return
+        }
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
         vc.projectId = project?.projectId
+        vc.projectName = project?.title
         navigationController?.pushViewController(vc, animated: true)
     }
     

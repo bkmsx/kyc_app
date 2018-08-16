@@ -9,6 +9,9 @@
 import UIKit
 
 class ChooseShareMethodViewController: ParticipateCommonController {
+    //From previous
+    var projectName: String?
+    
     @IBOutlet weak var copyLabel: CopyLabel!
     
     override func viewDidLoad() {
@@ -28,7 +31,15 @@ class ChooseShareMethodViewController: ParticipateCommonController {
     }
     
     @IBAction func gotoWhatsapp(_ sender: Any) {
-        let originalString = "Hey please install KYC app to receive free tokens"
+        let referralCode = UserDefaults.standard.string(forKey: UserProfiles.referralCode)!
+        var originalString = " "
+        
+        if let projectName = projectName {
+            originalString = "Hey, participate in project: \"\(projectName)\" with referral code:\"\(referralCode)\" to get free token!"
+        } else {
+            originalString = "Hey, install KYC app and register with this referral code: \"\(referralCode)\" to get free token!"
+        }
+        
         let escapedString = originalString.addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed)
         
         let url  = URL(string: "whatsapp://send?text=\(escapedString!)")
@@ -41,6 +52,7 @@ class ChooseShareMethodViewController: ParticipateCommonController {
     
     @IBAction func gotoSMS(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.PhoneListViewController) as! PhoneListViewController
+        vc.projectName = projectName
         navigationController?.pushViewController(vc, animated: true)
     }
     

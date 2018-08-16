@@ -19,6 +19,7 @@ struct ProjectModel {
     let currentDiscount: String?
     let currentSaleStart: String?
     let currentSaleEnd: String?
+    let isPromoted: Int?
     var paymentMethods: [PaymentMethodModel] = []
     
     init(json: [String:Any]) {
@@ -32,7 +33,7 @@ struct ProjectModel {
         currentDiscount = json["current_discount"] as? String ?? nil
         currentSaleStart = json["current_sale_start"] as? String ?? nil
         currentSaleEnd = json["current_sale_end"] as? String ?? nil
-        
+        isPromoted = json["promotion"] as? Int ?? 0
         let payments = json["payment_methods"] as? [[String:Any]] ?? nil
         if let payments = payments {
             for paymentDic in payments {

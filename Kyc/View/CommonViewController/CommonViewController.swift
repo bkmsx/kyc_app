@@ -58,9 +58,9 @@ class CommonViewController: UIViewController {
     }
     
     //MARK: - Dialog
-    func showMessages(message: String) {
-        let alert = UIAlertController.init(title: "Input error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction.init(title: "Try again", style: .default, handler: nil))
+    func showMessages(_ message: String) {
+        let alert = UIAlertController.init(title: "Information", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -87,11 +87,11 @@ class CommonViewController: UIViewController {
                 if (code == 200) {
                     success(json)
                 } else {
-                    self.showMessages(message: json["message"] as! String)
+                    self.showMessages(json["message"] as! String)
                 }
                 break
             case .failure(_):
-                self.showMessages(message: "There is an error")
+                self.showMessages("There is an error")
                 break
             }
         }
@@ -130,11 +130,11 @@ class CommonViewController: UIViewController {
                         success(json)
                     } else {
                         let message = json["message"] as! String
-                        self.showMessages(message: message)
+                        self.showMessages(message)
                     }
                 }
             case .failure(_):
-                self.showMessages(message: "Please try upload later")
+                self.showMessages("Please try upload later")
             }
         }
     }

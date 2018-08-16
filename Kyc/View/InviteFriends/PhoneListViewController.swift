@@ -12,7 +12,8 @@ import MessageUI
 import Toast_Swift
 
 class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate, SelectAllDelegate {
-    
+    //From previous
+    var projectName: String?
     
     //MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
@@ -109,7 +110,12 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
     @IBAction func sendInvitations(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = "Please join us by install KYC app to get free tokens"
+            let referralCode = UserDefaults.standard.string(forKey: UserProfiles.referralCode)!
+            if let projectName = projectName {
+                controller.body = "Hey, participate in project: \"\(projectName)\" with referral code:\"\(referralCode)\" to get free token!"
+            } else {
+                controller.body = "Hey, install KYC app and register with this referral code: \"\(referralCode)\" to get free token!"
+            }
             controller.recipients = []
             for contact in selectedContacts {
                 controller.recipients?.append(contact.contactNumber)
@@ -117,7 +123,7 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         } else {
-            showMessages(message: "This device doesn't support SMS")
+            showMessages("This device doesn't support SMS")
         }
     }
     
