@@ -79,6 +79,13 @@ class HistoryTableViewController: ParticipateCommonController, UITableViewDataSo
         cell.historyId = history.historyId!
         cell.paymentMethod = history.paymentMode
         cell.projectId = history.projectId
+        if (history.paymentStatus == "pending") {
+            cell.statusLabel.text = "PENDING PAYMENT"
+            cell.statusLabel.textColor = UIColor.white
+        } else if (history.paymentStatus == "completed") {
+            cell.statusLabel.text = "COMPLETED PAYMENT"
+            cell.statusLabel.textColor = UIColor.green
+        }
         return cell
     }
     
