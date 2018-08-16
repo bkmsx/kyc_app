@@ -43,7 +43,7 @@ struct UserModel: Codable {
         firstName = dictionary["first_name"] as? String ?? nil
         lastName = dictionary["last_name"] as? String ?? nil
         securityToken = dictionary["security_token"] as? String ?? nil
-        status = dictionary["status"] as? String ?? nil
+        status = dictionary["kyc_status"] as? String ?? nil
         token = dictionary["token"] as? String ?? nil
         typeOfSecurity = dictionary["type_of_security"] as? String ?? nil
         citizenshipId = dictionary["citizenship_id"] as? Int ?? nil

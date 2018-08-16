@@ -15,6 +15,7 @@ class ProjectDetailViewController: ParticipateCommonController {
     var participateAgain: Bool?
     //Inside
     var project: ProjectModel?
+    var status: String!
     @IBOutlet weak var companyLogo: UIView!
     @IBOutlet weak var participateButton: UIButton!
     @IBOutlet weak var inviteButton: UIButton!
@@ -26,6 +27,8 @@ class ProjectDetailViewController: ParticipateCommonController {
     @IBOutlet weak var period: UILabel!
     @IBOutlet weak var discountPercent: UILabel!
     @IBOutlet weak var navigationTitle: UINavigationItem!
+    @IBOutlet weak var statusIcon: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,11 @@ class ProjectDetailViewController: ParticipateCommonController {
         companyLogo.layer.cornerRadius = 10
         participateButton.layer.cornerRadius = participateButton.frame.size.height / 2
         inviteButton.layer.cornerRadius = inviteButton.frame.size.height / 2
+        status = UserDefaults.standard.string(forKey: UserProfiles.status)!
+        if (status != "CLEARED") {
+            statusIcon.image = #imageLiteral(resourceName: "timer-sand")
+            statusLabel.text = "You are not approved"
+        }
     }
     
     //MARK: - Get Project Detail
@@ -81,7 +89,10 @@ class ProjectDetailViewController: ParticipateCommonController {
     }
     
     @IBAction func goNext(_ sender: Any) {
-        
+        guard status == "CLEARED" else {
+            showMessages("You didn't passed KYC")
+            return
+        }
         if (participateAgain == nil) {
             let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.AgreeTermConditionViewController) as! AgreeTermConditionViewController
             vc.project = project

@@ -22,6 +22,8 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusIcon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +70,11 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         let lastName = UserDefaults.standard.string(forKey: UserProfiles.lastName)!
         userName.text = "\(firstName.uppercased()) \(lastName.uppercased())"
         userEmail.text = UserDefaults.standard.string(forKey: UserProfiles.email)!
+        let status = UserDefaults.standard.string(forKey: UserProfiles.status)!
+        if (status != "CLEARED") {
+            statusLabel.text = "Not approved"
+            statusIcon.image = #imageLiteral(resourceName: "timer-sand")
+        }
     }
     
     //MARK: - Setting Row Delegate

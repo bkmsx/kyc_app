@@ -601,6 +601,8 @@
                         <outlet property="period" destination="Ndf-T2-prY" id="get-vH-v88"/>
                         <outlet property="projectTitle" destination="qOO-cW-wNA" id="eYR-8C-JDv"/>
                         <outlet property="shortDescription" destination="JHY-43-8qQ" id="DvU-R1-025"/>
+                        <outlet property="statusIcon" destination="Yzd-sh-NkW" id="fhl-YV-3mL"/>
+                        <outlet property="statusLabel" destination="yfv-3X-AZ5" id="s9D-97-zpM"/>
                         <segue destination="bUD-QC-Vn6" kind="show" id="Iq8-v9-to5"/>
                         <segue destination="9Gk-eG-GPL" kind="show" id="Y10-eG-wWS"/>
                     </connections>
@@ -1213,7 +1215,7 @@
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATUS: PENDING PAYMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T61-mD-amd" customClass="ColorLabel" customModule="Kyc" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PENDING PAYMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T61-mD-amd" customClass="ColorLabel" customModule="Kyc" customModuleProvider="target">
                                                     <rect key="frame" x="30" y="139.33333333333334" width="354" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="epB-qy-1j1"/>
@@ -2084,6 +2086,8 @@
                         <outlet property="roundView" destination="9H0-1p-R6V" id="a9Q-4K-96g"/>
                         <outlet property="setting" destination="32F-UV-6Of" id="r3T-UI-15c"/>
                         <outlet property="shareButton" destination="yAv-NY-z0K" id="Wa2-KM-DYD"/>
+                        <outlet property="statusIcon" destination="iiS-n0-VH7" id="6NV-I4-ZDI"/>
+                        <outlet property="statusLabel" destination="Fqw-Ru-MJg" id="j7X-Jg-QBi"/>
                         <outlet property="updatePassport" destination="KCt-ma-Tlk" id="YtG-F2-KBW"/>
                         <outlet property="updateWallet" destination="nT9-4Z-47v" id="8oM-Ab-tqA"/>
                         <outlet property="userEmail" destination="JnN-ac-aBP" id="pnN-at-ChJ"/>
@@ -2162,7 +2166,7 @@
                                     <action selector="gotoChooseShareMethod:" destination="9Gk-eG-GPL" eventType="touchUpInside" id="RQK-sG-g5y"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FXW-Fg-Yco">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FXW-Fg-Yco">
                                 <rect key="frame" x="20" y="163" width="374" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="DKe-C8-xX8"/>
