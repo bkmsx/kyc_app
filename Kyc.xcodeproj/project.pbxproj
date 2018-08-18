@@ -145,8 +145,8 @@
 		080867E52108519B0033BECE /* CodeInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		080867F22108878D0033BECE /* DropDownButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		080867F32108878E0033BECE /* DropDownButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownButton.xib; sourceTree = "<group>"; };
-		080867FE2108D7980033BECE /* UploadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadButton.swift; path = ../../../../../TestCustomView/TestCustomView/UploadButton.swift; sourceTree = "<group>"; };
-		080867FF2108D7980033BECE /* UploadButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadButton.xib; path = ../../../../../TestCustomView/TestCustomView/UploadButton.xib; sourceTree = "<group>"; };
+		080867FE2108D7980033BECE /* UploadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadButton.swift; sourceTree = "<group>"; };
+		080867FF2108D7980033BECE /* UploadButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadButton.xib; sourceTree = "<group>"; };
 		080868022109803E0033BECE /* CompleteRetreivePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRetreivePasswordController.swift; sourceTree = "<group>"; };
 		080868042109A9410033BECE /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		08117EE62122DCA800C03C98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
