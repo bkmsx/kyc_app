@@ -119,8 +119,8 @@ struct ViewControllerIdentifiers {
 }
 
 struct Colors {
-    static let lightBlue = 0xff008ce5
-    static let easyBlue = 0xaa008ce5
-    static let lightGray = 0xff7a7777
-    static let darkGray = 0xff656363
+    static let lightBlue = 0x008ce5
+    static let easyBlue = 0x008ce5
+    static let lightGray = 0x7a7777
+    static let darkGray = 0x656363
 }

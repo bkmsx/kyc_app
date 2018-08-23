@@ -84,8 +84,6 @@
 		08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */; };
 		08301D4920E4F55800DEAAAB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D4820E4F55800DEAAAB /* Alamofire.framework */; };
 		08301D4B20E5D2F700DEAAAB /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */; };
-		08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4D20E5E35500DEAAAB /* KeychainPasswordItem.swift */; };
-		08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D4F20E5E38300DEAAAB /* KeychainConfiguration.swift */; };
 		08301D5220E5E76F00DEAAAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5120E5E76F00DEAAAB /* Constants.swift */; };
 		08301D5420E5E9F600DEAAAB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08301D5320E5E9F600DEAAAB /* Utilities.swift */; };
 		08301D5620E60EF800DEAAAB /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08301D5520E60EF800DEAAAB /* DropDown.framework */; };
@@ -214,8 +212,6 @@
 		08301D4620E4D8A300DEAAAB /* ListProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProjectViewController.swift; sourceTree = "<group>"; };
 		08301D4820E4F55800DEAAAB /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08301D4A20E5D2F700DEAAAB /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
-		08301D4D20E5E35500DEAAAB /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
-		08301D4F20E5E38300DEAAAB /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
 		08301D5120E5E76F00DEAAAB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		08301D5320E5E9F600DEAAAB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		08301D5520E60EF800DEAAAB /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -433,8 +429,6 @@
 		08301D4C20E5E31B00DEAAAB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				08301D4D20E5E35500DEAAAB /* KeychainPasswordItem.swift */,
-				08301D4F20E5E38300DEAAAB /* KeychainConfiguration.swift */,
 				08301D5120E5E76F00DEAAAB /* Constants.swift */,
 				08301D5320E5E9F600DEAAAB /* Utilities.swift */,
 			);
@@ -733,7 +727,7 @@
 		};
 		4CB5F6DBF63908BCFD2C9970 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -822,7 +816,6 @@
 				0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */,
 				081B5BB72116A5FF00AFE162 /* WalletListController.swift in Sources */,
 				0874C82D210AF81E00628D5E /* ColorLabel.swift in Sources */,
-				08301D5020E5E38300DEAAAB /* KeychainConfiguration.swift in Sources */,
 				080867C92106FE430033BECE /* ImageButton.swift in Sources */,
 				082A10CD2109D4FE004AB6E8 /* ParticipateCommonController.swift in Sources */,
 				0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */,
@@ -835,7 +828,6 @@
 				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
 				0802992920F2680A0044C4E5 /* ProjectModel.swift in Sources */,
 				0817C4F0210CE3FB001DC87B /* CustomAlertDialog.swift in Sources */,
-				08301D4E20E5E35500DEAAAB /* KeychainPasswordItem.swift in Sources */,
 				081B5BBB211711D300AFE162 /* WalletCell.swift in Sources */,
 				082A10CB2109D49C004AB6E8 /* CommonViewController.swift in Sources */,
 				081B5BC3211BF6F400AFE162 /* NoParticipateView.swift in Sources */,
@@ -1065,14 +1057,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Y9S8Y99WD;
+				DEVELOPMENT_TEAM = 9P979T7HWH;
 				INFOPLIST_FILE = Kyc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app;
+				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1088,14 +1080,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Y9S8Y99WD;
+				DEVELOPMENT_TEAM = 9P979T7HWH;
 				INFOPLIST_FILE = Kyc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app;
+				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -8,37 +8,6 @@
 
 import UIKit
 
-struct Utilities {
-    static func saveAccountDetailsToKeyChain(account: String, password: String) {
-        guard !account.isEmpty, !password.isEmpty else {
-            return
-        }
-        UserDefaults.standard.set(account, forKey: UserProfiles.email
-        )
-        
-        let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: account, accessGroup: KeychainConfiguration.accessGroup)
-        do {
-            try passwordItem.savePassword(password)
-        } catch {
-            print("Error saving password")
-        }
-        print(password)
-    }
-    
-    static func getPassword(account: String) -> String {
-        let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: account)
-        do {
-            let password = try passwordItem.readPassword()
-            return password
-        } catch KeychainPasswordItem.KeychainError.noPassword {
-            print("No saved password")
-        } catch {
-            print("Unhandled error")
-        }
-        return ""
-    }
- }
-
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int, a: Int = 0xFF) {
         self.init(
@@ -54,8 +23,7 @@ extension UIColor {
         self.init(
             red: (argb >> 16) & 0xFF,
             green: (argb >> 8) & 0xFF,
-            blue: argb & 0xFF,
-            a: (argb >> 24) & 0xFF
+            blue: argb & 0xFF
         )
     }
 }
