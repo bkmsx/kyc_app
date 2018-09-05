@@ -8,7 +8,6 @@
 
 import UIKit
 import DropDown
-import DLRadioButton
 import Alamofire
 
 class UploadPassportViewController: ParticipateCommonController {
@@ -21,14 +20,11 @@ class UploadPassportViewController: ParticipateCommonController {
     var selfieImage, passportImage: UIImage!
     
     //MARK: - Outlet
-    @IBOutlet weak var cameraButton: RoundView!
     @IBOutlet weak var btnSelectCitizenship: DropDownButton!
     @IBOutlet weak var btnSelectCoutry: DropDownButton!
-    @IBOutlet weak var passportTextField: UITextField!
-    @IBOutlet weak var accuracyCheckbox: DLRadioButton!
-    @IBOutlet weak var termOfUseCheckbox: DLRadioButton!
+    @IBOutlet weak var accuracyCheckbox: Checkbox!
+    @IBOutlet weak var termOfUseCheckbox: Checkbox!
     @IBOutlet weak var submitImageButton: ImageButton!
-    @IBOutlet weak var uploadButton: UploadButton!
     
     //MARK: - Initialization
     override func viewDidLoad() {
@@ -38,7 +34,6 @@ class UploadPassportViewController: ParticipateCommonController {
     
     //MARK: - Custom views
     override func customViews() {
-        accuracyCheckbox.isMultipleSelectionEnabled = true
         submitImageButton.delegate = self
     }
     
@@ -59,9 +54,8 @@ class UploadPassportViewController: ParticipateCommonController {
         btnSelectCitizenship.setDataSource(source: citizenshipList)
     }
     
-    
     override func imageButtonClick(_ sender: Any) {
-        if(!accuracyCheckbox.isSelected || !termOfUseCheckbox.isSelected) {
+        if(!accuracyCheckbox.isChecked || !termOfUseCheckbox.isChecked) {
             showMessage(title: "Agreement", message: "You have to agree with Accuracy and Terms of Use")
             return
         }
@@ -105,7 +99,6 @@ class UploadPassportViewController: ParticipateCommonController {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.CompleteRegisterViewController) as! CompleteRegisterViewController
         navigationController?.pushViewController(vc, animated: true)
     }
-
     
     //MARK: - Dialog
     func showMessage(title: String, message: String) {

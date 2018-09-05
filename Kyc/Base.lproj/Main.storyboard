@@ -2798,45 +2798,95 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-Qo-XzE" userLabel="Term condition views">
-                                <rect key="frame" x="30" y="224.66666666666663" width="414" height="78"/>
+                                <rect key="frame" x="77" y="225" width="307" height="127"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucv-Je-Ay0" customClass="DLRadioButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="29"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aU-ts-Vec" userLabel="Accuracy view">
+                                        <rect key="frame" x="0.0" y="0.0" width="307" height="77"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucv-Je-Ay0" customClass="Checkbox" customModule="Kyc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="5" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="8US-m3-KFf"/>
+                                                    <constraint firstAttribute="width" constant="20" id="Dbz-yh-71Q"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yX-24-QZp">
+                                                <rect key="frame" x="30" y="5" width="267" height="67"/>
+                                                <string key="text">By clicking the Continue button below, you hereby confirm that all information submitted during this registration process is true and correct.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="Dbz-yh-71Q"/>
+                                            <constraint firstAttribute="bottom" secondItem="8yX-24-QZp" secondAttribute="bottom" constant="5" id="GNK-LC-fmS"/>
+                                            <constraint firstAttribute="trailing" secondItem="8yX-24-QZp" secondAttribute="trailing" constant="10" id="Jpc-3w-jEU"/>
+                                            <constraint firstItem="8yX-24-QZp" firstAttribute="top" secondItem="1aU-ts-Vec" secondAttribute="top" constant="5" id="Rvt-9l-xp8"/>
+                                            <constraint firstItem="ucv-Je-Ay0" firstAttribute="leading" secondItem="1aU-ts-Vec" secondAttribute="leading" id="gEO-7h-Sdc"/>
+                                            <constraint firstItem="ucv-Je-Ay0" firstAttribute="top" secondItem="1aU-ts-Vec" secondAttribute="top" constant="5" id="hLo-La-2DA"/>
+                                            <constraint firstItem="8yX-24-QZp" firstAttribute="leading" secondItem="ucv-Je-Ay0" secondAttribute="trailing" constant="10" id="qyW-Gn-Eg6"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <state key="normal" title="Agree to Accuracy">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outletCollection property="otherButtons" destination="m5w-YC-TzB" id="LqT-Zs-PfD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5w-YC-TzB" customClass="DLRadioButton">
-                                        <rect key="frame" x="0.0" y="49.000000000000028" width="250" height="29"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tv-3W-Jfl" userLabel="Term view">
+                                        <rect key="frame" x="0.0" y="87" width="307" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5w-YC-TzB" customClass="Checkbox" customModule="Kyc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="10" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Iwi-2e-vBG"/>
+                                                    <constraint firstAttribute="width" constant="20" id="bA0-xe-1HH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agree to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-qR-KJ2">
+                                                <rect key="frame" x="30" y="11.666666666666686" width="55" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-Ft-akf">
+                                                <rect key="frame" x="90" y="5.6666666666666856" width="91" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Terms of Use">
+                                                    <color key="titleColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="bA0-xe-1HH"/>
+                                            <constraint firstItem="m5w-YC-TzB" firstAttribute="centerY" secondItem="6Tv-3W-Jfl" secondAttribute="centerY" id="K42-V7-cqd"/>
+                                            <constraint firstItem="7Y0-qR-KJ2" firstAttribute="leading" secondItem="m5w-YC-TzB" secondAttribute="trailing" constant="10" id="Yfr-JZ-ZmG"/>
+                                            <constraint firstItem="Ebk-Ft-akf" firstAttribute="centerY" secondItem="m5w-YC-TzB" secondAttribute="centerY" id="a0i-18-snl"/>
+                                            <constraint firstItem="Ebk-Ft-akf" firstAttribute="leading" secondItem="7Y0-qR-KJ2" secondAttribute="trailing" constant="5" id="gDx-kp-5AQ"/>
+                                            <constraint firstItem="m5w-YC-TzB" firstAttribute="leading" secondItem="6Tv-3W-Jfl" secondAttribute="leading" id="kEl-s9-n2R"/>
+                                            <constraint firstItem="7Y0-qR-KJ2" firstAttribute="centerY" secondItem="m5w-YC-TzB" secondAttribute="centerY" id="kwD-ah-m3z"/>
+                                            <constraint firstAttribute="height" constant="40" id="yxi-NT-0Yf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <state key="normal" title="Agree to Terms of Use">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="m5w-YC-TzB" firstAttribute="top" secondItem="ucv-Je-Ay0" secondAttribute="bottom" constant="20" id="0Hm-JM-lZh"/>
-                                    <constraint firstItem="m5w-YC-TzB" firstAttribute="leading" secondItem="h0r-Qo-XzE" secondAttribute="leading" id="5dj-qD-Nwd"/>
-                                    <constraint firstItem="ucv-Je-Ay0" firstAttribute="top" secondItem="h0r-Qo-XzE" secondAttribute="top" id="GMN-qi-1am"/>
-                                    <constraint firstAttribute="bottom" secondItem="m5w-YC-TzB" secondAttribute="bottom" id="Wv6-MX-UWY"/>
-                                    <constraint firstItem="ucv-Je-Ay0" firstAttribute="leading" secondItem="h0r-Qo-XzE" secondAttribute="leading" id="YKj-4n-kSV"/>
+                                    <constraint firstItem="6Tv-3W-Jfl" firstAttribute="top" secondItem="1aU-ts-Vec" secondAttribute="bottom" constant="10" id="4J5-5u-DX0"/>
+                                    <constraint firstItem="1aU-ts-Vec" firstAttribute="leading" secondItem="h0r-Qo-XzE" secondAttribute="leading" id="HvO-me-xqv"/>
+                                    <constraint firstItem="1aU-ts-Vec" firstAttribute="top" secondItem="h0r-Qo-XzE" secondAttribute="top" id="V75-5K-ZNd"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Tv-3W-Jfl" secondAttribute="bottom" id="Xdb-9B-pca"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Tv-3W-Jfl" secondAttribute="trailing" id="ZwU-dl-R5w"/>
+                                    <constraint firstAttribute="trailing" secondItem="1aU-ts-Vec" secondAttribute="trailing" id="a2r-83-aaD"/>
+                                    <constraint firstItem="6Tv-3W-Jfl" firstAttribute="leading" secondItem="h0r-Qo-XzE" secondAttribute="leading" id="bqx-d2-Iqx"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whS-sj-ThF" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
@@ -2910,15 +2960,15 @@
                             <constraint firstItem="h0r-Qo-XzE" firstAttribute="top" secondItem="5GG-rT-UHn" secondAttribute="bottom" constant="40" id="Eo3-A7-5kc"/>
                             <constraint firstItem="5GG-rT-UHn" firstAttribute="top" secondItem="1MU-ex-3BE" secondAttribute="bottom" constant="10" id="GKW-qF-ijy"/>
                             <constraint firstItem="hi2-fp-CAX" firstAttribute="top" secondItem="U9t-LS-bbP" secondAttribute="top" id="IzW-ba-WbW"/>
+                            <constraint firstItem="U9t-LS-bbP" firstAttribute="trailing" secondItem="h0r-Qo-XzE" secondAttribute="trailing" constant="30" id="MZP-i0-P8C"/>
                             <constraint firstItem="whS-sj-ThF" firstAttribute="trailing" secondItem="U9t-LS-bbP" secondAttribute="trailing" id="Nxd-Ty-luP"/>
                             <constraint firstItem="5GG-rT-UHn" firstAttribute="width" secondItem="1MU-ex-3BE" secondAttribute="width" id="Osg-LJ-mHa"/>
                             <constraint firstItem="whS-sj-ThF" firstAttribute="leading" secondItem="U9t-LS-bbP" secondAttribute="leading" id="Txo-0s-K0Y"/>
-                            <constraint firstItem="h0r-Qo-XzE" firstAttribute="trailing" secondItem="U9t-LS-bbP" secondAttribute="trailing" constant="30" id="V8p-ER-Wla"/>
                             <constraint firstItem="hi2-fp-CAX" firstAttribute="leading" secondItem="U9t-LS-bbP" secondAttribute="leading" id="cSU-mD-q4X"/>
                             <constraint firstItem="1MU-ex-3BE" firstAttribute="top" secondItem="U9t-LS-bbP" secondAttribute="top" constant="20" id="g6p-LB-7NN"/>
                             <constraint firstItem="1MU-ex-3BE" firstAttribute="centerX" secondItem="U9t-LS-bbP" secondAttribute="centerX" id="k8W-F2-NKX"/>
                             <constraint firstItem="whS-sj-ThF" firstAttribute="bottom" secondItem="U9t-LS-bbP" secondAttribute="bottom" id="mkg-Nl-Pti"/>
-                            <constraint firstItem="h0r-Qo-XzE" firstAttribute="leading" secondItem="U9t-LS-bbP" secondAttribute="leading" constant="30" id="vgD-fz-9Gz"/>
+                            <constraint firstItem="h0r-Qo-XzE" firstAttribute="leading" secondItem="1MU-ex-3BE" secondAttribute="leading" id="rcI-hZ-5ac"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U9t-LS-bbP"/>
                     </view>
