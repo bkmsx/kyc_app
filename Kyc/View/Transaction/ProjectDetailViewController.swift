@@ -42,7 +42,7 @@ class ProjectDetailViewController: ParticipateCommonController {
         status = UserDefaults.standard.string(forKey: UserProfiles.status)!
         if (status != "CLEARED") {
             statusIcon.image = #imageLiteral(resourceName: "timer-sand")
-            statusLabel.text = "You are not approved"
+            statusLabel.text = "You are unverified"
         }
     }
     
@@ -90,7 +90,7 @@ class ProjectDetailViewController: ParticipateCommonController {
     
     @IBAction func goNext(_ sender: Any) {
         guard status == "CLEARED" else {
-            showMessages("You didn't passed KYC")
+            showMessages("Your account is unverified. Please go to Update Passport to verify your account")
             return
         }
         if (participateAgain == nil) {

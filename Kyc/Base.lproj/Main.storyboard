@@ -307,7 +307,7 @@
                         <viewLayoutGuide key="safeArea" id="zdy-ep-QDG"/>
                     </view>
                     <navigationItem key="navigationItem" id="nEt-Vf-X7W">
-                        <barButtonItem key="leftBarButtonItem" image="logo" width="1" style="plain" id="wc0-WU-s9O">
+                        <barButtonItem key="leftBarButtonItem" image="concordia_5" width="1" style="plain" id="wc0-WU-s9O">
                             <inset key="imageInsets" minX="0.0" minY="5" maxX="300" maxY="5"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
@@ -336,13 +336,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-p8-qAj">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="Gwi-aP-jNm">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afR-9c-ftS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="487"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="531"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rda-4m-C4E">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="429"/>
@@ -487,14 +487,14 @@
                                         </constraints>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59R-W6-Zgn" userLabel="Seperator">
-                                        <rect key="frame" x="20" y="487" width="374" height="1"/>
+                                        <rect key="frame" x="20" y="531" width="374" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="xDu-qj-ZEO"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Lg-0o-fCl" userLabel="Status">
-                                        <rect key="frame" x="20" y="498" width="374" height="20"/>
+                                        <rect key="frame" x="20" y="542" width="374" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are successfully verified" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfv-3X-AZ5">
                                                 <rect key="frame" x="30" y="2" width="172.33333333333334" height="16"/>
@@ -520,7 +520,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJE-xE-xoY">
-                                        <rect key="frame" x="20" y="528" width="374" height="40"/>
+                                        <rect key="frame" x="20" y="572" width="374" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="kIE-Tp-1dm"/>
@@ -533,7 +533,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4k-ws-NHi">
-                                        <rect key="frame" x="20" y="578" width="374" height="40"/>
+                                        <rect key="frame" x="20" y="622" width="374" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Jju-db-pH8"/>
@@ -620,10 +620,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5A-7u-IVT">
-                                <rect key="frame" x="0.0" y="254" width="414" height="383"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="427"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="DSl-BK-EFu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="427"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-6Y-Ykf">
                                         <rect key="frame" x="30" y="40" width="364" height="30"/>
@@ -713,7 +713,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fow-rA-wD8" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="637" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Kgr-Ty-tGW"/>
@@ -1021,7 +1021,7 @@
             </objects>
             <point key="canvasLocation" x="1376.8115942028987" y="3169.5652173913045"/>
         </scene>
-        <!--UPDATE ERC20 WALLET-->
+        <!--UPDATE WALLET-->
         <scene sceneID="rhx-WE-Ruh">
             <objects>
                 <viewController storyboardIdentifier="UpdateWalletAddressViewController" id="r19-Da-PfF" customClass="UpdateWalletAddressViewController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
@@ -1035,8 +1035,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0f-FK-J5n">
                                 <rect key="frame" x="30" y="94" width="354" height="52"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT ERC20 WALLET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7R-vq-aTg">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT WALLET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7R-vq-aTg">
+                                        <rect key="frame" x="0.0" y="0.0" width="123.66666666666667" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1064,8 +1064,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-25-53S">
                                 <rect key="frame" x="30" y="176" width="354" height="52"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW ERC20 WALLET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcr-SV-YRm">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW WALLET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcr-SV-YRm">
+                                        <rect key="frame" x="0.0" y="0.0" width="90.333333333333329" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1126,7 +1126,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hKO-Iq-WrE"/>
                     </view>
-                    <navigationItem key="navigationItem" title="UPDATE ERC20 WALLET" id="HhO-e6-ePE">
+                    <navigationItem key="navigationItem" title="UPDATE WALLET" id="HhO-e6-ePE">
                         <barButtonItem key="leftBarButtonItem" image="arrow_left" id="JCq-z5-Im5">
                             <connections>
                                 <action selector="clickBack:" destination="r19-Da-PfF" id="Ysh-Ac-igt"/>
@@ -2065,7 +2065,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Wcp-qF-Izw">
-                        <barButtonItem key="leftBarButtonItem" image="logo" width="1" id="ltF-UI-8GJ">
+                        <barButtonItem key="leftBarButtonItem" image="concordia_5" width="1" id="ltF-UI-8GJ">
                             <inset key="imageInsets" minX="0.0" minY="5" maxX="300" maxY="5"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
@@ -2552,7 +2552,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDx-MN-egk">
                                         <rect key="frame" x="60" y="370" width="294" height="48.333333333333314"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="123456789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-Vb-5rv" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="123456789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAQ-Vb-5rv" customClass="TextFieldNumber" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="70" y="18.333333333333314" width="224" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Vw-pz-bpD"/>
@@ -3141,7 +3141,7 @@
                                 <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hello@wpay.sg" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-X5-390" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-X5-390" customClass="TextFieldBottomBorder" customModule="Kyc" customModuleProvider="target">
                                 <rect key="frame" x="107" y="331" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0nk-mT-PVc"/>
@@ -3233,10 +3233,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JrN-91-dg7">
-                                <rect key="frame" x="0.0" y="254" width="414" height="383"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="427"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="nzp-DJ-fTP">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="427"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTITY VERIFICATION SUCCESSFUL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vD-Gw-WRX">
                                         <rect key="frame" x="74" y="110" width="266" height="17"/>
@@ -3373,7 +3373,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDj-Gj-BK9" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="637" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="f61-OL-Yum"/>
@@ -3436,10 +3436,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xt5-Ia-ada">
-                                <rect key="frame" x="0.0" y="254" width="414" height="383"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="427"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="LvE-Eq-1EW">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="427"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 TOKENS = 1 ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0C-B8-oxT">
                                         <rect key="frame" x="116.33333333333331" y="30" width="181" height="21"/>
@@ -3546,7 +3546,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiq-RX-6iq" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="637" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="LOB-De-hzc"/>
@@ -3616,20 +3616,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKF-lw-FSR" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="801" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="845" width="414" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="4Np-xB-H2w"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjA-Z4-DLW">
-                                <rect key="frame" x="0.0" y="254" width="414" height="547"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="591"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-xQ-lfY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="591"/>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yak-bv-AIN">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="591"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8f-Bh-Mwj">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="501"/>
@@ -3861,10 +3861,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbP-lb-QF2">
-                                <rect key="frame" x="0.0" y="254" width="414" height="383"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="427"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="g9b-Sd-EMl">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="427"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONGRATULATIONS!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyU-bX-j38">
                                         <rect key="frame" x="129" y="20" width="156" height="18"/>
@@ -3928,7 +3928,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsf-NO-8II" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="637" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="H3d-3c-27U"/>
@@ -4876,7 +4876,7 @@
         <image name="blue_check" width="45" height="45"/>
         <image name="blue_pencil" width="35" height="35"/>
         <image name="close" width="32" height="32"/>
-        <image name="logo" width="416" height="65"/>
+        <image name="concordia_5" width="831" height="156"/>
         <image name="menu" width="34" height="34"/>
         <image name="participated" width="204" height="118"/>
         <image name="pattern_top" width="270" height="270"/>
@@ -4884,7 +4884,7 @@
         <image name="whatsapp" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y10-eG-wWS"/>
-        <segue reference="1Mg-Lj-W6W"/>
+        <segue reference="Z21-rZ-Ddn"/>
+        <segue reference="X3l-6B-9ub"/>
     </inferredMetricsTieBreakers>
 </document>

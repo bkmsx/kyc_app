@@ -37,13 +37,27 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     
     //MARK: - Custom views
     override func customViews() {
+        let firstName = UserDefaults.standard.string(forKey: UserProfiles.firstName)!
+        let lastName = UserDefaults.standard.string(forKey: UserProfiles.lastName)!
+        userName.text = "\(firstName.uppercased()) \(lastName.uppercased())"
+        userEmail.text = UserDefaults.standard.string(forKey: UserProfiles.email)!
+        let status = UserDefaults.standard.string(forKey: UserProfiles.status)!
+        if (status != "CLEARED") {
+            statusLabel.text = "Unverified"
+            statusIcon.image = #imageLiteral(resourceName: "timer-sand")
+        }
+        
         roundView.setImage(image: #imageLiteral(resourceName: "account"))
         verifyView.layer.cornerRadius = verifyView.frame.size.height / 2
         personalSetting.settingLabel.text = "Change Password"
         personalSetting.iconImage.image = #imageLiteral(resourceName: "blue_account")
         personalSetting.delegate = self
         
-        updatePassport.settingLabel.text = "Update Passport"
+        if (status != "CLEARED") {
+            updatePassport.settingLabel.text = "Update Password (VERIFY NOW)"
+        } else {
+            updatePassport.settingLabel.text = "Update Passport"
+        }
         updatePassport.iconImage.image = #imageLiteral(resourceName: "blue_passport")
         updatePassport.delegate = self
         
@@ -65,16 +79,6 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         
         shareButton.layer.cornerRadius = shareButton.frame.size.height / 2
         logoutButton.layer.cornerRadius = logoutButton.frame.size.height / 2
-        
-        let firstName = UserDefaults.standard.string(forKey: UserProfiles.firstName)!
-        let lastName = UserDefaults.standard.string(forKey: UserProfiles.lastName)!
-        userName.text = "\(firstName.uppercased()) \(lastName.uppercased())"
-        userEmail.text = UserDefaults.standard.string(forKey: UserProfiles.email)!
-        let status = UserDefaults.standard.string(forKey: UserProfiles.status)!
-        if (status != "CLEARED") {
-            statusLabel.text = "Not approved"
-            statusIcon.image = #imageLiteral(resourceName: "timer-sand")
-        }
     }
     
     //MARK: - Setting Row Delegate

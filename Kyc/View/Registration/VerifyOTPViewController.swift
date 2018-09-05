@@ -73,7 +73,7 @@ class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegat
             "phone_number" : phoneNumber
             ] as [String : Any]
         httpRequest(URLConstant.baseURL + URLConstant.verifyOTP, method: .post, parameters: params, headers: nil) { _ in
-            self.showMessage(message: "Register successfully!", buttonName: "Continue"){ alert in
+            self.showMessage(message: "Your registration is successful! Welcome to Concordia Ventures, by Novum Capital!", buttonName: "Continue"){ alert in
                 self.submitUserProfile()
             }
         }

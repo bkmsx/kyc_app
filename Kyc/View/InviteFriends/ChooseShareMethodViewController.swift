@@ -37,7 +37,7 @@ class ChooseShareMethodViewController: ParticipateCommonController {
         if let projectName = projectName {
             originalString = "Hey, participate in project: \"\(projectName)\" with referral code:\"\(referralCode)\" to get free token!"
         } else {
-            originalString = "Hey, install KYC app and register with this referral code: \"\(referralCode)\" to get free token!"
+            originalString = "Hey, install KYC app and register with this referral code: \"\(referralCode)\" to get free token! Site: https://www.concordia.ventures"
         }
         
         let escapedString = originalString.addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed)

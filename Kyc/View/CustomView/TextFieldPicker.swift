@@ -33,10 +33,16 @@ class TextFieldPicker: UITextField, UIPickerViewDataSource, UIPickerViewDelegate
         toolBar.tintColor = UIColor.init(argb: Colors.lightBlue)
         toolBar.sizeToFit()
         customButton = UIBarButtonItem(title: "Keyboard", style: UIBarButtonItemStyle.plain, target: self, action:#selector(showKeyboard))
-        toolBar.setItems([customButton!], animated: false)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(hideKeyboard))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        toolBar.setItems([customButton!, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         self.inputAccessoryView = toolBar
         data = Configs.NICE_CODES
+    }
+    
+    @objc func hideKeyboard() {
+        self.resignFirstResponder()
     }
     
     @objc func showKeyboard() {

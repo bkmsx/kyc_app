@@ -69,8 +69,8 @@ class RegisterViewController: ParticipateCommonController {
     //MARK: - Validate data
     override func imageButtonClick(_ sender: Any) {
         //FIXME: uncomment validateData
-                validateData()
-//                gotoVerifyOTP()
+//                validateData()
+                gotoVerifyOTP()
     }
     
     //MARK: - Call API
@@ -87,7 +87,7 @@ class RegisterViewController: ParticipateCommonController {
         phoneNumber = mobileTextField.text!
         
         if (password != confirmedPassword) {
-            self.showMessage(message: "Passwords are not matched")
+            self.showMessage(message: "Passwords do not match")
             return
         }
         let params = [
@@ -131,7 +131,7 @@ class RegisterViewController: ParticipateCommonController {
     
     //MARK: - Navigations
     func gotoVerifyOTP() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.VerifyOTPViewController)
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     
