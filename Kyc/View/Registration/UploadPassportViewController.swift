@@ -11,7 +11,7 @@ import DropDown
 import DLRadioButton
 import Alamofire
 
-class UploadPassportViewController: ParticipateCommonController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, RoundViewDelegate, UploadButtonDelegate {
+class UploadPassportViewController: ParticipateCommonController {
     //MARK: - Properties
     var imagePicker, passportPicker: UIImagePickerController!
     var selectedCitizenship: Int = 0
@@ -39,23 +39,7 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     //MARK: - Custom views
     override func customViews() {
         accuracyCheckbox.isMultipleSelectionEnabled = true
-        passportTextField.delegate = self
         submitImageButton.delegate = self
-        setupCameraButton()
-    }
-    
-    func setupCameraButton() {
-        uploadButton.delegate = self
-        cameraButton.delegate = self
-        cameraButton.setImage(image: #imageLiteral(resourceName: "camera"))
-    }
-    
-    func clickRoundView() {
-        takeSelfie()
-    }
-    
-    func clickUploadButton(sender: Any) {
-        getPassport()
     }
     
     func setupCountryDropDown(countries: [CountryModel]) {
@@ -77,10 +61,6 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
     
     
     override func imageButtonClick(_ sender: Any) {
-        if (passportTextField.text!.isEmpty) {
-            showMessage(title: "Input error", message: "Passport cannot be empty")
-            return
-        }
         if(!accuracyCheckbox.isSelected || !termOfUseCheckbox.isSelected) {
             showMessage(title: "Agreement", message: "You have to agree with Accuracy and Terms of Use")
             return
@@ -108,7 +88,7 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
         let params = [
             "citizenship" : citizenships[selectedCitizenship].nationality,
             "citizenship_id" : citizenships[selectedCitizenship].id,
-            "passport_number" : passportTextField.text!,
+            "passport_number" : "BB",
             "country_of_residence" : countries[selectedCountry].country
             ] as [String : Any]
         let headers: HTTPHeaders = [
@@ -119,43 +99,6 @@ class UploadPassportViewController: ParticipateCommonController, UINavigationCon
             self.gotoRegistrationCompletion()
         }
     }
-    
-    //MARK: - Take photo and got image
-    func getPassport() {
-        passportPicker = UIImagePickerController()
-        passportPicker.delegate = self
-        passportPicker.sourceType = .photoLibrary
-        self.present(passportPicker, animated: true, completion: nil)
-    }
-    
-    func takeSelfie() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = .camera
-            imagePicker.cameraDevice = .front
-            self.present(imagePicker, animated: true, completion: nil)
-        } else {
-            showMessage(title: "Error", message: "This device doesn't have camera")
-        }
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        if (picker == imagePicker) {
-            selfieImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-            cameraButton.setPhoto(image: selfieImage)
-        } else {
-            passportImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-            if (passportImage != nil) {
-                uploadButton.setButtonIcon(image: passportImage)
-            } else {
-                showMessage(title: "Pick Image Error", message: "Please choose another image!!")
-            }
-        }
-    }
-    
-    
     
     //MARK: - Navigations
     func gotoRegistrationCompletion() {
