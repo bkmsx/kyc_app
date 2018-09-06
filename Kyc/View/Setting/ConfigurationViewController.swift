@@ -7,28 +7,64 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class ConfigurationViewController: ParticipateCommonController {
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var radioGroup: RadioGroup!
     @IBOutlet weak var imageButton: ImageButton!
+    var oldCheck: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    //MARK: - Custom views
     override func customViews() {
         roundView.setImage(image: #imageLiteral(resourceName: "setting"))
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
-        radioGroup.setYes(UserDefaults.standard.integer(forKey: UserProfiles.deviceSecurityEnable) == 1 ? true : false)
+        oldCheck = UserDefaults.standard.integer(forKey: UserProfiles.deviceSecurityEnable) == 1 ? true : false
+        radioGroup.setYes(oldCheck)
     }
     
+    //MARK: - Events
     override func imageButtonClick(_ sender: Any) {
+        if (radioGroup.chooseYes() != oldCheck){
+            authenticateUserUsingTouchId()
+        } else {
+            showMessages("You didn't change setting")
+        }
+    }
+    
+    //MARK: - Touch ID
+    fileprivate func authenticateUserUsingTouchId() {
+        let context = LAContext()
+        if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: nil) {
+            self.evaluateTouchAuthenticity(context: context)
+        }
+    }
+    
+    func evaluateTouchAuthenticity(context: LAContext) {
+        context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: "Press your finger") {(success, error) in
+            if (success) {
+                DispatchQueue.main.async {
+                    self.updateTouchIdEnable()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showMessages("You are not the owner")
+                }
+            }
+        }
+    }
+    
+    //MARK: - Call API
+    func updateTouchIdEnable() {
         let params = [
             "device_security_enable" : radioGroup.chooseYes()
-        ] as [String:Any]
+            ] as [String:Any]
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
