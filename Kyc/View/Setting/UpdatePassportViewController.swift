@@ -97,7 +97,7 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             imagePicker.cameraDevice = .front
             self.present(imagePicker, animated: true, completion: nil)
         } else {
-            showMessage(message: "This device doesn't support camera")
+            showMessage("This device doesn't support camera"){_ in }
         }
     }
     
@@ -133,26 +133,33 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     }
 
     func updatePassport() {
+        let citizenship = citizenshipDropDown.text
+        let country = countryDropDown.text
+        let passportNumber = passportNumberTextField.text!
         let params = [
-            "citizenship" : citizenshipDropDown.text,
+            "citizenship" : citizenship,
             "citizenship_id" : citizenships[citizenshipDropDown.index].id,
-            "passport_number" : passportNumberTextField.text!,
-            "country_of_residence" : countryDropDown.text
+            "passport_number" : passportNumber,
+            "country_of_residence" : country
             ] as [String : Any]
         let headers: HTTPHeaders = [
             "Content-Type" : "multipart/form-data",
             "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
         ]
         httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers) { json in
-            self.makeToast("Updated new images")
-            self.goBack()
+            UserDefaults.standard.set(citizenship, forKey: UserProfiles.citizenship)
+            UserDefaults.standard.set(country, forKey: UserProfiles.country)
+            UserDefaults.standard.set(passportNumber, forKey: UserProfiles.passportNumber)
+            self.showMessage("Thank you for updating your passport details. Please give us 3 business days to verify your account.") { _ in
+                self.goBack()
+            }
         }
     }
     
     //MARK: - Dialog
-    func showMessage(message: String) {
-        let alert = UIAlertController.init(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+    func showMessage(_ message: String, _ handler: @escaping (UIAlertAction) -> Void) {
+        let alert = UIAlertController.init(title: "Information", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: handler))
         self.present(alert, animated: true, completion: nil)
     }
 }

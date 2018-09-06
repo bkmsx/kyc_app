@@ -12,7 +12,7 @@ import Alamofire
 class RetrievePasswordViewController: ParticipateCommonController{
 
     
-    @IBOutlet weak var mailTextField: UITextField!
+    @IBOutlet weak var mailTextField: TextFieldBottomBorder!
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var continueButton: ImageButton!
     
@@ -23,7 +23,7 @@ class RetrievePasswordViewController: ParticipateCommonController{
         continueButton.setButtonTitle(title: "RETRIEVE PASSWORD")
     }
     
-    
+    //MARK: - Events
     override func imageButtonClick(_ sender: Any) {
         retrievePassword()
     }
