@@ -69,8 +69,8 @@ class RegisterViewController: ParticipateCommonController {
     //MARK: - Validate data
     override func imageButtonClick(_ sender: Any) {
         //FIXME: uncomment validateData
-//                validateData()
-                gotoVerifyOTP()
+                validateData()
+//                gotoVerifyOTP()
     }
     
     //MARK: - Call API
@@ -131,7 +131,7 @@ class RegisterViewController: ParticipateCommonController {
     
     //MARK: - Navigations
     func gotoVerifyOTP() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController)
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.VerifyOTPViewController)
         navigationController?.pushViewController(vc!, animated: true)
     }
     

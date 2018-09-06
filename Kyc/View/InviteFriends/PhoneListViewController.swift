@@ -11,7 +11,7 @@ import Contacts
 import MessageUI
 import Toast_Swift
 
-class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate, SelectAllDelegate {
+class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate {
     //From previous
     var projectName: String?
     
@@ -21,16 +21,6 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
     
     var contacts: [ContactModel] = []
     var selectedContacts: [ContactModel] = []
-    var selectAll: Int = 0 {
-        didSet {
-            if (selectAll == 1) {
-                selectAllView?.setChecked(true)
-            } else {
-                selectAllView?.setChecked(false)
-            }
-        }
-    }
-    var selectAllView: SelectAll?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,25 +43,18 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell", for: indexPath) as! PhoneCell
-        if (selectAll == 1) {
+        cell.contact = contacts[indexPath.row]
+        if selectedContacts.contains(where: { $0.contactName == contacts[indexPath.row].contactName}) {
             cell.setCheck(true)
-        } else if (selectAll == 2) {
+        } else {
             cell.setCheck(false)
         }
-        cell.contact = contacts[indexPath.row]
         cell.delegate = self
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        selectAllView = SelectAll.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 50))
-        selectAllView?.delegate = self
-        selectAllView?.setChecked(selectAll == 1)
-        return selectAllView
-    }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 1
     }
     
     func changeChecked(contact: ContactModel, isChecked: Bool) {
@@ -85,30 +68,16 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
                 }
             }
         }
-        if (selectedContacts.count == contacts.count) {
-            selectAll = 1
-        } else {
-            selectAll = 0
-        }
         phoneLabel.text = String(selectedContacts.count)
-    }
-    
-    func toggleSellectAll(_ select: Bool) {
-        if (select) {
-            selectAll = 1
-            selectedContacts.removeAll()
-            selectedContacts.append(contentsOf: contacts)
-        } else {
-            selectAll = 2
-            selectedContacts.removeAll()
-        }
-        phoneLabel.text = String(selectedContacts.count)
-        tableView.reloadData()
     }
     
     //MARK: - Navigations
     @IBAction func sendInvitations(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
+            if (selectedContacts.count > 10) {
+                showMessages("You can only send up to 10 contacts at once")
+                return
+            }
             let controller = MFMessageComposeViewController()
             let referralCode = UserDefaults.standard.string(forKey: UserProfiles.referralCode)!
             if let projectName = projectName {
