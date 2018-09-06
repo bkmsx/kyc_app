@@ -54,6 +54,12 @@ class UploadPassportViewController: ParticipateCommonController {
         btnSelectCitizenship.setDataSource(source: citizenshipList)
     }
     
+    //MARK: - Events
+    @IBAction func showTermsOfUse(_ sender: Any) {
+        let dialog = TermConditionDialog("https://novum.capital")
+        dialog.show(animated: true)
+    }
+    
     override func imageButtonClick(_ sender: Any) {
         if(!accuracyCheckbox.isChecked || !termOfUseCheckbox.isChecked) {
             showMessage(title: "Agreement", message: "You have to agree with Accuracy and Terms of Use")
@@ -107,4 +113,5 @@ class UploadPassportViewController: ParticipateCommonController {
         self.present(alert, animated: true, completion: nil)
     }
  
+    
 }

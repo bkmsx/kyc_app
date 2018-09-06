@@ -31,7 +31,7 @@ class AgreeTermConditionViewController: ParticipateCommonController{
     }
     
     @IBAction func showTermsAndCoditions(_ sender: Any) {
-        let dialog = TermConditionDialog()
+        let dialog = TermConditionDialog("http://wpay.sg/kyc/terms.php")
         dialog.show(animated: true)
     }
     

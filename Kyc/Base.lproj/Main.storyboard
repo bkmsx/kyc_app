@@ -2798,10 +2798,10 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-Qo-XzE" userLabel="Term condition views">
-                                <rect key="frame" x="77" y="225" width="307" height="127"/>
+                                <rect key="frame" x="77" y="225.00000000000003" width="307" height="117.33333333333334"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aU-ts-Vec" userLabel="Accuracy view">
-                                        <rect key="frame" x="0.0" y="0.0" width="307" height="77"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="307" height="67.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucv-Je-Ay0" customClass="Checkbox" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="5" width="20" height="20"/>
@@ -2818,9 +2818,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yX-24-QZp">
-                                                <rect key="frame" x="30" y="5" width="267" height="67"/>
+                                                <rect key="frame" x="30" y="5.0000000000000036" width="267" height="57.333333333333343"/>
                                                 <string key="text">By clicking the Continue button below, you hereby confirm that all information submitted during this registration process is true and correct.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2836,7 +2836,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tv-3W-Jfl" userLabel="Term view">
-                                        <rect key="frame" x="0.0" y="87" width="307" height="40"/>
+                                        <rect key="frame" x="0.0" y="77.333333333333314" width="307" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5w-YC-TzB" customClass="Checkbox" customModule="Kyc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10" width="20" height="20"/>
@@ -2853,17 +2853,20 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agree to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-qR-KJ2">
-                                                <rect key="frame" x="30" y="11.666666666666686" width="55" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <rect key="frame" x="30" y="13" width="48" height="14.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-Ft-akf">
-                                                <rect key="frame" x="90" y="5.6666666666666856" width="91" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="83" y="7" width="81" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Terms of Use">
                                                     <color key="titleColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="showTermsOfUse:" destination="6wL-Mr-voM" eventType="touchUpInside" id="4el-Wv-mNn"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

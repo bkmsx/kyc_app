@@ -12,7 +12,7 @@ class TermConditionDialog: UIView, Modal, TermConditionViewDelegate {
     var backgroundView = UIView()
     var dialogView = UIView()
     
-    convenience init() {
+    convenience init(_ link: String) {
         self.init(frame: UIScreen.main.bounds)
         backgroundView.backgroundColor = UIColor.black
         backgroundView.frame = frame
@@ -21,6 +21,7 @@ class TermConditionDialog: UIView, Modal, TermConditionViewDelegate {
         
         dialogView = TermConditionView(frame: CGRect(x: 20, y: frame.height, width: frame.width - 40, height: frame.height - 50))
         (dialogView as! TermConditionView).delegate = self
+        (dialogView as! TermConditionView).loadContent(link);
         addSubview(dialogView)
     }
     

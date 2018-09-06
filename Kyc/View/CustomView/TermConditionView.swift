@@ -35,12 +35,15 @@ class TermConditionView: UIView, WKNavigationDelegate{
         clipsToBounds = true
         
         webView = WKWebView(frame: webContainer.bounds)
-        let url = URL.init(string: "http://wpay.sg/kyc/terms.php")
-        webView.load(URLRequest.init(url: url!))
         webView.navigationDelegate = self
         webContainer.addSubview(webView)
         activityIndicator.layer.zPosition = 100
         activityIndicator.layer.cornerRadius = 5
+    }
+    
+    func loadContent(_ link: String) {
+        let url = URL.init(string: link)
+        webView.load(URLRequest.init(url: url!))
         activityIndicator.startAnimating()
     }
     
@@ -49,7 +52,6 @@ class TermConditionView: UIView, WKNavigationDelegate{
             delegate.closeDialog()
         }
     }
-    
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityIndicator.stopAnimating()
