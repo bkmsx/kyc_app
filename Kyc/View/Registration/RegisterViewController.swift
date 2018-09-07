@@ -39,6 +39,10 @@ class RegisterViewController: ParticipateCommonController {
     
     //MARK: - Custom views
     override func customViews() {
+        let regionCode = Locale.current.regionCode!
+        if let index = Configs.COUNTRY_ISO.index(of: regionCode) {
+            phoneCode.text = Configs.PHONE_CODES[index]
+        }
         fillTextFields()
         continueImageButton.delegate = self
     }
@@ -64,6 +68,7 @@ class RegisterViewController: ParticipateCommonController {
         passwordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
         confirmedPasswordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
         mobileTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber) as? String
+        
     }
     
     //MARK: - Validate data

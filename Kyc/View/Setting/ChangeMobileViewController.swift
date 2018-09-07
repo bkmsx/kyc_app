@@ -28,6 +28,10 @@ class ChangeMobileViewController: ParticipateCommonController {
         roundView.setImage(image: #imageLiteral(resourceName: "mobile"))
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
+        let regionCode = Locale.current.regionCode!
+        if let index = Configs.COUNTRY_ISO.index(of: regionCode) {
+            phoneCode.text = Configs.PHONE_CODES[index]
+        }
     }
     
     override func imageButtonClick(_ sender: Any) {

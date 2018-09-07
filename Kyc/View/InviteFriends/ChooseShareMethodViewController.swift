@@ -57,9 +57,12 @@ class ChooseShareMethodViewController: ParticipateCommonController {
     }
     
     @IBAction func gotoTheSite(_ sender: Any) {
-        if let url = URL(string: "http://novum.capital/") {
-            UIApplication.shared.open(url, options: [:])
-        }
+        let link = "https://" + (sender as! UIButton).currentTitle!
+        UIPasteboard.general.string = link
+        makeToast("Copy: " + link)
+//        if let url = URL(string: "http://novum.capital/") {
+//            UIApplication.shared.open(url, options: [:])
+//        }
     }
     
 }
