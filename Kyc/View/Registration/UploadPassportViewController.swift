@@ -12,12 +12,8 @@ import Alamofire
 
 class UploadPassportViewController: ParticipateCommonController {
     //MARK: - Properties
-    var imagePicker, passportPicker: UIImagePickerController!
-    var selectedCitizenship: Int = 0
-    var selectedCountry: Int = 0
     var citizenships: [CitizenshipModel] = []
     var countries: [CountryModel] = []
-    var selfieImage, passportImage: UIImage!
     
     //MARK: - Outlet
     @IBOutlet weak var btnSelectCitizenship: DropDownButton!
@@ -86,16 +82,17 @@ class UploadPassportViewController: ParticipateCommonController {
     
     func submit() {
         let params = [
-            "citizenship" : citizenships[selectedCitizenship].nationality,
-            "citizenship_id" : citizenships[selectedCitizenship].id,
-            "passport_number" : "BB",
-            "country_of_residence" : countries[selectedCountry].country
+            "citizenship" : btnSelectCitizenship.text,
+            "citizenship_id" : citizenships[btnSelectCitizenship.index].id,
+            "passport_number":"",
+            "country_of_residence" : btnSelectCoutry.text
             ] as [String : Any]
         let headers: HTTPHeaders = [
             "Content-Type" : "multipart/form-data",
             "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
         ]
-        httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers) { _ in
+        
+        httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: nil, passport: nil, parameters: params, headers: headers) { _ in
             self.gotoRegistrationCompletion()
         }
     }

@@ -21,6 +21,7 @@ class RetrievePasswordViewController: ParticipateCommonController{
         continueButton.delegate = self
         roundView.setImage(image: #imageLiteral(resourceName: "email"))
         continueButton.setButtonTitle(title: "RETRIEVE PASSWORD")
+        mailTextField.setPlaceholder("Your mail")
     }
     
     //MARK: - Events

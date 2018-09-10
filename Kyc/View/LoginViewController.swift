@@ -51,7 +51,7 @@ class LoginViewController: ParticipateCommonController {
                 emailTextField.text = email
             }
             
-            if let deviceSecurityEnable = UserDefaults.standard.object(forKey: UserProfiles.deviceSecurityEnable) as? Int, deviceSecurityEnable == 1 {
+            if let deviceSecurityEnable = UserDefaults.standard.object(forKey: UserProfiles.deviceSecurityEnable) as? String, deviceSecurityEnable == "true" {
 
                 authenticateUserUsingTouchId()
                 
@@ -71,7 +71,7 @@ class LoginViewController: ParticipateCommonController {
         httpRequest(URLConstant.baseURL + URLConstant.loginAccount, method: .post, parameters: params, headers: nil) { (json) in
             let user = UserModel(dictionary: json["user"] as! [String : Any])
             user.saveToLocal()
-            if (user.passportNumber == nil) {
+            if (user.citizenship == nil) {
                 self.gotoUploadPassport()
             } else {
                 self.gotoListProject()
@@ -88,7 +88,7 @@ class LoginViewController: ParticipateCommonController {
     
     func gotoUploadPassport() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController) as! UploadPassportViewController
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - Touch Id

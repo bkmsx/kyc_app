@@ -69,6 +69,7 @@
 		081B5BFB2121881600AFE162 /* PromotionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BFA2121881600AFE162 /* PromotionInformation.swift */; };
 		081E9B7221226A00004DAD1C /* SelectAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081E9B7121226A00004DAD1C /* SelectAll.swift */; };
 		081E9B7521226F01004DAD1C /* SelectAll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081E9B7421226F01004DAD1C /* SelectAll.xib */; };
+		0826E06D2145461D00E94445 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0826E06C2145461D00E94445 /* GoogleService-Info.plist */; };
 		082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C32109BC1D004AB6E8 /* LeftBarView.swift */; };
 		082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082A10C52109BC2C004AB6E8 /* LeftBarView.xib */; };
 		082A10C82109D37C004AB6E8 /* WalletInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082A10C72109D37C004AB6E8 /* WalletInputController.swift */; };
@@ -198,6 +199,8 @@
 		081B5BFA2121881600AFE162 /* PromotionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionInformation.swift; sourceTree = "<group>"; };
 		081E9B7121226A00004DAD1C /* SelectAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAll.swift; sourceTree = "<group>"; };
 		081E9B7421226F01004DAD1C /* SelectAll.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectAll.xib; sourceTree = "<group>"; };
+		0826E06B214543F700E94445 /* Kyc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kyc.entitlements; sourceTree = "<group>"; };
+		0826E06C2145461D00E94445 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		082A10C32109BC1D004AB6E8 /* LeftBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarView.swift; sourceTree = "<group>"; };
 		082A10C52109BC2C004AB6E8 /* LeftBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftBarView.xib; sourceTree = "<group>"; };
 		082A10C72109D37C004AB6E8 /* WalletInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInputController.swift; sourceTree = "<group>"; };
@@ -463,6 +466,7 @@
 		08AE3C6C20E377D4009E4E48 /* Kyc */ = {
 			isa = PBXGroup;
 			children = (
+				0826E06B214543F700E94445 /* Kyc.entitlements */,
 				08301D4C20E5E31B00DEAAAB /* Utilities */,
 				08AE3C9E20E38299009E4E48 /* ViewModel */,
 				08AE3C9D20E37BDA009E4E48 /* View */,
@@ -473,6 +477,7 @@
 				08AE3C7420E377D8009E4E48 /* Assets.xcassets */,
 				08AE3C7620E377D8009E4E48 /* LaunchScreen.storyboard */,
 				08AE3C7920E377D8009E4E48 /* Info.plist */,
+				0826E06C2145461D00E94445 /* GoogleService-Info.plist */,
 				08117EE72122DCEB00C03C98 /* Localizable.strings */,
 			);
 			path = Kyc;
@@ -636,6 +641,11 @@
 				TargetAttributes = {
 					08AE3C6920E377D4009E4E48 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					08AE3C7D20E377D9009E4E48 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -684,6 +694,7 @@
 				081E9B7521226F01004DAD1C /* SelectAll.xib in Resources */,
 				080868012108D7980033BECE /* UploadButton.xib in Resources */,
 				082A10C62109BC2C004AB6E8 /* LeftBarView.xib in Resources */,
+				0826E06D2145461D00E94445 /* GoogleService-Info.plist in Resources */,
 				082A10D5210A1A31004AB6E8 /* ParticipateHeader.xib in Resources */,
 				080867BF2105F2020033BECE /* RoundView.xib in Resources */,
 				08AE3C7520E377D8009E4E48 /* Assets.xcassets in Resources */,
@@ -738,16 +749,22 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1059,8 +1076,9 @@
 			baseConfigurationReference = CD20B301C354D9BE194D1AE9 /* Pods-Kyc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kyc/Kyc.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2HYZ4QQYRC;
 				INFOPLIST_FILE = Kyc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1068,10 +1086,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app3;
+				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "14bfa7a3-2e6d-4911-bd44-992af7735938";
-				PROVISIONING_PROFILE_SPECIFIER = kyc1;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1082,8 +1100,9 @@
 			baseConfigurationReference = 516AFC975EE8230568593144 /* Pods-Kyc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kyc/Kyc.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2HYZ4QQYRC;
 				INFOPLIST_FILE = Kyc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1091,10 +1110,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app3;
+				PRODUCT_BUNDLE_IDENTIFIER = novum.capital.kyc.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "14bfa7a3-2e6d-4911-bd44-992af7735938";
-				PROVISIONING_PROFILE_SPECIFIER = kyc1;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

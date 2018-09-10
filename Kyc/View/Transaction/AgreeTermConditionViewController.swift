@@ -51,7 +51,7 @@ class AgreeTermConditionViewController: ParticipateCommonController{
         if (termCheckbox.isChecked && uscitizenCheckbox.isChecked) {
             self.authenticateUserUsingTouchId()
         } else {
-            showMessage(message: "Please select checkboxes to agree with terms and condition")
+            showMessage(message: "Please check the boxes if you accept the Terms and Conditions for this project. Otherwise, please do not participate.")
         }
     }
     fileprivate func authenticateUserUsingTouchId() {

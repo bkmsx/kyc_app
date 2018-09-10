@@ -10,16 +10,18 @@ import UIKit
 
 class USDDetailViewController: ParticipateCommonController {
     var project: ProjectModel?
+    var paymentMethod: PaymentMethodModel?
+    
     @IBOutlet weak var participateHeader: ParticipateHeader!
     @IBOutlet weak var bankDetailBackground: UIView!
-    
     @IBOutlet weak var imageButton: ImageButton!
+    @IBOutlet weak var bankName: UILabel!
+    @IBOutlet weak var swiftCode: UILabel!
+    @IBOutlet weak var bankAddress: UILabel!
+    @IBOutlet weak var accountName: UILabel!
+    @IBOutlet weak var accountNumber: UILabel!
+    @IBOutlet weak var businessAddress: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
     //MARK: - Custom Views
     override func customViews() {
         bankDetailBackground.layer.cornerRadius = 10
@@ -30,13 +32,23 @@ class USDDetailViewController: ParticipateCommonController {
             participateHeader.setProjectTitle(title: project.title!)
             participateHeader.setCompanyLogo(link: project.logo!)
         }
+        if let paymentMethod = paymentMethod {
+            bankName.text = paymentMethod.bankName
+            swiftCode.text = paymentMethod.swiftCode
+            bankAddress.text = paymentMethod.bankAddress
+            accountName.text = paymentMethod.accountName
+            accountNumber.text = paymentMethod.accountNumber
+            businessAddress.text = paymentMethod.holderAddress
+        }
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "SHARE WITH FRIENDS")
     }
     
     override func imageButtonClick(_ sender: Any) {
         guard project?.isPromoted == 1 else {
-            showMessages("This project is not promoted")
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController) as! ChooseShareMethodViewController
+            vc.projectName = project?.title
+            navigationController?.pushViewController(vc, animated: true)
             return
         }
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController

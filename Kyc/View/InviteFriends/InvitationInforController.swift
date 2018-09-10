@@ -36,8 +36,8 @@ class InvitationInforController: ParticipateCommonController {
         bannerImage.image = #imageLiteral(resourceName: "share_friends")
         caption.text = "We are giving away special prizes for referring a friend to download this App"
         shortDes.text = "Win 3 Nano Ledger S every month!"
-        longDes.text = "One chance earned for every friend referred. Earn mega 10x chance multiplier if you refer 5 or more friends."
-        exampleDes.text = "E.g. If you referred 1 friend, your chances earned is 1. However, if you referred 5 friends, your chances earned will be 30."
+        longDes.text = "One chance earned for every friend referred. Earn mega 10x chance multiplier if you refer 3 or more friends."
+        exampleDes.text = "E.g. If you referred 1 friend, your chances earned is 1. However, if you referred 3 friends, your chances earned will be 30."
     }
     
     func setupLayout(_ promotion: PromotionInformation) {

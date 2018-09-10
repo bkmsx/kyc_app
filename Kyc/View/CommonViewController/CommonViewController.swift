@@ -75,19 +75,18 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Dialog
     func showMessages(_ message: String) {
-        let alert = UIAlertController.init(title: "Information", message: message, preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "Notice", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     //MARK: - Toast
     func makeToast(_ message: String) {
-        UIApplication.shared.keyWindow?.makeToast(message)
+        UIApplication.shared.keyWindow?.makeToast(message, position: .center)
     }
     
     //MARK: - HTTP request
     func httpRequest(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, headers: HTTPHeaders? = nil, success: @escaping (_ json: [String:Any]) -> Void) {
-        print(parameters)
         DispatchQueue.main.async {
             self.activityIndicatorView?.startAnimating()
         }

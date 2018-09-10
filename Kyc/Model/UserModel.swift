@@ -13,7 +13,7 @@ struct UserModel: Codable {
     let countryCode: Int!
     let phoneNumber: String!
     let dateOfBirth: String!
-    let deviceSecurityEnable: Int!
+    let deviceSecurityEnable: String!
     let email: String!
     let erc20Address: String!
     let firstName: String!
@@ -30,6 +30,7 @@ struct UserModel: Codable {
     let country: String!
     let referralCode: String!
     let referralBy: Int!
+    let passportVerified: String!
     
     init(dictionary: [String:Any]) {
         userId = dictionary["id"] as? Int ?? nil
@@ -37,7 +38,7 @@ struct UserModel: Codable {
         phoneNumber = dictionary["phone_number"] as? String ?? nil
         dateOfBirth = dictionary["date_of_birth"] as? String ?? nil
         passportNumber = dictionary["passport_number"] as? String ?? nil
-        deviceSecurityEnable = (dictionary["device_security_enable"] as! NSString).integerValue
+        deviceSecurityEnable = dictionary["device_security_enable"] as? String ?? nil
         email = dictionary["email"] as? String ?? nil
         erc20Address = dictionary["erc20_address"] as? String ?? nil
         firstName = dictionary["first_name"] as? String ?? nil
@@ -53,6 +54,7 @@ struct UserModel: Codable {
         country = dictionary["country_of_residence"] as? String ?? nil
         referralCode = dictionary["referral_code"] as? String ?? nil
         referralBy = dictionary["referred_by"] as? Int ?? nil
+        passportVerified = dictionary["passport_verified"] as? String ?? nil
     }
     
     func saveToLocal() {
@@ -77,6 +79,7 @@ struct UserModel: Codable {
         UserDefaults.standard.set(country, forKey: UserProfiles.country)
         UserDefaults.standard.set(referralCode, forKey: UserProfiles.referralCode)
         UserDefaults.standard.set(referralBy, forKey: UserProfiles.referralBy)
+        UserDefaults.standard.set(passportVerified, forKey: UserProfiles.passportVerified)
     }
     
     static func removeFromLocal() {

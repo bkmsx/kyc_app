@@ -53,7 +53,8 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         personalSetting.iconImage.image = #imageLiteral(resourceName: "blue_account")
         personalSetting.delegate = self
         
-        if (status != "CLEARED") {
+        let passportVerified = UserDefaults.standard.string(forKey: UserProfiles.passportVerified)
+        if (status != "CLEARED"  && passportVerified != "1") {
             updatePassport.settingLabel.text = "Update Password (VERIFY NOW)"
         } else {
             updatePassport.settingLabel.text = "Update Passport"

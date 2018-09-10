@@ -38,6 +38,7 @@ struct UserProfiles {
     static let country = "country"
     static let referralCode = "referralCode"
     static let referralBy = "referralBy"
+    static let passportVerified = "passportVerified"
     
     static let tempPassword = "tempPassword"
     static let tempEmail = "tempEmail"

@@ -10,15 +10,12 @@ import UIKit
 
 class SuccessTransactionViewController: ParticipateCommonController {
     var project: ProjectModel?
-    let walletAddress = "0xFAF31560d94E7dDE9098dC99B3419b927b87bC4F"
+    var paymentMethod: PaymentMethodModel?
+    
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var tokenNumberLabel: ColorLabel!
     @IBOutlet weak var shareLabel: ColorLabel!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        qrImageView.image = generateQRCode(from: walletAddress)
-    }
     
     //MARK: - Custom views
     @IBOutlet weak var header: ParticipateHeader!
@@ -31,7 +28,11 @@ class SuccessTransactionViewController: ParticipateCommonController {
             header.setCompanyLogo(link: (project.logo)!)
             header.setProjectTitle(title: (project.title?.uppercased())!)
         }
-        copyLabel.setText(text: walletAddress)
+        if let paymentMethod = paymentMethod {
+            copyLabel.setText(text: paymentMethod.walletAddress!)
+            qrImageView.image = generateQRCode(from: paymentMethod.walletAddress!)
+        }
+        
         
         tokenNumberLabel.setTextColor(shortText: "W Green Pay tokens", color: UIColor.white)
         tokenNumberLabel.setTextColor(shortText: "10 ETHER", color: UIColor.white)
@@ -45,7 +46,9 @@ class SuccessTransactionViewController: ParticipateCommonController {
     //MARK: - Navigations
     func gotoNext() {
         guard project?.isPromoted == 1 else {
-            showMessages("This project is not promoted")
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController) as! ChooseShareMethodViewController
+            vc.projectName = project?.title
+            navigationController?.pushViewController(vc, animated: true)
             return
         }
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController

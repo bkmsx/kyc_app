@@ -52,12 +52,16 @@ class TransactionDetailController: ParticipateCommonController {
     }
     
     func countAmount() {
-        let price = (paymentMethod?.price as! NSString).floatValue
-//        let price: Float  = 2
+        let price = (paymentMethod?.price! as! NSString).floatValue
         if (tokenNumber.text! == "") {
             ethAmount.text = "0"
         } else {
-            ethAmount.text = String(format: "%.2f", Float(tokenNumber.text!)! * price)
+            let tokens = tokenNumber.text!
+            if (tokens.matches("^[+-]?([0-9]*[.])?[0-9]+$")) {
+                ethAmount.text = String(format: "%.2f",  Float(tokens)! * price)
+            } else {
+                ethAmount.text = "0"
+            }
         }
     }
     
@@ -92,10 +96,12 @@ class TransactionDetailController: ParticipateCommonController {
         if let paymentMethod = paymentMethod, paymentMethod.methodName == "USD" {
             let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.USDDetailViewController) as! USDDetailViewController
             vc.project = project
+            vc.paymentMethod = paymentMethod
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.SuccessTransactionViewController) as! SuccessTransactionViewController
             vc.project = project
+            vc.paymentMethod = paymentMethod
             navigationController?.pushViewController(vc, animated: true)
         }
     }

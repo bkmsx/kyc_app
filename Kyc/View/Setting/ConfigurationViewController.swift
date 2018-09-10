@@ -25,7 +25,7 @@ class ConfigurationViewController: ParticipateCommonController {
         roundView.setImage(image: #imageLiteral(resourceName: "setting"))
         imageButton.setButtonTitle(title: "UPDATE")
         imageButton.delegate = self
-        oldCheck = UserDefaults.standard.integer(forKey: UserProfiles.deviceSecurityEnable) == 1 ? true : false
+        oldCheck = UserDefaults.standard.string(forKey: UserProfiles.deviceSecurityEnable) == "true" ? true : false
         radioGroup.setYes(oldCheck)
     }
     
@@ -34,7 +34,7 @@ class ConfigurationViewController: ParticipateCommonController {
         if (radioGroup.chooseYes() != oldCheck){
             authenticateUserUsingTouchId()
         } else {
-            showMessages("You didn't change setting")
+            showMessages("No update is performed as no setting was changed.")
         }
     }
     
@@ -63,13 +63,13 @@ class ConfigurationViewController: ParticipateCommonController {
     //MARK: - Call API
     func updateTouchIdEnable() {
         let params = [
-            "device_security_enable" : radioGroup.chooseYes()
+            "device_security_enable" : String(radioGroup.chooseYes())
             ] as [String:Any]
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
         httpRequest(URLConstant.baseURL + URLConstant.updateUserInfor, method: .post, parameters: params, headers: headers) { _ in
-            UserDefaults.standard.set(self.radioGroup.chooseYes() ? 1 : 0, forKey: UserProfiles.deviceSecurityEnable)
+            UserDefaults.standard.set(String(self.radioGroup.chooseYes()), forKey: UserProfiles.deviceSecurityEnable)
             self.goBack()
         }
     }

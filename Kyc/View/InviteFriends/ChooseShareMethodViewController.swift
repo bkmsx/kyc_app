@@ -13,16 +13,23 @@ class ChooseShareMethodViewController: ParticipateCommonController {
     var projectName: String?
     
     @IBOutlet weak var copyLabel: CopyLabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+    @IBOutlet weak var referralLinkButton: UIButton!
     
     //MARK: - Custom views
     override func customViews() {
         copyLabel.setText(text: UserDefaults.standard.string(forKey: UserProfiles.referralCode)!)
         copyLabel.setFontSize(22)
+        referralLinkButton.setTitle("bit.ly/2NmpSHg", for: .normal)
+    }
+    
+    //MARK: - Events
+    @IBAction func gotoTheSite(_ sender: Any) {
+        let link = "https://" + (sender as! UIButton).currentTitle!
+        UIPasteboard.general.string = link
+        makeToast("Copy: " + link)
+        //        if let url = URL(string: "http://novum.capital/") {
+        //            UIApplication.shared.open(url, options: [:])
+        //        }
     }
 
     //MARK: - Navigation
@@ -56,13 +63,6 @@ class ChooseShareMethodViewController: ParticipateCommonController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func gotoTheSite(_ sender: Any) {
-        let link = "https://" + (sender as! UIButton).currentTitle!
-        UIPasteboard.general.string = link
-        makeToast("Copy: " + link)
-//        if let url = URL(string: "http://novum.capital/") {
-//            UIApplication.shared.open(url, options: [:])
-//        }
-    }
+    
     
 }

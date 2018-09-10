@@ -35,6 +35,20 @@ class ChangeMobileViewController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
+        let text = phoneCode.text!
+        let index = text.index(text.startIndex, offsetBy: 1)
+        countryCode = String(text[index...])
+        phoneNumber = mobileTextField.text!
+        let oldPhoneNumber = UserDefaults.standard.string(forKey: UserProfiles.phoneNumber)!
+        let oldCountryCode = UserDefaults.standard.string(forKey: UserProfiles.countryCode)
+        if(phoneNumber == "") {
+            showMessage(message: "Please input phone number")
+            return
+        }
+        if (phoneNumber == oldPhoneNumber && oldCountryCode == countryCode) {
+            showMessage(message: "New phone number should be different")
+            return
+        }
         self.authenticateUserUsingTouchId()
     }
     //MARK: - Touch Id
@@ -60,11 +74,6 @@ class ChangeMobileViewController: ParticipateCommonController {
     
     //MARK: - Call API
     func requestOTP() {
-        let text = phoneCode.text!
-        let index = text.index(text.startIndex, offsetBy: 1)
-        countryCode = String(text[index...])
-        phoneNumber = mobileTextField.text!
-        
         let params: [String : Any] = [
             "country_code" : countryCode!,
             "phone_number" : phoneNumber!,

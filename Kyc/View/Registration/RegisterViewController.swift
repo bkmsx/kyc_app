@@ -50,6 +50,7 @@ class RegisterViewController: ParticipateCommonController {
     @IBAction func textFieldEditing(_ sender: UITextField) {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
+        datePicker.maximumDate = Date(timeIntervalSince1970: 1514721540)
         sender.inputView = datePicker
         datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
     }
@@ -109,6 +110,7 @@ class RegisterViewController: ParticipateCommonController {
             "validation" : 1,
             "platform": "iOS"
             ] as [String : Any]
+        
         httpRequest(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params, headers: nil) { _ in
             UserDefaults.standard.set(firstName, forKey: UserProfiles.tempFirstName)
             UserDefaults.standard.set(lastName, forKey: UserProfiles.tempLastName)

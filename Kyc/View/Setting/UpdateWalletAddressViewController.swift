@@ -17,14 +17,14 @@ class UpdateWalletAddressViewController: ParticipateCommonController, QRCodeRead
     @IBOutlet weak var newWalletTextField: UITextField!
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var scanButton: UploadButton!
+    @IBOutlet weak var currentWalletLabel: UILabel!
+    @IBOutlet weak var newWalletLabel: UILabel!
     
-    //MARK: - Initialization
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     //MARK: - Custom views
     override func customViews() {
+        title = "UPDATE WALLET"
+        currentWalletLabel.text = "CURRENT WALLET"
+        newWalletLabel.text = "NEW WALLET"
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "UPDATE")
         scanButton.setButtonIcon(image: #imageLiteral(resourceName: "blue_scan"))

@@ -11,8 +11,12 @@ import UIKit
 class TextFieldBottomBorder: UITextField {
 
     override func awakeFromNib() {
-        self.attributedPlaceholder = NSAttributedString.init(string: self.placeholder == nil ? "" : self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor:UIColor.gray])
+        setPlaceholder(self.placeholder)
         self.setBorderButtom(color: UIColor.init(argb: Colors.lightGray))
         self.backgroundColor = UIColor.clear
+    }
+    
+    func setPlaceholder(_ placeholder: String?) {
+        self.attributedPlaceholder = NSAttributedString.init(string: placeholder == nil ? "" : placeholder!, attributes: [NSAttributedStringKey.foregroundColor:UIColor.gray])
     }
 }

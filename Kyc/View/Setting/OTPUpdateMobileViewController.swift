@@ -14,17 +14,18 @@ class OTPUpdateMobileViewController: ParticipateCommonController, CodeInputViewD
     var countryCode: String?
     var phoneNumber: String?
     var code: String?
-    @IBOutlet weak var imageButton: ImageButton!
+    var lockResend = true
+    var timer: Timer!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+    @IBOutlet weak var imageButton: ImageButton!
     
     //MARK: - Custom Views
     override func customViews() {
         setupOTPInput()
         imageButton.delegate = self
+        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { _ in
+            self.lockResend = false
+        })
     }
 
     //MARK: - Setup OTP input
@@ -41,14 +42,21 @@ class OTPUpdateMobileViewController: ParticipateCommonController, CodeInputViewD
     }
     //MARK: - Resend OTP
     @IBAction func resendOTP(_ sender: Any) {
+        guard !lockResend else {
+            makeToast("You can resend after 60 seconds")
+            return
+        }
         let params = [
             "country_code" : countryCode!,
             "phone_number" : phoneNumber!,
             "via" : "sms"
             ] as [String : Any]
         httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { (json) in
-            self.activityIndicatorView?.stopAnimating()
             self.view.makeToast("Resent OTP code")
+            self.lockResend = true
+            self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { _ in
+                self.lockResend = false
+            })
         }
     }
     

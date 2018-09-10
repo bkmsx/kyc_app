@@ -19,8 +19,7 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     var passportImage: UIImage!
     var citizenships = [CitizenshipModel]()
     var countries = [CountryModel]()
-    var selectedCitizenship: Int = 0
-    var selectedCountry: Int = 0
+    var passportVerified: String!
     
     //MARK: - Outlet
     @IBOutlet weak var passportNumberTextField: UITextField!
@@ -29,6 +28,8 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var roundView: RoundView!
     @IBOutlet weak var uploadButton: UploadButton!
+    @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var photoView: UIView!
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +42,21 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         imageButton.setButtonTitle(title: "UPDATE")
         roundView.setImage(image: #imageLiteral(resourceName: "camera"))
         roundView.delegate = self
-        passportNumberTextField.text = UserDefaults.standard.string(forKey: UserProfiles.passportNumber)!
+        if let passportNumber = UserDefaults.standard.string(forKey: UserProfiles.passportNumber) {
+            passportNumberTextField.text = passportNumber
+        }
         uploadButton.delegate = self
+        passportVerified = UserDefaults.standard.string(forKey: UserProfiles.passportVerified)!
+        if (passportVerified == "1") {
+            informationLabel.isHidden = false
+            photoView.isHidden = true
+        } else {
+            informationLabel.isHidden = true
+            photoView.isHidden = false
+        }
     }
     
+    //MARK: - Events
     func clickUploadButton(sender: Any) {
         getPassportImage()
     }
@@ -53,12 +65,25 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         takeSelfie()
     }
     
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
+    override func imageButtonClick(_ sender: Any) {
+        if (passportVerified == "1") {
+            showMessages("We are in the process of verifying your passport details")
+            return
+        }
+        if (passportNumberTextField.text! == "") {
+            showMessages("Please input passport number")
+            return
+        }
+        if (passportImage == nil) {
+            showMessages("Please choose passport image")
+            return
+        }
+        updatePassport()
     }
     
-    override func imageButtonClick(_ sender: Any) {
-        updatePassport()
+    //MARK: - Navigation
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
     
     //MARK: - Setup citizenship and country
@@ -69,7 +94,9 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             countryList.append(country.country)
         }
         countryDropDown.setDataSource(source: countryList)
-        countryDropDown.setSelection(item: UserDefaults.standard.string(forKey: UserProfiles.country)!)
+        if let country = UserDefaults.standard.string(forKey: UserProfiles.country) {
+            countryDropDown.setSelection(item: country)
+        }
     }
     
     func setupCitizenshipDropDown(citizenships: [CitizenshipModel]){
@@ -78,7 +105,9 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             citizenshipList.append(citizenship.nationality)
         }
         citizenshipDropDown.setDataSource(source: citizenshipList)
-        citizenshipDropDown.setSelection(item: UserDefaults.standard.string(forKey: UserProfiles.citizenship)!)
+        if let citizenship = UserDefaults.standard.string(forKey: UserProfiles.citizenship) {
+            citizenshipDropDown.setSelection(item: citizenship)
+        }
     }
     
     //MARK: - Pick images
@@ -150,6 +179,7 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             UserDefaults.standard.set(citizenship, forKey: UserProfiles.citizenship)
             UserDefaults.standard.set(country, forKey: UserProfiles.country)
             UserDefaults.standard.set(passportNumber, forKey: UserProfiles.passportNumber)
+            UserDefaults.standard.set("1", forKey: UserProfiles.passportVerified)
             self.showMessage("Thank you for updating your passport details. Please give us 3 business days to verify your account.") { _ in
                 self.goBack()
             }

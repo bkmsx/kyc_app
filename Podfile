@@ -14,6 +14,8 @@ target 'Kyc' do
   pod 'DLRadioButton', '~> 1.4'
   pod 'QRCodeReader.swift', '~> 8.2.0'
   pod 'Toast-Swift', '~> 3.0.1'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
   target 'KycTests' do
     inherit! :search_paths
