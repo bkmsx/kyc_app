@@ -36,6 +36,8 @@ class TermConditionView: UIView, WKNavigationDelegate{
         
         webView = WKWebView(frame: webContainer.bounds)
         webView.navigationDelegate = self
+        webView.scrollView.bounces = false
+        webView.contentMode = .scaleToFill
         webContainer.addSubview(webView)
         activityIndicator.layer.zPosition = 100
         activityIndicator.layer.cornerRadius = 5

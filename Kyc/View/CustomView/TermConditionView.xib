@@ -40,10 +40,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdM-9y-a2s">
-                    <rect key="frame" x="0.0" y="71" width="375" height="563"/>
+                    <rect key="frame" x="0.0" y="71" width="335" height="563"/>
                     <subviews>
                         <activityIndicatorView hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lp3-z9-fid">
-                            <rect key="frame" x="167" y="261" width="40" height="40"/>
+                            <rect key="frame" x="147" y="261" width="40" height="40"/>
                             <color key="backgroundColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="CTO-FB-Ijt"/>
@@ -64,7 +64,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LdM-9y-a2s" secondAttribute="bottom" id="6r5-5D-S6q"/>
                 <constraint firstItem="in1-Ro-8gX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="KOV-4y-YFH"/>
                 <constraint firstItem="dPy-yg-1dE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="QTq-1J-osu"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LdM-9y-a2s" secondAttribute="trailing" id="fXV-e9-q22"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LdM-9y-a2s" secondAttribute="trailing" constant="40" id="fXV-e9-q22"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dPy-yg-1dE" secondAttribute="trailing" constant="5" id="jX8-lM-JZJ"/>
                 <constraint firstItem="LdM-9y-a2s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kF4-Jh-dHJ"/>
                 <constraint firstItem="in1-Ro-8gX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="sbQ-UL-YE6"/>
