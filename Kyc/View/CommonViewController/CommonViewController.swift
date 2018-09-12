@@ -87,6 +87,7 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - HTTP request
     func httpRequest(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, headers: HTTPHeaders? = nil, success: @escaping (_ json: [String:Any]) -> Void) {
+        print(parameters)
         DispatchQueue.main.async {
             self.activityIndicatorView?.startAnimating()
         }

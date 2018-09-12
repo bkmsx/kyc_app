@@ -39,6 +39,7 @@ struct UserProfiles {
     static let referralCode = "referralCode"
     static let referralBy = "referralBy"
     static let passportVerified = "passportVerified"
+    static let deviceToken = "deviceToken"
     
     static let tempPassword = "tempPassword"
     static let tempEmail = "tempEmail"
@@ -53,7 +54,7 @@ struct UserProfiles {
 }
 
 struct URLConstant {
-    static let baseURL = "http://kycapp.concordia.ventures/api"
+    static let baseURL = "https://kycapp.concordia.ventures/api"
     static let sendOTP = "/otp/send"
     static let verifyOTP = "/otp/verify"
     static let register = "/register"
@@ -78,6 +79,7 @@ struct URLConstant {
     static let projectShare = "/project/share"
     static let updateReferralCode = "/update-referral-code"
     static let bonusList = "/referral-bonus-list"
+    static let logout = "/logout/account"
 }
 
 struct SegueIdentifiers {

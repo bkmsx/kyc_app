@@ -49,29 +49,60 @@ class AgreeTermConditionViewController: ParticipateCommonController{
     //MARK: - Touch Id
     func checkSelectedTermCondition() {
         if (termCheckbox.isChecked && uscitizenCheckbox.isChecked) {
-            self.authenticateUserUsingTouchId()
+            let securityEnabled = UserDefaults.standard.string(forKey: UserProfiles.deviceSecurityEnable)!
+            if (securityEnabled == "true") {
+                self.authenticateUserUsingTouchId()
+            } else {
+                checkPassword()
+            }
+            
         } else {
             showMessage(message: "Please check the boxes if you accept the Terms and Conditions for this project. Otherwise, please do not participate.")
         }
     }
+    
+    func checkPassword() {
+        let dialog = UIAlertController(title: "Password", message: "Verify with Concordia password", preferredStyle: .alert)
+        dialog.addTextField { (textField) in
+            textField.isSecureTextEntry = true
+        }
+        dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.submitPassword(dialog.textFields![0].text!)
+        }))
+        self.present(dialog, animated: true, completion: nil)
+    }
+    
     fileprivate func authenticateUserUsingTouchId() {
         let context = LAContext()
         if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: nil) {
-            self.evaluateTouchAuthenticity(context: context)
-        }
-    }
-    
-    func evaluateTouchAuthenticity(context: LAContext) {
-        context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: "Press your finger") {(success, error) in
-            if (success) {
-                DispatchQueue.main.async {
-                    self.gotoNext()
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: "Press your finger") {(success, error) in
+                if (success) {
+                    DispatchQueue.main.async {
+                        self.gotoNext()
+                    }
+                } else {
+                    print("You are not the owner")
                 }
-            } else {
-                print("You are not the owner")
             }
         }
     }
+    
+    //MARK: - Call API
+    func submitPassword(_ password: String) {
+        let params = [
+            "email" : UserDefaults.standard.string(forKey: UserProfiles.email)!,
+            "password" : password,
+            "device_id" : UserDefaults.standard.string(forKey: UserProfiles.deviceToken)!,
+            "platform" : "iOS"
+        ]
+        httpRequest(URLConstant.baseURL + URLConstant.loginAccount, method: .post, parameters: params) { (json) in
+            let user = UserModel(dictionary: json["user"] as! [String : Any])
+            UserDefaults.standard.set(user.token, forKey: UserProfiles.token)
+            UserDefaults.standard.set(user.securityToken, forKey: UserProfiles.securityToken)
+            self.gotoNext()
+        }
+    }
+    
     //MARK: - segue to next vc
     func gotoNext() {
        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.WalletInputController) as! WalletInputController

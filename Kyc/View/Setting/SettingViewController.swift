@@ -101,9 +101,14 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     
     //MARK: - Navigations
     @IBAction func logout(_ sender: Any) {
-        UserModel.removeFromLocal()
-        let nav = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.LoginNavigationController)
-        navigationController?.present(nav!, animated: true, completion: nil)
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        httpRequest(URLConstant.baseURL + URLConstant.logout, method: .post, headers: headers) { _ in
+            UserModel.removeFromLocal()
+            let nav = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.LoginNavigationController)
+            self.navigationController?.present(nav!, animated: true, completion: nil)
+        }
     }
     
     @IBAction func backToProjectList(_ sender: Any) {

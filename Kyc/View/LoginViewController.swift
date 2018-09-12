@@ -33,7 +33,7 @@ class LoginViewController: ParticipateCommonController {
         let params = [
             "email" : emailTextField.text!,
             "password" : passwordTextField.text!,
-            "device_id" : "121323",
+            "device_id" : UserDefaults.standard.string(forKey: UserProfiles.deviceToken)!,
             "platform" : "iOS"
         ]
         
@@ -108,7 +108,7 @@ class LoginViewController: ParticipateCommonController {
                 let parameters = [
                     "email": UserDefaults.standard.object(forKey: UserProfiles.email) as! String,
                     "security_token": UserDefaults.standard.object(forKey: UserProfiles.securityToken) as! String,
-                    "device_id" : "121323",
+                    "device_id" : UserDefaults.standard.string(forKey: UserProfiles.deviceToken)!,
                     "platform" : "iOS"
                 ]
                 self.loginAccount(params: parameters)
