@@ -18,11 +18,6 @@ class ChangeMobileViewController: ParticipateCommonController {
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var phoneCode: TextFieldPicker!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-
     //MARK: - Custom Views
     override func customViews() {
         roundView.setImage(image: #imageLiteral(resourceName: "mobile"))

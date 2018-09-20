@@ -12,8 +12,6 @@ import Toast_Swift
 class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegate {
     //Inside
     var code = ""
-    var lockResend = true
-    var timer: Timer!
     
     @IBOutlet weak var continueImageButton: ImageButton!
     
@@ -21,9 +19,6 @@ class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegat
     override func customViews() {
         continueImageButton.delegate = self
         setupOTPInput()
-        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { _ in
-            self.lockResend = false
-        })
     }
     
     override func imageButtonClick(_ sender: Any) {
@@ -44,8 +39,10 @@ class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegat
     
     //MARK: - Call API
     @IBAction func resendOTP(_ sender: Any) {
-        guard !lockResend else {
-            makeToast("You can resend after 60 seconds")
+        let currentTime = Int(Date().timeIntervalSince1970)
+        let otpTime = UserDefaults.standard.integer(forKey: UserProfiles.OTPTime)
+        if (currentTime - otpTime < 60) {
+            makeToast("You can resend OTP code after 60 senconds")
             return
         }
         let countryCode = UserDefaults.standard.object(forKey: UserProfiles.tempCountryCode)!
@@ -56,11 +53,9 @@ class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegat
             "via" : "sms"
             ] as [String : Any]
         httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { _ in
-            self.view.makeToast("OTP code was sent")
-            self.lockResend = true
-            self.timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false, block: { _ in
-                self.lockResend = false
-            })
+            self.makeToast("OTP code was sent")
+            let currentTime = Int(Date().timeIntervalSince1970)
+            UserDefaults.standard.set(currentTime, forKey: UserProfiles.OTPTime)
         }
     }
     
@@ -128,7 +123,6 @@ class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegat
         goBack()
     }
     
-    
     //MARK: - Dialog
     func showMessage(message: String, buttonName: String, handler:((UIAlertAction) -> Swift.Void)?=nil) {
         let alert = UIAlertController.init(title: "Verify OTP", message: message, preferredStyle: .alert)
@@ -136,8 +130,4 @@ class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegat
         self.present(alert, animated: true, completion: nil)
     }
 
-    //MARK: - Clean
-    override func viewWillDisappear(_ animated: Bool) {
-        timer.invalidate()
-    }
 }

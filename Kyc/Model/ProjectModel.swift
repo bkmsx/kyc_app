@@ -20,7 +20,9 @@ struct ProjectModel {
     let currentSaleStart: String?
     let currentSaleEnd: String?
     let isPromoted: Int?
+    let currentTier: String?
     var paymentMethods: [PaymentMethodModel] = []
+    var salePeriods: [BonusTierModel] = []
     
     init(json: [String:Any]) {
        projectId = json["project_id"] as? Int ?? nil
@@ -34,6 +36,7 @@ struct ProjectModel {
         currentSaleStart = json["current_sale_start"] as? String ?? nil
         currentSaleEnd = json["current_sale_end"] as? String ?? nil
         isPromoted = json["promotion"] as? Int ?? 0
+        currentTier = json["current_tier"] as? String ?? "Not started"
         let payments = json["payment_methods"] as? [[String:Any]] ?? nil
         if let payments = payments {
             for paymentDic in payments {
@@ -41,5 +44,12 @@ struct ProjectModel {
                 paymentMethods.append(paymentMethod)
             }
         }
-    }
+        let periods = json["sale_periods"] as? [[String:Any]] ?? nil
+        if let periods = periods {
+            for period in periods {
+                let bonusTier = BonusTierModel(dic: period)
+                salePeriods.append(bonusTier)
+            }
+        }
+     }
 }

@@ -55,7 +55,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         
         let passportVerified = UserDefaults.standard.string(forKey: UserProfiles.passportVerified)
         if (status != "CLEARED"  && passportVerified != "1") {
-            updatePassport.settingLabel.text = "Update Password (VERIFY NOW)"
+            updatePassport.settingLabel.text = "Update Passport (VERIFY NOW)"
         } else {
             updatePassport.settingLabel.text = "Update Passport"
         }

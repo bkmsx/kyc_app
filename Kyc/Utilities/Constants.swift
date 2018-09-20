@@ -40,6 +40,7 @@ struct UserProfiles {
     static let referralBy = "referralBy"
     static let passportVerified = "passportVerified"
     static let deviceToken = "deviceToken"
+    static let OTPTime = "OTPTime"
     
     static let tempPassword = "tempPassword"
     static let tempEmail = "tempEmail"

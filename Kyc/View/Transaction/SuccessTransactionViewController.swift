@@ -11,6 +11,7 @@ import UIKit
 class SuccessTransactionViewController: ParticipateCommonController {
     var project: ProjectModel?
     var paymentMethod: PaymentMethodModel?
+    var amount: String?
     
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var qrImageView: UIImageView!
@@ -35,7 +36,12 @@ class SuccessTransactionViewController: ParticipateCommonController {
         
         
         tokenNumberLabel.setTextColor(shortText: "W Green Pay tokens", color: UIColor.white)
-        tokenNumberLabel.setTextColor(shortText: "10 ETHER", color: UIColor.white)
+        if let amount = amount, let paymentMethod = paymentMethod {
+            tokenNumberLabel.text = "You are approved to purchase W Green Pay tokens. Please send your " + amount + " " + paymentMethod.methodName! + " to this address below"
+            tokenNumberLabel.setTextColor(shortText: amount + " " + paymentMethod.methodName!, color: UIColor.white)
+        } else {
+            tokenNumberLabel.setTextColor(shortText: "0 ETHER", color: UIColor.white)
+        }
         shareLabel.setTextColor(shortText: "GET 10 FREE TOKENS", color: UIColor.white)
     }
     

@@ -52,7 +52,7 @@ class UploadPassportViewController: ParticipateCommonController {
     
     //MARK: - Events
     @IBAction func showTermsOfUse(_ sender: Any) {
-        let dialog = TermConditionDialog("https://novum.capital")
+        let dialog = TermConditionDialog("https://kycapp.concordia.ventures/terms")
         dialog.show(animated: true)
     }
     

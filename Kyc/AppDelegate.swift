@@ -10,6 +10,7 @@ import UIKit
 import DropDown
 import UserNotifications
 import Firebase
+import HockeySDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         DropDown.startListeningToKeyboard()
+        BITHockeyManager.shared().configure(withIdentifier: "novum.capital.kyc.app")
+        BITHockeyManager.shared().start()
+        BITHockeyManager.shared().crashManager.crashManagerStatus = BITCrashManagerStatus.autoSend
         // Use Firebase library to configure APIs
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)

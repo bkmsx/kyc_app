@@ -25,11 +25,12 @@ class ProjectDetailViewController: ParticipateCommonController {
     @IBOutlet weak var shortDescription: UITextView!
     @IBOutlet weak var detailedDescription: UITextView!
     @IBOutlet weak var period: UILabel!
-    @IBOutlet weak var discountPercent: UILabel!
     @IBOutlet weak var navigationTitle: UINavigationItem!
     @IBOutlet weak var statusIcon: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
-    
+    @IBOutlet weak var bonusTierView: UIView!
+    @IBOutlet weak var bonusTierViewHeight:
+    NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         getProjectDetail()
@@ -44,6 +45,7 @@ class ProjectDetailViewController: ParticipateCommonController {
             statusIcon.image = #imageLiteral(resourceName: "timer-sand")
             statusLabel.text = "You are unverified"
         }
+        
     }
     
     //MARK: - Get Project Detail
@@ -70,18 +72,17 @@ class ProjectDetailViewController: ParticipateCommonController {
         shortDescription.text = project.shortDescription
         detailedDescription.text = project.detailedDescription
         navigationTitle.title = project.title?.uppercased()
-        if (project.currentSaleStart != nil && project.currentSaleEnd != nil) {
-            period.text = "\(project.currentSaleStart!) - \(project.currentSaleEnd!)"
-        } else {
-            period.text = "Over"
+        period.text = project.currentTier
+        for index in (1...project.salePeriods.count) {
+            let bonusTier = BonusTier(frame: CGRect(x: 0, y: (index - 1) * 55, width: Int(bonusTierView.frame.width), height: 50))
+            let bonusTierModel = project.salePeriods[index - 1]
+            bonusTier.title.text = "\(bonusTierModel.title!):"
+            bonusTier.date.text = "\(bonusTierModel.saleStart!) - \(bonusTierModel.saleEnd!)"
+            bonusTier.bonus.text = "Bonus: \(bonusTierModel.discount!)%"
+            bonusTierView.addSubview(bonusTier)
         }
-        if (project.currentDiscount != nil) {
-            discountPercent.text = "\(project.currentDiscount!)%"
-        } else {
-            discountPercent.text = "None"
-        }
+        bonusTierViewHeight.constant = CGFloat(55 * project.salePeriods.count)
     }
-    
     
     //MARK: - Navigations
     @IBAction func clickBack(_ sender: Any) {
@@ -91,6 +92,9 @@ class ProjectDetailViewController: ParticipateCommonController {
     @IBAction func goNext(_ sender: Any) {
         guard status == "CLEARED" else {
             showMessages("Your account is unverified. Please go to Update Passport to verify your account")
+            return
+        }
+        guard let project = project else {
             return
         }
         if (participateAgain == nil) {

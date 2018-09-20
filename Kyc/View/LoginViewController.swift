@@ -42,7 +42,11 @@ class LoginViewController: ParticipateCommonController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//                let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.UploadPassportViewController)
+//        let y :[Int] = []
+//        let z = y[1]
+//        return
+//                let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ProjectDetailViewController)
+
 //                navigationController?.pushViewController(vc!, animated: true)
 //                return //FIXME: remove return
         if UserDefaults.standard.object(forKey: UserProfiles.securityToken) != nil {
@@ -133,7 +137,6 @@ class LoginViewController: ParticipateCommonController {
         alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-  
-    
+
 }
 

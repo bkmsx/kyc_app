@@ -12,10 +12,13 @@ import LocalAuthentication
 
 class AgreeTermConditionViewController: ParticipateCommonController{
     var project: ProjectModel?
+    
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
     @IBOutlet weak var termCheckbox: Checkbox!
     @IBOutlet weak var uscitizenCheckbox: Checkbox!
+    
+    var lockNextButton: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,20 +33,15 @@ class AgreeTermConditionViewController: ParticipateCommonController{
         header.setProjectTitle(title: (project?.title?.uppercased())!)
     }
     
+    //MARK: - Events
+    override func imageButtonClick(_ sender: Any) {
+        if lockNextButton {return}
+        checkSelectedTermCondition()
+    }
+    
     @IBAction func showTermsAndCoditions(_ sender: Any) {
         let dialog = TermConditionDialog("http://wpay.sg/kyc/terms.php")
         dialog.show(animated: true)
-    }
-    
-    @IBAction func clickBack(_ sender: Any) {
-        goBack()
-    }
-    
-    
-    override func imageButtonClick(_ sender: Any) {
-        //FIXME: check selected
-//        gotoNext()
-        checkSelectedTermCondition()
     }
     
     //MARK: - Touch Id
@@ -53,11 +51,12 @@ class AgreeTermConditionViewController: ParticipateCommonController{
             if (securityEnabled == "true") {
                 self.authenticateUserUsingTouchId()
             } else {
+               
                 checkPassword()
             }
             
         } else {
-            showMessage(message: "Please check the boxes if you accept the Terms and Conditions for this project. Otherwise, please do not participate.")
+            self.showMessages("Please check the boxes if you accept the Terms and Conditions for this project. Otherwise, please do not participate.")
         }
     }
     
@@ -67,8 +66,14 @@ class AgreeTermConditionViewController: ParticipateCommonController{
             textField.isSecureTextEntry = true
         }
         dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.submitPassword(dialog.textFields![0].text!)
+            let password = dialog.textFields![0].text!
+            if (password == "") {
+                self.showMessages("Please input password")
+                return
+            }
+            self.submitPassword(password)
         }))
+        dialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(dialog, animated: true, completion: nil)
     }
     
@@ -89,6 +94,7 @@ class AgreeTermConditionViewController: ParticipateCommonController{
     
     //MARK: - Call API
     func submitPassword(_ password: String) {
+        lockNextButton = true
         let params = [
             "email" : UserDefaults.standard.string(forKey: UserProfiles.email)!,
             "password" : password,
@@ -99,23 +105,20 @@ class AgreeTermConditionViewController: ParticipateCommonController{
             let user = UserModel(dictionary: json["user"] as! [String : Any])
             UserDefaults.standard.set(user.token, forKey: UserProfiles.token)
             UserDefaults.standard.set(user.securityToken, forKey: UserProfiles.securityToken)
+            self.lockNextButton = false
             self.gotoNext()
         }
     }
     
-    //MARK: - segue to next vc
+    //MARK: - Navigations
     func gotoNext() {
        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.WalletInputController) as! WalletInputController
         vc.project = project
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    //MARK: - Dialog
-    func showMessage(message: String) {
-        let alert = UIAlertController.init(title: "Notice", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    @IBAction func clickBack(_ sender: Any) {
+        goBack()
     }
-    
     
 }

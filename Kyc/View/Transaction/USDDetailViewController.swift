@@ -11,6 +11,7 @@ import UIKit
 class USDDetailViewController: ParticipateCommonController {
     var project: ProjectModel?
     var paymentMethod: PaymentMethodModel?
+    var amount: String?
     
     @IBOutlet weak var participateHeader: ParticipateHeader!
     @IBOutlet weak var bankDetailBackground: UIView!
@@ -21,6 +22,7 @@ class USDDetailViewController: ParticipateCommonController {
     @IBOutlet weak var accountName: UILabel!
     @IBOutlet weak var accountNumber: UILabel!
     @IBOutlet weak var businessAddress: UILabel!
+    @IBOutlet weak var usdAmount: ColorLabel!
     
     //MARK: - Custom Views
     override func customViews() {
@@ -31,6 +33,10 @@ class USDDetailViewController: ParticipateCommonController {
         if let project = project {
             participateHeader.setProjectTitle(title: project.title!)
             participateHeader.setCompanyLogo(link: project.logo!)
+        }
+        if let amount = amount {
+            usdAmount.text = "You are approved to purchase W Green Pay tokens. Please send your " + amount + " USD to this address below"
+            usdAmount.setTextColor(shortText: amount + " USD", color: UIColor.white)
         }
         if let paymentMethod = paymentMethod {
             bankName.text = paymentMethod.bankName

@@ -82,7 +82,9 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Toast
     func makeToast(_ message: String) {
-        UIApplication.shared.keyWindow?.makeToast(message, position: .center)
+        var style = ToastStyle()
+        style.messageAlignment = .center
+        UIApplication.shared.keyWindow?.makeToast(message, position: .center, style: style)
     }
     
     //MARK: - HTTP request
@@ -158,7 +160,6 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
     //MARK: - QR code generator
     func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
-        
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
             let transform = CGAffineTransform(scaleX: 3, y: 3)

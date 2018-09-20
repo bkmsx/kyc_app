@@ -74,9 +74,8 @@ class RegisterViewController: ParticipateCommonController {
     
     //MARK: - Validate data
     override func imageButtonClick(_ sender: Any) {
-        //FIXME: uncomment validateData
-                validateData()
-//                gotoVerifyOTP()
+        
+        validateData()
     }
     
     //MARK: - Call API
@@ -126,12 +125,21 @@ class RegisterViewController: ParticipateCommonController {
     }
     
     func sendOTPCode(){
+        let currenTime = Int(Date().timeIntervalSince1970)
+        let otpTime = UserDefaults.standard.integer(forKey: UserProfiles.OTPTime)
+        if ((currenTime - otpTime) < 60){
+            self.gotoVerifyOTP()
+            print("Go straight!!!")
+            return
+        }
         let params = [
             "country_code" : countryCode,
             "phone_number" : phoneNumber,
             "via" : "sms"
             ] as [String : Any]
         httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { _ in
+            let currentTime = Int(Date().timeIntervalSince1970)
+            UserDefaults.standard.set(currentTime, forKey: UserProfiles.OTPTime)
             self.gotoVerifyOTP()
         }
     }

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0DB5F2AE53ED99ADE314AB3188CEAE7B"
+               BlueprintIdentifier = "185827D216E43FD11FCD1F1BAADF6A0B"
                BuildableName = "QRCodeReader.framework"
                BlueprintName = "QRCodeReader.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0DB5F2AE53ED99ADE314AB3188CEAE7B"
+            BlueprintIdentifier = "185827D216E43FD11FCD1F1BAADF6A0B"
             BuildableName = "QRCodeReader.framework"
             BlueprintName = "QRCodeReader.swift"
             ReferencedContainer = "container:Pods.xcodeproj">

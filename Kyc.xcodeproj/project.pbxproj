@@ -109,6 +109,9 @@
 		08AE3C7820E377D8009E4E48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AE3C7620E377D8009E4E48 /* LaunchScreen.storyboard */; };
 		08AE3C8320E377D9009E4E48 /* KycTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C8220E377D9009E4E48 /* KycTests.swift */; };
 		08AE3C8E20E377D9009E4E48 /* KycUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AE3C8D20E377D9009E4E48 /* KycUITests.swift */; };
+		08C91D7D214F853D00AE4BB6 /* BonusTier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C91D7C214F853D00AE4BB6 /* BonusTier.swift */; };
+		08C91D7F214F855500AE4BB6 /* BonusTier.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08C91D7E214F855500AE4BB6 /* BonusTier.xib */; };
+		08C91D81214F918200AE4BB6 /* BonusTierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C91D80214F918200AE4BB6 /* BonusTierModel.swift */; };
 		2190BD1962750442F2156336 /* Pods_KycTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26A3488B9D7A59A9BCCB0 /* Pods_KycTests.framework */; };
 		3387FC76B8C705F49A93BF0F /* Pods_Kyc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD3C004D5F2E4DCBC7B4A98 /* Pods_Kyc.framework */; };
 		B5083463BA96107FAF0D5071 /* Pods_KycUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659F1DF65DB05EBACCB1B472 /* Pods_KycUITests.framework */; };
@@ -246,6 +249,9 @@
 		08AE3C8920E377D9009E4E48 /* KycUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KycUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AE3C8D20E377D9009E4E48 /* KycUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KycUITests.swift; sourceTree = "<group>"; };
 		08AE3C8F20E377D9009E4E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08C91D7C214F853D00AE4BB6 /* BonusTier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusTier.swift; sourceTree = "<group>"; };
+		08C91D7E214F855500AE4BB6 /* BonusTier.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BonusTier.xib; sourceTree = "<group>"; };
+		08C91D80214F918200AE4BB6 /* BonusTierModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusTierModel.swift; sourceTree = "<group>"; };
 		161A9692EC1DC78622DCF91C /* Pods-KycUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KycUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KycUITests/Pods-KycUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		516AFC975EE8230568593144 /* Pods-Kyc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kyc.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kyc/Pods-Kyc.release.xcconfig"; sourceTree = "<group>"; };
 		659F1DF65DB05EBACCB1B472 /* Pods_KycUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KycUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +349,8 @@
 				081B5BA02111C13500AFE162 /* TermConditionDialog.swift */,
 				081B5B9E2111BE7600AFE162 /* TermConditionView.xib */,
 				087371F2213FDC5F00C46AFD /* TextFieldNumber.swift */,
+				08C91D7C214F853D00AE4BB6 /* BonusTier.swift */,
+				08C91D7E214F855500AE4BB6 /* BonusTier.xib */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -524,6 +532,7 @@
 				081B5BAE2114639200AFE162 /* PaymentCategory.swift */,
 				081B5BBE211723BC00AFE162 /* WalletAddress.swift */,
 				081B5BFA2121881600AFE162 /* PromotionInformation.swift */,
+				08C91D80214F918200AE4BB6 /* BonusTierModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -686,6 +695,7 @@
 				08117EE92122DCEB00C03C98 /* Localizable.strings in Resources */,
 				080867F52108878E0033BECE /* DropDownButton.xib in Resources */,
 				0817C4F4210D8161001DC87B /* DialogView.xib in Resources */,
+				08C91D7F214F855500AE4BB6 /* BonusTier.xib in Resources */,
 				081B5B9F2111BE7600AFE162 /* TermConditionView.xib in Resources */,
 				0874C82F210B166700628D5E /* SettingRow.xib in Resources */,
 				081B5BC5211BF70E00AFE162 /* NoParticipateView.xib in Resources */,
@@ -749,7 +759,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
@@ -760,7 +770,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
@@ -823,6 +833,7 @@
 				08301D4020E4ACC700DEAAAB /* RegisterViewController.swift in Sources */,
 				081B5BBD2117237A00AFE162 /* WalletCategory.swift in Sources */,
 				08301D4420E4D62000DEAAAB /* RetrievePasswordViewController.swift in Sources */,
+				08C91D81214F918200AE4BB6 /* BonusTierModel.swift in Sources */,
 				081B5B9D2111BE6000AFE162 /* TermConditionView.swift in Sources */,
 				080868052109A9410033BECE /* ProjectCell.swift in Sources */,
 				081B5BAB21142D9A00AFE162 /* ConfigurationViewController.swift in Sources */,
@@ -847,6 +858,7 @@
 				08301D4720E4D8A300DEAAAB /* ListProjectViewController.swift in Sources */,
 				0817C4EE210CDBC4001DC87B /* Modal.swift in Sources */,
 				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
+				08C91D7D214F853D00AE4BB6 /* BonusTier.swift in Sources */,
 				0802992920F2680A0044C4E5 /* ProjectModel.swift in Sources */,
 				0817C4F0210CE3FB001DC87B /* CustomAlertDialog.swift in Sources */,
 				081B5BBB211711D300AFE162 /* WalletCell.swift in Sources */,

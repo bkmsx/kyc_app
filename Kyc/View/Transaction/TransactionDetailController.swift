@@ -97,11 +97,13 @@ class TransactionDetailController: ParticipateCommonController {
             let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.USDDetailViewController) as! USDDetailViewController
             vc.project = project
             vc.paymentMethod = paymentMethod
+            vc.amount = ethAmount.text
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.SuccessTransactionViewController) as! SuccessTransactionViewController
             vc.project = project
             vc.paymentMethod = paymentMethod
+            vc.amount = ethAmount.text
             navigationController?.pushViewController(vc, animated: true)
         }
     }
