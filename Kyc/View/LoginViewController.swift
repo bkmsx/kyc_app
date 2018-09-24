@@ -30,10 +30,11 @@ class LoginViewController: ParticipateCommonController {
             showMessage(message: "Password is empty")
             return
         }
+        let deviceToken = UserDefaults.standard.string(forKey: UserProfiles.deviceToken)
         let params = [
             "email" : emailTextField.text!,
             "password" : passwordTextField.text!,
-            "device_id" : UserDefaults.standard.string(forKey: UserProfiles.deviceToken)!,
+            "device_id" : deviceToken != nil ? deviceToken! : "1234" ,
             "platform" : "iOS"
         ]
         
@@ -42,9 +43,7 @@ class LoginViewController: ParticipateCommonController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let y :[Int] = []
-//        let z = y[1]
-//        return
+
 //                let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ProjectDetailViewController)
 
 //                navigationController?.pushViewController(vc!, animated: true)

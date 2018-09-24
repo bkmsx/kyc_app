@@ -105,7 +105,7 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
                 if (code == 200) {
                     success(json)
                 } else {
-                    self.showMessages(json["message"] as! String)
+                    self.showMessages(json["message"] as? String ?? "System error")
                 }
                 break
             case .failure(_):
