@@ -106,12 +106,13 @@ class LoginViewController: ParticipateCommonController {
         if (email.isEmpty) {
             email = "Press your imprint"
         }
+        let deviceToken = UserDefaults.standard.string(forKey: UserProfiles.deviceToken)
         context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: email) {(success, error) in
             if (success) {
                 let parameters = [
                     "email": UserDefaults.standard.object(forKey: UserProfiles.email) as! String,
                     "security_token": UserDefaults.standard.object(forKey: UserProfiles.securityToken) as! String,
-                    "device_id" : UserDefaults.standard.string(forKey: UserProfiles.deviceToken)!,
+                    "device_id" : deviceToken != nil ? deviceToken! : "1234" ,
                     "platform" : "iOS"
                 ]
                 self.loginAccount(params: parameters)

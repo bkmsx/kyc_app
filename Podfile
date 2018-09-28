@@ -9,7 +9,7 @@ target 'Kyc' do
   use_frameworks!
   
   # Pods for Kyc
-  pod 'Alamofire', '~> 4.7'
+  pod 'Alamofire', '~> 4.7.3'
   pod 'DropDown'
   pod 'DLRadioButton', '~> 1.4'
   pod 'QRCodeReader.swift', '~> 8.2.0'

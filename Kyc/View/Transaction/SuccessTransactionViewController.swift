@@ -37,7 +37,7 @@ class SuccessTransactionViewController: ParticipateCommonController {
         
         tokenNumberLabel.setTextColor(shortText: "W Green Pay tokens", color: UIColor.white)
         if let amount = amount, let paymentMethod = paymentMethod {
-            tokenNumberLabel.text = "You are approved to purchase W Green Pay tokens. Please send your " + amount + " " + paymentMethod.methodName! + " to this address below"
+            tokenNumberLabel.text = "You are approved to purchase " + (project?.title)! + " tokens. Please send your " + amount + " " + paymentMethod.methodName! + " to this address below"
             tokenNumberLabel.setTextColor(shortText: amount + " " + paymentMethod.methodName!, color: UIColor.white)
         } else {
             tokenNumberLabel.setTextColor(shortText: "0 ETHER", color: UIColor.white)
@@ -66,7 +66,5 @@ class SuccessTransactionViewController: ParticipateCommonController {
     @IBAction func backToProjectList(_ sender: Any) {
         goBackRootView()
     }
-    
-    
     
 }

@@ -9,8 +9,9 @@
 import UIKit
 import Alamofire
 import DropDown
+import QRCodeReader
 
-class WalletInputController: ParticipateCommonController, UploadButtonDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DropDownButtonDelegate {
+class WalletInputController: ParticipateCommonController, UploadButtonDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, DropDownButtonDelegate, QRCodeReaderViewControllerDelegate {
     //From previous
     var project: ProjectModel?
     //Inside
@@ -18,6 +19,7 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     var passportImage: UIImage?
     var walletDropDown = DropDown()
     var walletList: [WalletCategory] = []
+    var currentWalletList: [String] = []
     
     @IBOutlet weak var imageButton: ImageButton!
     @IBOutlet weak var header: ParticipateHeader!
@@ -43,7 +45,8 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         header.setSelectIndicator(index: 1)
         
         uploadButton.delegate = self
-        uploadButton.isHidden = UserDefaults.standard.string(forKey: UserProfiles.passportPhoto) != nil
+        uploadButton.setButtonIcon(image: UIImage(named: "blue_scan")!)
+        uploadButton.setButtonTitle(title: "SCAN")
         
         roundView.setImage(image: #imageLiteral(resourceName: "check"))
         walletView.layer.cornerRadius = walletView.frame.size.height / 2
@@ -65,10 +68,73 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     }
     
     func clickUploadButton(sender: Any) {
-        getPassport()
+        startScan()
+//        getPassport()
     }
     
+    //MARK: - Scan QR
+    func startScan() {
+        guard checkScanPermissions() else { return }
+        readerVC.modalPresentationStyle = .currentContext
+        readerVC.delegate               = self
+        present(readerVC, animated: true, completion: nil)
+    }
     
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader                  = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+            $0.showTorchButton         = true
+            $0.showSwitchCameraButton = false
+            $0.preferredStatusBarStyle = .lightContent
+            
+            $0.reader.stopScanningWhenCodeIsFound = false
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
+    private func checkScanPermissions() -> Bool {
+        do {
+            return try QRCodeReader.supportsMetadataObjectTypes()
+        } catch let error as NSError {
+            let alert: UIAlertController
+            
+            switch error.code {
+            case -11852:
+                alert = UIAlertController(title: "Error", message: "This app is not authorized to use Back Camera.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Setting", style: .default, handler: { (_) in
+                    DispatchQueue.main.async {
+                        if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
+                            UIApplication.shared.openURL(settingsURL)
+                        }
+                    }
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            default:
+                alert = UIAlertController(title: "Error", message: "Reader not supported by the current device", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            }
+            
+            present(alert, animated: true, completion: nil)
+            
+            return false
+        }
+    }
+    
+   
+    //MARK: QRCodeReader Delegates
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        reader.stopScanning()
+        dismiss(animated: true){
+            self.walletAddress.text = result.value
+        }
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        reader.stopScanning()
+        dismiss(animated: true, completion: nil)
+    }
     
     //MARK: - Dropdown
     func setupWalletDropDown() {
@@ -84,16 +150,15 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     }
     
     func setDropDownDataSource() {
-        var source = [String]()
         for walletCategory in walletList {
             if (walletCategory.methodName == dropdownButton.text) {
                 for wallet in walletCategory.wallets {
-                    source.append(wallet.address!)
+                    self.currentWalletList.append(wallet.address!)
                 }
                 break
             }
         }
-        walletDropDown.dataSource = source
+        walletDropDown.dataSource = self.currentWalletList
     }
     
     func didSelectDropDown(index: Int,text: String) {
@@ -105,9 +170,11 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
         }
         if (text == "USD") {
             walletContainer.isHidden = true
+            uploadButton.isHidden = true
             return
         } else {
             walletContainer.isHidden = false
+            uploadButton.isHidden = false
         }
         walletAddressTitle.text = "Your \(dropdownButton.text) Wallet:"
         walletNotice.text = "Your \(dropdownButton.text) must be sent from this wallet"
@@ -128,6 +195,24 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
                 self.walletList.append(walletCategory)
             }
             self.setDropDownDataSource()
+        }
+    }
+    
+    func addNewWallet() {
+        guard !(walletAddress.text?.isEmpty)! else {
+            return
+        }
+        let params = [
+            "method_id" : selectedPaymentMethod!.methodId!,
+            "wallet_address" : walletAddress.text!
+            ] as [String:Any]
+        
+        let headers = [
+            "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
+        ]
+        httpRequest(URLConstant.baseURL + URLConstant.addWallet, method: .post
+        , parameters: params, headers: headers) { _ in
+            self.gotoNext()
         }
     }
     
@@ -195,11 +280,13 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     }
     
     override func imageButtonClick(_ sender: Any) {
-        if (passportImage != nil) {
-            startUpload()
-        } else {
-            gotoNext()
+        for wallet in self.currentWalletList {
+            if (wallet == walletAddress.text!) {
+                gotoNext()
+                return
+            }
         }
+        addNewWallet()
     }
     
     func gotoNext(){

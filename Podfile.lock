@@ -61,7 +61,7 @@ PODS:
   - Toast-Swift (3.0.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
+  - Alamofire (~> 4.7.3)
   - DLRadioButton (~> 1.4)
   - DropDown
   - Firebase/Core
@@ -102,6 +102,6 @@ SPEC CHECKSUMS:
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: fcd283be483c950e18df9b65f9c0dbebf501773f
+PODFILE CHECKSUM: 303223c46e6a0fda067840429b650890dfbe69b1
 
 COCOAPODS: 1.5.3
