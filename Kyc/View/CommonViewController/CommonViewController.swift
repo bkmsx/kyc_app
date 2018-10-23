@@ -28,7 +28,9 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
             if subView is UITextField {
                 (subView as! UITextField).delegate = self
             } else {
-                setupTextFields(subView)
+                if !(subView is UISearchBar) {
+                    setupTextFields(subView)
+                }
             }
         }
     }
@@ -109,7 +111,7 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
                 }
                 break
             case .failure(_):
-                self.showMessages("There is an error")
+                self.showMessages("Concordia needs an internet connection to work.")
                 break
             }
         }

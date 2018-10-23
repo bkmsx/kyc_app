@@ -52,6 +52,9 @@ class ListProjectViewController: ParticipateCommonController, UITableViewDataSou
         if let currentDiscount = project.currentDiscount {
             cell.discountPercent.text = "\(String(describing: currentDiscount))%"
         }
+        if (project.status == "on_sale") {
+            cell.saleEnded.isHidden = true
+        }
         cell.projectId = project.projectId
         cell.badge.isHidden = !project.userParticipated!
         cell.delegate = self

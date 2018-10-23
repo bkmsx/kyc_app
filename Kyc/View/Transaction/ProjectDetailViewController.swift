@@ -82,6 +82,10 @@ class ProjectDetailViewController: ParticipateCommonController {
             bonusTierView.addSubview(bonusTier)
         }
         bonusTierViewHeight.constant = CGFloat(55 * project.salePeriods.count)
+        if (project.status == "sale_ended") {
+            participateButton.setTitle("SALE ENDED", for: .normal)
+            participateButton.isEnabled = false
+        }
     }
     
     //MARK: - Navigations

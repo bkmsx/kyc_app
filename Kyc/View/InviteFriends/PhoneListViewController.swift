@@ -11,21 +11,26 @@ import Contacts
 import MessageUI
 import Toast_Swift
 
-class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate {
+class PhoneListViewController: ParticipateCommonController, UITableViewDataSource, PhoneCellDelegate, MFMessageComposeViewControllerDelegate, UITableViewDelegate, UISearchBarDelegate {
     //From previous
     var projectName: String?
     
     //MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     var contacts: [ContactModel] = []
     var selectedContacts: [ContactModel] = []
+    var searchContacts = [ContactModel]()
+    var isSearch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
         getContacts()
     }
     
@@ -33,18 +38,55 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
     override func customViews() {
         phoneLabel.layer.cornerRadius = phoneLabel.frame.size.height / 2
         phoneLabel.clipsToBounds = true
-        
+    }
+    
+    //MARK: - Events
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchContacts = contacts.filter({(contact : ContactModel) -> Bool in
+            return contact.contactName.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearch = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearch = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearch = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearch = false
     }
     
     //MARK: - TableView DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let searchEmpty = searchBar.text?.isEmpty ?? true
+        if isSearch && !searchEmpty {
+            return searchContacts.count
+        }
         return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell", for: indexPath) as! PhoneCell
-        cell.contact = contacts[indexPath.row]
-        if selectedContacts.contains(where: { $0.contactName == contacts[indexPath.row].contactName}) {
+        var contact: ContactModel
+        let searchEmpty = searchBar.text?.isEmpty ?? true
+        if isSearch && !searchEmpty {
+            contact = searchContacts[indexPath.row]
+        } else {
+            contact = contacts[indexPath.row]
+        }
+        cell.contact = contact
+        if selectedContacts.contains(where: { $0.contactName == contact.contactName}) {
             cell.setCheck(true)
         } else {
             cell.setCheck(false)
@@ -150,7 +192,10 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
             if (contact.phoneNumbers.count > 0) {
                 contactPhone = contact.phoneNumbers[0].value.stringValue
             }
-            contacts.append(ContactModel(contactName: contactName, contactNumber: contactPhone))
+            if (contactName != "" && contactPhone != "") {
+                contacts.append(ContactModel(contactName: contactName, contactNumber: contactPhone))
+            }
         }
+        contacts = contacts.sorted(by: {$0.contactName < $1.contactName})
     }
 }

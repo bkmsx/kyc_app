@@ -81,13 +81,18 @@ class USDParticipateHistoryController: ParticipateCommonController {
     }
     
     override func imageButtonClick(_ sender: Any) {
-        guard let history = history, history.isPromoted == 1 else {
-            showMessages("This project is not promoted")
+        guard let history = history else {
             return
         }
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
-        vc.projectId = history.projectId
-        vc.projectName = history.title
-        navigationController?.pushViewController(vc, animated: true)
+        if history.isPromoted == 1 {
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.InvitationInforController) as! InvitationInforController
+            vc.projectId = history.projectId
+            vc.projectName = history.title
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ChooseShareMethodViewController) as! ChooseShareMethodViewController
+            vc.projectName = history.title
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

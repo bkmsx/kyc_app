@@ -19,6 +19,7 @@ class ProjectCell: UITableViewCell {
     @IBOutlet weak var addedDate: UILabel!
     @IBOutlet weak var shortDescription: UITextView!
     @IBOutlet weak var badge: UIImageView!
+    @IBOutlet weak var saleEnded: UILabel!
     
     var projectId: Int?
     var delegate: ProjectCellDelegate?

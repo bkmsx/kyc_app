@@ -20,8 +20,9 @@ struct ProjectModel {
     let currentSaleStart: String?
     let currentSaleEnd: String?
     let isPromoted: Int?
-    let currentTier: String?
+    var currentTier: String?
     let termUrl: String?
+    let status: String?
     var paymentMethods: [PaymentMethodModel] = []
     var salePeriods: [BonusTierModel] = []
     
@@ -37,8 +38,13 @@ struct ProjectModel {
         currentSaleStart = json["current_sale_start"] as? String ?? nil
         currentSaleEnd = json["current_sale_end"] as? String ?? nil
         isPromoted = json["promotion"] as? Int ?? 0
-        currentTier = json["current_tier"] as? String ?? "Not started"
+        
         termUrl = json["terms_url"] as? String ?? "https://kycapp.concordia.ventures/terms"
+        status = json["status"] as? String ?? "on_sale"
+        currentTier = json["current_tier"] as? String ?? "Not started"
+        if (status == "sale_ended") {
+            currentTier = "Sale ended"
+        }
         let payments = json["payment_methods"] as? [[String:Any]] ?? nil
         if let payments = payments {
             for paymentDic in payments {

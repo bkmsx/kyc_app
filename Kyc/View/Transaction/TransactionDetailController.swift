@@ -58,7 +58,11 @@ class TransactionDetailController: ParticipateCommonController {
         } else {
             let tokens = tokenNumber.text!
             if (tokens.matches("^[+-]?([0-9]*[.])?[0-9]+$")) {
-                ethAmount.text = String(format: "%.2f",  Float(tokens)! * price)
+                var amountFormat = "%.10f";
+                if (paymentMethod?.methodName! == "USD") {
+                    amountFormat = "%.2f";
+                }
+                ethAmount.text = String(format: amountFormat,  Float(tokens)! * price)
             } else {
                 ethAmount.text = "0"
             }

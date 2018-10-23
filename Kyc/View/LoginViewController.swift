@@ -44,8 +44,8 @@ class LoginViewController: ParticipateCommonController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//                let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ProjectDetailViewController)
-
+//        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.PhoneListViewController)
+//
 //                navigationController?.pushViewController(vc!, animated: true)
 //                return //FIXME: remove return
         if UserDefaults.standard.object(forKey: UserProfiles.securityToken) != nil {

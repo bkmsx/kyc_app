@@ -280,6 +280,10 @@ class WalletInputController: ParticipateCommonController, UploadButtonDelegate, 
     }
     
     override func imageButtonClick(_ sender: Any) {
+        if (selectedPaymentMethod?.methodName == "USD") {
+            gotoNext()
+            return
+        }
         for wallet in self.currentWalletList {
             if (wallet == walletAddress.text!) {
                 gotoNext()
