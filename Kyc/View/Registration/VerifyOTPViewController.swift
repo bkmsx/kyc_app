@@ -15,6 +15,11 @@ class VerifyOTPViewController: ParticipateCommonController, CodeInputViewDelegat
     
     @IBOutlet weak var continueImageButton: ImageButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        UserDefaults.standard.set("false", forKey: Constants.firstOpen)
+    }
+    
     //MARK: - Custom views
     override func customViews() {
         continueImageButton.delegate = self

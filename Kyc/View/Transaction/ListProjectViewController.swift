@@ -18,6 +18,7 @@ class ListProjectViewController: ParticipateCommonController, UITableViewDataSou
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set("false", forKey: Constants.firstOpen)
         tableView.dataSource = self
         getProjectList()
     }

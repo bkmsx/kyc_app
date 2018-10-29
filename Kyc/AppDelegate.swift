@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         DropDown.startListeningToKeyboard()
         // Use Firebase library to configure APIs
         if #available(iOS 10.0, *) {
@@ -36,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         application.registerForRemoteNotifications()
+        
+        let firstOpen = UserDefaults.standard.string(forKey: Constants.firstOpen)
+        if (firstOpen != "false") {
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let slideShowVC = storyboard.instantiateViewController(withIdentifier: ViewControllerIdentifiers.SlideShowViewController)
+            window?.rootViewController = slideShowVC
+        }
         return true
     }
     
