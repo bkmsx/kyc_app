@@ -24,7 +24,8 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusIcon: UIImageView!
-    @IBOutlet weak var exchangeCVEN: SettingRow!
+    @IBOutlet weak var exchangeView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +80,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         referralCode.iconImage.image = UIImage.init(named: "referral_blue")
         referralCode.delegate = self
         
-        exchangeCVEN.settingLabel.text = "CVEN Exchange"
-        exchangeCVEN.iconImage.image = UIImage.init(named: "exchange_blue")
-        exchangeCVEN.delegate = self
+        exchangeView.layer.cornerRadius = exchangeView.frame.height / 2
         
         shareButton.layer.cornerRadius = shareButton.frame.size.height / 2
         logoutButton.layer.cornerRadius = logoutButton.frame.size.height / 2
@@ -101,8 +100,6 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
             gotoSettings()
         } else if (setting == self.referralCode) {
             gotoReferralCode()
-        } else if (setting == self.exchangeCVEN) {
-            gotoCvenExchange()
         }
     }
     
@@ -116,6 +113,10 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
             let nav = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.LoginNavigationController)
             self.navigationController?.present(nav!, animated: true, completion: nil)
         }
+    }
+    @IBAction func gotoExchange(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.CvenExchangeViewController) as! CvenExchangeViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func backToProjectList(_ sender: Any) {
@@ -152,8 +153,4 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func gotoCvenExchange() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.CvenExchangeViewController) as! CvenExchangeViewController
-        navigationController?.pushViewController(vc, animated: true)
-    }
 }
