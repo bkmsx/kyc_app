@@ -45,12 +45,12 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
     
     //MARK: - TableView Datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return bonusList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EarnedTokenCell", for: indexPath) as! EarnedTokenCell
-//        cell.bonusToken = bonusList[indexPath.row]
+        cell.bonusToken = bonusList[indexPath.row]
         return cell
     }
     
@@ -87,14 +87,14 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
         ]
         httpRequest(URLConstant.baseURL + URLConstant.bonusList, method: .get, parameters: nil, headers: headers) { (json) in
             let bonusListDic = json["referral_list"] as! [[String:Any]]
-            var totalBonus = 0
+            var totalBonus = 0.0
             for bonusDic in bonusListDic {
                 let bonus = BonusToken.init(dic: bonusDic)
                 self.bonusList.append(bonus)
                 totalBonus += bonus.amount!
             }
             self.tableView.reloadData()
-            self.totalPoint.text = String.init(format: "%d", totalBonus)
+            self.totalPoint.text = String.init(format: "%.3f", totalBonus)
         }
     }
     
