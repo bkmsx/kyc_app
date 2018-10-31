@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReferralCodeController: ParticipateCommonController, UITableViewDataSource {
+class ReferralCodeController: ParticipateCommonController, UITableViewDataSource, UITableViewDelegate {
 
     //Inside
     var bonusList = [BonusToken]()
@@ -31,6 +31,7 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
         totalPoint.layer.cornerRadius = totalPoint.frame.size.height / 2
         totalPoint.clipsToBounds = true
         tableView.dataSource = self
+        tableView.delegate = self
         let referredBy = UserDefaults.standard.integer(forKey: UserProfiles.referralBy)
         if (referredBy != 0) {
             for childView in referralCodeView.subviews {
@@ -44,13 +45,26 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
     
     //MARK: - TableView Datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bonusList.count
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EarnedTokenCell", for: indexPath) as! EarnedTokenCell
-        cell.bonusToken = bonusList[indexPath.row]
+//        cell.bonusToken = bonusList[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReferralHeaderCell") as! ReferralHeaderCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 38
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 55
     }
     
     //MARK: - Call API

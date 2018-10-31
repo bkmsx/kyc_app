@@ -125,7 +125,7 @@ class PhoneListViewController: ParticipateCommonController, UITableViewDataSourc
             if let projectName = projectName {
                 controller.body = "Hey, participate in project: \"\(projectName)\" with referral code:\"\(referralCode)\" to get free token!"
             } else {
-                controller.body = "Hey, install KYC app and register with this referral code: \"\(referralCode)\" to get free token! Site: https://www.concordia.ventures"
+                controller.body = "Hi there! I've just tried Concordia Ventures App and it looks interesting. It allows me to earn passive income for life! Sign up with this code \"\(referralCode)\" to register for free! You can download from https://www.concordia.ventures"
             }
             controller.recipients = []
             for contact in selectedContacts {

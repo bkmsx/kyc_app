@@ -20,6 +20,13 @@ class InvitationInforController: ParticipateCommonController {
     @IBOutlet weak var shortDes: UILabel!
     @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var exam1: UILabel!
+    @IBOutlet weak var exam2: UILabel!
+    @IBOutlet weak var exam3: UILabel!
+    @IBOutlet weak var exam4: UILabel!
+    @IBOutlet weak var exam5: UILabel!
+    @IBOutlet weak var exam6: UILabel!
+    @IBOutlet weak var exam7: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +38,20 @@ class InvitationInforController: ParticipateCommonController {
     }
     
     func setupDefaultLayout() {
-        promotionTitle.text = "EARN FREE TOKENS"
+        promotionTitle.text = "EARN LIFETIME COMMISSIONS"
         subTitle.text = "for every friend referred!"
         bannerImage.image = #imageLiteral(resourceName: "share_friends")
-        caption.text = "We are giving away special prizes for referring a friend to download this App"
-        shortDes.text = "Win 3 Nano Ledger S every month!"
-        longDes.text = "One chance earned for every friend referred. Earn mega 10x chance multiplier if you refer 3 or more friends."
-        exampleDes.text = "E.g. If you referred 1 friend, your chances earned is 1. However, if you referred 3 friends, your chances earned will be 30."
+        caption.text = "Earn 3% of whatever your referred friends purchase! As a bonus, you will also earn 1% of your friend's referees purchases."
+        shortDes.text = "First 3 top referrals get the new Apple iPhone XR. Promotion ends 31st Dec 2018"
+        longDes.text = "Our unique two tier referral system will allow you to earn passive income for life. Earn 3% from direct referee and 1% from child referees."
+        exampleDes.text = ""
+        exam1.text = "You"
+        exam2.text = "/        \\"
+        exam3.text = "A            B"
+        exam4.text = "/                 \\"
+        exam5.text = "C                   D"
+        exam6.text = "If A buys $100 worth of tokens, you will earn $3"
+        exam7.text = "If C buys $100 worth of tokens, A will earn $3 while You will earn $1"
     }
     
     func setupLayout(_ promotion: PromotionInformation) {

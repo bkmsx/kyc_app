@@ -59,6 +59,7 @@ PODS:
   - Protobuf (3.6.1)
   - QRCodeReader.swift (8.2.0)
   - Toast-Swift (3.0.1)
+  - XLPagerTabStrip (8.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.3)
@@ -68,6 +69,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - QRCodeReader.swift (~> 8.2.0)
   - Toast-Swift (~> 3.0.1)
+  - XLPagerTabStrip
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -85,6 +87,7 @@ SPEC REPOS:
     - Protobuf
     - QRCodeReader.swift
     - Toast-Swift
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -101,7 +104,8 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
+  XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: 303223c46e6a0fda067840429b650890dfbe69b1
+PODFILE CHECKSUM: 0c8a69df21d1b8008174d749a82079f414524576
 
 COCOAPODS: 1.5.3

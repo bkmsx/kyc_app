@@ -16,6 +16,7 @@ target 'Kyc' do
   pod 'Toast-Swift', '~> 3.0.1'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'XLPagerTabStrip'
 
   target 'KycTests' do
     inherit! :search_paths

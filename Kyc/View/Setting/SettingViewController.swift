@@ -24,6 +24,7 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusIcon: UIImageView!
+    @IBOutlet weak var exchangeCVEN: SettingRow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,9 +75,13 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
         setting.iconImage.image = #imageLiteral(resourceName: "blue_setting")
         setting.delegate = self
         
-        referralCode.settingLabel.text = "Referral Code"
-        referralCode.iconImage.image = #imageLiteral(resourceName: "blue_setting")
+        referralCode.settingLabel.text = "My Referral Network"
+        referralCode.iconImage.image = UIImage.init(named: "referral_blue")
         referralCode.delegate = self
+        
+        exchangeCVEN.settingLabel.text = "CVEN Exchange"
+        exchangeCVEN.iconImage.image = UIImage.init(named: "exchange_blue")
+        exchangeCVEN.delegate = self
         
         shareButton.layer.cornerRadius = shareButton.frame.size.height / 2
         logoutButton.layer.cornerRadius = logoutButton.frame.size.height / 2
@@ -96,6 +101,8 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
             gotoSettings()
         } else if (setting == self.referralCode) {
             gotoReferralCode()
+        } else if (setting == self.exchangeCVEN) {
+            gotoCvenExchange()
         }
     }
     
@@ -142,6 +149,11 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     
     func gotoReferralCode() {
         let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.ReferralCodeController) as! ReferralCodeController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func gotoCvenExchange() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.CvenExchangeViewController) as! CvenExchangeViewController
         navigationController?.pushViewController(vc, animated: true)
     }
 }

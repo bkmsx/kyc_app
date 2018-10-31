@@ -128,6 +128,9 @@ struct ViewControllerIdentifiers {
     static let ReferralCodeController = "ReferralCodeController"
     static let SlideShowViewController = "SlideShowViewController"
     static let LoginViewController = "LoginViewController"
+    static let CvenExchangeViewController = "CvenExchangeViewController"
+    static let BuyViewController = "BuyViewController"
+    static let SellViewController = "SellViewController"
 }
 
 struct Colors {
@@ -135,4 +138,5 @@ struct Colors {
     static let easyBlue = 0x008ce5
     static let lightGray = 0x7a7777
     static let darkGray = 0x656363
+    static let darkestGray = 0x151515
 }

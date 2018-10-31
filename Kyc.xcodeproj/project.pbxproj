@@ -42,6 +42,13 @@
 		08192263210081B100CF2800 /* UpdatePassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08192262210081B100CF2800 /* UpdatePassportViewController.swift */; };
 		0819226521009DB800CF2800 /* UpdateWalletAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */; };
 		0819AC8820EC872100B1A3B4 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0819AC8720EC872100B1A3B4 /* CountryModel.swift */; };
+		081A6AC1218818FA00E00C24 /* CvenExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A6AC0218818FA00E00C24 /* CvenExchangeViewController.swift */; };
+		081A6AC62188370D00E00C24 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A6AC52188370D00E00C24 /* BuyViewController.swift */; };
+		081A6AC82188372400E00C24 /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A6AC72188372400E00C24 /* SellViewController.swift */; };
+		081A6ACA218859CC00E00C24 /* CvenDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A6AC9218859CC00E00C24 /* CvenDialog.swift */; };
+		081A6ACC21885A9F00E00C24 /* CvenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A6ACB21885A9F00E00C24 /* CvenView.swift */; };
+		081A6ACE21885AAB00E00C24 /* CvenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081A6ACD21885AAB00E00C24 /* CvenView.xib */; };
+		081A6AD021894A9200E00C24 /* ReferralHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A6ACF21894A9200E00C24 /* ReferralHeaderCell.swift */; };
 		081B5B9D2111BE6000AFE162 /* TermConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5B9C2111BE6000AFE162 /* TermConditionView.swift */; };
 		081B5B9F2111BE7600AFE162 /* TermConditionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081B5B9E2111BE7600AFE162 /* TermConditionView.xib */; };
 		081B5BA12111C13500AFE162 /* TermConditionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BA02111C13500AFE162 /* TermConditionDialog.swift */; };
@@ -183,6 +190,13 @@
 		08192262210081B100CF2800 /* UpdatePassportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassportViewController.swift; sourceTree = "<group>"; };
 		0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWalletAddressViewController.swift; sourceTree = "<group>"; };
 		0819AC8720EC872100B1A3B4 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		081A6AC0218818FA00E00C24 /* CvenExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvenExchangeViewController.swift; sourceTree = "<group>"; };
+		081A6AC52188370D00E00C24 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		081A6AC72188372400E00C24 /* SellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
+		081A6AC9218859CC00E00C24 /* CvenDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvenDialog.swift; sourceTree = "<group>"; };
+		081A6ACB21885A9F00E00C24 /* CvenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvenView.swift; sourceTree = "<group>"; };
+		081A6ACD21885AAB00E00C24 /* CvenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CvenView.xib; sourceTree = "<group>"; };
+		081A6ACF21894A9200E00C24 /* ReferralHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralHeaderCell.swift; sourceTree = "<group>"; };
 		081B5B9C2111BE6000AFE162 /* TermConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermConditionView.swift; sourceTree = "<group>"; };
 		081B5B9E2111BE7600AFE162 /* TermConditionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermConditionView.xib; sourceTree = "<group>"; };
 		081B5BA02111C13500AFE162 /* TermConditionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermConditionDialog.swift; sourceTree = "<group>"; };
@@ -356,6 +370,9 @@
 				0874C82A210AF58900628D5E /* CopyLabel.swift */,
 				0874C82C210AF81E00628D5E /* ColorLabel.swift */,
 				0874C82E210B166700628D5E /* SettingRow.xib */,
+				081A6AC9218859CC00E00C24 /* CvenDialog.swift */,
+				081A6ACB21885A9F00E00C24 /* CvenView.swift */,
+				081A6ACD21885AAB00E00C24 /* CvenView.xib */,
 				0874C830210B16B100628D5E /* SettingRow.swift */,
 				0874C834210B5F5600628D5E /* RadioGroup.swift */,
 				0817C4EF210CE3FB001DC87B /* CustomAlertDialog.swift */,
@@ -381,6 +398,7 @@
 				080868042109A9410033BECE /* ProjectCell.swift */,
 				0874C83A210B879900628D5E /* HistoryParticipateCell.swift */,
 				081B5BBA211711D300AFE162 /* WalletCell.swift */,
+				081A6ACF21894A9200E00C24 /* ReferralHeaderCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -426,6 +444,9 @@
 				0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */,
 				081B5BA621131A1C00AFE162 /* ChangeMobileViewController.swift */,
 				081B5BA82113491400AFE162 /* OTPUpdateMobileViewController.swift */,
+				081A6AC0218818FA00E00C24 /* CvenExchangeViewController.swift */,
+				081A6AC52188370D00E00C24 /* BuyViewController.swift */,
+				081A6AC72188372400E00C24 /* SellViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -724,6 +745,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				081A6ACE21885AAB00E00C24 /* CvenView.xib in Resources */,
 				08117EE92122DCEB00C03C98 /* Localizable.strings in Resources */,
 				080867F52108878E0033BECE /* DropDownButton.xib in Resources */,
 				0817C4F4210D8161001DC87B /* DialogView.xib in Resources */,
@@ -796,6 +818,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -807,6 +830,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -886,6 +910,7 @@
 				080867C92106FE430033BECE /* ImageButton.swift in Sources */,
 				082A10CD2109D4FE004AB6E8 /* ParticipateCommonController.swift in Sources */,
 				08F33E812186DB4C004C863E /* FiveViewController.swift in Sources */,
+				081A6AD021894A9200E00C24 /* ReferralHeaderCell.swift in Sources */,
 				0819224C20FF1C0300CF2800 /* AgreeTermConditionViewController.swift in Sources */,
 				081B5BC9211C20AD00AFE162 /* EarnedTokenCell.swift in Sources */,
 				0874C82B210AF58900628D5E /* CopyLabel.swift in Sources */,
@@ -896,6 +921,7 @@
 				08301D5820E614C600DEAAAB /* UploadPassportViewController.swift in Sources */,
 				08C91D7D214F853D00AE4BB6 /* BonusTier.swift in Sources */,
 				08F33E712180788D004C863E /* SlideShowViewController.swift in Sources */,
+				081A6ACC21885A9F00E00C24 /* CvenView.swift in Sources */,
 				0802992920F2680A0044C4E5 /* ProjectModel.swift in Sources */,
 				0817C4F0210CE3FB001DC87B /* CustomAlertDialog.swift in Sources */,
 				08F33E732181A037004C863E /* SlideIndicator.swift in Sources */,
@@ -905,10 +931,14 @@
 				0819225120FF8A0600CF2800 /* Checkbox.swift in Sources */,
 				081B5BCB211D700100AFE162 /* TextFieldPicker.swift in Sources */,
 				0874C833210B1E8800628D5E /* InvitationInforController.swift in Sources */,
+				081A6AC1218818FA00E00C24 /* CvenExchangeViewController.swift in Sources */,
 				08AE3C7020E377D4009E4E48 /* LoginViewController.swift in Sources */,
 				08301DA420EA34B400DEAAAB /* UserModel.swift in Sources */,
+				081A6AC62188370D00E00C24 /* BuyViewController.swift in Sources */,
 				082A10C42109BC1D004AB6E8 /* LeftBarView.swift in Sources */,
+				081A6AC82188372400E00C24 /* SellViewController.swift in Sources */,
 				08AE3C6E20E377D4009E4E48 /* AppDelegate.swift in Sources */,
+				081A6ACA218859CC00E00C24 /* CvenDialog.swift in Sources */,
 				081E9B7221226A00004DAD1C /* SelectAll.swift in Sources */,
 				08301D4220E4CD8F00DEAAAB /* CompleteRegisterViewController.swift in Sources */,
 				08F33E792186D94A004C863E /* OneViewController.swift in Sources */,
