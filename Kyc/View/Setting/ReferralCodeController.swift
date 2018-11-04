@@ -18,6 +18,8 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
     @IBOutlet weak var totalPoint: UILabel!
     @IBOutlet weak var referralCodeView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var topAlignTotalCven: NSLayoutConstraint!
+    @IBOutlet weak var zeroFriends: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +36,8 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
         tableView.delegate = self
         let referredBy = UserDefaults.standard.integer(forKey: UserProfiles.referralBy)
         if (referredBy != 0) {
-            for childView in referralCodeView.subviews {
-                childView.removeFromSuperview()
-            }
+            referralCodeView.isHidden = true
+            topAlignTotalCven.constant = 40
         }
     }
     @IBAction func applyReferralCode(_ sender: Any) {
@@ -92,6 +93,9 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
                 let bonus = BonusToken.init(dic: bonusDic)
                 self.bonusList.append(bonus)
                 totalBonus += bonus.amount!
+            }
+            if self.bonusList.isEmpty {
+                self.zeroFriends.isHidden = false
             }
             self.tableView.reloadData()
             self.totalPoint.text = String.init(format: "%.3f", totalBonus)

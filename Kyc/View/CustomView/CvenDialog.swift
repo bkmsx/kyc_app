@@ -28,7 +28,7 @@ class CvenDialog: UIView, Modal, CvenViewDelegate {
         backgroundView.alpha = 0.6
         backgroundView.frame = bounds
         addSubview(backgroundView)
-        dialogView = CvenView.init(frame: CGRect(x: 16, y: frame.height, width: frame.width - 32, height: 400))
+        dialogView = CvenView.init(frame: CGRect(x: 16, y: frame.height, width: frame.width - 32, height: 470))
         addSubview(dialogView)
         (dialogView as! CvenView).delegate = self
         backgroundView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(touchBackground)))

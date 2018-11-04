@@ -1364,7 +1364,7 @@
                                     <constraint firstAttribute="height" constant="170" id="UeU-Nx-YWx"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78D-NH-rxl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78D-NH-rxl" userLabel="input referral code">
                                 <rect key="frame" x="0.0" y="254" width="414" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBs-W5-laO">
@@ -1410,11 +1410,11 @@
                                     <constraint firstAttribute="trailing" secondItem="hjX-bg-Kfc" secondAttribute="trailing" constant="60" id="yhl-kC-cWf"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWW-BU-vUT">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWW-BU-vUT" userLabel="total cven">
                                 <rect key="frame" x="30" y="362" width="354" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL POINTS EARNED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQt-Sd-6xR">
-                                        <rect key="frame" x="0.0" y="11.666666666666686" width="163.66666666666666" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL CVEN EARNED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQt-Sd-6xR">
+                                        <rect key="frame" x="0.0" y="11.666666666666686" width="149.66666666666666" height="17"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1580,6 +1580,12 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 friends signed up using your referral code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-gc-PWd">
+                                <rect key="frame" x="149" y="545" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1593,13 +1599,16 @@
                             <constraint firstItem="ybe-Ep-43h" firstAttribute="top" secondItem="uWW-BU-vUT" secondAttribute="bottom" id="LbG-rq-VDV"/>
                             <constraint firstItem="waH-QH-kXe" firstAttribute="trailing" secondItem="5RY-YK-euq" secondAttribute="trailing" id="Lpz-8N-Flq"/>
                             <constraint firstItem="waH-QH-kXe" firstAttribute="bottom" secondItem="OCv-pf-cXl" secondAttribute="bottom" constant="15" id="RyP-eS-iza"/>
+                            <constraint firstItem="v3z-gc-PWd" firstAttribute="top" secondItem="ybe-Ep-43h" secondAttribute="top" constant="150" id="V4K-mt-dji"/>
+                            <constraint firstItem="v3z-gc-PWd" firstAttribute="trailing" secondItem="ybe-Ep-43h" secondAttribute="trailing" constant="-30" id="WEu-C4-Ln6"/>
                             <constraint firstItem="WRP-U6-GNL" firstAttribute="top" secondItem="ybe-Ep-43h" secondAttribute="bottom" constant="15" id="Ztr-zJ-NqQ"/>
                             <constraint firstItem="5RY-YK-euq" firstAttribute="top" secondItem="waH-QH-kXe" secondAttribute="top" id="e05-qM-151"/>
                             <constraint firstItem="WRP-U6-GNL" firstAttribute="leading" secondItem="waH-QH-kXe" secondAttribute="leading" id="fEj-Aq-hST"/>
                             <constraint firstItem="uWW-BU-vUT" firstAttribute="leading" secondItem="waH-QH-kXe" secondAttribute="leading" constant="30" id="h6N-d4-jhb"/>
                             <constraint firstItem="waH-QH-kXe" firstAttribute="trailing" secondItem="uWW-BU-vUT" secondAttribute="trailing" constant="30" id="j29-jd-wa1"/>
+                            <constraint firstItem="v3z-gc-PWd" firstAttribute="leading" secondItem="ybe-Ep-43h" secondAttribute="leading" constant="30" id="j7t-yT-eJL"/>
                             <constraint firstItem="ybe-Ep-43h" firstAttribute="trailing" secondItem="uWW-BU-vUT" secondAttribute="trailing" id="nAL-BI-07r"/>
-                            <constraint firstItem="uWW-BU-vUT" firstAttribute="top" secondItem="78D-NH-rxl" secondAttribute="bottom" constant="5" id="wsE-OK-Etl"/>
+                            <constraint firstItem="uWW-BU-vUT" firstAttribute="top" secondItem="5RY-YK-euq" secondAttribute="bottom" constant="128" id="p4i-RG-Ml9"/>
                             <constraint firstItem="waH-QH-kXe" firstAttribute="trailing" secondItem="WRP-U6-GNL" secondAttribute="trailing" id="wu0-oz-Lbg"/>
                             <constraint firstItem="OCv-pf-cXl" firstAttribute="top" secondItem="WRP-U6-GNL" secondAttribute="bottom" constant="5" id="xtF-Gt-RKz"/>
                         </constraints>
@@ -1617,7 +1626,9 @@
                         <outlet property="codeTextField" destination="hjX-bg-Kfc" id="7yC-5Q-pVy"/>
                         <outlet property="referralCodeView" destination="78D-NH-rxl" id="Elt-vE-nXY"/>
                         <outlet property="tableView" destination="ybe-Ep-43h" id="2VD-FX-Clf"/>
+                        <outlet property="topAlignTotalCven" destination="p4i-RG-Ml9" id="iRZ-uh-bnx"/>
                         <outlet property="totalPoint" destination="O5d-pF-Qe2" id="O9f-tn-aIv"/>
+                        <outlet property="zeroFriends" destination="v3z-gc-PWd" id="aUC-9h-ZyS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKw-YD-dRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1765,14 +1776,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kd-sr-URp" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="637" width="414" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="IRa-MD-t1Z"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="Qpx-aQ-veP">
-                                <rect key="frame" x="0.0" y="64" width="414" height="617"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="573"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTZ-sh-y6P" customClass="RoundView" customModule="Kyc" customModuleProvider="target">
                                 <rect key="frame" x="162" y="114" width="90" height="90"/>
@@ -1832,10 +1843,10 @@
                             <constraint firstItem="fqj-K3-Y6j" firstAttribute="trailing" secondItem="5Kd-sr-URp" secondAttribute="trailing" id="EGQ-UC-4VK"/>
                             <constraint firstItem="5Kd-sr-URp" firstAttribute="top" secondItem="Qpx-aQ-veP" secondAttribute="bottom" id="ETS-Kn-hed"/>
                             <constraint firstItem="5Kd-sr-URp" firstAttribute="leading" secondItem="fqj-K3-Y6j" secondAttribute="leading" id="KEl-1W-lgt"/>
-                            <constraint firstAttribute="bottom" secondItem="5Kd-sr-URp" secondAttribute="bottom" id="KFe-wl-D0J"/>
                             <constraint firstItem="Nmu-yP-q5j" firstAttribute="top" secondItem="6tK-jh-2bH" secondAttribute="bottom" constant="30" id="PHE-M3-cll"/>
                             <constraint firstItem="6tK-jh-2bH" firstAttribute="centerX" secondItem="MTZ-sh-y6P" secondAttribute="centerX" id="SMa-Ah-9g3"/>
                             <constraint firstItem="MTZ-sh-y6P" firstAttribute="top" secondItem="fqj-K3-Y6j" secondAttribute="top" constant="50" id="T8J-AL-ncG"/>
+                            <constraint firstItem="fqj-K3-Y6j" firstAttribute="bottom" secondItem="5Kd-sr-URp" secondAttribute="bottom" id="VOg-nI-878"/>
                             <constraint firstItem="6tK-jh-2bH" firstAttribute="top" secondItem="MTZ-sh-y6P" secondAttribute="bottom" constant="30" id="a2N-g5-YG9"/>
                             <constraint firstItem="Qpx-aQ-veP" firstAttribute="top" secondItem="fqj-K3-Y6j" secondAttribute="top" id="dgi-ah-3jb"/>
                             <constraint firstItem="Nmu-yP-q5j" firstAttribute="centerX" secondItem="fqj-K3-Y6j" secondAttribute="centerX" id="tzd-rl-Rho"/>
@@ -5526,40 +5537,40 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9A-Td-ahE">
-                                <rect key="frame" x="20" y="148" width="374" height="71.666666666666686"/>
+                                <rect key="frame" x="20" y="148" width="374" height="67"/>
                                 <string key="text">Please send your CVEN tokens to the address indicated below. Please make sure you send CVEN tokens from your wallet shown above. ETH will be credited back to the same wallet.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send CVEN to:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxQ-v9-pnU">
-                                <rect key="frame" x="20" y="239.66666666666666" width="374" height="17.999999999999972"/>
+                                <rect key="frame" x="20" y="235" width="374" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="soB-oq-8Kg" customClass="CopyLabel" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="20" y="267.66666666666669" width="374" height="40"/>
+                                <rect key="frame" x="20" y="263" width="374" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3Yi-xp-j8Y"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MyN-vZ-tqa">
-                                <rect key="frame" x="157" y="327.66666666666669" width="100" height="100"/>
+                                <rect key="frame" x="157" y="323" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="3gi-VF-Veg"/>
                                     <constraint firstAttribute="width" constant="100" id="AVZ-9P-gRg"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 ETH = 1 CVEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXQ-HS-ZiM">
-                                <rect key="frame" x="20" y="447.66666666666669" width="374" height="18"/>
+                                <rect key="frame" x="20" y="443" width="374" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYj-5p-Twm">
-                                <rect key="frame" x="157.66666666666666" y="485.66666666666669" width="98.999999999999972" height="28.000000000000057"/>
+                                <rect key="frame" x="157.66666666666666" y="481" width="98.999999999999972" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="WHAT IS CVEN?">
                                     <color key="titleColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5678,14 +5689,14 @@
                                     <constraint firstAttribute="height" constant="30" id="Wl5-sa-cuk"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join now and receive up to 4% of whatever your referees' purchase, forever! This offer may not last forever!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-97-Um0">
-                                <rect key="frame" x="30" y="578.66666666666663" width="354" height="57.333333333333371"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join now and receive up to 4% of whatever your referees' purchase, forever! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-97-Um0">
+                                <rect key="frame" x="30" y="597.66666666666663" width="354" height="38.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECEIVE COMMISSIONS FOREVER! LIMITED PERIOD ONLY!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRh-oW-LtA">
-                                <rect key="frame" x="40" y="503.00000000000006" width="334" height="45.666666666666686"/>
+                                <rect key="frame" x="40" y="522" width="334" height="45.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

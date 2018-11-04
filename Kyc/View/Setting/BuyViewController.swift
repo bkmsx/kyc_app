@@ -14,7 +14,7 @@ class BuyViewController: UIViewController, IndicatorInfoProvider {
     @IBOutlet weak var qrCode: UIImageView!
     @IBOutlet weak var walletAddress: CopyLabel!
     
-    let WALLET = "0x50fdECCb40cEBC0D06C97F4D95Df82B2FC2ca7fF"
+    let WALLET = "0x688dde13bD594A9030feeFe6fa39cb353B7351c7"
     
     override func viewDidLoad() {
         super.viewDidLoad()
