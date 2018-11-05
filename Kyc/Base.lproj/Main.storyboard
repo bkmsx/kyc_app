@@ -131,6 +131,7 @@
                         <outlet property="emailTextField" destination="6dU-Dw-Ao6" id="M3G-o5-ZjZ"/>
                         <outlet property="loginButton" destination="eLD-nP-Kyr" id="BHe-9p-D2r"/>
                         <outlet property="passwordTextField" destination="eZI-Lw-s3A" id="HGv-uW-SdC"/>
+                        <outlet property="roundView" destination="1hm-YJ-zFu" id="AFg-Jr-JBw"/>
                         <segue destination="daL-Ma-IwY" kind="show" id="ljh-6c-t0C"/>
                     </connections>
                 </viewController>
@@ -1627,6 +1628,7 @@
                         <outlet property="referralCodeView" destination="78D-NH-rxl" id="Elt-vE-nXY"/>
                         <outlet property="tableView" destination="ybe-Ep-43h" id="2VD-FX-Clf"/>
                         <outlet property="topAlignTotalCven" destination="p4i-RG-Ml9" id="iRZ-uh-bnx"/>
+                        <outlet property="totalCvenTitle" destination="jQt-Sd-6xR" id="EWo-M4-bC8"/>
                         <outlet property="totalPoint" destination="O5d-pF-Qe2" id="O9f-tn-aIv"/>
                         <outlet property="zeroFriends" destination="v3z-gc-PWd" id="aUC-9h-ZyS"/>
                     </connections>
@@ -4918,7 +4920,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhw-zy-ckl">
                                                     <rect key="frame" x="384" y="12.666666666666664" width="25" height="25"/>
-                                                    <state key="normal" image="close"/>
+                                                    <state key="normal" image="trash_blue"/>
                                                     <connections>
                                                         <action selector="deleteWallet:" destination="tTJ-dL-aH3" eventType="touchUpInside" id="dPo-YH-Zrx"/>
                                                     </connections>
@@ -5530,47 +5532,41 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="3WY-NV-i6x">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current CVEN Wallet is:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZN-ye-Tgs">
-                                <rect key="frame" x="20" y="50" width="374" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9A-Td-ahE">
-                                <rect key="frame" x="20" y="148" width="374" height="67"/>
-                                <string key="text">Please send your CVEN tokens to the address indicated below. Please make sure you send CVEN tokens from your wallet shown above. ETH will be credited back to the same wallet.</string>
+                                <rect key="frame" x="20" y="50" width="374" height="50.333333333333343"/>
+                                <string key="text">Please send your CVEN tokens to the address indicated below. Ethereum gas fees apply. ETH will be credited back to the same wallet.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send CVEN to:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxQ-v9-pnU">
-                                <rect key="frame" x="20" y="235" width="374" height="18"/>
+                                <rect key="frame" x="20" y="120.33333333333331" width="374" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="soB-oq-8Kg" customClass="CopyLabel" customModule="Kyc" customModuleProvider="target">
-                                <rect key="frame" x="20" y="263" width="374" height="40"/>
+                                <rect key="frame" x="20" y="148.33333333333334" width="374" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3Yi-xp-j8Y"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MyN-vZ-tqa">
-                                <rect key="frame" x="157" y="323" width="100" height="100"/>
+                                <rect key="frame" x="157" y="208.33333333333337" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="3gi-VF-Veg"/>
                                     <constraint firstAttribute="width" constant="100" id="AVZ-9P-gRg"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 ETH = 1 CVEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXQ-HS-ZiM">
-                                <rect key="frame" x="20" y="443" width="374" height="18"/>
+                                <rect key="frame" x="20" y="328.33333333333331" width="374" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYj-5p-Twm">
-                                <rect key="frame" x="157.66666666666666" y="481" width="98.999999999999972" height="28"/>
+                                <rect key="frame" x="157.66666666666666" y="366.33333333333331" width="98.999999999999972" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="WHAT IS CVEN?">
                                     <color key="titleColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5579,26 +5575,12 @@
                                     <action selector="showCvenDialog:" destination="Wla-Cg-qvf" eventType="touchUpInside" id="7m1-eM-2aU"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0x50fdECCb40cEBC0D06C97F4D95Df82B2FC2ca7fF" borderStyle="roundedRect" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="hee-GM-MH6">
-                                <rect key="frame" x="20" y="88" width="374" height="40"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="J0E-jx-r8Q"/>
-                                </constraints>
-                                <color key="textColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="soB-oq-8Kg" firstAttribute="leading" secondItem="YMP-if-I0L" secondAttribute="leading" constant="20" id="4eY-DQ-G2N"/>
                             <constraint firstItem="QXQ-HS-ZiM" firstAttribute="top" secondItem="MyN-vZ-tqa" secondAttribute="bottom" constant="20" id="78q-LV-cm7"/>
                             <constraint firstItem="MyN-vZ-tqa" firstAttribute="centerX" secondItem="YMP-if-I0L" secondAttribute="centerX" id="8g2-lN-amg"/>
-                            <constraint firstItem="YMP-if-I0L" firstAttribute="trailing" secondItem="bZN-ye-Tgs" secondAttribute="trailing" constant="20" id="9Fw-Ta-wya"/>
                             <constraint firstItem="3WY-NV-i6x" firstAttribute="top" secondItem="YMP-if-I0L" secondAttribute="top" id="Aot-Jw-tSX"/>
                             <constraint firstItem="EYj-5p-Twm" firstAttribute="centerX" secondItem="YMP-if-I0L" secondAttribute="centerX" id="Bci-DB-Wbs"/>
                             <constraint firstItem="MyN-vZ-tqa" firstAttribute="top" secondItem="soB-oq-8Kg" secondAttribute="bottom" constant="20" id="CBy-O5-5mK"/>
@@ -5606,27 +5588,21 @@
                             <constraint firstItem="3WY-NV-i6x" firstAttribute="leading" secondItem="YMP-if-I0L" secondAttribute="leading" id="JPG-Dt-5nh"/>
                             <constraint firstItem="YMP-if-I0L" firstAttribute="trailing" secondItem="3WY-NV-i6x" secondAttribute="trailing" id="Px5-KY-Rdg"/>
                             <constraint firstItem="AxQ-v9-pnU" firstAttribute="top" secondItem="W9A-Td-ahE" secondAttribute="bottom" constant="20" id="Sfe-Tm-U6g"/>
-                            <constraint firstItem="YMP-if-I0L" firstAttribute="trailing" secondItem="hee-GM-MH6" secondAttribute="trailing" constant="20" id="U3w-XT-76P"/>
                             <constraint firstItem="W9A-Td-ahE" firstAttribute="leading" secondItem="YMP-if-I0L" secondAttribute="leading" constant="20" id="VkW-Fj-MZT"/>
                             <constraint firstItem="soB-oq-8Kg" firstAttribute="top" secondItem="AxQ-v9-pnU" secondAttribute="bottom" constant="10" id="WCw-Cp-Jh7"/>
                             <constraint firstItem="YMP-if-I0L" firstAttribute="trailing" secondItem="W9A-Td-ahE" secondAttribute="trailing" constant="20" id="X6M-Jp-CT9"/>
-                            <constraint firstItem="hee-GM-MH6" firstAttribute="leading" secondItem="YMP-if-I0L" secondAttribute="leading" constant="20" id="XIP-2F-zGU"/>
-                            <constraint firstItem="W9A-Td-ahE" firstAttribute="top" secondItem="hee-GM-MH6" secondAttribute="bottom" constant="20" id="a09-3d-lo8"/>
                             <constraint firstItem="QXQ-HS-ZiM" firstAttribute="leading" secondItem="YMP-if-I0L" secondAttribute="leading" constant="20" id="dx8-u7-vdT"/>
                             <constraint firstItem="EYj-5p-Twm" firstAttribute="top" secondItem="QXQ-HS-ZiM" secondAttribute="bottom" constant="20" id="fZp-nK-Hdp"/>
                             <constraint firstItem="YMP-if-I0L" firstAttribute="trailing" secondItem="soB-oq-8Kg" secondAttribute="trailing" constant="20" id="gFm-Hr-Nge"/>
                             <constraint firstItem="AxQ-v9-pnU" firstAttribute="leading" secondItem="YMP-if-I0L" secondAttribute="leading" constant="20" id="itv-eS-xQu"/>
                             <constraint firstItem="YMP-if-I0L" firstAttribute="bottom" secondItem="3WY-NV-i6x" secondAttribute="bottom" id="j6s-p7-JQC"/>
-                            <constraint firstItem="bZN-ye-Tgs" firstAttribute="top" secondItem="YMP-if-I0L" secondAttribute="top" constant="30" id="s0r-fK-3Rk"/>
-                            <constraint firstItem="bZN-ye-Tgs" firstAttribute="leading" secondItem="YMP-if-I0L" secondAttribute="leading" constant="20" id="szI-LW-R7I"/>
-                            <constraint firstItem="hee-GM-MH6" firstAttribute="top" secondItem="bZN-ye-Tgs" secondAttribute="bottom" constant="20" id="tYM-PU-8X5"/>
                             <constraint firstItem="YMP-if-I0L" firstAttribute="trailing" secondItem="QXQ-HS-ZiM" secondAttribute="trailing" constant="20" id="xnw-GA-rQJ"/>
+                            <constraint firstItem="W9A-Td-ahE" firstAttribute="top" secondItem="YMP-if-I0L" secondAttribute="top" constant="30" id="zFA-IZ-pkj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YMP-if-I0L"/>
                     </view>
                     <connections>
                         <outlet property="qrCode" destination="MyN-vZ-tqa" id="N28-UD-qgg"/>
-                        <outlet property="userAddress" destination="hee-GM-MH6" id="JCn-Qu-Abb"/>
                         <outlet property="walletAddress" destination="soB-oq-8Kg" id="FKx-ou-gDr"/>
                     </connections>
                 </viewController>
@@ -5815,6 +5791,7 @@
         <image name="participated" width="204" height="118"/>
         <image name="pattern_top" width="270" height="270"/>
         <image name="sms" width="84" height="84"/>
+        <image name="trash_blue" width="35" height="35"/>
         <image name="whatsapp" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>

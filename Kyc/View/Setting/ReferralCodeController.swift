@@ -20,6 +20,7 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topAlignTotalCven: NSLayoutConstraint!
     @IBOutlet weak var zeroFriends: UILabel!
+    @IBOutlet weak var totalCvenTitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,7 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
             referralCodeView.isHidden = true
             topAlignTotalCven.constant = 40
         }
+        totalCvenTitle.text = "TOTAL CVEN EARNED"
     }
     @IBAction func applyReferralCode(_ sender: Any) {
         submitReferralCode()

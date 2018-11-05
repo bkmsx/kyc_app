@@ -13,6 +13,10 @@ class RoundView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var photo: UIImageView!
+    
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageWidth: NSLayoutConstraint!
+    
     var delegate: RoundViewDelegate?
     var lock = false
     var timer: Timer!
@@ -48,6 +52,11 @@ class RoundView: UIView {
     
     func setImage(image: UIImage) {
         imageView.image = image
+    }
+    
+    func setImageSize(_ size: CGFloat) {
+        imageWidth.constant = size
+        imageHeight.constant = size
     }
     
     func loadImage(link: String) {

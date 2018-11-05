@@ -19,6 +19,7 @@ class LoginViewController: ParticipateCommonController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var roundView: RoundView!
     
     @IBAction func login(_ sender: Any) {
 
@@ -67,6 +68,8 @@ class LoginViewController: ParticipateCommonController {
         emailTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
         passwordTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
         loginButton.layer.cornerRadius = loginButton.frame.size.height / 2
+        roundView.setImageSize(70)
+        roundView.setImage(image: UIImage.init(named: "concordia_white")!)
     }
     
     //MARK: - Login

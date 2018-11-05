@@ -13,15 +13,11 @@ class SellViewController: UIViewController, IndicatorInfoProvider {
     let WALLET = "0x688dde13bD594A9030feeFe6fa39cb353B7351c7"
     
     
-    
-    @IBOutlet weak var userAddress: UITextField!
     @IBOutlet weak var qrCode: UIImageView!
     @IBOutlet weak var walletAddress: CopyLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        userAddress.layer.cornerRadius = userAddress.frame.height / 2
-        userAddress.clipsToBounds = true
-        userAddress.isUserInteractionEnabled = false
+        
         walletAddress.setText(text: WALLET)
         qrCode.image = generateQRCode(WALLET)
     }
