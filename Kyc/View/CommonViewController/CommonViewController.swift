@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Toast_Swift
+import SystemConfiguration
 
 class CommonViewController: UIViewController, UITextFieldDelegate {
     var activityIndicatorView: UIActivityIndicatorView?
@@ -111,7 +112,11 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
                 }
                 break
             case .failure(_):
-                self.showMessages("Concordia needs an internet connection to work.")
+                if (self.isInternetAvailable()) {
+                    self.showMessages("Server is error. Please contact Concordia team")
+                } else {
+                    self.showMessages("Concordia needs an internet connection to work.")
+                }
                 break
             }
         }
@@ -154,7 +159,11 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             case .failure(_):
-                self.showMessages("Please try upload later")
+                if (self.isInternetAvailable()) {
+                    self.showMessages("Server is error. Please contact Concordia team")
+                } else {
+                    self.showMessages("Concordia needs an internet connection to work.")
+                }
             }
         }
     }
@@ -171,5 +180,26 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
             }
         }
         return nil
+    }
+    
+    func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
     }
 }

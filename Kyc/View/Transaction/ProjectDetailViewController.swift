@@ -85,6 +85,8 @@ class ProjectDetailViewController: ParticipateCommonController {
         if (project.status == "sale_ended") {
             participateButton.setTitle("SALE ENDED", for: .normal)
             participateButton.isEnabled = false
+            participateButton.backgroundColor = UIColor.gray
+            participateButton.titleLabel?.textColor = UIColor.black
         }
     }
     

@@ -29,6 +29,7 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
     
     //MARK: - Custom views
     override func customViews() {
+        
         codeTextField.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
         applyButton.layer.cornerRadius = applyButton.frame.size.height / 2
         totalPoint.layer.cornerRadius = totalPoint.frame.size.height / 2
@@ -72,6 +73,7 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
     
     //MARK: - Call API
     func submitReferralCode() {
+        
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
@@ -80,11 +82,14 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
         ] as [String:Any]
         httpRequest(URLConstant.baseURL + URLConstant.updateReferralCode, method: .post, parameters: params, headers: headers) { _ in
             self.makeToast("Update referral code successfully")
+            UserDefaults.standard.set(1, forKey: UserProfiles.referralBy)
             self.referralCodeView.isHidden = true
+            self.topAlignTotalCven.constant = 40
         }
     }
     
     func getBonusList() {
+        
         let headers = [
             "token" : UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]
@@ -94,7 +99,7 @@ class ReferralCodeController: ParticipateCommonController, UITableViewDataSource
             for bonusDic in bonusListDic {
                 let bonus = BonusToken.init(dic: bonusDic)
                 self.bonusList.append(bonus)
-                totalBonus += bonus.amount!
+                totalBonus += Double(bonus.amount!)!
             }
             if self.bonusList.isEmpty {
                 self.zeroFriends.isHidden = false

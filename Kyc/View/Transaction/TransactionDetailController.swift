@@ -80,9 +80,9 @@ class TransactionDetailController: ParticipateCommonController {
             "payment_amount" : ethAmount.text! as Any,
             "discount" : project.currentDiscount ?? "0",
             "wallet_address" : walletAddress as Any,
-            "referral_code" : referralCode.text! as Any
+            "referral_code" : referralCode.text! as Any,
+            "payment_amount_eth" : ethAmount.text! as Any
         ]
-        
         let headers = [
             "token": UserDefaults.standard.string(forKey: UserProfiles.token)!
         ]

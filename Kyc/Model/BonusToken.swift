@@ -11,13 +11,13 @@ import Foundation
 struct BonusToken {
     let userName: String?
     let token: String?
-    let amount: Double?
+    let amount: String?
     let tier: Int?
     
     init(dic: [String:Any]) {
         userName = dic["user_name"] as? String ?? nil
         token = dic["token"] as? String ?? nil
-        amount = dic["amount"] as? Double ?? 0
+        amount = dic["amount"] as? String ?? "0.0"
         tier = dic["tier"] as? Int ?? 0
     }
 }

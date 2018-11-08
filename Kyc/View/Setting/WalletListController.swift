@@ -30,7 +30,7 @@ class WalletListController: ParticipateCommonController, UITableViewDataSource, 
     override func customViews() {
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "ADD NEW WALLET")
-        roundView.setImage(image: #imageLiteral(resourceName: "account"))
+        roundView.setImage(image: UIImage.init(named: "wallet_white")!)
         
         tableView.dataSource = self
         tableView.delegate = self

@@ -1884,7 +1884,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHp-i3-J35">
-                                <rect key="frame" x="0.0" y="264" width="414" height="428"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="472"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_invite" translatesAutoresizingMaskIntoConstraints="NO" id="hzC-Ft-RU2">
@@ -1895,7 +1895,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="f41-bI-qfC">
-                                <rect key="frame" x="0.0" y="264" width="414" height="428"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="472"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your referral code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t2-D9-hSG">
@@ -2143,19 +2143,19 @@
                                 <rect key="frame" x="20" y="229" width="374" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWX-p5-ytl">
-                                        <rect key="frame" x="104.66666666666667" y="0.0" width="164.66666666666663" height="40"/>
+                                        <rect key="frame" x="102.33333333333333" y="0.0" width="169.66666666666669" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="concordia" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-Qe-fzK">
-                                                <rect key="frame" x="0.0" y="7.6666666666666572" width="25" height="25"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="concordia_white" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-Qe-fzK">
+                                                <rect key="frame" x="0.0" y="5" width="30" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="8JN-qg-Xxw"/>
-                                                    <constraint firstAttribute="height" constant="25" id="9wT-fa-QPN"/>
+                                                    <constraint firstAttribute="width" constant="30" id="8JN-qg-Xxw"/>
+                                                    <constraint firstAttribute="height" constant="30" id="9wT-fa-QPN"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVEN EXCHANGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cJ-6c-fYH">
-                                                <rect key="frame" x="34.999999999999986" y="11" width="129.66666666666663" height="18"/>
+                                                <rect key="frame" x="40.000000000000014" y="11" width="129.66666666666669" height="18"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -2178,7 +2178,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.2666666667" green="0.63529411759999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Tid-9D-Oo8" secondAttribute="trailing" id="2Oj-Ri-Mst"/>
                                     <constraint firstItem="VWX-p5-ytl" firstAttribute="height" secondItem="1WY-ok-QIy" secondAttribute="height" id="RnZ-Km-d0c"/>
@@ -2349,10 +2349,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="nNH-vl-MzK">
-                                <rect key="frame" x="0.0" y="64" width="414" height="573"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="617"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ome-xa-OYx">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zp0-WC-pwc">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="391.33333333333331"/>
@@ -2497,7 +2497,7 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahe-61-FdM">
-                                <rect key="frame" x="0.0" y="637" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="bGG-RP-UAN"/>
@@ -2566,7 +2566,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="GQl-2a-otV">
-                                <rect key="frame" x="0.0" y="64" width="414" height="573"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="617"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL FRIENDS INVITED:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDZ-FX-WKL">
                                 <rect key="frame" x="30" y="103.66666666666667" width="314" height="21"/>
@@ -2586,7 +2586,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="5lB-wd-QlN">
-                                <rect key="frame" x="30" y="200" width="354" height="437"/>
+                                <rect key="frame" x="30" y="200" width="354" height="481"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhoneCell" rowHeight="50" id="d7Y-fw-1ng" customClass="PhoneCell" customModule="Kyc" customModuleProvider="target">
@@ -2629,7 +2629,7 @@
                                 <sections/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4Z-ts-VwX">
-                                <rect key="frame" x="0.0" y="637" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.58431372550000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="rLl-N5-lAP"/>
@@ -5784,9 +5784,9 @@
         <image name="blue_check" width="45" height="45"/>
         <image name="blue_pencil" width="35" height="35"/>
         <image name="close" width="32" height="32"/>
-        <image name="concordia" width="50" height="53"/>
         <image name="concordia_2" width="492.48001098632812" height="207.60000610351562"/>
         <image name="concordia_5" width="831" height="156"/>
+        <image name="concordia_white" width="55" height="55"/>
         <image name="menu" width="34" height="34"/>
         <image name="participated" width="204" height="118"/>
         <image name="pattern_top" width="270" height="270"/>
@@ -5795,7 +5795,7 @@
         <image name="whatsapp" width="84" height="84"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Z21-rZ-Ddn"/>
+        <segue reference="Y10-eG-wWS"/>
         <segue reference="X3l-6B-9ub"/>
     </inferredMetricsTieBreakers>
 </document>

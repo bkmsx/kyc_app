@@ -28,7 +28,7 @@ class AddWalletController: ParticipateCommonController, UploadButtonDelegate, QR
     override func customViews() {
         imageButton.delegate = self
         imageButton.setButtonTitle(title: "ADD")
-        roundView.setImage(image: #imageLiteral(resourceName: "account"))
+        roundView.setImage(image: UIImage.init(named: "wallet_white")!)
         walletAddress.setBottomBorder(color: UIColor.init(argb: Colors.lightBlue))
         scanButton.setButtonIcon(image: #imageLiteral(resourceName: "blue_scan"))
         scanButton.setButtonTitle(title: "SCAN")
