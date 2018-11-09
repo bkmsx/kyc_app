@@ -52,7 +52,7 @@ class TransactionDetailController: ParticipateCommonController {
     }
     
     func countAmount() {
-        let price = (paymentMethod?.price! as! NSString).floatValue
+        let price = Float(paymentMethod!.price!)!
         if (tokenNumber.text! == "") {
             ethAmount.text = "0"
         } else {
@@ -72,6 +72,63 @@ class TransactionDetailController: ParticipateCommonController {
     //MARK: - Call API
     override func imageButtonClick(_ sender: Any) {
         guard let project = project, let method = paymentMethod, let walletAddress = walletAddress else {return}
+        if (method.methodName! == "ETH") {
+            makePurchase(1, project, method, walletAddress)
+            return
+        }
+        var symbol = method.methodName!
+        var convert = "ETH"
+        if (symbol == "USD") {
+            symbol = "ETH"
+            convert = "USD"
+        }
+        
+        let params = [
+            "symbol": symbol as Any,
+            "convert": convert as Any
+        ]
+       
+        let headers = [
+            "X-CMC_PRO_API_KEY": "1046459a-6062-41e8-8f48-f8253ed4f81d"
+        ]
+        
+        httpRequest("https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest", parameters: params, headers: headers, code200: false) { json in
+            guard let data = json["data"] as? [String:Any] else {
+                self.doNotSupportCurrency()
+                return
+            }
+            guard let currency = data[symbol] as? [String:Any] else {
+                self.doNotSupportCurrency()
+                return
+            }
+            guard let quote = currency["quote"] as? [String:Any] else {
+                self.doNotSupportCurrency()
+                return
+            }
+            guard let ETH = quote[convert] as? [String:Any] else {
+                self.doNotSupportCurrency()
+                return
+            }
+            guard let price = ETH["price"] as? Double else {
+                self.doNotSupportCurrency()
+                return
+            }
+            if (convert == "USD") {
+                self.makePurchase(1 / price, project, method, walletAddress)
+            } else {
+                self.makePurchase(price, project, method, walletAddress)
+            }
+        }
+        
+    }
+    
+    func doNotSupportCurrency() {
+        self.showMessages("Do not support this currency right now. Please select ETH payment method.")
+    }
+    
+    func makePurchase(_ price: Double, _ project: ProjectModel, _ method: PaymentMethodModel, _ walletAddress: String) {
+        print(price)
+        let amount = Double(ethAmount.text!)!
         let params = [
             "project_id": project.projectId! as Any,
             "payment_method" : method.methodName! as Any,
@@ -81,7 +138,7 @@ class TransactionDetailController: ParticipateCommonController {
             "discount" : project.currentDiscount ?? "0",
             "wallet_address" : walletAddress as Any,
             "referral_code" : referralCode.text! as Any,
-            "payment_amount_eth" : ethAmount.text! as Any
+            "payment_amount_eth" : String(amount * price) as Any
         ]
         let headers = [
             "token": UserDefaults.standard.string(forKey: UserProfiles.token)!

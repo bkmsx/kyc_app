@@ -91,7 +91,7 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: - HTTP request
-    func httpRequest(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, headers: HTTPHeaders? = nil, success: @escaping (_ json: [String:Any]) -> Void) {
+    func httpRequest(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, headers: HTTPHeaders? = nil, code200: Bool = true, success: @escaping (_ json: [String:Any]) -> Void) {
         print(parameters)
         DispatchQueue.main.async {
             self.activityIndicatorView?.startAnimating()
@@ -105,7 +105,7 @@ class CommonViewController: UIViewController, UITextFieldDelegate {
             case .success(_):
                 let json = response.result.value as! [String:Any]
                 let code = json["code"] as? Int ?? 404
-                if (code == 200) {
+                if (code == 200 || !code200) {
                     success(json)
                 } else {
                     self.showMessages(json["message"] as? String ?? "System error")
