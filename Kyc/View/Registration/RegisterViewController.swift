@@ -23,12 +23,10 @@ class RegisterViewController: ParticipateCommonController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var dateBirthTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmedPasswordTextField: UITextField!
     @IBOutlet weak var continueImageButton: ImageButton!
     @IBOutlet weak var radioGroup: RadioGroup!
-    @IBOutlet weak var phoneCode: TextFieldPicker!
     @IBOutlet weak var referralCodeTextField: TextFieldBottomBorder!
     
     //MARK: - Initialization
@@ -39,11 +37,7 @@ class RegisterViewController: ParticipateCommonController {
     
     //MARK: - Custom views
     override func customViews() {
-        let regionCode = Locale.current.regionCode!
-        if let index = Configs.COUNTRY_ISO.index(of: regionCode) {
-            phoneCode.text = Configs.PHONE_CODES[index]
-        }
-        fillTextFields()
+        
         continueImageButton.delegate = self
     }
     
@@ -68,13 +62,10 @@ class RegisterViewController: ParticipateCommonController {
         emailTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempEmail) as? String
         passwordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
         confirmedPasswordTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPassword) as? String
-        mobileTextField.text = UserDefaults.standard.object(forKey: UserProfiles.tempPhoneNumber) as? String
-        
     }
     
     //MARK: - Validate data
     override func imageButtonClick(_ sender: Any) {
-        
         validateData()
     }
     
@@ -88,8 +79,6 @@ class RegisterViewController: ParticipateCommonController {
         let confirmedPassword = confirmedPasswordTextField.text!
         let enableSecurityId = radioGroup.chooseYes()
         let referralCode = referralCodeTextField.text!
-        countryCode = String((phoneCode.text?.suffix(2))!)
-        phoneNumber = mobileTextField.text!
         
         if (password != confirmedPassword) {
             self.showMessage(message: "Passwords do not match")
@@ -101,27 +90,16 @@ class RegisterViewController: ParticipateCommonController {
             "date_of_birth" : dateBirth,
             "email" : email,
             "password" : password,
-            "country_code" : countryCode,
-            "phone_number" : phoneNumber,
             "device_security_enable" : enableSecurityId,
             "type_of_security" : "TOUCHID",
             "device_id" : "23232",
-            "validation" : 1,
+            "validation" : 0,
             "platform": "iOS"
             ] as [String : Any]
-        
-        httpRequest(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params, headers: nil) { _ in
-            UserDefaults.standard.set(firstName, forKey: UserProfiles.tempFirstName)
-            UserDefaults.standard.set(lastName, forKey: UserProfiles.tempLastName)
-            UserDefaults.standard.set(dateBirth, forKey: UserProfiles.tempDateOfBirth)
-            UserDefaults.standard.set(email, forKey: UserProfiles.tempEmail)
-            UserDefaults.standard.set(password, forKey: UserProfiles.tempPassword)
-            UserDefaults.standard.set(String(enableSecurityId), forKey: UserProfiles.tempDeviceSecurityEnable)
-            UserDefaults.standard.set(self.countryCode, forKey: UserProfiles.tempCountryCode)
-            UserDefaults.standard.set(self.phoneNumber, forKey: UserProfiles.tempPhoneNumber)
-            UserDefaults.standard.set(referralCode, forKey: UserProfiles.tempReferralCode)
-            self.sendOTPCode()
-        }
+        gotoSuccessRegistration()
+//        httpRequest(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params, headers: nil) { _ in
+//            self.gotoSuccessRegistration()
+//        }
     }
     
     func sendOTPCode(){
@@ -150,6 +128,11 @@ class RegisterViewController: ParticipateCommonController {
         navigationController?.pushViewController(vc!, animated: true)
     }
     
+    func gotoSuccessRegistration() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.CompleteRegisterViewController)
+        navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     @IBAction func clickBack(_ sender: Any) {
         goBack()
     }
@@ -168,7 +151,7 @@ class RegisterViewController: ParticipateCommonController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if (mobileTextField.isFirstResponder || phoneCode.isFirstResponder || referralCodeTextField.isFirstResponder) {
+        if ( referralCodeTextField.isFirstResponder) {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.view.frame.origin.y = -(keyboardSize.height - 100)
             }

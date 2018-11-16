@@ -20,6 +20,8 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     var citizenships = [CitizenshipModel]()
     var countries = [CountryModel]()
     var passportVerified: String!
+    var countryCode: String?
+    var phoneNumber: String?
     
     //MARK: - Outlet
     @IBOutlet weak var passportNumberTextField: UITextField!
@@ -30,6 +32,9 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     @IBOutlet weak var uploadButton: UploadButton!
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var photoView: UIView!
+    @IBOutlet weak var dateBirthPicker: TextFieldBottomBorder!
+    @IBOutlet weak var phoneCodeTextField: TextFieldPicker!
+    @IBOutlet weak var mobileTextField: TextFieldBottomBorder!
     //MARK: - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +50,18 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         if let passportNumber = UserDefaults.standard.string(forKey: UserProfiles.passportNumber) {
             passportNumberTextField.text = passportNumber
         }
+        if let dateBirth = UserDefaults.standard.string(forKey: UserProfiles.dateOfBirth) {
+            dateBirthPicker.text = dateBirth
+        }
+        if let phoneCode = UserDefaults.standard.string(forKey: UserProfiles.countryCode) {
+            phoneCodeTextField.text = "+\(phoneCode)"
+        }
+        if let mobileNumber = UserDefaults.standard.string(forKey: UserProfiles.phoneNumber) {
+            mobileTextField.text = mobileNumber
+        }
         uploadButton.delegate = self
         passportVerified = UserDefaults.standard.string(forKey: UserProfiles.passportVerified)!
+        passportVerified = "0"
         if (passportVerified == "1") {
             informationLabel.isHidden = false
             photoView.isHidden = true
@@ -61,11 +76,28 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         getPassportImage()
     }
     
+    @IBAction func chooseDateBirth(_ sender: UITextField) {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.maximumDate = Date(timeIntervalSince1970: 1514721540)
+        sender.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+    }
+  
+    
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateBirthPicker.text = dateFormatter.string(from: sender.date)
+    }
+    
     func clickRoundView() {
         takeSelfie()
     }
     
     override func imageButtonClick(_ sender: Any) {
+        gotoOTPVerification()
+        return
         if (passportVerified == "1") {
             showMessages("We are in the process of verifying your passport details")
             return
@@ -86,9 +118,15 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         goBack()
     }
     
+    func gotoOTPVerification() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.OTPUpdateMobileViewController) as! OTPUpdateMobileViewController
+        vc.countryCode = countryCode
+        vc.phoneNumber = phoneNumber
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     //MARK: - Setup citizenship and country
     func setupCountryDropDown(countries: [CountryModel]) {
-       
         var countryList = [String]()
         for country in countries {
             countryList.append(country.country)

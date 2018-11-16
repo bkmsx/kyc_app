@@ -25,15 +25,23 @@ class SettingViewController: ParticipateCommonController, SettingRowDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusIcon: UIImageView!
     @IBOutlet weak var exchangeView: UIView!
-    
+    @IBOutlet weak var phoneView: UIView!
+    @IBOutlet weak var statusEmailConstrain: NSLayoutConstraint!
+    @IBOutlet weak var profileHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let countryCode = UserDefaults.standard.string(forKey: UserProfiles.countryCode)!
-        let phoneNumber = UserDefaults.standard.string(forKey: UserProfiles.phoneNumber)!
+        
+        guard let countryCode = UserDefaults.standard.string(forKey: UserProfiles.countryCode), let phoneNumber = UserDefaults.standard.string(forKey: UserProfiles.phoneNumber)
+            else {
+                phoneView.isHidden = true
+                statusEmailConstrain.constant = 15
+                profileHeight.constant = 130
+                return
+        }
         phoneLabel.text = "+\(countryCode) \(phoneNumber)"
     }
     
