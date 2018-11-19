@@ -90,16 +90,17 @@ class RegisterViewController: ParticipateCommonController {
             "date_of_birth" : dateBirth,
             "email" : email,
             "password" : password,
-            "device_security_enable" : enableSecurityId,
+            "device_security_enable" : String(enableSecurityId),
             "type_of_security" : "TOUCHID",
             "device_id" : "23232",
             "validation" : 0,
-            "platform": "iOS"
+            "platform": "iOS",
+            "referral_code": referralCode
             ] as [String : Any]
-        gotoSuccessRegistration()
-//        httpRequest(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params, headers: nil) { _ in
-//            self.gotoSuccessRegistration()
-//        }
+    
+        httpRequest(URLConstant.baseURL + URLConstant.register, method: .post, parameters: params, headers: nil) { _ in
+            self.gotoSuccessRegistration()
+        }
     }
     
     func sendOTPCode(){

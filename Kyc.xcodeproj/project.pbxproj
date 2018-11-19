@@ -74,6 +74,7 @@
 		081B5BCB211D700100AFE162 /* TextFieldPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BCA211D700100AFE162 /* TextFieldPicker.swift */; };
 		081B5BCF211E913A00AFE162 /* TextFieldBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BCE211E913A00AFE162 /* TextFieldBottomBorder.swift */; };
 		081B5BFB2121881600AFE162 /* PromotionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B5BFA2121881600AFE162 /* PromotionInformation.swift */; };
+		081C320F21A2AE8500CA4855 /* OTPUpdatePassportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C320E21A2AE8500CA4855 /* OTPUpdatePassportController.swift */; };
 		081E9B7221226A00004DAD1C /* SelectAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081E9B7121226A00004DAD1C /* SelectAll.swift */; };
 		081E9B7521226F01004DAD1C /* SelectAll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 081E9B7421226F01004DAD1C /* SelectAll.xib */; };
 		0826E06D2145461D00E94445 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0826E06C2145461D00E94445 /* GoogleService-Info.plist */; };
@@ -222,6 +223,7 @@
 		081B5BCA211D700100AFE162 /* TextFieldPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPicker.swift; sourceTree = "<group>"; };
 		081B5BCE211E913A00AFE162 /* TextFieldBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBottomBorder.swift; sourceTree = "<group>"; };
 		081B5BFA2121881600AFE162 /* PromotionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionInformation.swift; sourceTree = "<group>"; };
+		081C320E21A2AE8500CA4855 /* OTPUpdatePassportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPUpdatePassportController.swift; sourceTree = "<group>"; };
 		081E9B7121226A00004DAD1C /* SelectAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAll.swift; sourceTree = "<group>"; };
 		081E9B7421226F01004DAD1C /* SelectAll.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectAll.xib; sourceTree = "<group>"; };
 		0826E06B214543F700E94445 /* Kyc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kyc.entitlements; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				0819226421009DB800CF2800 /* UpdateWalletAddressViewController.swift */,
 				081B5BA621131A1C00AFE162 /* ChangeMobileViewController.swift */,
 				081B5BA82113491400AFE162 /* OTPUpdateMobileViewController.swift */,
+				081C320E21A2AE8500CA4855 /* OTPUpdatePassportController.swift */,
 				081A6AC0218818FA00E00C24 /* CvenExchangeViewController.swift */,
 				081A6AC52188370D00E00C24 /* BuyViewController.swift */,
 				081A6AC72188372400E00C24 /* SellViewController.swift */,
@@ -944,6 +947,7 @@
 				08F33E792186D94A004C863E /* OneViewController.swift in Sources */,
 				0819226121006F1A00CF2800 /* UpdatePersonalInformationViewController.swift in Sources */,
 				0817C4F82110539A001DC87B /* PaymentMethodModel.swift in Sources */,
+				081C320F21A2AE8500CA4855 /* OTPUpdatePassportController.swift in Sources */,
 				080867C02105F2020033BECE /* RoundView.swift in Sources */,
 				081B5BAF2114639200AFE162 /* PaymentCategory.swift in Sources */,
 				0819224E20FF26AA00CF2800 /* SuccessTransactionViewController.swift in Sources */,

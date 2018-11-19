@@ -4773,7 +4773,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are in the process of verifying your passport details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tav-HV-eCF">
-                                <rect key="frame" x="77" y="390" width="260" height="38.333333333333314"/>
+                                <rect key="frame" x="77" y="450.66666666666669" width="260" height="38.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -4812,7 +4812,7 @@
                             <constraint firstItem="8XQ-Uv-czo" firstAttribute="centerX" secondItem="PlB-Dm-4Wu" secondAttribute="centerX" id="kNq-DB-Beq"/>
                             <constraint firstItem="GOO-Xa-LOr" firstAttribute="trailing" secondItem="Ocv-2h-Jpd" secondAttribute="trailing" id="otb-OG-CWV"/>
                             <constraint firstItem="Ehm-pi-naZ" firstAttribute="top" secondItem="8XQ-Uv-czo" secondAttribute="bottom" constant="10" id="rZs-pR-GwW"/>
-                            <constraint firstItem="tav-HV-eCF" firstAttribute="top" secondItem="Ocv-2h-Jpd" secondAttribute="bottom" constant="150" id="u39-So-UBC"/>
+                            <constraint firstItem="tav-HV-eCF" firstAttribute="top" secondItem="jmd-gT-5h3" secondAttribute="bottom" constant="100" id="u39-So-UBC"/>
                             <constraint firstItem="imw-jJ-C1m" firstAttribute="bottom" secondItem="PlB-Dm-4Wu" secondAttribute="bottom" id="vNu-iL-2sJ"/>
                             <constraint firstItem="imw-jJ-C1m" firstAttribute="trailing" secondItem="PlB-Dm-4Wu" secondAttribute="trailing" id="wdu-vC-gYa"/>
                         </constraints>
@@ -4837,6 +4837,7 @@
                         <outlet property="photoView" destination="GOO-Xa-LOr" id="jTS-6k-ezD"/>
                         <outlet property="roundView" destination="4sg-HK-CMd" id="sbs-KQ-mL2"/>
                         <outlet property="uploadButton" destination="dPX-aV-vm5" id="aZZ-K3-g5H"/>
+                        <segue destination="sRs-7k-A8B" kind="show" id="aKj-9s-pZ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbe-Hu-olf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5819,6 +5820,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kc-VI-zYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-33" y="1412"/>
+        </scene>
+        <!--NEW USER REGISTRATION-->
+        <scene sceneID="QKm-y5-7ym">
+            <objects>
+                <viewController storyboardIdentifier="OTPUpdatePassportController" title="NEW USER REGISTRATION" id="sRs-7k-A8B" customClass="OTPUpdatePassportController" customModule="Kyc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HoH-75-kjh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern_top" translatesAutoresizingMaskIntoConstraints="NO" id="viV-i4-K8k">
+                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent you a One Time PIN via SMS. Please enter the PIN number below:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzU-3J-k0s">
+                                <rect key="frame" x="27" y="164" width="371" height="40.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKT-T1-ydA">
+                                <rect key="frame" x="164" y="364" width="86" height="30"/>
+                                <state key="normal" title="RESEND PIN"/>
+                                <connections>
+                                    <action selector="resendOTP:" destination="sRs-7k-A8B" eventType="touchUpInside" id="NJx-ag-TjP"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2H-Ap-uG5" customClass="ImageButton" customModule="Kyc" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="637" width="414" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="agg-8C-PKr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GzU-3J-k0s" firstAttribute="leading" secondItem="XJL-To-vsy" secondAttribute="leading" constant="27" id="2eP-q4-uqj"/>
+                            <constraint firstItem="viV-i4-K8k" firstAttribute="top" secondItem="XJL-To-vsy" secondAttribute="top" id="4Td-yq-O9l"/>
+                            <constraint firstItem="pKT-T1-ydA" firstAttribute="centerX" secondItem="XJL-To-vsy" secondAttribute="centerX" id="IzW-mu-N9Z"/>
+                            <constraint firstItem="Y2H-Ap-uG5" firstAttribute="leading" secondItem="XJL-To-vsy" secondAttribute="leading" id="SQm-oi-f86"/>
+                            <constraint firstItem="viV-i4-K8k" firstAttribute="leading" secondItem="XJL-To-vsy" secondAttribute="leading" id="YYR-In-o3i"/>
+                            <constraint firstItem="XJL-To-vsy" firstAttribute="bottom" secondItem="viV-i4-K8k" secondAttribute="bottom" id="gFl-07-uIb"/>
+                            <constraint firstItem="GzU-3J-k0s" firstAttribute="top" secondItem="XJL-To-vsy" secondAttribute="top" constant="100" id="gya-7C-JTr"/>
+                            <constraint firstItem="XJL-To-vsy" firstAttribute="trailing" secondItem="viV-i4-K8k" secondAttribute="trailing" id="i0B-2U-qsp"/>
+                            <constraint firstItem="Y2H-Ap-uG5" firstAttribute="trailing" secondItem="XJL-To-vsy" secondAttribute="trailing" id="jlJ-Mq-B7S"/>
+                            <constraint firstItem="Y2H-Ap-uG5" firstAttribute="bottom" secondItem="XJL-To-vsy" secondAttribute="bottom" id="lAA-2P-r52"/>
+                            <constraint firstItem="pKT-T1-ydA" firstAttribute="top" secondItem="XJL-To-vsy" secondAttribute="top" constant="300" id="uuU-Fo-cH8"/>
+                            <constraint firstItem="XJL-To-vsy" firstAttribute="trailing" secondItem="GzU-3J-k0s" secondAttribute="trailing" constant="16" id="yEr-7x-cVg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XJL-To-vsy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="VERIFY OTP" id="W5c-BD-sg6">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow_left" id="Fud-gY-7Ky">
+                            <connections>
+                                <action selector="clickBack:" destination="sRs-7k-A8B" id="jBB-3d-7Xo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageButton" destination="Y2H-Ap-uG5" id="57U-rA-3VB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A90-rQ-S0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="3169"/>
         </scene>
     </scenes>
     <resources>

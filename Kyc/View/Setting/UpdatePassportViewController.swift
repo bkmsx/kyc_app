@@ -55,13 +55,18 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
         }
         if let phoneCode = UserDefaults.standard.string(forKey: UserProfiles.countryCode) {
             phoneCodeTextField.text = "+\(phoneCode)"
+        } else {
+            let regionCode = Locale.current.regionCode!
+            if let index = Configs.COUNTRY_ISO.index(of: regionCode) {
+                phoneCodeTextField.text = Configs.PHONE_CODES[index]
+            }
         }
         if let mobileNumber = UserDefaults.standard.string(forKey: UserProfiles.phoneNumber) {
             mobileTextField.text = mobileNumber
         }
         uploadButton.delegate = self
         passportVerified = UserDefaults.standard.string(forKey: UserProfiles.passportVerified)!
-        passportVerified = "0"
+        
         if (passportVerified == "1") {
             informationLabel.isHidden = false
             photoView.isHidden = true
@@ -96,8 +101,7 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     }
     
     override func imageButtonClick(_ sender: Any) {
-        gotoOTPVerification()
-        return
+        
         if (passportVerified == "1") {
             showMessages("We are in the process of verifying your passport details")
             return
@@ -106,11 +110,21 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             showMessages("Please input passport number")
             return
         }
+        if (dateBirthPicker.text! == "") {
+            showMessages("Please choose date of birth")
+            return
+        }
+        if (mobileTextField.text! == "") {
+            showMessages("Please input phone number")
+            return
+        }
         if (passportImage == nil) {
             showMessages("Please choose passport image")
             return
         }
-        updatePassport()
+        
+        
+        sendOTPCode()
     }
     
     //MARK: - Navigation
@@ -119,9 +133,16 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
     }
     
     func gotoOTPVerification() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.OTPUpdateMobileViewController) as! OTPUpdateMobileViewController
-        vc.countryCode = countryCode
-        vc.phoneNumber = phoneNumber
+        let vc = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifiers.OTPUpdatePassportController) as! OTPUpdatePassportController
+        vc.countryCode = self.countryCode
+        vc.phoneNumber = self.phoneNumber
+        vc.citizenship = citizenshipDropDown.text
+        vc.country = countryDropDown.text
+        vc.passportNumber = passportNumberTextField.text
+        vc.dob = dateBirthPicker.text
+        vc.citizenshipId = citizenships[citizenshipDropDown.index].id
+        vc.passportImage = passportImage
+        vc.selfieImage = selfieImage
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -198,29 +219,31 @@ class UpdatePassportViewController: ParticipateCommonController, UIImagePickerCo
             self.setupCountryDropDown(countries: self.countries)
         }
     }
-
-    func updatePassport() {
-        let citizenship = citizenshipDropDown.text
-        let country = countryDropDown.text
-        let passportNumber = passportNumberTextField.text!
+    
+    func sendOTPCode(){
+        let currenTime = Int(Date().timeIntervalSince1970)
+        let otpTime = UserDefaults.standard.integer(forKey: UserProfiles.OTPTime)
+        countryCode = phoneCodeTextField.text!
+        let index = countryCode!.index(countryCode!.startIndex, offsetBy: 1)
+        countryCode = String(countryCode![index...])
+        phoneNumber = mobileTextField.text!
+        if ((currenTime - otpTime) < 60){
+            print("Go straight!!!")
+            self.gotoOTPVerification()
+            return
+        }
+        guard let phoneNumber = phoneNumber, let countryCode = countryCode else {
+            return
+        }
         let params = [
-            "citizenship" : citizenship,
-            "citizenship_id" : citizenships[citizenshipDropDown.index].id,
-            "passport_number" : passportNumber,
-            "country_of_residence" : country
+            "country_code" : countryCode,
+            "phone_number" : phoneNumber,
+            "via" : "sms"
             ] as [String : Any]
-        let headers: HTTPHeaders = [
-            "Content-Type" : "multipart/form-data",
-            "token" : UserDefaults.standard.object(forKey: UserProfiles.token) as! String
-        ]
-        httpUpload(endUrl: URLConstant.baseURL + URLConstant.uploadPassport, avatar: selfieImage, passport: passportImage, parameters: params, headers: headers) { json in
-            UserDefaults.standard.set(citizenship, forKey: UserProfiles.citizenship)
-            UserDefaults.standard.set(country, forKey: UserProfiles.country)
-            UserDefaults.standard.set(passportNumber, forKey: UserProfiles.passportNumber)
-            UserDefaults.standard.set("1", forKey: UserProfiles.passportVerified)
-            self.showMessage("Thank you for updating your passport details. Please give us 3 business days to verify your account.") { _ in
-                self.goBack()
-            }
+        httpRequest(URLConstant.baseURL + URLConstant.sendOTP, method: .post, parameters: params, headers: nil) { _ in
+            let currentTime = Int(Date().timeIntervalSince1970)
+            UserDefaults.standard.set(currentTime, forKey: UserProfiles.OTPTime)
+            self.gotoOTPVerification()
         }
     }
     

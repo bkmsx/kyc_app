@@ -51,10 +51,10 @@ class DropDownButton: UIView {
     }
     
     func setSelection(item: String) {
+        guard let index = self.dropDown.dataSource.index(of: item) else {return}
         selectButton.setTitle(item, for:.normal)
         text = item
-        index = self.dropDown.dataSource.index(of: item)!
-        print(index)
+        self.index = index
     }
     
     @IBOutlet weak var selectButton: UIButton!

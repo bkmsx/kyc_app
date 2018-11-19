@@ -77,11 +77,7 @@ class LoginViewController: ParticipateCommonController {
         httpRequest(URLConstant.baseURL + URLConstant.loginAccount, method: .post, parameters: params, headers: nil) { (json) in
             let user = UserModel(dictionary: json["user"] as! [String : Any])
             user.saveToLocal()
-            if (user.citizenship == nil) {
-                self.gotoUploadPassport()
-            } else {
-                self.gotoListProject()
-            }
+            self.gotoListProject()
         }
     }
     

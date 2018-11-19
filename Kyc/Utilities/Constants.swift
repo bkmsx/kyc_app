@@ -131,6 +131,7 @@ struct ViewControllerIdentifiers {
     static let CvenExchangeViewController = "CvenExchangeViewController"
     static let BuyViewController = "BuyViewController"
     static let SellViewController = "SellViewController"
+    static let OTPUpdatePassportController = "OTPUpdatePassportController"
 }
 
 struct Colors {
